@@ -15,17 +15,10 @@
 		@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}
 	</style>
 	
-<!-- datepicker css -->
-<link href="${root}/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-<!-- datepicker JavaScript -->
-<script src="${root}/datepicker/js/bootstrap-datepicker.min.js"></script>
-<script src="${root}/datepicker/locales/bootstrap-datepicker.kr.min.js"></script>
-
-<!-- timepicker JavaScript -->
-<script type="text/javascript" src="${root}/timepicker/js/bootstrap-timepicker.min.js"></script>
-<!-- timepicker css -->
-<link type="text/css" href="${root}/timepicker/css/bootstrap-timepicker.min.css" />
-	
+<!-- datetimePicker -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
 <!-- css & script src end -->
 
 <!--script start -->
@@ -33,36 +26,25 @@
 <script>
 <!-- for Datapicker -->
 $(document).ready(function() {
-	$('#datepicker').datepicker();
 	
-	$('.input-daterange input').each(function() {
-	    $(this).datepicker("clearDates");
-	});
-	$('#datepicker').on("changeDate", function() {
-	    $('#my_hidden_input').val(
-	        $('#datepicker').datepicker('getFormattedDate')
-	    );
-	});
-	
-	$('#sandbox-container input').datepicker({
-	    format: "yyyy/mm/dd",
-	    todayBtn: "linked",
-	    clearBtn: true,
-	    language: "kr",
-	    autoclose: true,
-	    todayHighlight: true
-	});
-	
-	$('#sandbox-container .input-group.date').datepicker({
-	    format: "yyyy/mm/dd",
-	    todayBtn: "linked",
-	    clearBtn: true,
-	    language: "kr",
-	    autoclose: true,
-	    todayHighlight: true
-	});
-	<!--timepicker-->
-	$('#timepicker1').timepicker();
+	<!--datetimepicker-->
+	$(function () {
+        $('#datetimepicker6').datetimepicker({
+        		language : 'ko',
+        		pickTime : false, 
+        		defalutDate : new Date()		
+        });
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            language : 'ko'
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
 	
 });
 </script>
@@ -115,6 +97,33 @@ $(document).ready(function() {
   <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
 </div>
 <br>
+<!-- datetimePicker START-->
+<div class="container">
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- datetimePicker END-->
 												<label>시간일정</label> 
 												
 												<input type="text" class="form-control">

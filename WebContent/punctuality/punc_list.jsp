@@ -25,8 +25,6 @@ $(document).ready(function() {
 //		 $("#punc_list").DataTable().columnFilter();
      
   
-
-<!-- for Datapicker -->
 	$('#datepicker').datepicker();
 	$('#datepicker').on("changeDate", function() {
 	    $('#my_hidden_input').val(
