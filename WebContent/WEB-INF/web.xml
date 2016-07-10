@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>kitrierp</display-name>
+  
+  <!-- applicationContext(service, dao)에 대한 xml 설정, src에 있는 xml은 읽을 수 없음 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:com/kitrierp/**/config/spring/*-application.xml</param-value>
+  </context-param>
+  
+  <!-- src에 있는 xml을 읽을 수 있도록 설정 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener><!-- context 위치 값 알아오기 -->
+   
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+  <filter-mapping> 
+    <filter-name>encoding</filter-name>
+    <url-pattern>*.html</url-pattern>
+  </filter-mapping>
+  
+  <!-- web에 대한 xml 설정 -->
+  <servlet>
+    <servlet-name>kitrierp</servlet-name>
+    <!-- DispatcherServlet이 controller에서 했던 받아서 넘기는 것을 알아서 처리해줌 -->
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- xml파일을 원하는 위치에 놓고 사용할 때 설정함, 기본값은 WEB-INF 폴더 안에 있는 xml을 읽음 -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <!-- 읽어들일 xml 위치 지정 -->
+      <param-value>classpath:com/kitrierp/**/config/spring/*-servlet.xml</param-value>
+    </init-param><!-- 디스패쳐가 서블릿.xml 자동으로 찾는데 경로 사용자 임의로 지정-->
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>kitrierp</servlet-name>
+    <url-pattern>*.html</url-pattern><!-- 확장자가 html로 보이도록 설정 -->
+  </servlet-mapping><!--서블릿 설정(서블릿 생성한것과 같은 효과) -->
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

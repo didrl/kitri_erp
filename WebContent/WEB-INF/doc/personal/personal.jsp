@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ include file="/common/adminnav.jsp" %>
+<%@ include file="/WEB-INF/common/adminnav.jsp" %>
 
 <!-- Page Content -->
     <div id="page-wrapper">
@@ -16,6 +16,6 @@
      </div>
      <!-- /#page-wrapper -->
 
-<%@ include file="/common/end.jsp" %>
+<%@ include file="/WEB-INF/common/end.jsp" %>
 </body>
 </html>
