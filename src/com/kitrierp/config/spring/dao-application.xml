@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+	
+	<!-- 패키지를 살펴서 dao의 주석을 찾음-->
+	<context:annotation-config/>
+	<context:component-scan base-package="com.kitrierp.admin.model.dao"/>
+	<context:component-scan base-package="com.kitrierp.board.model.dao"/>
+	<context:component-scan base-package="com.kitrierp.common.model.dao"/>
+	<context:component-scan base-package="com.kitrierp.doc.model.dao"/>
+	<context:component-scan base-package="com.kitrierp.employee.model.dao"/>
+	<context:component-scan base-package="com.kitrierp.schedule.model.dao"/>
+	
+	<!-- 데이터베이스 연결정보(데이터소스)를 만들어주는 객체-->
+	<bean id="ds" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/kitri"/>
+	</bean>	
+	
+	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds"/>
+		<property name="configLocation" value="classpath:com/kitrierp/config/mybatis/SqlMapConfig.xml"/>
+		
+	</bean>
+	
+	<bean id="sst" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="ssf"/>	
+	</bean>
+
+		
+</beans>
+
+
+
+
+
+

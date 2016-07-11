@@ -3,7 +3,7 @@ package com.kitrierp.board.model;
 public class AlbumDto extends BoardDto {
 
 	private int bfile_seq;
-	private String bfile_origin_name; 
+	private String bfile_origin_name;
 	private String bfile_path;
 	private String bfile_savefolder;
 	private String bfile_save_name;

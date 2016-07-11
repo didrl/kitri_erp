@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    
+    <mappers>
+        <mapper resource="com/kitrierp/config/mybatis/admin/adminEmployee.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/admin/holiday.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/admin/static.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/admin/type.xml"/>
+        
+        <mapper resource="com/kitrierp/config/mybatis/board/album.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/board/bbs.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/board/board.xml"/>
+
+        <mapper resource="com/kitrierp/config/mybatis/common/common.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/common/file.xml"/>
+        
+        <mapper resource="com/kitrierp/config/mybatis/doc/btripApplication.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/doc/btripReport.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/doc/consultation.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/doc/doc.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/doc/journal.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/doc/payment.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/doc/proposal.xml"/>
+        
+        <mapper resource="com/kitrierp/config/mybatis/employee/addressbook.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/employee/employee.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/employee/grade.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/employee/organization.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/employee/permission.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/employee/project.xml"/>
+ 
+        <mapper resource="com/kitrierp/config/mybatis/schedule/adjust.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/schedule/inout.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/schedule/personal.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/schedule/team.xml"/>
+           
+    </mappers>
+    
+</configuration>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file="/WEB-INF/common/side.jsp" %>
+<%@include file="/common/adminnav.jsp" %>
 
 <script type="text/javascript" src="http://gw.whoisdesk.kr/Src/WebCommon/Script/addTab.js"></script>
 
@@ -612,6 +612,6 @@ function openWinEWordView( DcsNo, No, WordType )
 //-->
 </script>
 
-<%@include file="/WEB-INF/common/end.jsp" %>
+<%@include file="/common/end.jsp" %>
 
     

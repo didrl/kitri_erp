@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/common/side.jsp" %>
+<%@ include file="/common/adminnav.jsp" %>
 
    <!-- Page Content -->
     <div id="page-wrapper">
@@ -1330,4 +1330,4 @@ $jquery(document).ready(function(){
      </div>
      <!-- /#page-wrapper -->
 
-<%@ include file="/WEB-INF/common/end.jsp" %>
+<%@ include file="/common/end.jsp" %>

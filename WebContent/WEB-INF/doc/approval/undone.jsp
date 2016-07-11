@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/common/side.jsp" %>
+<%@ include file="/common/adminnav.jsp" %>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
@@ -79,4 +79,4 @@
   	 
      </script>
 
-<%@ include file="/WEB-INF/common/end.jsp" %>
+<%@ include file="/common/end.jsp" %>

@@ -7,11 +7,11 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/com/kitrierp/common/config/spring/common-servlet.xml</config>
-		<config>src/com/kitrierp/common/config/spring/service-application.xml</config>
-		<config>src/com/kitrierp/common/config/spring/dao-application.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/com/kitrierp/config/spring/service-application.xml</config>
+		<config>src/com/kitrierp/config/spring/kitrierp-servlet.xml</config>
+		<config>src/com/kitrierp/config/spring/dao-application.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

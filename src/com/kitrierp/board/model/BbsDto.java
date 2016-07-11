@@ -3,7 +3,7 @@ package com.kitrierp.board.model;
 public class BbsDto extends BoardDto {
 
 	private int bbs_seq;
-	private String bbs_origin_name; 
+	private String bbs_origin_name;
 	private String bbs_path;
 	private String bbs_savefolder;
 	private String bbs_save_name;
