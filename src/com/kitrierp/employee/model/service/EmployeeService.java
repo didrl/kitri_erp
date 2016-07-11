@@ -1,5 +1,9 @@
 package com.kitrierp.employee.model.service;
 
-public interface EmployeeService {
+import java.util.Map;
 
+import com.kitrierp.employee.model.EmployeeDto;
+
+public interface EmployeeService {
+	EmployeeDto login(Map<String, String> map);
 }

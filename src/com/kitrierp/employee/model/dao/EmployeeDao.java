@@ -1,5 +1,9 @@
 package com.kitrierp.employee.model.dao;
 
-public interface EmployeeDao {
+import java.util.Map;
 
+import com.kitrierp.employee.model.EmployeeDto;
+
+public interface EmployeeDao {
+	EmployeeDto login(Map<String, String> map);
 }
