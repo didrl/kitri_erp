@@ -4,6 +4,10 @@
 
 <configuration>
     
+    <typeAliases>
+        <typeAlias alias="edto" type="com.kitrierp.employee.model.EmployeeDto"/>
+    </typeAliases>
+    
     <mappers>
         <mapper resource="com/kitrierp/config/mybatis/admin/adminEmployee.xml"/>
         <mapper resource="com/kitrierp/config/mybatis/admin/holiday.xml"/>

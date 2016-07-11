@@ -3,6 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.employee.model.EmployeeDaoImpl">
-    
-    
+    <select id="login" parameterType="java.util.Map" resultType="edto">
+        select *
+        from employee 
+        where emp_id=#{id} and emp_pw=#{password} 
+    </select>    
 </mapper>

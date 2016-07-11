@@ -22,7 +22,7 @@ public class EmployeeController {
 	@RequestMapping(value="/login.erp", method=RequestMethod.POST)
 	public ModelAndView login(@RequestParam Map<String, String> map){
 		ModelAndView mav = new ModelAndView();
-		EmployeeDto employeeDto = EmployeeServiceImpl
+		EmployeeDto employeeDto = employeeService.login(map);
 		mav.addObject("memberInfo",map);
 		mav.setViewName("/loginok");
 		return mav;

@@ -16,6 +16,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public EmployeeDto login(Map<String, String> map) {	
-		return null;
+		return sqlSession.selectOne("com.kitrierp.employee.model.EmployeeDaoImpl.login", map);
 	}
+	
 }
