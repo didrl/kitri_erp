@@ -13,6 +13,13 @@
 
 <!------------------->
 
+<!-- for clock -->
+<link rel="stylesheet" type="text/css" href="${util}/clock/jquery.tzineClock/jquery.tzineClock.css" />
+<script type="text/javascript" src="${util}/clock/jquery.tzineClock/jquery.tzineClock.js"></script>
+<script type="text/javascript" src="${util}/clock/script.js"></script>
+<!------------------->
+
+
 <style type='text/css'>
 
 	body {
