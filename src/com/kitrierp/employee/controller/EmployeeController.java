@@ -24,7 +24,7 @@ public class EmployeeController {
 		ModelAndView mav = new ModelAndView();
 		EmployeeDto employeeDto = employeeService.login(map);
 		mav.addObject("memberInfo",map);
-		mav.setViewName("/loginok");
+		mav.setViewName("/employee/loginok");
 		return mav;
 	}
 }
