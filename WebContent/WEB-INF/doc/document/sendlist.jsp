@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
-<%@ include file="/common/adminnav.jsp" %>
+<%@ include file="/WEB-INF/common/side.jsp" %>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
 	
- 
+<div id="wrapper"> 
    <!-- Page Content -->
     <div id="page-wrapper">
        <div class="container">
@@ -62,4 +62,6 @@
   	 
      </script>
 
-<%@ include file="/common/end.jsp" %>
+</div>
+</body>
+</html>

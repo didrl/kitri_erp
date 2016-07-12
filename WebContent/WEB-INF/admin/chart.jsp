@@ -1,8 +1,8 @@
-<%@ include file="/WEB-INF/common/adminnav.jsp" %>
+<%@ include file="/WEB-INF/common/admin_sidebar.jsp" %>
     <!-- Morris Charts CSS -->
     <link href="${root }/WEB-INF/bower_components/morrisjs/morris.css" rel="stylesheet">
 
-
+<div id="wrapper"> 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">

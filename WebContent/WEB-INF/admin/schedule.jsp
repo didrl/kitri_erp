@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file="/WEB-INF/common/adminnav.jsp" %>
-
+<%@ include file="/WEB-INF/common/admin_sidebar.jsp" %>
+<div id="wrapper"> 
 <div id="page-wrapper">
 
 	<br><h3><b>일정관리</b></h3>
@@ -151,4 +151,7 @@
 
 </div>
 
-<%@ include file="/WEB-INF/common/end.jsp" %>
+</div>
+<!-- /#wrapper -->
+</body>
+</html> 

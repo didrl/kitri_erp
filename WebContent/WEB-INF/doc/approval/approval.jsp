@@ -1,21 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ include file="/common/adminnav.jsp" %>
+<%@ include file="/WEB-INF/common/side.jsp" %>
 
-<!-- Page Content -->
-    <div id="page-wrapper">
-       <div class="container">
-       
-       
-       
-       
-       
-       
-       
-       </div>
-        <!-- /.container -->
-     </div>
-     <!-- /#page-wrapper -->
-
-<%@ include file="/common/end.jsp" %>
+<div id="wrapper">
+	<!-- Page Content -->
+	<div id="page-wrapper">
+		<div class="container">
+		       
+		       
+		       
+		       
+		       
+		       
+		       
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /#page-wrapper -->
+</div>
 </body>
 </html>
