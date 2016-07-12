@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@include file="/WEB-INF/common/side.jsp" %>
-
+<%@ include file="/WEB-INF/common/user_sidebar.jsp" %>
 <script type="text/javascript" src="http://gw.whoisdesk.kr/Src/WebCommon/Script/addTab.js"></script>
 <div id="wrapper">
 <div id="page-wrapper">
