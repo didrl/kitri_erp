@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ include file="/WEB-INF/common/start.jsp" %>
+<%@ include file="/WEB-INF/common/side.jsp" %>
 
 <!-- for fullcalendar -->
 <link href='${util}/fullcalendar/css/fullcalendar.css' rel='stylesheet'/>
@@ -114,6 +114,7 @@
 </script>
 <!-- fullCalendar script end -->
 <!----------------------------------------------------------->
+<div id="wrapper"> 
    <!-- Page Content -->
     <div id="page-wrapper">
        <div class="container-fluid">
@@ -190,5 +191,7 @@
         <!-- /.container -->
      </div>
      <!-- /#page-wrapper -->
-
-<%@ include file="/WEB-INF/common/end.jsp" %>
+</div>
+<!-- /#wrapper -->
+</body>
+</html> 

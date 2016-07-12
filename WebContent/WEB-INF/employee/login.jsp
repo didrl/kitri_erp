@@ -1,6 +1,6 @@
-<%@include file="/WEB-INF/common/start.jsp" %>
-    <div id="page-wrapper">
-       <div class="container">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/common/common.jsp" %>
        
 <style rel="stylesheet">
 body {
@@ -121,15 +121,22 @@ input {
 </style>
 
 <body>
-
-	<form class="loginUp" id="loginUpForm">
-
-	<input type="text" class="loginInput" placeholder="ID" autofocus
-			required> <input type="password" class="loginInput"
-			placeholder="PASSWORD" required> <input type="submit"
-			value="Login" class="LoginButton">
-	</form>
- </div>
+<div id="wrapper">   
+   <!-- Page Content -->
+    <div id="page-wrapper">
+       <div class="container">
+			<form class="loginUp" id="loginUpForm">
+		
+			<input type="text" class="loginInput" placeholder="ID" autofocus
+					required> <input type="password" class="loginInput"
+					placeholder="PASSWORD" required> <input type="submit"
+					value="Login" class="LoginButton">
+			</form>
+       </div>
         <!-- /.container -->
      </div>
-<%@include file="/WEB-INF/common/end.jsp" %>
+     <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->     
+</body>
+</html> 

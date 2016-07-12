@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="/common/adminnav.jsp" %>
-
+<%@include file="/WEB-INF/common/side.jsp" %>
+<div id="wrapper">
 <!-- Page Content -->    
 <div id="page-wrapper">
 
@@ -1311,6 +1311,9 @@ function replyDelete(el)
 
 <div id="fade" class="black_overlay2"></div>
 
-<%@ include file="/common/end.jsp" %>
+</div>
+</div>
+</body>
+</html>
 
     
