@@ -9,7 +9,7 @@
                     <a href="#">일정관리<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="${root }/admin/employee.jsp">부서일정</a>
+                            <a href="${root }/admin/schedule.jsp">부서일정</a>
                         </li>
                         <li>
                             <a href="#">개인일정</a>
@@ -21,10 +21,10 @@
                     <a href="#">프로젝트<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="${root }/admin/employee.jsp">진행 중 프로젝트</a>
+                            <a href="${root }/project/project_undone.jsp">진행 중 프로젝트</a>
                         </li>
                         <li>
-                            <a href="#">완료된 프로젝트</a>
+                            <a href="${root }/project/project_done.jsp">완료된 프로젝트</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -33,7 +33,7 @@
                     <a href="#">커뮤니티<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="${root }/admin/employee.jsp">게시판</a>
+                            <a href="${root }/board/list.jsp">게시판</a>
                         </li>
                         <li>
                             <a href="#">자료실</a>
@@ -45,7 +45,7 @@
                     <a href="#">주소록<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="${root }/admin/employee.jsp">개인주소록</a>
+                            <a href="${root }/addressbook/retire_list.jsp">개인주소록</a>
                         </li>
                         <li>
                             <a href="#">부서주소록</a>
