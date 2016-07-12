@@ -68,6 +68,15 @@ var util = "${util}";
 
     <!-- Custom Theme JavaScript -->
     <script src="${root}/dist/js/sb-admin-2.js"></script>
+	<!-- ckeditor -->
+	<script type="text/javascript" src="${root}/ckeditor/ckeditor.js"></script>
+	
+	<!-- whois css -->
+	<link href="http://css.whoisdesk.net/Src/Skin/Renewal/common.css?dummy=20150702" rel="stylesheet" type="text/css" />
+	<link href="http://css.whoisdesk.net/Src/Skin/Renewal/board.css?dummy=20120223" rel="stylesheet" type="text/css" />
+	<link href="http://css.whoisdesk.net/Src/Skin/Renewal/subpage.css?dummy=20120223" rel="stylesheet" type="text/css" />
+	<link href="http://css.whoisdesk.net/Src/Skin/Renewal/popup.css?dummy=20160525" rel="stylesheet" type="text/css" />
+	<link type="text/css" href="http://css.whoisdesk.net/Src/WebCommon/Jquery/Jquery_ui_1_7_2/blitzer/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 
 </head>
 <body>
