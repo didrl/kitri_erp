@@ -23,8 +23,14 @@ public class EmployeeController {
 	public ModelAndView login(@RequestParam Map<String, String> map){
 		ModelAndView mav = new ModelAndView();
 		EmployeeDto employeeDto = employeeService.login(map);
+		int id = Integer.parseInt(map.get("id"));
 		mav.addObject("memberInfo",map);
 		mav.setViewName("/employee/loginok");
+		if(id == employeeDto.getEmp_id()) {
+			mav.addObject("chk", 0);
+		} else {
+			mav.addObject("chk", 1);
+		}
 		return mav;
 	}
 }
