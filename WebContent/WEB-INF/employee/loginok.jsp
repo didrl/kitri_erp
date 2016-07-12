@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-·Î±×ÀÎ ¼º°ø
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/common/common.jsp" %>
+
+<c:if test="${chk} != 0">
+
+	<h3><b>ë¡œê·¸ì¸ ì‹¤íŒ¨</b></h3>
+
+</c:if>
+<center>
+id : ${memberInfo.id }<br>
+pass : ${memberInfo.password }
+</center>
 </body>
 </html>
