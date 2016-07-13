@@ -35,43 +35,43 @@
 					<th style="border-top: none; border-left: none;" >문서번호</th>
 					<td class="pad15l" colspan="3" style="border-top: none;" >
 						<span id ="sub_subject">
-							<input type="text" id="WordNo" name="WordNo" style="border:0pt;" value="상신 시 자동으로 등록됩니다." size='30' readonly />
+							<input type="text" id="doc_id" name="doc_id" style="border:0pt;" value="상신 시 자동으로 등록됩니다." size='30' readonly />
 						</span>
 					</td>
 
-					<td rowspan="6" style="border-top: none; border-right: none;"  >
+					<td rowspan="6" style="border-top: none; border-right: none;">
 						<table id="eword_orderline" class="eword_meta">
 							<col class="orderline_th_width">
 							<col class="orderline_width" span="5">
 							<!-- 결재선 -->
 							<tr class="txt_ce" style="height:20px;">
-								<th rowspan="3" style="border-left: none; border-top: none; ">
+								<th rowspan="3" style="border-left: none; border-top: none;">
 									<!-- 결재선/협조선 제목 -->
 									<!-- 결재 -->
 									결<br><br>재
 								</th>
 								<!-- 결재자/협조자 직급 표시 영역 -->
 								<td style="border-top: none;">
-									<input type="text" name="OrderTitle1" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name1" value="대표" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="OrderTitle2" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name2" value="부장" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="OrderTitle3" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name3" value="차장" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="OrderTitle4" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name4" value="과장" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="OrderTitle5" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name5" value="대리" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
 								<td>
-									<input type="text"   name="OrderName1" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId1" value="ME">
+									<input type="text"   name="appr_name" value="" readonly class="form_transparent" style='width:100%;'>
+									<input type="hidden" name="appr_name" value="ME">
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell2"  class="btn_page pad15l overf">
 										<!-- 지정 -->
