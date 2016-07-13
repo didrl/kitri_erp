@@ -1,5 +1,7 @@
 package com.kitrierp.doc.model.dao;
 
-public interface BtripApplicationDao {
+import com.kitrierp.doc.model.BtripApplicationDto;
 
+public interface BtripApplicationDao {
+	int applicationWrite(BtripApplicationDto btripApplicationDto);
 }
