@@ -1,4 +1,4 @@
-Drop sequence SEQ_BBS_SEQ;
+drop sequence SEQ_BBS_SEQ;
 
 drop sequence SEQ_BFILE_SEQ;
 
