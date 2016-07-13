@@ -1,5 +1,7 @@
 package com.kitrierp.doc.model.service;
 
-public interface BtripApplicationService {
+import com.kitrierp.doc.model.BtripApplicationDto;
 
+public interface BtripApplicationService {
+	int applicationWrite(BtripApplicationDto btripApplicationDto);
 }
