@@ -17,7 +17,7 @@ body {
 	background: #FFFFFF;
 	border-bottom: 1px solid #FFFFFF;
 	border-radius: 5px;
-
+ 
 }
 
 
@@ -125,7 +125,7 @@ input {
    <!-- Page Content -->
     <div id="page-wrapper">
        <div class="container">
-			<form class="loginUp" id="loginUpForm" method="post" action="${root }/employee/login.erp">
+			<form class="loginUp" id="loginUpForm" method="post" action="${root}/employee/login.erp">
 		
 			<input type="text" id="id" name="id" class="loginInput" placeholder="ID" autofocus
 					required> <input type="password" id="password" name="password" class="loginInput"
