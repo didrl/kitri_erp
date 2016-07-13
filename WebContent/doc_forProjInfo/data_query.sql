@@ -1030,3 +1030,20 @@ set per_flag = 2
 where dep_id = 40;
 
 commit;	
+
+Insert into doc_type(doc_type_id,doc_type_name)
+values(1,'기안서');
+Insert into doc_type(doc_type_id,doc_type_name)
+values(2,'품의서');
+Insert into doc_type(doc_type_id,doc_type_name)
+values(3,'지출결의서');
+Insert into doc_type(doc_type_id,doc_type_name)
+values(4,'출장신청서');
+Insert into doc_type(doc_type_id,doc_type_name)
+values(5,'출장보고서');
+Insert into doc_type(doc_type_id,doc_type_name)
+values(6,'휴가신청서');
+Insert into doc_type(doc_type_id,doc_type_name)
+values(7,'업무일지');
+
+COMMIT;
