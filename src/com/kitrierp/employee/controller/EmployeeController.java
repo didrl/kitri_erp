@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kitrierp.employee.model.EmployeeDto;
@@ -21,15 +22,20 @@ public class EmployeeController {
 	
 	@RequestMapping(value="/login.erp", method=RequestMethod.POST)
 	public ModelAndView login(@RequestParam Map<String, String> map){
+		
 		ModelAndView mav = new ModelAndView();
-		EmployeeDto employeeDto = employeeService.login(map);
+		EmployeeDto employeeDto = new EmployeeDto();
+		employeeDto = employeeService.login(map);
 		int id = Integer.parseInt(map.get("id"));
 		mav.addObject("memberInfo",map);
-		mav.setViewName("/employee/loginok");
+		System.out.println("id" +map.get("id"));
 		if(id == employeeDto.getEmp_id()) {
 			mav.addObject("chk", 0);
+			mav.setViewName("/employee/doc_main");
+
 		} else {
 			mav.addObject("chk", 1);
+			mav.setViewName("/employee/loginok");
 		}
 		return mav;
 	}
