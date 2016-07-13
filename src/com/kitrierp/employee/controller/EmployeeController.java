@@ -18,7 +18,7 @@ import com.kitrierp.employee.model.service.EmployeeServiceImpl;
 
 @Controller
 @RequestMapping("/employee")
-@SessionAttributes("memberInfo")
+
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
@@ -32,7 +32,6 @@ public class EmployeeController {
 		int id = Integer.parseInt(map.get("id"));
 		
 		if(id == employeeDto.getEmp_id()) {			
-			mav.addObject("memberInfo",employeeDto);
 			mav.setViewName("/employee/doc_main");
 		} else {
 			mav.setViewName("/employee/loginok");
