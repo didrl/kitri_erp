@@ -12,7 +12,7 @@ public class EmployeeDto extends DepartmentDto {
 	private String emp_addr1;
 	private String emp_addr2;
 	private String emp_status;
-	private int grade_id;
+	private int grade_id; 
 	private String grade_name;
 	
 	public int getGrade_id() {
