@@ -5,7 +5,7 @@
 
 <div id="wrapper">
 	<div id="page-wrapper">
-		<h4>${memberInfo.id}님 환영합니다.</h4>
+		<h4>${memberInfo.emp_name}님 환영합니다.</h4>
 		<img src="" style="width: 100%; height: 100%;">
 	</div>
 </div> 
