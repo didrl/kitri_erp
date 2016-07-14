@@ -32,20 +32,15 @@
 										});
 									</script>
 									
-									<span class="vm">(</span>
-									<input type="text" name="OutTerm" value="" size="2" readonly  class="vm txt_ce">
-									<label class="vm">일</label>
-									<span class="vm">)</span>
 					
-									<input type="checkbox" id="flagHoliday" name="flagHoliday" class="vm" value="1" onclick="chkHoliday(this, 'OutTerm');">
-									<label class="vm">휴일포함</label>
+									
 															</td>
 						</tr>
 						<tr class="eword_meta_height">
 							<th style="border-left: none;">출장지</th>
 							<td class="pad15l">
-																	<input name="OutDestination" type="text" value="" style="width:98%;" >
-															</td>
+									<input name="place" type="text" value="" style="width:98%;" >
+							</td>
 						</tr>
 						<tr>
 							<th style="border-left: none;">출장보고</th>
@@ -67,36 +62,36 @@
 									<tr class="eword_meta_height">
 										<th style="border-top: none; border-left: none;">일비</th>
 										<td class="pad15l" style="border-top: none;">
-																							<input name="OutWorkExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
+											<input name="OutWorkExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
 																						원
 										</td>
 										<th style="border-top: none;">숙박비</th>
 										<td class="pad15l" style="border-top: none;">
-																							<input name="OutHotelExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
+											<input name="OutHotelExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
 																						원
 										</td>
 									</tr>
 									<tr class="eword_meta_height">
 										<th style="border-left: none;">식비</th>
 										<td class="pad15l">
-																							<input name="OutFoodExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
+											<input name="OutFoodExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
 																						원
 										</td>
 										<th>교통비</th>
 										<td class="pad15l">
-																							<input name="OutTrafficExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
+											<input name="OutTrafficExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
 																						원
 										</td>
 									</tr>
 									<tr class="eword_meta_height">
 										<th style="border-left: none;">기타비</th>
 										<td class="pad15l">
-																							<input name="OutEtcExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
+											<input name="OutEtcExpense" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
 																						원
 										</td>
 										<th>합계</th>
 										<td class="pad15l">
-																							<input name="OutTotalExpense" type="text" value="" style="width:87%;" readonly>
+											<input name="OutTotalExpense" type="text" value="" style="width:87%;" readonly>
 																						원
 										</td>
 									</tr>
@@ -106,7 +101,7 @@
 						<tr class="eword_meta_height">
 							<th style="border-left: none;">기타</th>
 							<td class="pad15l">
-																	<textarea name="OutEtc3" class="mar5tb" style="width:98%;height:50px;"></textarea>
+									<textarea name="ect" class="mar5tb" style="width:98%;height:50px;"></textarea>
 															</td>
 						</tr>
 						<tr style="height:100px;">
