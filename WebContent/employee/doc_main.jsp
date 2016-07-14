@@ -3,9 +3,10 @@
 <%@ include file="/common/user_sidebar.jsp" %>
 <script type="text/javascript" src="http://gw.whoisdesk.kr/Src/WebCommon/Script/addTab.js"></script>
 
-<div id="wrapper" style="background-image: url('${root}/img/KRX01030000_01.png'); background-size:100%;">
+<div id="wrapper">
 	<div id="page-wrapper">
-		<img src="${root}/img/KRX01030000_01.png">
+		<h4>${memberInfo.id}님 환영합니다.</h4>
+		<img src="" style="width: 100%; height: 100%;">
 	</div>
 </div> 
 

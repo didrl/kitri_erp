@@ -43,6 +43,7 @@
 		<input type="hidden" name="HalfTimeUse"		value="">
 		
 
+<!-- 버튼 -->
 <input type="button" value="상신하기" onclick="">
 <input type="button" value="임시저장" onclick="">
 

@@ -2,6 +2,8 @@ package com.kitrierp.employee.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import com.kitrierp.employee.model.service.EmployeeServiceImpl;
 
 @Controller
 @RequestMapping("/employee")
+
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
@@ -27,14 +30,10 @@ public class EmployeeController {
 		EmployeeDto employeeDto = new EmployeeDto();
 		employeeDto = employeeService.login(map);
 		int id = Integer.parseInt(map.get("id"));
-		mav.addObject("memberInfo",map);
-		System.out.println("id" +map.get("id"));
-		if(id == employeeDto.getEmp_id()) {
-			mav.addObject("chk", 0);
+		
+		if(id == employeeDto.getEmp_id()) {			
 			mav.setViewName("/employee/doc_main");
-
 		} else {
-			mav.addObject("chk", 1);
 			mav.setViewName("/employee/loginok");
 		}
 		return mav;
