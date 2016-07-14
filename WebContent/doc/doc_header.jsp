@@ -44,6 +44,8 @@
 		
 
 <input type="button" value="상신하기" onclick="">
+<input type="button" value="임시저장" onclick="">
+
 	<!-- 결재양식 제목 -->
 <h1 class="eword_maincolumn">문서타입이름부분(지출 결의서)</h1>
 
