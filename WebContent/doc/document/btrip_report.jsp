@@ -4,6 +4,7 @@
 <%@ include file="/doc/doc_header.jsp" %>
    
 
+
          <!-- 기본형 휴가계/출장계 -->
       <tr class="change_height_on_print">
          <td id="eword_content" class="eword_content_layout">
@@ -105,6 +106,7 @@
          </td>
       </tr>
    </table>
+>>>>>>> 4a75585139d1fbc1905d410487ae42648002fbd9
 
 <%@ include file="/doc/doc_footer.jsp" %>
 

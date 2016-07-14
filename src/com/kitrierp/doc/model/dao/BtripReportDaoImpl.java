@@ -10,10 +10,7 @@ import com.kitrierp.doc.model.BtripReportDto;
 public class BtripReportDaoImpl implements BtripReportDao {
 	@Autowired
 	private SqlSession sqlSession;
-	
-	public void setSqlSession(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
-	}
+
 
 	@Override
 	public int reportDoc(BtripReportDto btripReportDto) {

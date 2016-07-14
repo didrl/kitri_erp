@@ -4,8 +4,6 @@
 <%@ include file="/doc/doc_header.jsp" %>
 
 
-
-
 			
 			<!-- 기본형 휴가계/출장계 -->
 		<tr class="change_height_on_print">

@@ -3,7 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.doc.model.BtripReportDaoImpl">
+    <insert id="reportWrite" parameterType="brdto">
     
+    </insert> 
    
     
 </mapper>
