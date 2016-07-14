@@ -20,10 +20,14 @@ $().ready(function() {
 	//결재자/협조자/대체근무자 지정 팝업
 	$('#reportDoc').click(function(){
 		alert("reportDoc");
+		document.docform.action = "${root}/confirm/loginck.erp";
+		document.docform.submit();
 	});
 	
 	$('#tmpsaveDoc').click(function(){
 		alert("tmpsaveDoc");
+		document.docform.action = "${root}/confirm/loginck.erp";
+		document.docform.submit();
 	});
 	
 	
@@ -172,18 +176,6 @@ function openDocumentView() {
 	window.open('view.php?dummy='+dummy+'&DcsNo='+DcsNo+'&No='+No,'','top=0,left=0,width='+w+',height=550,scrollbars=yes,menubar=yes;');
 }
 
-// Term Auto Calculation
-function getTremAutoCalculation() {
-	var f = document.form;
-
-	if ( f.No.value == '' && f.Category.value == '4' ) {
-		// 휴가계
-		f.Term.value = 1;
-	} else if( f.No.value == '' && f.Category.value == '7' ) {
-		// 출장계
-		f.OutTerm.value = 1;
-	}
-}
 
 // 결재선/협조선 유효성 검사
 // 상신후수정 : 사용안함

@@ -1,5 +1,6 @@
 package com.kitrierp.employee.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ import com.kitrierp.employee.model.service.EmployeeServiceImpl;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
-	
+
 	@RequestMapping(value="/login.erp", method=RequestMethod.POST)
 	public ModelAndView login(@RequestParam Map<String, String> map){
 		
@@ -33,7 +34,7 @@ public class EmployeeController {
 		
 		if(id == employeeDto.getEmp_id()) {
 			mav.addObject("memberInfo", employeeDto);
-			mav.setViewName("/employee/doc_main");
+			mav.setViewName("/doc/document/btrip_report");
 		} else {
 			mav.setViewName("/employee/loginok");
 		}

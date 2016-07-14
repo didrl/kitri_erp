@@ -10,12 +10,4 @@ public class CommonDaoImpl implements CommonDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public void setSqlSession(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
-	}
-   
-	@Override
-	public String doc_id(int doc_type_id) {
-		return sqlSession.selectOne("com.kitrierp.common.model.CommonDaoImpl.doc_id", doc_type_id);
-	}
 }
