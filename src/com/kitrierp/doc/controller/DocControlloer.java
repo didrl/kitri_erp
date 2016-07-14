@@ -14,7 +14,5 @@ public class DocControlloer {
 	@Autowired
 	private DocService docService;
 	
-//	@RequestMapping("/")
-	
 	
 }
