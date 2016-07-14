@@ -7,45 +7,76 @@
 <div id="page-wrapper">
 <div id="sub">
 	
+	<!-- Organization -->
+	<div id="organization" class="col-lg-5" style=" display:none;">
+		<table class="table">
+			<tbody>
+
+				<tr>
+					<td colspan="3">
+
+						<div class="panel panel-default">
+							<div class="panel-heading">부서구조</div>
+
+							<!-- .panel-heading -->
+							<div class="panel-body">
+								<c:forEach varStatus="i" var="emp" items="${olist}">
+										<c:if test="${emp.dep_id != dep_id}">
+								<div class="panel-group" id="accordion">
+											<div class="panel panel-default">
+
+												<c:set var="dep_id" value="" />
+												<div class="panel-heading">
+													<h4 class="panel-title">
+														<a data-toggle="collapse${i.index}" data-parent="#accordion"
+															href="#collapse">${emp.dep_name},${emp.dep_id}</a>
+													</h4>
+												</div>
+										</c:if>
+
+										<div id="collapse${i.index}" class="panel-collapse collapse in">
+											<div class="panel-body">
+												<ul>
+													<!-- 직급 -->
+													<li>${emp.grade_name}
+														<ul>
+															<li>${emp.emp_name}</li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<c:if test="${i.index < olist.size() - 1 }">
+											<c:if test="${olist.get(i.index + 1).dep_id != dep_id }">
+							   	</div>
+											</c:if>
+										</c:if>
+								</c:forEach>
+								</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		 <p><a href="#" class="closeDOMWindow">닫기</a></p> 
+	</div>
+	<!-- //Organization -->
 
 	<!-- 전자결재 문서   
 	**** hidden 정리하기!!!! ****
 	-->
-	<form name="form" method="post" action="" enctype='multipart/form-data' class="mar10b black">
+
+	<form name="form" method="post" action='' enctype='multipart/form-data' class="mar10b black">
 		
-		<input type="hidden" name="code"			value="Conversion">
+		<input type="hidden" name="doc_type_id" value="">
+		<input type="hidden" name="doc_id" value="">
 		
-		<input type="hidden" name="DcsNo"			value="">
-		<input type="hidden" name="No"				value="">
-		<input type="hidden" name="Category"		value="">
-		<input type="hidden" name="Category2"		value="">
-		<input type="hidden" name="gubun"			value="">
-		<input type="hidden" name="UseChk"			value="N">
-		<input type="hidden" name="UseEditor"		value="Y">
-		<input type="hidden" name="ReceiveTreeKey"	value="0002">
-		<input type="hidden" name="referenceUser"	value="">
-		
-		<input type="hidden" name="eId"				value="">
-		<input type="hidden" name="eName"			value="">
-		<input type="hidden" name="eTreeKey"		value="0001">
-		<input type="hidden" name="eCopLevel"		value="">
-		<input type="hidden" name="presave"			value=''>
-		<input type="hidden" name="listPageNow"		value="">
-		<input type="hidden" name="HCnt"			value="">
-		<input type="hidden" name="HIdx"			value="">
-		<input type="hidden" name="AIdx"			value="">
-		<input type="hidden" name="Cd"				value="">
-		
-				
-		<input type="hidden" name="editorName"		value="">
-		<input type="hidden" name="returnPage"		value="">
-		<input type="hidden" name="agentInfo"		value="" />
-		<input type="hidden" name="HalfTimeUse"		value="">
 		
 
 <!-- 버튼 -->
-<input type="button" value="상신하기" onclick="">
-<input type="button" value="임시저장" onclick="">
+<br>
+<button type="button" class="btn btn-primary" id="reportDoc" >상신하기</button>
+<button type="button" class="btn btn-primary" id="tmpsaveDoc">임시저장</button>
 
 <!-- 결재양식 제목 -->
 <h1 class="eword_maincolumn">문서타입이름부분(지출 결의서)</h1>
@@ -104,7 +135,7 @@
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
 								<td>
 									<input type="text"   name="appr_name" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="appr_name" value="ME">
+									<input type="hidden" name="appr_name" value="">
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell2"  class="btn_page pad15l overf">
 										<!-- 지정 -->
@@ -368,7 +399,7 @@
 						<input type="text" name="referenceUserName" value="" readonly class="left" style="width:494px;"/>
 						<span class="btn_page right">
 							<!-- 참조자 지정 -->
-							<a class="cursor openPopupReferenceUser">
+							<a class="openPopup">
 								<span class="txt_ce"style="width:80px;">참조자 지정</span>
 							</a>
 						</span>
