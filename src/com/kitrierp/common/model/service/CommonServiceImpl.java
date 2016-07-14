@@ -9,4 +9,9 @@ import com.kitrierp.common.model.dao.CommonDao;
 public class CommonServiceImpl implements CommonService {
 	@Autowired
 	private CommonDao commonDao;
+
+	@Override
+	public String doc_id(int doc_type_id) {
+		return commonDao.doc_id(doc_type_id);
+	}
 }
