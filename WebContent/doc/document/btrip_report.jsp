@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/common/user_sidebar.jsp" %>
 <%@ include file="/doc/doc_header.jsp" %>
-   
-
+<%
+System.out.println(request.getAttribute("docType"));
+%>   
 
          <!-- 기본형 휴가계/출장계 -->
       <tr class="change_height_on_print">
