@@ -1066,7 +1066,1486 @@ INSERT INTO doc_status (doc_status_id, doc_status_name)
 
 COMMIT;
 
-insert into document(doc_id,doc_status_id,emp_id,doc_type_id,doc_subject,doc_content
-,doc_date,doc_deadline,doc_open,doc_dep_id,doc_note) 
-VALUES(to_char(sysdate,'YYMM')||'-'||'01'||to_char(seq_test.nextval,'FM0000'),2,40990217,06,'사내 여름휴가 프로모션 기획','사내 여름휴가 프로모션 기획안입니다.',
-sysdate,sysdate+1,0,40,'사원대상입니다.');
+--HR Assaitant/proposal--
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  2,
+                  40150136,
+                  01,
+                  '사내 여름휴가 스케쥴',
+                  '사원 사내 여름휴가 스케쥴 조정안입니다.',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990130,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+SELECT seq_doc_id.CURRVAL FROM DUAL;
+
+COMMIT;
+--no.02
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  5,
+                  40150136,
+                  01,
+                  '사내 겨울휴가 스케쥴',
+                  '사원 사내 겨울휴가 스케쥴 조정안입니다.',
+                  SYSDATE - 160,
+                  SYSDATE - 150,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990130,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--HR Supervisor/proposal--
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  2,
+                  40990130,
+                  01,
+                  '2016 하반기 신입사원 교육안',
+                  '2016 신입사원 교육안안입니다.',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--no.2
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  5,
+                  40990130,
+                  01,
+                  '2016 상반기 신입사원 교육안',
+                  '2016 신입사원 교육안안입니다.',
+                  SYSDATE - 150,
+                  SYSDATE - 100,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--for modify
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  4,
+                  40990130,
+                  01,
+                  '2016 하반기 부서별 워크숍',
+                  '2016 하반기 부서별 워크숍.',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  30);
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99);
+
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  2);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--no.2
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  0,
+                  40990130,
+                  01,
+                  '2016 하반기 개발부서 고용노동부 지원과정 워크숍',
+                  '2016 하반기 개발부서 고용노동부 지원과정 워크숍 기안.',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--no.3
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  3,
+                  40990130,
+                  01,
+                  '2016 하반기 개발부서 신입사원 고용노동부 교육과정',
+                  '2016 하반기 개발부서 신입사원 고용노동부 교육과정.',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '01'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--HR Supervisor/payment request
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  2,
+                  40990130,
+                  02,
+                  '2016 하반기 부서별 워크숍 공간 예약비',
+                  '2016 하반기 부서별 워크숍 공간 예약비',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  30);
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99);
+
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--no.02
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  5,
+                  40990130,
+                  02,
+                  '2016 상반기 부서별 워크숍 강사초청비',
+                  '2016 상반기 부서별 워크숍 강사초청비',
+                  SYSDATE - 100,
+                  SYSDATE - 90,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20);
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  30);
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99);
+
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO COOPERATION (coop_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_COOP_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '02'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  20100122);
+
+--HR Supervisor/payment
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '03'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  2,
+                  40990130,
+                  03,
+                  '2016 하반기 인사 부서 워크숍',
+                  '2016 하반기 인사 부서 워크숍',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '03'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '03'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '03'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '03'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '03'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO PAYMENT (payment_id,
+                     BILLING,
+                     SETTLEMENT,
+                     RECIPIENT,
+                     DOC_ID)
+        VALUES (
+                  seq_doc_payment_id.NEXTVAL,
+                  500000,
+                  500000,
+                  '조정진',
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '03'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'));
+
+INSERT INTO payment_info (payinfo_seq,
+                          pay_date,
+                          pay_info,
+                          amount,
+                          note,
+                          PAYMENT_ID)
+     VALUES (SEQ_DOC_PAYINFO_SEQ.NEXTVAL,
+             SYSDATE - 10,
+             '다과',
+             100000,
+             '워크숍 다과비',
+             seq_doc_payment_id.CURRVAL);
+
+INSERT INTO payment_info (payinfo_seq,
+                          pay_date,
+                          pay_info,
+                          amount,
+                          note,
+                          PAYMENT_ID)
+     VALUES (SEQ_DOC_PAYINFO_SEQ.NEXTVAL,
+             SYSDATE - 10,
+             '공간대여',
+             400000,
+             '워크숍 공간대여',
+             seq_doc_payment_id.CURRVAL);
+
+--HR Supervisor/btrip request
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '04'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  5,
+                  40990130,
+                  04,
+                  '2016 하반기 부서 워크숍 답사',
+                  '2016 하반기 인사 부서 워크숍',
+                  SYSDATE - 20,
+                  SYSDATE - 15,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '04'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '04'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '04'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '04'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  1);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '04'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO BTRIP_application (doc_id,
+                               btrip_location,
+                               btrip_purpose,
+                               end_date,
+                               start_date)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '04'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  '강원도 속초시',
+                  '하반기 워크숍 답사',
+                  SYSDATE - 10,
+                  SYSDATE - 9);
+
+--HR Supervisor/btrip report
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '05'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  2,
+                  40990130,
+                  05,
+                  '2016 하반기 부서 워크숍 답사',
+                  '2016 하반기 인사 부서 워크숍',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '05'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '05'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '05'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '05'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '05'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO BTRIP_report (expense_info_id,
+                          doc_id,
+                          start_date,
+                          end_date,
+                          btrip_location)
+        VALUES (
+                  seq_doc_expense_info_id.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '05'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  SYSDATE - 10,
+                  SYSDATE - 9,
+                  '강원도 속초');
+
+INSERT INTO BTRIP_PAYMENT (EXP_SEQ,EXPENSE_INFO_ID,EXP_DAILY,EXP_TOTAL)
+VALUES(SEQ_DOC_EXP_SEQ.NEXTVAL,seq_doc_expense_info_id.CURRVAL,100000,15000);
+
+INSERT INTO BTRIP_PAYMENT (EXP_SEQ,EXPENSE_INFO_ID,EXP_ROOM,EXP_TOTAL) 
+VALUES(SEQ_DOC_EXP_SEQ.NEXTVAL,seq_doc_expense_info_id.CURRVAL,50000,15000);
+
+
+COMMIT;
+
+--HR Supervisor/vacation
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '06'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  2,
+                  40990130,
+                  06,
+                  '2016 여름휴가 신청',
+                  '2016 여름휴가 신청',
+                  SYSDATE,
+                  SYSDATE + 10,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '06'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '06'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '06'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '06'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '06'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+INSERT INTO VACATION (DOC_ID,VA_START_DATE,VA_END_DATE,VA_LOCATION,VA_PURPOSE,VA_PHONE)
+VALUES (TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '06'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),SYSDATE+30,SYSDATE+35,'프랑스 파리','여름휴가','040-290-2345');
+
+
+
+COMMIT;
+
+--HR Supervisor/JOURNAL
+--no.01
+
+INSERT INTO document (doc_id,
+                      doc_status_id,
+                      emp_id,
+                      doc_type_id,
+                      doc_subject,
+                      doc_content,
+                      doc_date,
+                      doc_deadline,
+                      doc_open,
+                      doc_dep_id,
+                      doc_note)
+        VALUES (
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '07'
+                  || TO_CHAR (seq_doc_id.NEXTVAL, 'FM0000'),
+                  2,
+                  40990130,
+                  07,
+                  '2016 하반기 부서 워크숍 1일차',
+                  '2016 하반기 부서 워크숍 1일차',
+                  SYSDATE,
+                  SYSDATE,
+                  0,
+                  40,
+                  '사원대상입니다.');
+
+INSERT INTO RECEIVE_LIST (recei_seq, doc_id, dep_id)
+        VALUES (
+                  SEQ_DOC_RECEI_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '07'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '07'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990128,
+                  1);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '07'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO SIGN_INFO (APPR_SEQ,
+                       DOC_ID,
+                       EMP_ID,
+                       APPR_FLAG)
+        VALUES (
+                  SEQ_DOC_APPR_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '07'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  40990127,
+                  0);
+
+INSERT INTO REFERENCE (ref_seq, doc_id, emp_id)
+        VALUES (
+                  SEQ_DOC_REF_SEQ.NEXTVAL,
+                     TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '07'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),
+                  99990104);
+
+
+INSERT INTO JOURNAL (DOC_ID,JOU_TODAY,JOU_NEXTDAY,JOU_NOTE,JOU_ISSUE)
+VALUES (TO_CHAR (SYSDATE, 'YYMM')
+                  || '-'
+                  || '07'
+                  || TO_CHAR (seq_doc_id.CURRVAL, 'FM0000'),'부서별 워크숍 장소로 인솔','회사 이동 후 해산 안내','개발부서 추가 워크숍 일정 확인 진 중','워크숍 TF팀 일정 세부조율 필');
+
+
+
+
+
