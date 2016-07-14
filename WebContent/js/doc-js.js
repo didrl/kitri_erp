@@ -1,16 +1,37 @@
-var $jquery = jQuery.noConflict();
 var writeModify = Boolean('');
 
 
-$jquery().ready(function() {
-	$jquery('.openPopup').openDOMWindow(getOpenDomWindowOpt(510, 478, false, 'click'));
+$().ready(function() {
+	$('.openPopup').click(function(){ 
+	    $.openDOMWindow({ 
+	        windowSourceID:'#organization', 
+	        height:500,  
+	        width:400, 
+	        overlay:0, 
+	        positionType:'anchoredSingleWindow',  
+	        windowPadding:20,  
+	        borderSize:'1', 
+	        anchoredSelector:'.form_transparent' 
+	        //positionLeft:50, 
+	        //positionTop:-150 
+	    }); 
+	    return false; 
+	}); 
 	//결재자/협조자/대체근무자 지정 팝업
-
+	$('#reportDoc').click(function(){
+		alert("reportDoc");
+	});
+	
+	$('#tmpsaveDoc').click(function(){
+		alert("tmpsaveDoc");
+	});
+	
+	
 	if ( !writeModify ) {
 		// 결재문서 작성에서만 사용
 		
 		//수신부서 지정 팝업
-		$jquery('.openPopupTreeKeyFind').click(function(){
+		$('.openPopupTreeKeyFind').click(function(){
 			var dateObj = new Date();
 			var dummy = dateObj.getTime();
 			var f = document.form;
@@ -21,63 +42,24 @@ $jquery().ready(function() {
 	
 				var opt = getOpenDomWindowOpt(577, 690, url);
 	
-				$jquery.openDOMWindow(opt);
+				$.openDOMWindow(opt);
 			} else {
 				alert('공개여부를 공개로 선택하셔야\n\n수신부서를 선택할 수 있습니다.');
 			}
 		});
 		
 		//참조자 지정 팝업
-		$jquery('.openPopupReferenceUser').click(function(){
+		$('.openPopupReferenceUser').click(function(){
 			var dateObj = new Date();
 			var dummy = dateObj.getTime();
 			var f = document.form;
 			var pars = f.referenceUser.value;
 			var url = 'referenceUserFind.php?dummy='+dummy+'&ids='+pars;
 			var opt = getOpenDomWindowOpt(577, 690, url);
-			$jquery.openDOMWindow(opt);
+			$.openDOMWindow(opt);
 		});
-		
-		// 결재선 지정 팝업
-		$jquery('.openPopupLineSet').click(function(){
-			try { parent.Ext.Msg.alert('Groupware Demo','<span style=color:#C8C9CA;><br />데모 체험하기는 글쓰기 등록 및 수정이 제한되어 있습니다. <br /><br />이점 양해해주시기 바랍니다.</span>');return false; } catch(e) { try { parent.parent.Ext.Msg.alert('Groupware Demo','<span style=color:#C8C9CA;><br />데모 체험하기는 글쓰기 등록 및 수정이 제한되어 있습니다. <br /><br />이점 양해해주시기 바랍니다.</span>');return false; } catch(e) { alert('그룹웨어 데모에서는 사용하실 수 없습니다.');return false; } }
-			var dateObj = new Date();
-			var dummy = dateObj.getTime();
-			var f = document.form;
-			var url = 'myOrderLineSet.php?dummy='+dummy;
-			url+= '&mode=popup';
-			url+= '&Category='+f.Category.value;
-			url+= '&OrderTotal=5';
-			url+= '&WordUseHelper=Y';
-			var opt = getOpenDomWindowOpt(550, 650, url);
-			$jquery.openDOMWindow(opt);
-			return false;
-		});
-	}
-	
-	// 수신부서 보기 팝업 (지정한 수신부서)
-	$jquery('.openPopupTreeKeyView').click(function(){
-		var dateObj = new Date();
-		var dummy = dateObj.getTime();
-		var f = document.form;
-		var pars = f.ReceiveTreeKey.value;
-		var url = 'receiveTreeKeyView.php?dummy='+dummy+'&treeKeys='+pars;
-		var opt = getOpenDomWindowOpt(500, 500, url);
-		$jquery.openDOMWindow(opt);
-	});
-	
-	//참조자 보기 팝업 (지정한 참조자 보기)
-	$jquery('.openPopupReferenceUserView').click(function(){
-		var dateObj = new Date();
-		var dummy = dateObj.getTime();
-		var f = document.form;
-		var pars = f.referenceUser.value;
-		var url = 'referenceUserView.php?dummy='+dummy+'&ids='+pars;
-		var opt = getOpenDomWindowOpt(500, 500, url);
-		$jquery.openDOMWindow(opt);
-		return false;
-	});
 
+	}
 
 	// 대결자 정보 초기화
 	initSetAgent();
@@ -104,14 +86,14 @@ function getOpenDomWindowOpt(wid, hei, url, evtType) {
 }
 
 function setPopupClose() {
-	$jquery.closeDOMWindow();
+	$.closeDOMWindow();
 	document.form.Subject.focus();
 }
 
 // 결재자/협조자 지정
 function MembersAppoint( idx, Id, agtId, Name, Cdnm ) {
 //	// 해당 idx가 정말 있는지 검사(협조선 미사용 문서 대응)
-	var cond = ($jquery("input[name='OrderId"+idx+"']").length > 0);
+	var cond = ($("input[name='OrderId"+idx+"']").length > 0);
 	// 협조선 미사용인 경우 협조선 idx에 대해 지정 안함
 	var WordUseHelper = 'Y';
 	if ( WordUseHelper == 'N' ) {
@@ -130,12 +112,12 @@ function MembersAppoint( idx, Id, agtId, Name, Cdnm ) {
 			agtBtn+= '<span id="appDate'+idx+'">';
 			agtBtn+= 	'<img src="../Img/Renewal/btn_agent.gif" class="vm" style="cursor:pointer" onclick="agentPopup(\''+Id+'\');" />';
 			agtBtn+= '</span>';
-			$jquery('#appDate'+idx).html(agtBtn);
+			$('#appDate'+idx).html(agtBtn);
 		}
 		// 결재자/협조자/대결자/협조대결자 정보 등록
-		$jquery("input[name='OrderId"+idx   +"']").val(agtId ? agtId : Id);
-		$jquery("input[name='OrderTitle"+idx+"']").val(Cdnm);
-		$jquery("input[name='OrderName"+idx +"']").val(Name);
+		$("input[name='OrderId"+idx   +"']").val(agtId ? agtId : Id);
+		$("input[name='OrderTitle"+idx+"']").val(Cdnm);
+		$("input[name='OrderName"+idx +"']").val(Name);
 		// 지정 버튼 -> 취소 버튼으로 변경
 		var OrderButton = '';
 		OrderButton+= '<div class=btn_page>';
@@ -143,7 +125,7 @@ function MembersAppoint( idx, Id, agtId, Name, Cdnm ) {
 		OrderButton+= 		'<span>취소</span>';
 		OrderButton+= 	'</a>';
 		OrderButton+= '</div>';
-		$jquery('#MembersFindCell'+idx).html(OrderButton);
+		$('#MembersFindCell'+idx).html(OrderButton);
 	}
 }
 
@@ -166,10 +148,10 @@ function MembersDelete(a) {
 	btn+= 		'<span>'+Title+'</span>';
 	btn+= 	'</a>';
 	btn+= '</div>';
-	$jquery('#MembersFindCell'+a).html(btn);
-	$jquery('#appDate'+a).html('<span id="appDate'+a+'">&nbsp;</span>');
+	$('#MembersFindCell'+a).html(btn);
+	$('#appDate'+a).html('<span id="appDate'+a+'">&nbsp;</span>');
 
-	$jquery('.openPopup'+a).openDOMWindow(getOpenDomWindowOpt(510, 478, false, 'click'));
+	$('.openPopup'+a).openDOMWindow(getOpenDomWindowOpt(510, 478, false, 'click'));
 
 	//대결자 취소
 	popAgent(a);
@@ -237,7 +219,7 @@ function exitSubmitPrc() {
 	} else {
 		// 작성
 		var f = document.form;
-		f.AutoWordNo.value = $jquery("#AutoWordNo:checked").length;
+		f.AutoWordNo.value = $("#AutoWordNo:checked").length;
 		if ( f.AutoWordNo.value == 1 ) {
 			// 문서번호 등록 : 문서번호 유효성 검사
 			if ( document.getElementById("WordNo1").value == '' || document.getElementById("WordNo1").value == null ) {
@@ -253,7 +235,7 @@ function exitSubmitPrc() {
 
 function regist( mode ) {
 	var f = document.form;
-	f.AutoWordNo.value = $jquery("#AutoWordNo:checked").length;
+	f.AutoWordNo.value = $("#AutoWordNo:checked").length;
 	if ( f.AutoWordNo.value == 1 ) {
 		submitNo(document.getElementById("WordNo1").value, mode);
 	} else {
@@ -265,11 +247,11 @@ function submitNo(wordNo, mode) {
 	if ( mode =="reg" ) {
 		var NoFlag ='true';
 		var encodedWordNo = encodeURIComponent(wordNo);
-		$jquery.ajax({
+		$.ajax({
 			url: 'prc.php',
 			data: 'wordNo='+encodedWordNo+'&NoFlag='+NoFlag,
 			success: function(msg) {
-				switch($jquery.trim(msg)) {
+				switch($.trim(msg)) {
 				case 'err_01':
 					// 중복된 문서번호가 존재합니다.
 					alert('중복된 문서번호가 존재합니다.');
@@ -351,7 +333,7 @@ function submitForm() {
 					checkList.push({type: 'bool', target: ( f.s_year.value != f.e_year.value ), msg: '기간설정이 잘못되었습니다.\n\n확인해주십시오.'});
 				}
 				// 년도별 휴가신청가능일수
-				var holidayAvailableYear = $jquery.parseJSON('null');
+				var holidayAvailableYear = $.parseJSON('null');
 				if ( f.HalfTimeUse.value == 'Y' || f.Category2.value == "4" ) {
 					// 반차 휴가계 or 조퇴계
 					for ( var year in holidayAvailableYear  ) {
@@ -459,7 +441,7 @@ function submitForm() {
 		f.target='_self';
 		f.code.value = 'write'
 		f.action='prc.php';
-		$jquery(f).submit();
+		$(f).submit();
 		preventDuplicateSubmit(
 			'전송중입니다.',
 			document.getElementById(targetBtnId),
@@ -570,7 +552,7 @@ function AutoCalculation( Term ) {
 					+"&s_year="+s_year+"&s_month="+s_month+"&s_day="+s_day
 					+"&e_year="+e_year+"&e_month="+e_month+"&e_day="+e_day
 					+"&Term="+Term+'&Method='+Method;
-			$jquery.ajax({
+			$.ajax({
 				url: url,
 				data: pars,
 				success: function(rs) {
@@ -687,20 +669,20 @@ function setWhoisEditorApply()
 // 문서번호 등록
 // 상신후수정 : 사용안함
 function getAutoWordNo(){
-	var WordNo = $jquery("#AutoWordNo:checked").length;
+	var WordNo = $("#AutoWordNo:checked").length;
 	if ( WordNo ) {
-		$jquery("#sub_subject").hide();
-		$jquery("#sub_subject1").show();
+		$("#sub_subject").hide();
+		$("#sub_subject1").show();
 	} else {
-		$jquery("#sub_subject").show();
-		$jquery("#sub_subject1").hide();
+		$("#sub_subject").show();
+		$("#sub_subject1").hide();
 	}
 }
 
 // 수신부서 버튼 활성화/비활성화
 // 상신후수정 : 사용안함
 function ReceiveTreeKeyButton() {
-	var ReceiveTreeKeyButtonArea = $jquery('#ReceiveTreeKeyButtonArea');
+	var ReceiveTreeKeyButtonArea = $('#ReceiveTreeKeyButtonArea');
 
 	var f = document.form;
 
@@ -735,7 +717,7 @@ function flushAgent() {
 }
 function agentPopup(id) {
 	var url = 'agentPopup.php?id='+id;
-	$jquery.openDOMWindow({
+	$.openDOMWindow({
 		height:300,
 		width:400,
 		loader:1,
@@ -763,22 +745,22 @@ function chkHoliday(el, type) {
 }
 
 function setTermDate(obj) {
-	$jquery('select[name=s_'+obj+']').change(function(){
-		var sdate = $jquery(this).val();
-		$jquery('select[name=e_'+obj+'] option').each(function(){
-			if($jquery(this).val() == sdate) $jquery(this).attr('selected', 'selected');
-			else $jquery(this).attr('selected', '');
+	$('select[name=s_'+obj+']').change(function(){
+		var sdate = $(this).val();
+		$('select[name=e_'+obj+'] option').each(function(){
+			if($(this).val() == sdate) $(this).attr('selected', 'selected');
+			else $(this).attr('selected', '');
 		});
 
-		$jquery('#hidden_e_'+obj).val(sdate);
+		$('#hidden_e_'+obj).val(sdate);
 	});
 }
 
 function makeHiddenInput(name) {
-	return $jquery('<input />').attr({'type':'hidden', 'name':name, 'id':'hidden_'+name}).appendTo($jquery('form[name=form]'));
+	return $('<input />').attr({'type':'hidden', 'name':name, 'id':'hidden_'+name}).appendTo($('form[name=form]'));
 }
 
-$jquery(document).ready(function(){
+$(document).ready(function(){
 	getTremAutoCalculation();
 	ReceiveTreeKeyButton();
 	getAutoWordNo();
@@ -789,12 +771,12 @@ $jquery(document).ready(function(){
 
 	var halftimeUse = '';
 	if ( halftimeUse == 'Y' ) {
-		$jquery('select[name=e_year], select[name=e_month], select[name=e_day], input[name=Term]').attr({'disabled':true});
+		$('select[name=e_year], select[name=e_month], select[name=e_day], input[name=Term]').attr({'disabled':true});
 
-		makeHiddenInput('e_year').val($jquery('select[name=e_year]').val());
-		makeHiddenInput('e_month').val($jquery('select[name=e_month]').val());
-		makeHiddenInput('e_day').val($jquery('select[name=e_day]').val());
-		makeHiddenInput('Term').val($jquery('input[name=Term]').val());
+		makeHiddenInput('e_year').val($('select[name=e_year]').val());
+		makeHiddenInput('e_month').val($('select[name=e_month]').val());
+		makeHiddenInput('e_day').val($('select[name=e_day]').val());
+		makeHiddenInput('Term').val($('input[name=Term]').val());
 
 		setTermDate('year');
 		setTermDate('month');
