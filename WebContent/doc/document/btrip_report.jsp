@@ -19,6 +19,7 @@
                            <input id="fromDate" type="text">
                            <input id="toDate" type="text">                  
                            <script type="text/javascript">
+                           $(document).ready(function() {
                               $('#fromDate').datetimepicker({
                                 language : 'ko', // 화면에 출력될 언어를 한국어로 설정한다.
                                 pickTime : false, // 사용자로부터 시간 선택을 허용하려면 true를 설정하거나 pickTime 옵션을 생략한다.
@@ -30,6 +31,7 @@
                                 pickTime : false,
                                 defalutDate : new Date()
                               });
+                           });
                            </script>
                            
                            <span class="vm">(</span>
