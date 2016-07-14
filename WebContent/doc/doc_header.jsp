@@ -85,19 +85,19 @@
 								</th>
 								<!-- 결재자/협조자 직급 표시 영역 -->
 								<td style="border-top: none;">
-									<input type="text" name="grade_name1" value="대표" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name1" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="grade_name2" value="부장" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name2" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="grade_name3" value="차장" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name3" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="grade_name4" value="과장" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name4" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 								<td style="border-top: none;">
-									<input type="text" name="grade_name5" value="대리" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+									<input type="text" name="grade_name5" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
 								</td>
 							</tr>
 							<tr class="date" style="height:61px;">

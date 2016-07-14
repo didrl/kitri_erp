@@ -801,5 +801,3 @@ $jquery(document).ready(function(){
 		setTermDate('day');
 	}
 });
-
-</script>
