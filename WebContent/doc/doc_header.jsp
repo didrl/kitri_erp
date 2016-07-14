@@ -109,6 +109,7 @@ $(document).ready(function() {
 		
 		<input type="hidden" name="doc_type_id" value="">
 		<input type="hidden" name="doc_id" value="">
+		<input type="hidden" name="doc_controller" value="">
 		
 		
 
