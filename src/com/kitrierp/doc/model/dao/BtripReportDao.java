@@ -1,5 +1,8 @@
 package com.kitrierp.doc.model.dao;
 
-public interface BtripReportDao {
+import com.kitrierp.doc.model.BtripReportDto;
 
+public interface BtripReportDao {
+	int reportDoc(BtripReportDto btripReportDto);
+	int tmpsaveDoc(BtripReportDto btripReportDto);
 }

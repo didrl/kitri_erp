@@ -1,5 +1,8 @@
 package com.kitrierp.doc.model.service;
 
-public interface PaymentService {
+import com.kitrierp.doc.model.PaymentDto;
 
+public interface PaymentService {
+	int reportDoc(PaymentDto paymentDto);
+	int tmpsaveDoc(PaymentDto paymentDto);
 }

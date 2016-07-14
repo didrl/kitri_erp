@@ -1,5 +1,8 @@
 package com.kitrierp.doc.model.service;
 
-public interface ConsultationService {
+import com.kitrierp.doc.model.DocumentDto;
 
+public interface ConsultationService {
+	int reportDoc(DocumentDto documentDto);
+	int tmpsaveDoc(DocumentDto documentDto);
 }

@@ -12,7 +12,12 @@ public class BtripApplicationServiceImpl implements BtripApplicationService {
 	private BtripApplicationDao btripApplicationDao;
 
 	@Override
-	public int applicationWrite(BtripApplicationDto btripApplicationDto) {
-		return btripApplicationDao.applicationWrite(btripApplicationDto);
+	public int reportDoc(BtripApplicationDto btripApplicationDto) {
+		return btripApplicationDao.reportDoc(btripApplicationDto);
+	}
+
+	@Override
+	public int tmpsaveDoc(BtripApplicationDto btripApplicationDto) {
+		return btripApplicationDao.tmpsaveDoc(btripApplicationDto);
 	}
 }
