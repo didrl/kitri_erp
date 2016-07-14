@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_common.css?v=20150706"/>
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_write.css?v=20150702"/>
+<!--datepicker css -->
+<script src="${root}/datepicker/js/bootstrap-datepicker.js"></script>
 <div id="wrapper"> 
  <!-- Page Content -->
 <div id="page-wrapper">
@@ -65,7 +67,7 @@
 	<!-- 전자결재 문서   
 	**** hidden 정리하기!!!! ****
 	-->
-	<form name="form" method="post" action='' enctype='multipart/form-data' class="mar10b black">
+	<form name="docform" id="docform" method="post" action='' enctype='multipart/form-data' class="mar10b black">
 		
 		<input type="hidden" name="doc_type_id" value="">
 		<input type="hidden" name="doc_id" value="">
