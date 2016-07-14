@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kitrierp.doc.model.BtripApplicationDto;
+import com.kitrierp.doc.model.BtripReportDto;
 import com.kitrierp.doc.model.service.BtripApplicationService;
+import com.kitrierp.doc.model.service.BtripReportService;
 
 @Controller
 @RequestMapping("/btripApplication")
@@ -22,4 +24,5 @@ public class BtripApplicationController {
 		int write = btripApplicationService.applicationWrite(btripApplicationDto);
 		return mav;
 	}
+	
 }

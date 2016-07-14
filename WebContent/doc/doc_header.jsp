@@ -11,7 +11,7 @@
 	<!-- 전자결재 문서   
 	**** hidden 정리하기!!!! ****
 	-->
-	<form name="form" method="post" action='prc.php' enctype='multipart/form-data' class="mar10b black">
+	<form name="form" method="post" action="" enctype='multipart/form-data' class="mar10b black">
 		
 		<input type="hidden" name="code"			value="Conversion">
 		
@@ -290,7 +290,7 @@
 					<!-- 부서 -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">부서</th>
-					<td class="pad15l" colspan="3">부서이름</td>
+					<td class="pad15l" colspan="3">${memberInfo.dep_name}</td>
 				</tr>
 				<!-- 기안일 -->
 				<tr class="eword_meta_height">
@@ -307,7 +307,7 @@
 				<!-- 기안자, (출장인원) -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">기안자</th>
-					<td class="pad15l " colspan="3">기안자 이름</td>
+					<td class="pad15l " colspan="3">${memberInfo.emp_name}</td>
 				</tr>
 				<!-- 공개여부, 보존기간 -->
 				<tr class="eword_meta_height">
