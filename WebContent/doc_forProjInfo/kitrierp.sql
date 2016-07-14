@@ -1689,3 +1689,6 @@ ALTER TABLE vacation
 		REFERENCES DOCUMENT (
 			DOC_ID
 		);
+		
+ALTER TABLE sign_info
+ADD (appr_flag NUMber);
