@@ -9,4 +9,10 @@ import com.kitrierp.doc.model.dao.DocDao;
 public class DocServiceImpl implements DocService {
 	@Autowired
 	private DocDao docDao;
+
+	@Override
+	public String doc_id(int doc_type_id) {
+		return docDao.doc_id(doc_type_id);
+	}
+	
 }
