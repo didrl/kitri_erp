@@ -1,9 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="/common/common.jsp" %>
+
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_common.css?v=20150706"/>
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_write.css?v=20150702"/>
-<!--datepicker css -->
-<script src="${root}/datepicker/js/bootstrap-datepicker.js"></script>
+
+<!-- datepicker css -->
+<link href="${root}/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<!-- datepicker JavaScript -->
+<script src="${root}/datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="${root}/datepicker/locales/bootstrap-datepicker.kr.min.js"></script>
+<!-- css & script src end -->
+
+<!--script start -->
+<!-- for DataTable -->
+<script>
+$(document).ready(function() {
+	 $('#datepicker').datepicker();
+	$('#datepicker').on("changeDate", function() {
+	    $('#my_hidden_input').val(
+	        $('#datepicker').datepicker('getFormattedDate')
+	    );
+	});
+
+	$('.input-daterange input').each(function() {
+	    $(this).datepicker("clearDates");
+	});
+
+
+	$('#sandbox-container .input-daterange').datepicker({
+		format: "yyyy/mm/dd",
+		todayBtn: "linked",
+	    clearBtn: true,
+	    language: "kr",
+	    todayHighlight: true,
+	    toggleActive: true,
+	    defaultViewDate: { year: 2016, month: 07, day: 07 }
+	});
+	
+}); 
+</script>
+<!-- for Timepicker -->
+
 <div id="wrapper"> 
  <!-- Page Content -->
 <div id="page-wrapper">
