@@ -1,686 +1,143 @@
-drop sequence SEQ_BBS_SEQ;
-
-drop sequence SEQ_BFILE_SEQ;
-
-drop sequence SEQ_BOARD_SEQ;
-
-drop sequence SEQ_DOC_APPR_SEQ;
-
-drop sequence SEQ_DOC_COOP_SEQ;
-
-drop sequence SEQ_DOC_EXP_SEQ;
-
-drop sequence SEQ_DOC_EXPENSE_INFO_ID;
-
-drop sequence SEQ_DOC_FILE_SEQ;
-
-drop sequence SEQ_DOC_ID;
-
-drop sequence SEQ_DOC_PAYINFO_SEQ;
-
-drop sequence SEQ_DOC_PAYMENT_ID;
-
-drop sequence SEQ_DOC_RECEI_SEQ;
-
-drop sequence SEQ_DOC_REF_SEQ;
-
-drop sequence SEQ_EMPLOYEE_SEQ;
-
-drop sequence SEQ_INOUT_CODE;
-
-drop sequence SEQ_MENU_SEQ;
-
-drop sequence SEQ_MESSAGE_MSEQ;
-
-drop sequence SEQ_PER_FLAG;
-
-drop sequence SEQ_PROJ_CATEGORY;
-
-drop sequence SEQ_PROJ_ID;
-
-drop sequence SEQ_SCH_SEQ;
-
-drop sequence SEQ_SCH_TYPE;
-create sequence SEQ_BBS_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_BFILE_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_BOARD_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_APPR_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_COOP_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_EXP_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_EXPENSE_INFO_ID
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_FILE_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_ID
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_PAYINFO_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_PAYMENT_ID
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_RECEI_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_DOC_REF_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_EMPLOYEE_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_INOUT_CODE
-start with 1
-increment by 1;
-
-create sequence SEQ_MENU_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_MESSAGE_MSEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_PER_FLAG
-start with 1
-increment by 1;
-
-create sequence SEQ_PROJ_CATEGORY
-start with 1
-increment by 1;
-
-create sequence SEQ_PROJ_ID
-start with 1
-increment by 1;
-
-create sequence SEQ_SCH_SEQ
-start with 1
-increment by 1;
-
-create sequence SEQ_SCH_TYPE
-start with 1
-increment by 1;
-
-ALTER TABLE board
-	DROP
-		CONSTRAINT FK_boardtype_TO_board
-		CASCADE;
-
-ALTER TABLE board
-	DROP
-		CONSTRAINT FK_employee_TO_board
-		CASCADE;
-
-ALTER TABLE board_file
-	DROP
-		CONSTRAINT FK_board_TO_board_file
-		CASCADE;
-
-ALTER TABLE message
-	DROP
-		CONSTRAINT FK_board_TO_message
-		CASCADE;
-
-ALTER TABLE employee
-	DROP
-		CONSTRAINT FK_department_TO_employee
-		CASCADE;
-
-ALTER TABLE employee
-	DROP
-		CONSTRAINT FK_GRADE_TO_employee
-		CASCADE;
-
-ALTER TABLE employee
-	DROP
-		CONSTRAINT FK_Permission_TO_employee
-		CASCADE;
-
-ALTER TABLE DOCUMENT
-	DROP
-		CONSTRAINT FK_DOC_TYPE_TO_DOCUMENT
-		CASCADE;
-
-ALTER TABLE DOCUMENT
-	DROP
-		CONSTRAINT FK_DOC_STATUS_TO_DOCUMENT
-		CASCADE;
-
-ALTER TABLE journal
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_journal
-		CASCADE;
-
-ALTER TABLE RECEIVE_LIST
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_RECEIVE_LIST
-		CASCADE;
-
-ALTER TABLE RECEIVE_LIST
-	DROP
-		CONSTRAINT FK_department_TO_RECEIVE_LIST
-		CASCADE;
-
-ALTER TABLE SIGN_INFO
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_SIGN_INFO
-		CASCADE;
-
-ALTER TABLE SIGN_INFO
-	DROP
-		CONSTRAINT FK_employee_TO_SIGN_INFO
-		CASCADE;
-
-ALTER TABLE reference
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_reference
-		CASCADE;
-
-ALTER TABLE reference
-	DROP
-		CONSTRAINT FK_employee_TO_reference
-		CASCADE;
-
-ALTER TABLE Cooperation
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_Cooperation
-		CASCADE;
-
-ALTER TABLE Cooperation
-	DROP
-		CONSTRAINT FK_employee_TO_Cooperation
-		CASCADE;
-
-ALTER TABLE payment
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_payment
-		CASCADE;
-
-ALTER TABLE PAYMENT_INFO
-	DROP
-		CONSTRAINT FK_payment_TO_PAYMENT_INFO
-		CASCADE;
-
-ALTER TABLE btrip application
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_btrip application
-		CASCADE;
-
-ALTER TABLE btrip report
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_btrip report
-		CASCADE;
-
-ALTER TABLE btrip_payment
-	DROP
-		CONSTRAINT FK_btrip report_TO_btrip_payment
-		CASCADE;
-
-ALTER TABLE inout
-	DROP
-		CONSTRAINT FK_employee_TO_inout
-		CASCADE;
-
-ALTER TABLE inout
-	DROP
-		CONSTRAINT FK_inout_code_TO_inout
-		CASCADE;
-
-ALTER TABLE inout
-	DROP
-		CONSTRAINT FK_inout_code_TO_inout2
-		CASCADE;
-
-ALTER TABLE SCHEDULE
-	DROP
-		CONSTRAINT FK_employee_TO_SCHEDULE
-		CASCADE;
-
-ALTER TABLE SCHEDULE
-	DROP
-		CONSTRAINT FK_schedule_type_TO_SCHEDULE
-		CASCADE;
-
-ALTER TABLE SCHEDULE
-	DROP
-		CONSTRAINT FK_department_TO_SCHEDULE
-		CASCADE;
-
-ALTER TABLE addressbook
-	DROP
-		CONSTRAINT FK_employee_TO_addressbook
-		CASCADE;
-
-ALTER TABLE addressbook
-	DROP
-		CONSTRAINT FK_department_TO_addressbook
-		CASCADE;
-
-ALTER TABLE project
-	DROP
-		CONSTRAINT FK_employee_TO_project
-		CASCADE;
-
-ALTER TABLE project_number
-	DROP
-		CONSTRAINT FK_project_TO_project_number
-		CASCADE;
-
-ALTER TABLE bbs
-	DROP
-		CONSTRAINT FK_board_TO_bbs
-		CASCADE;
-
-ALTER TABLE file
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_file
-		CASCADE;
-
-ALTER TABLE vacation
-	DROP
-		CONSTRAINT FK_DOCUMENT_TO_vacation
-		CASCADE;
-
-ALTER TABLE board
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE board_file
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE boardtype
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE message
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE employee
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE department
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE GRADE
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE DOCUMENT
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE DOC_TYPE
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE journal
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE DOC_STATUS
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE RECEIVE_LIST
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE SIGN_INFO
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE reference
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE Cooperation
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE payment
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE PAYMENT_INFO
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE btrip application
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE btrip report
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE btrip_payment
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE SCHEDULE
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE schedule_type
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE project
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE bbs
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE file
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE inout_code
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE Permission
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE menu
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-ALTER TABLE vacation
-	DROP
-		PRIMARY KEY
-		CASCADE
-		KEEP INDEX;
-
-DROP INDEX PK_board;
-
-DROP INDEX PK_board_file;
-
-DROP INDEX PK_boardtype;
-
-DROP INDEX PK_message;
-
-DROP INDEX PK_employee;
-
-DROP INDEX PK_department;
-
-DROP INDEX PK_GRADE;
-
-DROP INDEX PK_DOCUMENT;
-
-DROP INDEX PK_DOC_TYPE;
-
-DROP INDEX PK_journal;
-
-DROP INDEX PK_DOC_STATUS;
-
-DROP INDEX PK_RECEIVE_LIST;
-
-DROP INDEX PK_SIGN_INFO;
-
-DROP INDEX PK_reference;
-
-DROP INDEX PK_Cooperation;
-
-DROP INDEX PK_payment;
-
-DROP INDEX PK_PAYMENT_INFO;
-
-DROP INDEX PK_btrip application;
-
-DROP INDEX PK_btrip report;
-
-DROP INDEX PK_btrip_payment;
-
-DROP INDEX PK_SCHEDULE;
-
-DROP INDEX PK_schedule_type;
-
-DROP INDEX PK_project;
-
-DROP INDEX PK_bbs;
-
-DROP INDEX PK_file;
-
-DROP INDEX PK_inout_code;
-
-DROP INDEX PK_Permission;
-
-DROP INDEX PK_menu;
-
-DROP INDEX PK_vacation;
-
-/* ï¿½Ô½ï¿½ï¿½ï¿½ */
+/* °Ô½ÃÆÇ */
 DROP TABLE board 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Ô½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* °Ô½ÃÆÇ_ÆÄÀÏ */
 DROP TABLE board_file 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* °Ô½ÃÆÇ Çü½Ä */
 DROP TABLE boardtype 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ÂÊÁö */
 DROP TABLE message 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* »ç¿øÁ¤º¸ */
 DROP TABLE employee 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Î¼ï¿½ */
+/* ºÎ¼­ */
 DROP TABLE department 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* Á÷±Þ */
 DROP TABLE GRADE 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ¹®¼­ */
 DROP TABLE DOCUMENT 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¹®¼­Çü½Ä */
 DROP TABLE DOC_TYPE 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¾÷¹«ÀÏÁö */
 DROP TABLE journal 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¹®¼­ ÁøÇà»óÅÂ */
 DROP TABLE DOC_STATUS 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+/* ¼ö½Å ¸ñ·Ï */
 DROP TABLE RECEIVE_LIST 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* °áÀçÀÚ Á¤º¸ */
 DROP TABLE SIGN_INFO 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÂüÁ¶ÀÎ Á¤º¸ */
 DROP TABLE reference 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÇùÁ¶ÀÎ Á¤º¸ */
 DROP TABLE Cooperation 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½ */
+/* ÁöÃâ°áÀÇ¼­ */
 DROP TABLE payment 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÁöÃâ ³»¿ª Á¤º¸ */
 DROP TABLE PAYMENT_INFO 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ */
-DROP TABLE btrip application 
+/* ÃâÀå½ÅÃ»¼­ */
+DROP TABLE btrip_application 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½åº¸ï¿½ï¿½ */
-DROP TABLE btrip report 
+/* ÃâÀåº¸°í¼­ */
+DROP TABLE btrip_report 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½å¿©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÃâÀå¿©ºñ Á¤º¸ */
 DROP TABLE btrip_payment 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ÃâÅð±Ù */
 DROP TABLE inout 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ÀÏÁ¤°ü¸® */
 DROP TABLE SCHEDULE 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ */
+/* ÀÏÁ¤Å¸ÀÔ */
 DROP TABLE schedule_type 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Ö¼Ò·ï¿½ */
+/* ÁÖ¼Ò·Ï */
 DROP TABLE addressbook 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® */
+/* ÇÁ·ÎÁ§Æ® */
 DROP TABLE project 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Î¿ï¿½ */
+/* ÇÁ·ÎÁ§Æ® ÀÎ¿ø */
 DROP TABLE project_number 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Ú·ï¿½ï¿½ */
+/* ÀÚ·á½Ç */
 DROP TABLE bbs 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ÈÞÀÏ */
 DROP TABLE holiday 
 	CASCADE CONSTRAINTS;
 
-/* Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* Ã·ºÎÆÄÀÏ */
 DROP TABLE file 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ */
+/* ÃâÅð±Ù»óÅÂ */
 DROP TABLE inout_code 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ±ÇÇÑ */
 DROP TABLE Permission 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Þ´ï¿½ */
+/* ¸Þ´º */
 DROP TABLE menu 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Þ°ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ */
+/* ÈÞ°¡½ÅÃ»¼­ */
 DROP TABLE vacation 
 	CASCADE CONSTRAINTS;
 
-/* ï¿½Ô½ï¿½ï¿½ï¿½ */
+/* °Ô½ÃÆÇ */
 CREATE TABLE board (
-	seq NUMBER NOT NULL, /* ï¿½Û¹ï¿½È£ */
-	bcode NUMBER NOT NULL, /* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ */
-	subject VARCHAR2(50), /* ï¿½ï¿½ï¿½ï¿½ */
-	contents VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ */
-	logtime DATE, /* ï¿½Û¼ï¿½ï¿½ï¿½ */
-	EMP_ID NUMBER /* ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
+	seq NUMBER NOT NULL, /* ±Û¹øÈ£ */
+	bcode NUMBER NOT NULL, /* °Ô½ÃÆÇ Çü½Ä ¹øÈ£ */
+	subject VARCHAR2(50), /* Á¦¸ñ */
+	contents VARCHAR2(100), /* ³»¿ë */
+	logtime DATE, /* ÀÛ¼ºÀÏ */
+	EMP_ID VARCHAR2(20) /* ÀÛ¼ºÀÚ »ç¿ø¹øÈ£ */
 );
 
 CREATE UNIQUE INDEX PK_board
@@ -695,14 +152,14 @@ ALTER TABLE board
 			seq
 		);
 
-/* ï¿½Ô½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* °Ô½ÃÆÇ_ÆÄÀÏ */
 CREATE TABLE board_file (
-	bfile_seq NUMBER NOT NULL, /* ï¿½ï¿½ï¿½Ï¹ï¿½È£ */
-	bfile_origin_name VARCHAR2(40), /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ */
-	bfile_path VARCHAR2(1000), /* ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ */
-	bfile_savefolder VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	seq NUMBER, /* ï¿½Û¹ï¿½È£ */
-	bfile_save_name <ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½> /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ */
+	bfile_seq NUMBER NOT NULL, /* ÆÄÀÏ¹øÈ£ */
+	bfile_origin_name VARCHAR2(40), /* ÆÄÀÏ ¿øº»ÀÌ¸§ */
+	bfile_path VARCHAR2(1000), /* ÆÄÀÏ°æ·Î */
+	bfile_savefolder VARCHAR2(100), /* ÀúÀåÆú´õ */
+	seq NUMBER, /* ±Û¹øÈ£ */
+	bfile_save_name <ÁöÁ¤ µÇÁö ¾ÊÀ½> /* ÆÄÀÏÀúÀåÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_board_file
@@ -717,10 +174,10 @@ ALTER TABLE board_file
 			bfile_seq
 		);
 
-/* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* °Ô½ÃÆÇ Çü½Ä */
 CREATE TABLE boardtype (
-	bcode NUMBER NOT NULL, /* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ */
-	bname VARCHAR2(20) /* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ */
+	bcode NUMBER NOT NULL, /* °Ô½ÃÆÇ Çü½Ä ¹øÈ£ */
+	bname VARCHAR2(20) /* °Ô½ÃÆÇ Çü½Ä ÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_boardtype
@@ -735,14 +192,14 @@ ALTER TABLE boardtype
 			bcode
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ÂÊÁö */
 CREATE TABLE message (
-	mseq NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½È£ */
-	seq NUMBER NOT NULL, /* ï¿½Û¹ï¿½È£ */
-	receiver_id VARCHAR2(16), /* ï¿½Þ´Â»ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	msg_flag NUMBER DEFAULT 0, /* È®ï¿½Î¿ï¿½ï¿½ï¿½ */
-	delete_send NUMBER, /* ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	delete_recei NUMBER /* ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	mseq NUMBER NOT NULL, /* ÂÊÁö±Û¹øÈ£ */
+	seq NUMBER NOT NULL, /* ±Û¹øÈ£ */
+	receiver_id VARCHAR2(16), /* ¹Þ´Â»ç¶÷ ¾ÆÀÌµð */
+	msg_flag NUMBER DEFAULT 0, /* È®ÀÎ¿©ºÎ */
+	delete_send NUMBER, /* »èÁ¦_º¸³½ÂÊ */
+	delete_recei NUMBER /* »èÁ¦_¹ÞÀºÂÊ */
 );
 
 CREATE UNIQUE INDEX PK_message
@@ -757,21 +214,21 @@ ALTER TABLE message
 			mseq
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* »ç¿øÁ¤º¸ */
 CREATE TABLE employee (
-	EMP_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	EMP_PW VARCHAR2(20) NOT NULL, /* ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	grade_id NUMBER NOT NULL, /* ï¿½ï¿½ï¿½Þ¹ï¿½È£ */
-	EMP_NAME VARCHAR2(16), /* ï¿½Ì¸ï¿½ */
-	EMP_email1 VARCHAR2(100), /* ï¿½Ì¸ï¿½ï¿½ï¿½ */
-	EMP_tel VARCHAR2(15), /* ï¿½ï¿½È­ï¿½ï¿½È£ */
-	profile_image VARCHAR2(1000), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ */
-	DEP_ID NUMBER, /* ï¿½Î¼ï¿½ï¿½ï¿½È£ */
-	EMP_ADDR1 VARCHAR2(50), /* ï¿½Ö¼ï¿½ */
-	EMP_ADDR2 VARCHAR2(100), /* ï¿½ï¿½ï¿½Ö¼ï¿½ */
-	EMP_EMAIL2 VARCHAR2(30), /* ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	EMP_STATUS NUMBER, /* ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	per_flag NUMBER /* ï¿½ï¿½ï¿½Ñ¹ï¿½È£ */
+	EMP_ID VARCHAR2(20) NOT NULL, /* »ç¿ø¹øÈ£ */
+	EMP_PW VARCHAR2(20) NOT NULL, /* ÆÐ½º¿öµå */
+	grade_id NUMBER NOT NULL, /* Á÷±Þ¹øÈ£ */
+	EMP_NAME VARCHAR2(16), /* ÀÌ¸§ */
+	EMP_email1 VARCHAR2(100), /* ÀÌ¸ÞÀÏ */
+	EMP_tel VARCHAR2(15), /* ÀüÈ­¹øÈ£ */
+	profile_image VARCHAR2(1000), /* ÇÁ·ÎÇÊÀÌ¹ÌÁö */
+	DEP_ID NUMBER, /* ºÎ¼­¹øÈ£ */
+	EMP_ADDR1 VARCHAR2(50), /* ÁÖ¼Ò */
+	EMP_ADDR2 VARCHAR2(100), /* »ó¼¼ÁÖ¼Ò */
+	EMP_EMAIL2 VARCHAR2(30), /* ÀÌ¸ÞÀÏ µµ¸ÞÀÎ */
+	EMP_STATUS NUMBER, /* ±Ù¹«»óÅÂ */
+	per_flag NUMBER /* ±ÇÇÑ¹øÈ£ */
 );
 
 CREATE UNIQUE INDEX PK_employee
@@ -786,11 +243,11 @@ ALTER TABLE employee
 			EMP_ID
 		);
 
-/* ï¿½Î¼ï¿½ */
+/* ºÎ¼­ */
 CREATE TABLE department (
-	DEP_ID NUMBER NOT NULL, /* ï¿½Î¼ï¿½ï¿½ï¿½È£ */
-	DEP_NAME VARCHAR2(40), /* ï¿½Î¼ï¿½ï¿½Ì¸ï¿½ */
-	Manager_ID NUMBER /* ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
+	DEP_ID NUMBER NOT NULL, /* ºÎ¼­¹øÈ£ */
+	DEP_NAME VARCHAR2(40), /* ºÎ¼­ÀÌ¸§ */
+	Manager_ID NUMBER /* ºÎ¼­Àå ¾ÆÀÌµð */
 );
 
 CREATE UNIQUE INDEX PK_department
@@ -805,10 +262,10 @@ ALTER TABLE department
 			DEP_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* Á÷±Þ */
 CREATE TABLE GRADE (
-	GRADE_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½Þ¹ï¿½È£ */
-	GRADE_NAME VARCHAR2(16) /* ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ */
+	GRADE_ID NUMBER NOT NULL, /* Á÷±Þ¹øÈ£ */
+	GRADE_NAME VARCHAR2(16) /* Á÷±ÞÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_GRADE
@@ -823,19 +280,19 @@ ALTER TABLE GRADE
 			GRADE_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ¹®¼­ */
 CREATE TABLE DOCUMENT (
-	DOC_ID VARCHAR2(16) NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	DOC_STATUS_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ */
-	EMP_ID NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	DOC_TYPE_ID NUMBER, /* ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	DOC_SUBJECT VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ */
-	DOC_CONTENT VARCHAR2(4000), /* ï¿½ï¿½ï¿½ï¿½ */
-	DOC_DATE DATE, /* ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	DOC_DEADLINE DATE, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	DOC_OPEN NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	DOC_DEP_ID NUMBER, /* ï¿½Û¼ï¿½ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	DOC_NOTE VARCHAR2(4000) /* ï¿½ï¿½ï¿½ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	DOC_STATUS_ID NUMBER NOT NULL, /* ÁøÇà»óÅÂ ¹øÈ£ */
+	EMP_ID NUMBER, /* ±â¾ÈÀÚ ¾ÆÀÌµð */
+	DOC_TYPE_ID NUMBER, /* ¹®¼­Å¸ÀÔ ¾ÆÀÌµð */
+	DOC_SUBJECT VARCHAR2(100), /* Á¦¸ñ */
+	DOC_CONTENT VARCHAR2(4000), /* ³»¿ë */
+	DOC_DATE DATE, /* ±â¾ÈÀÏ */
+	DOC_DEADLINE DATE, /* ¾÷¹« ¿Ï·á ¿¹Á¤ÀÏ */
+	DOC_OPEN NUMBER, /* °ø°³¿©ºÎ */
+	DOC_DEP_ID NUMBER, /* ÀÛ¼ººÎ¼­ ¾ÆÀÌµð */
+	DOC_NOTE VARCHAR2(4000) /* ºñ°í */
 );
 
 CREATE UNIQUE INDEX PK_DOCUMENT
@@ -850,10 +307,10 @@ ALTER TABLE DOCUMENT
 			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¹®¼­Çü½Ä */
 CREATE TABLE DOC_TYPE (
-	DOC_TYPE_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	DOC_TYPE_NAME VARCHAR2(30) /* Å¸ï¿½ï¿½ ï¿½Ì¸ï¿½ */
+	DOC_TYPE_ID NUMBER NOT NULL, /* ¹®¼­Å¸ÀÔ ¾ÆÀÌµð */
+	DOC_TYPE_NAME VARCHAR2(30) /* Å¸ÀÔ ÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_DOC_TYPE
@@ -868,14 +325,14 @@ ALTER TABLE DOC_TYPE
 			DOC_TYPE_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¾÷¹«ÀÏÁö */
 CREATE TABLE journal (
-	DOC_ID VARCHAR2(16) NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	jou_today VARCHAR2(4000), /* ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ */
-	jou_nextday VARCHAR2(4000), /* ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ */
-	jou_note VARCHAR2(4000), /* Æ¯ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ */
-	jou_issue VARCHAR2(4000) DEFAULT ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½
- /* ï¿½Ç°ï¿½ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	jou_today VARCHAR2(4000), /* ±ÝÀÏ³»¿ë */
+	jou_nextday VARCHAR2(4000), /* ÀÍÀÏ³»¿ë */
+	jou_note VARCHAR2(4000), /* Æ¯ÀÌ»çÇ× ¹× °ÇÀÇ»çÇ× */
+	jou_issue VARCHAR2(4000) DEFAULT ¹®¼­ Å×ÀÌºí »ó¼Ó
+ /* ÀÇ°ß */
 );
 
 CREATE UNIQUE INDEX PK_journal
@@ -890,10 +347,10 @@ ALTER TABLE journal
 			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¹®¼­ ÁøÇà»óÅÂ */
 CREATE TABLE DOC_STATUS (
-	DOC_STATUS_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ */
-	DOC_STATUS_NAME VARCHAR2(20) /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ */
+	DOC_STATUS_ID NUMBER NOT NULL, /* ÁøÇà»óÅÂ ¹øÈ£ */
+	DOC_STATUS_NAME VARCHAR2(20) /* ÁøÇà»óÅÂ ÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_DOC_STATUS
@@ -908,89 +365,98 @@ ALTER TABLE DOC_STATUS
 			DOC_STATUS_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
+/* ¼ö½Å ¸ñ·Ï */
 CREATE TABLE RECEIVE_LIST (
-	RECEI_SEQ NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	DOC_ID VARCHAR2(16), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	DEP_ID NUMBER /* ï¿½Î¼ï¿½ï¿½ï¿½È£ */
+	RECEI_SEQ NUMBER NOT NULL, /* ¼ö½Å ÀÏ·Ã¹øÈ£ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	DEP_ID NUMBER /* ºÎ¼­¹øÈ£ */
 );
 
 CREATE UNIQUE INDEX PK_RECEIVE_LIST
 	ON RECEIVE_LIST (
-		RECEI_SEQ ASC
+		RECEI_SEQ ASC,
+		DOC_ID ASC
 	);
 
 ALTER TABLE RECEIVE_LIST
 	ADD
 		CONSTRAINT PK_RECEIVE_LIST
 		PRIMARY KEY (
-			RECEI_SEQ
+			RECEI_SEQ,
+			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* °áÀçÀÚ Á¤º¸ */
 CREATE TABLE SIGN_INFO (
-	appr_seq NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	DOC_ID VARCHAR2(16), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	EMP_ID NUMBER /* ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
+	appr_seq NUMBER NOT NULL, /* °áÀçÀÚ ÀÏ·Ã¹øÈ£ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	EMP_ID VARCHAR2(20), /* »ç¿ø¹øÈ£ */
+	appr_flag NUMBER /* °áÀç»óÅÂ */
 );
 
 CREATE UNIQUE INDEX PK_SIGN_INFO
 	ON SIGN_INFO (
-		appr_seq ASC
+		appr_seq ASC,
+		DOC_ID ASC
 	);
 
 ALTER TABLE SIGN_INFO
 	ADD
 		CONSTRAINT PK_SIGN_INFO
 		PRIMARY KEY (
-			appr_seq
+			appr_seq,
+			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÂüÁ¶ÀÎ Á¤º¸ */
 CREATE TABLE reference (
-	REF_SEQ NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	DOC_ID VARCHAR2(16), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	EMP_ID NUMBER /* ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
+	REF_SEQ NUMBER NOT NULL, /* ÂüÁ¶ ÀÏ·Ã¹øÈ£ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	EMP_ID VARCHAR2(20) /* »ç¿ø¹øÈ£ */
 );
 
 CREATE UNIQUE INDEX PK_reference
 	ON reference (
-		REF_SEQ ASC
+		REF_SEQ ASC,
+		DOC_ID ASC
 	);
 
 ALTER TABLE reference
 	ADD
 		CONSTRAINT PK_reference
 		PRIMARY KEY (
-			REF_SEQ
+			REF_SEQ,
+			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÇùÁ¶ÀÎ Á¤º¸ */
 CREATE TABLE Cooperation (
-	coop_SEQ NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	DOC_ID VARCHAR2(16), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	EMP_ID NUMBER /* ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
+	coop_SEQ NUMBER NOT NULL, /* ÇùÁ¶ ÀÏ·Ã¹øÈ£ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	EMP_ID VARCHAR2(20) /* »ç¿ø¹øÈ£ */
 );
 
 CREATE UNIQUE INDEX PK_Cooperation
 	ON Cooperation (
-		coop_SEQ ASC
+		coop_SEQ ASC,
+		DOC_ID ASC
 	);
 
 ALTER TABLE Cooperation
 	ADD
 		CONSTRAINT PK_Cooperation
 		PRIMARY KEY (
-			coop_SEQ
+			coop_SEQ,
+			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½ */
+/* ÁöÃâ°áÀÇ¼­ */
 CREATE TABLE payment (
-	PAYMENT_ID NUMBER NOT NULL, /* ï¿½Ï·Ã¹ï¿½È£ */
-	billing NUMBER, /* Ã»ï¿½ï¿½ï¿½Ý¾ï¿½ */
-	settlement NUMBER, /* ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ */
-	recipient VARCHAR2(30), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	DOC_ID VARCHAR2(16) /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
+	PAYMENT_ID NUMBER NOT NULL, /* ÀÏ·Ã¹øÈ£ */
+	billing NUMBER, /* Ã»±¸±Ý¾× */
+	settlement NUMBER, /* Á¤»ê±Ý¾× */
+	recipient VARCHAR2(30), /* ¼ö·ÉÀÎ */
+	DOC_ID VARCHAR2(16) /* ¹®¼­¹øÈ£ */
 );
 
 CREATE UNIQUE INDEX PK_payment
@@ -1005,117 +471,121 @@ ALTER TABLE payment
 			PAYMENT_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÁöÃâ ³»¿ª Á¤º¸ */
 CREATE TABLE PAYMENT_INFO (
-	payInfo_seq NUMBER NOT NULL, /* ï¿½ï¿½ï¿½â³»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	PAYMENT_ID NUMBER NOT NULL, /* ï¿½Ï·Ã¹ï¿½È£ */
-	PAY_DATE DATE, /* ï¿½ï¿½Â¥ */
-	PAY_INFO PAY_INFO, /* ï¿½ï¿½ï¿½â³»ï¿½ï¿½ */
-	AMOUNT NUMBER, /* ï¿½Ý¾ï¿½ */
-	NOTE VARCHAR2(500) /* ï¿½ï¿½ï¿½ */
+	payInfo_seq NUMBER NOT NULL, /* ÁöÃâ³»¿ªÁ¤º¸ ÀÏ·Ã¹øÈ£ */
+	PAYMENT_ID NUMBER NOT NULL, /* ÀÏ·Ã¹øÈ£ */
+	PAY_DATE DATE, /* ³¯Â¥ */
+	PAY_INFO varchar2(200), /* ÁöÃâ³»¿ª */
+	AMOUNT NUMBER, /* ±Ý¾× */
+	NOTE VARCHAR2(500) /* ºñ°í */
 );
 
 CREATE UNIQUE INDEX PK_PAYMENT_INFO
 	ON PAYMENT_INFO (
-		payInfo_seq ASC
+		payInfo_seq ASC,
+		PAYMENT_ID ASC
 	);
 
 ALTER TABLE PAYMENT_INFO
 	ADD
 		CONSTRAINT PK_PAYMENT_INFO
 		PRIMARY KEY (
-			payInfo_seq
+			payInfo_seq,
+			PAYMENT_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ */
-CREATE TABLE btrip application (
-	DOC_ID VARCHAR2(16) NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	START_DATE DATE, /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	END_DATE DATE, /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	btrip_location VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	btrip_purpose VARCHAR2(200) /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÃâÀå½ÅÃ»¼­ */
+CREATE TABLE btrip_application (
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	START_DATE DATE, /* ÃâÀå ½ÃÀÛÀÏ */
+	END_DATE DATE, /* ÃâÀå Á¾·áÀÏ */
+	btrip_location VARCHAR2(100), /* ÃâÀåÁö */
+	btrip_purpose VARCHAR2(200) /* ÃâÀå ¸ñÀû */
 );
 
-CREATE UNIQUE INDEX PK_btrip application
-	ON btrip application (
+CREATE UNIQUE INDEX PK_btrip_application
+	ON btrip_application (
 		DOC_ID ASC
 	);
 
-ALTER TABLE btrip application
+ALTER TABLE btrip_application
 	ADD
-		CONSTRAINT PK_btrip application
+		CONSTRAINT PK_btrip_application
 		PRIMARY KEY (
 			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½åº¸ï¿½ï¿½ */
-CREATE TABLE btrip report (
-	EXPENSE_INFO_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	DOC_ID VARCHAR2(16), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	START_DATE DATE, /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	END_DATE DATE, /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	btrip_location VARCHAR2(100) /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ÃâÀåº¸°í¼­ */
+CREATE TABLE btrip_report (
+	EXPENSE_INFO_ID NUMBER NOT NULL, /* ÃâÀå ÀÏ·Ã¹øÈ£ */
+	DOC_ID VARCHAR2(16), /* ¹®¼­¹øÈ£ */
+	START_DATE DATE, /* ÃâÀå ½ÃÀÛÀÏ */
+	END_DATE DATE, /* ÃâÀå Á¾·áÀÏ */
+	btrip_location VARCHAR2(100) /* ÃâÀåÁö */
 );
 
-CREATE UNIQUE INDEX PK_btrip report
-	ON btrip report (
+CREATE UNIQUE INDEX PK_btrip_report
+	ON btrip_report (
 		EXPENSE_INFO_ID ASC
 	);
 
-ALTER TABLE btrip report
+ALTER TABLE btrip_report
 	ADD
-		CONSTRAINT PK_btrip report
+		CONSTRAINT PK_btrip_report
 		PRIMARY KEY (
 			EXPENSE_INFO_ID
 		);
 
-/* ï¿½ï¿½ï¿½å¿©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ÃâÀå¿©ºñ Á¤º¸ */
 CREATE TABLE btrip_payment (
-	exp_seq NUMBER NOT NULL, /* ï¿½ï¿½ï¿½å¿©ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	EXPENSE_INFO_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	exp_daily NUMBER, /* ï¿½Ïºï¿½ */
-	exp_room NUMBER, /* ï¿½ï¿½ï¿½Úºï¿½ */
-	exp_food NUMBER, /* ï¿½Äºï¿½ */
-	exp_trans NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	exp_etc NUMBER, /* ï¿½ï¿½Å¸ï¿½ï¿½ */
-	exp_total NUMBER /* ï¿½Õ°ï¿½ */
+	exp_seq NUMBER NOT NULL, /* ÃâÀå¿©ºñ ÀÏ·Ã¹øÈ£ */
+	EXPENSE_INFO_ID NUMBER NOT NULL, /* ÃâÀå ÀÏ·Ã¹øÈ£ */
+	exp_daily NUMBER, /* ÀÏºñ */
+	exp_room NUMBER, /* ¼÷¹Úºñ */
+	exp_food NUMBER, /* ½Äºñ */
+	exp_trans NUMBER, /* ±³Åëºñ */
+	exp_etc NUMBER, /* ±âÅ¸ºñ */
+	exp_total NUMBER /* ÇÕ°è */
 );
 
 CREATE UNIQUE INDEX PK_btrip_payment
 	ON btrip_payment (
-		exp_seq ASC
+		exp_seq ASC,
+		EXPENSE_INFO_ID ASC
 	);
 
 ALTER TABLE btrip_payment
 	ADD
 		CONSTRAINT PK_btrip_payment
 		PRIMARY KEY (
-			exp_seq
+			exp_seq,
+			EXPENSE_INFO_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ÃâÅð±Ù */
 CREATE TABLE inout (
-	EMP_ID NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	INOUTDATE DATE, /* ï¿½Ù¹ï¿½ï¿½ï¿½ */
-	START_TIME VARCHAR2(9), /* ï¿½ï¿½Ù½Ã°ï¿½ */
-	END_TIME VARCHAR2(9), /* ï¿½ï¿½Ù½Ã°ï¿½ */
-	NOTE VARCHAR2(4000), /* ï¿½ï¿½Å¸ */
-	IN_CODE NUMBER, /* ï¿½ï¿½ï¿½ï¿½Úµï¿½ */
-	OUT_CODE NUMBER /* ï¿½ï¿½ï¿½ï¿½Úµï¿½ */
+	EMP_ID VARCHAR2(20), /* »ç¿ø¹øÈ£ */
+	INOUTDATE DATE, /* ±Ù¹«ÀÏ */
+	START_TIME VARCHAR2(9), /* Ãâ±Ù½Ã°£ */
+	END_TIME VARCHAR2(9), /* Åð±Ù½Ã°£ */
+	NOTE VARCHAR2(4000), /* ±âÅ¸ */
+	IN_CODE NUMBER, /* Ãâ±ÙÄÚµå */
+	OUT_CODE NUMBER /* Åð±ÙÄÚµå */
 );
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ÀÏÁ¤°ü¸® */
 CREATE TABLE SCHEDULE (
-	SCH_SEQ NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	EMP_ID NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	SCH_code NUMBER, /* ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	SCH_START DATE, /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	SCH_END DATE, /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	SCH_SUBJECT VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
-	SCH_CONTENT VARCHAR2(4000), /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
-	SCH_OPEN NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	DEP_ID NUMBER, /* ï¿½Î¼ï¿½ï¿½ï¿½ï¿½Ìµï¿½ */
-	sch_modi_flag NUMBER DEFAULT 0 /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ã·ï¿½ï¿½ï¿½ */
+	SCH_SEQ NUMBER NOT NULL, /* ÀÏÁ¤ ÀÏ·Ã¹øÈ£ */
+	EMP_ID VARCHAR2(20), /* »ç¿ø¹øÈ£ */
+	SCH_code NUMBER, /* ÀÏÁ¤Å¸ÀÔ ¾ÆÀÌµð */
+	SCH_START DATE, /* ÀÏÁ¤ ½ÃÀÛÀÏ */
+	SCH_END DATE, /* ÀÏÁ¤ Á¾·áÀÏ */
+	SCH_SUBJECT VARCHAR2(100), /* ÀÏÁ¤ Á¦¸ñ */
+	SCH_CONTENT VARCHAR2(4000), /* ÀÏÁ¤ ³»¿ë */
+	SCH_OPEN NUMBER, /* °ø°³¿©ºÎ */
+	DEP_ID NUMBER, /* ºÎ¼­¾ÆÀÌµð */
+	sch_modi_flag NUMBER DEFAULT 0 /* ¼öÁ¤¿äÃ»ÇÃ·¡±× */
 );
 
 CREATE UNIQUE INDEX PK_SCHEDULE
@@ -1130,10 +600,10 @@ ALTER TABLE SCHEDULE
 			SCH_SEQ
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ */
+/* ÀÏÁ¤Å¸ÀÔ */
 CREATE TABLE schedule_type (
-	SCH_code NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	SCH_NAME VARCHAR2(50) /* ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ì¸ï¿½ */
+	SCH_code NUMBER NOT NULL, /* ÀÏÁ¤Å¸ÀÔ ¾ÆÀÌµð */
+	SCH_NAME VARCHAR2(50) /* ÀÏÁ¤Å¸ÀÔ ÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_schedule_type
@@ -1148,36 +618,36 @@ ALTER TABLE schedule_type
 			SCH_code
 		);
 
-/* ï¿½Ö¼Ò·ï¿½ */
+/* ÁÖ¼Ò·Ï */
 CREATE TABLE addressbook (
-	EMP_ID NUMBER DEFAULT 0, /* ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	addr_NAME VARCHAR2(16), /* ï¿½Ì¸ï¿½ */
-	addr_EMAIL1 VARCHAR2(100), /* ï¿½Ì¸ï¿½ï¿½ï¿½1 */
-	addr_EMAIL2 VARCHAR2(30), /* ï¿½Ì¸ï¿½ï¿½ï¿½2 */
-	addr_TEL VARCHAR2(15), /* ï¿½Þ´ï¿½ï¿½ï¿½È­ */
-	addr_ETEL VARCHAR2(15), /* ï¿½ï¿½È­ */
-	addr_FAX VARCHAR2(20), /* ï¿½Ñ½ï¿½ */
-	DEP_ID NUMBER DEFAULT 0, /* ï¿½Î¼ï¿½ï¿½ï¿½È£ */
-	addr_flag NUMBER, /* ï¿½ï¿½ï¿½ï¿½/ï¿½Î¼ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ */
-	addr_addr VARCHAR2(200), /* ï¿½Ö¼ï¿½ */
-	addr_cpname VARCHAR2(200), /* È¸ï¿½ï¿½ï¿½Ì¸ï¿½ */
-	addr_cpdep VARCHAR2(200), /* È¸ï¿½ï¿½Î¼ï¿½ */
-	addr_cpgrade VARCHAR2(200), /* È¸ï¿½ï¿½ï¿½ï¿½Ã¥ */
-	addr_cptel VARCHAR2(15), /* È¸ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½È£ */
-	addr_cpaddr VARCHAR2(15) /* È¸ï¿½ï¿½ï¿½Ö¼ï¿½ */
+	EMP_ID VARCHAR2(20) DEFAULT 0, /* »ç¿ø¹øÈ£ */
+	addr_NAME VARCHAR2(16), /* ÀÌ¸§ */
+	addr_EMAIL1 VARCHAR2(100), /* ÀÌ¸ÞÀÏ1 */
+	addr_EMAIL2 VARCHAR2(30), /* ÀÌ¸ÞÀÏ2 */
+	addr_TEL VARCHAR2(15), /* ÈÞ´ëÀüÈ­ */
+	addr_ETEL VARCHAR2(15), /* ÀüÈ­ */
+	addr_FAX VARCHAR2(20), /* ÆÑ½º */
+	DEP_ID NUMBER DEFAULT 0, /* ºÎ¼­¹øÈ£ */
+	addr_flag NUMBER, /* °³ÀÎ/ºÎ¼­ ÇÃ·¡±× */
+	addr_addr VARCHAR2(200), /* ÁÖ¼Ò */
+	addr_cpname VARCHAR2(200), /* È¸»çÀÌ¸§ */
+	addr_cpdep VARCHAR2(200), /* È¸»çºÎ¼­ */
+	addr_cpgrade VARCHAR2(200), /* È¸»çÁ÷Ã¥ */
+	addr_cptel VARCHAR2(15), /* È¸»çÀüÈ­¹øÈ£ */
+	addr_cpaddr VARCHAR2(15) /* È¸»çÁÖ¼Ò */
 );
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® */
+/* ÇÁ·ÎÁ§Æ® */
 CREATE TABLE project (
-	ProJ_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·Ã¹ï¿½È£ */
-	proj_category NUMBER, /* Ä«ï¿½×°ï¿½ */
-	ProJ_start DATE, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	ProJ_end DATE, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	ProJ_name VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ */
-	ProJ_explain VARCHAR2(4000), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ */
-	ProJ_file VARCHAR2(1000), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ */
-	EMP_ID NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	proj_rdate DATE /* ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	ProJ_ID NUMBER NOT NULL, /* ÇÁ·ÎÁ§Æ® ÀÏ·Ã¹øÈ£ */
+	proj_category NUMBER, /* Ä«Å×°í¸® */
+	ProJ_start DATE, /* ÇÁ·ÎÁ§Æ® ½ÃÀÛÀÏ */
+	ProJ_end DATE, /* ÇÁ·ÎÁ§Æ® Á¾·áÀÏ */
+	ProJ_name VARCHAR2(100), /* ÇÁ·ÎÁ§Æ® ¸í */
+	ProJ_explain VARCHAR2(4000), /* ÇÁ·ÎÁ§Æ® ¼³¸í */
+	ProJ_file VARCHAR2(1000), /* ÇÁ·ÎÁ§Æ® ÆÄÀÏ */
+	EMP_ID VARCHAR2(20), /* µî·ÏÀÚ ¾ÆÀÌµð */
+	proj_rdate DATE /* µî·ÏÀÏ */
 );
 
 CREATE UNIQUE INDEX PK_project
@@ -1192,24 +662,24 @@ ALTER TABLE project
 			ProJ_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Î¿ï¿½ */
+/* ÇÁ·ÎÁ§Æ® ÀÎ¿ø */
 CREATE TABLE project_number (
-	ProJ_ID NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·Ã¹ï¿½È£ */
-	EMP_ID NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
-	COL_start DATE, /* ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	COL_end DATE, /* ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	col_progress NUMBER, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	COL_content VARCHAR2(200) /* ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+	ProJ_ID NUMBER NOT NULL, /* ÇÁ·ÎÁ§Æ® ÀÏ·Ã¹øÈ£ */
+	EMP_ID NUMBER, /* ´ã´çÀÚ ¾ÆÀÌµð */
+	COL_start DATE, /* ´ã´ç ½ÃÀÛÀÏ */
+	COL_end DATE, /* ´ã´ç Á¾·áÀÏ */
+	col_progress NUMBER, /* ÁøÇàÀ² */
+	COL_content VARCHAR2(200) /* ´ã´ç ³»¿ë */
 );
 
-/* ï¿½Ú·ï¿½ï¿½ */
+/* ÀÚ·á½Ç */
 CREATE TABLE bbs (
-	bbs_seq NUMBER NOT NULL, /* ï¿½Ú·ï¿½ï¿½È£ */
-	seq NUMBER, /* ï¿½Û¹ï¿½È£ */
-	bbs_origin_name VARCHAR2(40), /* ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ */
-	bbs_path VARCHAR2(1000), /* ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ */
-	bbs_savefolder VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	bbs_save_name VARCHAR2(100) /* ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ */
+	bbs_seq NUMBER NOT NULL, /* ÀÚ·á¹øÈ£ */
+	seq NUMBER, /* ±Û¹øÈ£ */
+	bbs_origin_name VARCHAR2(40), /* ÀÚ·á ¿øº»ÀÌ¸§ */
+	bbs_path VARCHAR2(1000), /* ÆÄÀÏ°æ·Î */
+	bbs_savefolder VARCHAR2(100), /* ÀúÀåÆú´õ */
+	bbs_save_name VARCHAR2(100) /* ÀÚ·á ÀúÀåÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_bbs
@@ -1224,39 +694,41 @@ ALTER TABLE bbs
 			bbs_seq
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ÈÞÀÏ */
 CREATE TABLE holiday (
-	holi_flag NUMBER, /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
-	holi_date DATE, /* ï¿½ï¿½Â¥ */
-	holi_name VARCHAR2(50) /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ */
+	holi_flag NUMBER, /* ÈÞÀÏ ±¸ºÐ */
+	holi_date DATE, /* ³¯Â¥ */
+	holi_name VARCHAR2(50) /* ÈÞÀÏ ÀÌ¸§ */
 );
 
-/* Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* Ã·ºÎÆÄÀÏ */
 CREATE TABLE file (
-	file_seq NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
-	DOC_ID VARCHAR2(16), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	origin_file_name VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ */
-	save_file_name VARCHAR2(100), /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ */
-	savepath VARCHAR2(1000), /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	savefolder VARCHAR2(1000) /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	file_seq NUMBER NOT NULL, /* ÆÄÀÏ ÀÏ·Ã¹øÈ£ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	origin_file_name VARCHAR2(100), /* ¿øº» ÆÄÀÏ ÀÌ¸§ */
+	save_file_name VARCHAR2(100), /* ÀúÀå ÆÄÀÏ ÀÌ¸§ */
+	savepath VARCHAR2(1000), /* ÀúÀå°æ·Î */
+	savefolder VARCHAR2(1000) /* ÀúÀåÆú´õ */
 );
 
 CREATE UNIQUE INDEX PK_file
 	ON file (
-		file_seq ASC
+		file_seq ASC,
+		DOC_ID ASC
 	);
 
 ALTER TABLE file
 	ADD
 		CONSTRAINT PK_file
 		PRIMARY KEY (
-			file_seq
+			file_seq,
+			DOC_ID
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ */
+/* ÃâÅð±Ù»óÅÂ */
 CREATE TABLE inout_code (
-	INOUT_CODE NUMBER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ */
-	INOUT_NAME VARCHAR2(50) /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ì¸ï¿½ */
+	INOUT_CODE NUMBER NOT NULL, /* ÃâÅð±ÙÄÚµå */
+	INOUT_NAME VARCHAR2(50) /* ÃâÅð±ÙÄÚµå ÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_inout_code
@@ -1271,10 +743,10 @@ ALTER TABLE inout_code
 			INOUT_CODE
 		);
 
-/* ï¿½ï¿½ï¿½ï¿½ */
+/* ±ÇÇÑ */
 CREATE TABLE Permission (
-	per_flag NUMBER NOT NULL, /* ï¿½ï¿½ï¿½Ñ¹ï¿½È£ */
-	per_name VARCHAR2(100) /* ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ */
+	per_flag NUMBER NOT NULL, /* ±ÇÇÑ¹øÈ£ */
+	per_name VARCHAR2(100) /* ±ÇÇÑÀÌ¸§ */
 );
 
 CREATE UNIQUE INDEX PK_Permission
@@ -1289,11 +761,11 @@ ALTER TABLE Permission
 			per_flag
 		);
 
-/* ï¿½Þ´ï¿½ */
+/* ¸Þ´º */
 CREATE TABLE menu (
-	menu_seq NUMBER NOT NULL, /* ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	menu_name VARCHAR2(100), /* ï¿½Þ´ï¿½ï¿½Ì¸ï¿½ */
-	permission NUMBER /* ï¿½ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ */
+	menu_seq NUMBER NOT NULL, /* ¸Þ´º¼ø¼­ */
+	menu_name VARCHAR2(100), /* ¸Þ´ºÀÌ¸§ */
+	permission NUMBER /* Á¢±Ù±ÇÇÑ */
 );
 
 CREATE UNIQUE INDEX PK_menu
@@ -1308,14 +780,14 @@ ALTER TABLE menu
 			menu_seq
 		);
 
-/* ï¿½Þ°ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ */
+/* ÈÞ°¡½ÅÃ»¼­ */
 CREATE TABLE vacation (
-	DOC_ID VARCHAR2(16) NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ */
-	va_START_DATE DATE, /* ï¿½Þ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	va_END_DATE DATE, /* ï¿½Þ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	va_location VARCHAR2(100), /* ï¿½Þ°ï¿½ï¿½ï¿½ */
-	va_purpose VARCHAR2(200), /* ï¿½Þ°ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	va_phone VARCHAR2(16) /* ï¿½ï¿½ï¿½ï¿½Ã³ */
+	DOC_ID VARCHAR2(16) NOT NULL, /* ¹®¼­¹øÈ£ */
+	va_START_DATE DATE, /* ÈÞ°¡ ½ÃÀÛÀÏ */
+	va_END_DATE DATE, /* ÈÞ°¡ Á¾·áÀÏ */
+	va_location VARCHAR2(100), /* ÈÞ°¡Áö */
+	va_purpose VARCHAR2(200), /* ÈÞ°¡»çÀ¯ */
+	va_phone VARCHAR2(16) /* ¿¬¶ôÃ³ */
 );
 
 CREATE UNIQUE INDEX PK_vacation
@@ -1530,9 +1002,9 @@ ALTER TABLE PAYMENT_INFO
 			PAYMENT_ID
 		);
 
-ALTER TABLE btrip application
+ALTER TABLE btrip_application
 	ADD
-		CONSTRAINT FK_DOCUMENT_TO_btrip application
+		CONSTRAINT FK_DOCUMENT_TO_btrip_application
 		FOREIGN KEY (
 			DOC_ID
 		)
@@ -1540,9 +1012,9 @@ ALTER TABLE btrip application
 			DOC_ID
 		);
 
-ALTER TABLE btrip report
+ALTER TABLE btrip_report
 	ADD
-		CONSTRAINT FK_DOCUMENT_TO_btrip report
+		CONSTRAINT FK_DOCUMENT_TO_btrip_report
 		FOREIGN KEY (
 			DOC_ID
 		)
@@ -1552,11 +1024,11 @@ ALTER TABLE btrip report
 
 ALTER TABLE btrip_payment
 	ADD
-		CONSTRAINT FK_btrip report_TO_btrip_payment
+		CONSTRAINT FK_btrip_report_TO_btrip_payment
 		FOREIGN KEY (
 			EXPENSE_INFO_ID
 		)
-		REFERENCES btrip report (
+		REFERENCES btrip_report (
 			EXPENSE_INFO_ID
 		);
 
@@ -1689,6 +1161,3 @@ ALTER TABLE vacation
 		REFERENCES DOCUMENT (
 			DOC_ID
 		);
-		
-ALTER TABLE sign_info
-ADD (appr_flag NUMber);
