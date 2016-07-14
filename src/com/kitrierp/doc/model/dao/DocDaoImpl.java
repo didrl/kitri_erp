@@ -10,7 +10,9 @@ public class DocDaoImpl implements DocDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public void setSqlSession(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
+	@Override
+	public String doc_id(int doc_type_id) {
+		return sqlSession.selectOne("com.kitrierp.doc.model.DocDaoImpl.doc_id", doc_type_id);
 	}
+	
 }
