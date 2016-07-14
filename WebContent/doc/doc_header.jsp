@@ -40,6 +40,14 @@ $(document).ready(function() {
 	
 }); 
 </script>
+
+<script type="text/javascript">
+function golist() {
+	
+	  window.open("${root}/organization/list.erp", "select", "top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+}
+
+</script>
 <!-- for Timepicker -->
 
 <div id="wrapper"> 
@@ -47,60 +55,7 @@ $(document).ready(function() {
 <div id="page-wrapper">
 <div id="sub">
 	
-	<!-- Organization -->
-	<div id="organization" class="col-lg-5" style=" display:none;">
-		<table class="table">
-			<tbody>
-
-				<tr>
-					<td colspan="3">
-
-						<div class="panel panel-default">
-							<div class="panel-heading">부서구조</div>
-
-							<!-- .panel-heading -->
-							<div class="panel-body">
-								<c:forEach varStatus="i" var="emp" items="${olist}">
-										<c:if test="${emp.dep_id != dep_id}">
-								<div class="panel-group" id="accordion">
-											<div class="panel panel-default">
-
-												<c:set var="dep_id" value="" />
-												<div class="panel-heading">
-													<h4 class="panel-title">
-														<a data-toggle="collapse${i.index}" data-parent="#accordion"
-															href="#collapse">${emp.dep_name},${emp.dep_id}</a>
-													</h4>
-												</div>
-										</c:if>
-
-										<div id="collapse${i.index}" class="panel-collapse collapse in">
-											<div class="panel-body">
-												<ul>
-													<!-- 직급 -->
-													<li>${emp.grade_name}
-														<ul>
-															<li>${emp.emp_name}</li>
-														</ul>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<c:if test="${i.index < olist.size() - 1 }">
-											<c:if test="${olist.get(i.index + 1).dep_id != dep_id }">
-							   	</div>
-											</c:if>
-										</c:if>
-								</c:forEach>
-								</div>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		 <p><a href="#" class="closeDOMWindow">닫기</a></p> 
-	</div>
-	<!-- //Organization -->
+	
 
 	<!-- 전자결재 문서   
 	**** hidden 정리하기!!!! ****
@@ -180,7 +135,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell2"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -191,7 +146,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell2"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -202,7 +157,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->
 									<div id="MembersFindCell3"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -213,7 +168,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell4"  class="btn_page pad15l overf">
 									<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -224,7 +179,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->
 									<div id="MembersFindCell5"  class="btn_page pad15l overf">
 									<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -281,7 +236,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell11"  class="btn_page pad15l overf">
 										<!-- 취소 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -292,7 +247,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell12"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -303,7 +258,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell13"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -314,7 +269,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell14"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<span>지정</span>
 										</a>
 									</div>
@@ -325,7 +280,7 @@ $(document).ready(function() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell15"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a class="openPopup"  href="${root}/doc/m_organization.jsp">
+										<a onclick="javascript:golist();">
 											<!--  <a class="openPopup"  href="myOrderUserAppointPopup.php?mode=order&number=15&total=5&WordUseHelper=Y">-->
 											<span>지정</span>
 										</a>
