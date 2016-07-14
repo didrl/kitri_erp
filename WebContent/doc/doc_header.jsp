@@ -323,12 +323,7 @@ function golist() {
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">기안일</th>
 					<td class="pad15l" colspan="3" >
-						<input name="DraftingY" type="text" value="" size="4" maxlength="4">
-						<label>년</label>
-						<input name="DraftingM" type="text" value="" size="2" maxlength="2">
-						<label>월</label>
-						<input name="DraftingD" type="text" value="" size="2" maxlength="2">
-						<label>일</label>
+						<input name="doc_date" class="datepicker" id="datepicker" type="text">
 					</td>
 				</tr>
 				<!-- 기안자, (출장인원) -->
