@@ -22,7 +22,7 @@ public class OrganizationController {
 		ModelAndView mav = new ModelAndView();
 		List<EmployeeDto> olist=organizationService.organizationList();
 		mav.addObject("olist",olist);
-		mav.setViewName("/doc/org_select");
+		mav.setViewName("/doc/m_organization");
 		return mav;
 		
 	}
