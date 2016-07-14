@@ -3,6 +3,10 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.common.model.CommonDaoImpl">
-     
-    
+    <select id="doc_id" parameterType="int" resultType="String">
+        select (to_char(sysdate, 'YYMM')||'-'||(select to_char(doc_type_id, 'FM00') 
+                                                from doc_type
+                                                where doc_type_id = #doc_type_id#)||to_char(seq_doc_id.nextval, 'FM0000'))
+        from dual
+    </select>
 </mapper>
