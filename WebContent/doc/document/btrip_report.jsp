@@ -2,8 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/common/user_sidebar.jsp" %>
 <%@ include file="/doc/doc_header.jsp" %>
+
    
       <!-- 기본형 휴가계/출장계 -->
+
+
+
+         <!-- 기본형 휴가계/출장계 -->
+
       <tr class="change_height_on_print">
          <td id="eword_content" class="eword_content_layout">
             <table id="eword_special" class="eword_meta">
