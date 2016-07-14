@@ -1,5 +1,8 @@
 package com.kitrierp.doc.model.dao;
 
-public interface ConsultationDao {
+import com.kitrierp.doc.model.DocumentDto;
 
+public interface ConsultationDao {
+	int reportDoc(DocumentDto documentDto);
+	int tmpsaveDoc(DocumentDto documentDto);
 }

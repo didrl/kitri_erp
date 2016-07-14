@@ -3,5 +3,6 @@ package com.kitrierp.doc.model.dao;
 import com.kitrierp.doc.model.BtripApplicationDto;
 
 public interface BtripApplicationDao {
-	int applicationWrite(BtripApplicationDto btripApplicationDto);
+	int reportDoc(BtripApplicationDto btripApplicationDto);
+	int tmpsaveDoc(BtripApplicationDto btripApplicationDto);
 }

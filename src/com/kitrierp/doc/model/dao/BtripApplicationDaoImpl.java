@@ -12,9 +12,15 @@ public class BtripApplicationDaoImpl implements BtripApplicationDao {
 	@Autowired
 	private SqlSession sqlSession;
 
+
 	@Override
-	public int applicationWrite(BtripApplicationDto btripApplicationDto) {
+	public int reportDoc(BtripApplicationDto btripApplicationDto) {
 		return sqlSession.insert("com.kitrierp.doc.model.dao.BtripApplicationDaoImpl.write",btripApplicationDto);
+	}
+
+	@Override
+	public int tmpsaveDoc(BtripApplicationDto btripApplicationDto) {
+		return 0;
 	}
 	
 	

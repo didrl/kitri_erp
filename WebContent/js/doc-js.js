@@ -20,13 +20,13 @@ $().ready(function() {
 	//결재자/협조자/대체근무자 지정 팝업
 	$('#reportDoc').click(function(){
 		alert("reportDoc");
-		document.docform.action = "${root}/confirm/loginck.erp";
+		document.docform.action = "${root}/${param.doc_controller}/reportDoc.erp";
 		document.docform.submit();
 	});
 	
 	$('#tmpsaveDoc').click(function(){
 		alert("tmpsaveDoc");
-		document.docform.action = "${root}/confirm/loginck.erp";
+		document.docform.action = "${root}/${param.doc_controller}/tmpsaveDoc.erp";
 		document.docform.submit();
 	});
 	

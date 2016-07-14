@@ -12,7 +12,14 @@ public class BtripReportServiceImpl implements BtripReportService {
 	private BtripReportDao btripReportDao;
 
 	@Override
-	public int reportWrite(BtripReportDto btripReportDto) {
-		return btripReportDao.reportWrite(btripReportDto);
+	public int reportDoc(BtripReportDto btripReportDto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int tmpsaveDoc(BtripReportDto btripReportDto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

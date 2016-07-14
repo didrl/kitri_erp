@@ -11,15 +11,21 @@ import com.kitrierp.doc.model.BtripReportDto;
 import com.kitrierp.doc.model.service.BtripReportService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/btripReport")
 public class BtripReportController {
 	@Autowired
 	private BtripReportService btripReportService;
 	
-	@RequestMapping(value="/reportPage.erp", method=RequestMethod.POST)
-	public ModelAndView reportList(@RequestParam BtripReportDto btripReportDto){
+	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
+	public ModelAndView reportDoc(@RequestParam BtripReportDto btripReportDto){
 		ModelAndView mav = new ModelAndView();
-		int write = btripReportService.reportWrite(btripReportDto);   
+		int write = btripReportService.reportDoc(btripReportDto);
+		return mav;
+	}
+	@RequestMapping(value="/tmpsaveDoc.erp", method=RequestMethod.POST)
+	public ModelAndView tmpsaveDoc(@RequestParam BtripReportDto btripReportDto){
+		ModelAndView mav = new ModelAndView();
+		int write = btripReportService.tmpsaveDoc(btripReportDto); //임시저장으로
 		return mav;
 	}
 }
