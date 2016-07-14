@@ -1,9 +1,10 @@
 var $jquery = jQuery.noConflict();
 var writeModify = Boolean('');
 
+
 $jquery().ready(function() {
-	//결재자/협조자/대체근무자 지정 팝업
 	$jquery('.openPopup').openDOMWindow(getOpenDomWindowOpt(510, 478, false, 'click'));
+	//결재자/협조자/대체근무자 지정 팝업
 
 	if ( !writeModify ) {
 		// 결재문서 작성에서만 사용

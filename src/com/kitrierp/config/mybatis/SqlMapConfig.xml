@@ -6,6 +6,7 @@
     
     <typeAliases>
         <typeAlias alias="edto" type="com.kitrierp.employee.model.EmployeeDto"/>
+        <typeAlias alias="badto" type="com.kitrierp.doc.model.BtripApplicationDto"/>
     </typeAliases>
     
     <mappers>
