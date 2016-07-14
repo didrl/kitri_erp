@@ -10,7 +10,7 @@
     <div id="page-wrapper">
        <div class="container">
        <h3>부서 수신함</h3><br>
-       <table id="example"  cellspacing="0" width="100%">
+       <table id="dep_docbox"  cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>문서번호</th>
@@ -71,10 +71,10 @@
 </div>
 <!-- /#wrapper -->       
      <script>
-   	 	$('#example')
+   	 	$('#dep_docbox')
 		.removeClass( 'display' )
 		.addClass('table table-striped table-bordered');
-  	  $('#example').DataTable();
+  	  $('#dep_docbox').DataTable();
 //   	 $("#example").DataTable().columnFilter();
   	 
      </script>
