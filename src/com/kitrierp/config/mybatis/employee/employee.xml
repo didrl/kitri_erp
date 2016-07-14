@@ -5,8 +5,9 @@
 <mapper namespace="com.kitrierp.employee.model.EmployeeDaoImpl">
     <select id="login" parameterType="java.util.Map" resultType="edto">
         select *
-        from employee e, department d
+        from employee e, department d,
         where e.dep_id = d.dep_id 
+        and 
         and emp_id=#{id} and emp_pw=#{password} 
     </select>    
 </mapper>
