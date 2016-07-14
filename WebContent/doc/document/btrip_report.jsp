@@ -17,10 +17,11 @@
                   <tr class="eword_meta_height">
                      <th style="border-top: none; border-left: none;">기간</th>
                      <td class="pad15l" style="border-top: none;" >
-                           <input id="fromDate" class="datepicker" type="text">
-                           <input id="toDate" class="datepicker" type="text">                  
-                          
-                           
+                           <div class="input-daterange input-group" id="datepicker">
+	                           <input id="fromDate" class="datepicker" type="text">&nbsp;~&nbsp;
+	                           <input id="toDate" class="datepicker" type="text">                    
+							</div>
+            				               
                            <span class="vm">(</span>
                            <input type="text" name="OutTerm" value="" size="2" readonly  class="vm txt_ce">
                            <label class="vm">일</label>
