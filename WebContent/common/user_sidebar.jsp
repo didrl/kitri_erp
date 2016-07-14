@@ -36,22 +36,25 @@
                              <a href="#">결재문서 작성<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                             <li>
-                            <a href="#">기안서</a>
+                            <a href="${root}/doc/mvProposal.erp">기안서</a>
                             </li>
                             <li>
-                            <a href="#">품의서</a>
+                            <a href="${root}/doc/mvConsultation.erp">품의서</a>
                             </li>
                             <li>
-                            <a href="#">지출결의서</a>
+                            <a href="${root}/doc/mvPayment.erp">지출결의서</a>
                             </li>
                             <li>
-                            <a href="#">출장보고서</a>
+                            <a href="${root}/doc/mvBtripReport.erp">출장보고서</a>
                             </li>
                             <li>
-                            <a href="#">휴가신청서</a>
+                            <a href="${root}/doc/mvBtripApplication.erp">출장신청서</a>
                             </li>
                             <li>
-                            <a href="#">업무일지</a>
+                            <a href="${root}/doc/">휴가신청서</a>
+                            </li>
+                            <li>
+                            <a href="${root}/doc//mvJounal.erp">업무일지</a>
                             </li>
                             </ul>
                         </li>
