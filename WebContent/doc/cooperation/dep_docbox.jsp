@@ -15,13 +15,9 @@
             <tr>
                 <th>문서번호</th>
                 <th>기안일자</th>
-                <th>결재일자</th>
                 <th>문서명</th>
+                <th>발신부서</th>
                 <th>기안자</th>
-                <th>나의결재</th>
-                <th>상태</th>
-                <th>다음결재자</th>
-                <th>의견</th>
             </tr>
         </thead>
         <tfoot>
@@ -31,10 +27,6 @@
             <tr>
                 <td>Tiger Nixon</td>
                 <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
                 <td>61</td>
                 <td>2011/04/25</td>
                 <td>$320,800</td>
@@ -42,10 +34,6 @@
             <tr>
                 <td>Garrett Winters</td>
                 <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
                 <td>63</td>
                 <td>2011/07/25</td>
                 <td>$170,750</td>
@@ -53,10 +41,6 @@
             <tr>
                 <td>Ashton Cox</td>
                 <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
                 <td>66</td>
                 <td>2009/01/12</td>
                 <td>$86,000</td>

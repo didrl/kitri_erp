@@ -1,9 +1,14 @@
 package com.kitrierp.doc.model.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.kitrierp.doc.model.DocumentDto;
+import com.kitrierp.employee.model.EmployeeDto;
 
 @Repository
 public class DocDaoImpl implements DocDao {
@@ -14,5 +19,11 @@ public class DocDaoImpl implements DocDao {
 	public String doc_id(int doc_type_id) {
 		return sqlSession.selectOne("com.kitrierp.doc.model.DocDaoImpl.doc_id", doc_type_id);
 	}
-	
+
+	@Override
+	public List<DocumentDto> dep_docBoxList() {
+		List<DocumentDto> dlist=null;
+		dlist=sqlSession.selectList("com.kitrierp.doc.model.DocDaoImpl.dep_docBoxList");
+		return dlist;
+	}
 }
