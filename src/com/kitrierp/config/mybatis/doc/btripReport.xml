@@ -6,6 +6,20 @@
     <insert id="reportWrite" parameterType="brdto">
       
     </insert> 
+    
+    <select id="view" parameterType="String" resultType="brdto">
+        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject, d.doc_content, 
+               d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id, d.doc_note, e.emp_name,
+               r.expense_info_id, r.start_date, r.end_date, r.btrip_location
+        from document d, employee e, btrip_report r
+        where d.emp_id = e.emp_id
+        and d.doc_id = a.doc_id
+        and d.doc_id = #{doc_id}
+    </select>
+    
+    <select id="view_list" parameterType="String" resultType="bpdto">
+        selct * from btrip_payment where doc_id = #{EXPENSE_INFO_ID}
+    </select>
    
     
 </mapper>
