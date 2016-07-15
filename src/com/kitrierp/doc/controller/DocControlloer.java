@@ -15,9 +15,9 @@ import org.springframework.web.util.WebUtils;
 import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.service.DocService;
 
-@SessionAttributes("memberInfo")
-@RequestMapping("/doc")
 @Controller 
+@RequestMapping("/doc")
+@SessionAttributes("memberInfo")
 public class DocControlloer {
 	@Autowired
 	private DocService docService;
