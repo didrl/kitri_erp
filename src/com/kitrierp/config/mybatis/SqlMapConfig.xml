@@ -12,6 +12,10 @@
         <typeAlias alias="pdto" type="com.kitrierp.doc.model.PaymentDto"/>
         <typeAlias alias="pidto" type="com.kitrierp.doc.model.PaymentInfoDto"/>
         <typeAlias alias="bpdto" type="com.kitrierp.doc.model.BtripPaymentDto"/>
+        <typeAlias alias="sidto" type="com.kitrierp.doc.model.SignInfoDto"/>
+        <typeAlias alias="refdto" type="com.kitrierp.doc.model.ReferenceDto"/>
+        <typeAlias alias="coopdto" type="com.kitrierp.doc.model.CooperationDto"/>
+        <typeAlias alias="receidto" type="com.kitrierp.doc.model.ReceiveListDto"/>
     </typeAliases>
     
     <mappers>

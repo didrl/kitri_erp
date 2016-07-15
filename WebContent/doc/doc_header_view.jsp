@@ -60,54 +60,29 @@
 								<c:set var="length" value="${fn:length(document.sign_info)}" />
 								<c:forEach items="${document.sign_info}" var="signPerson">
 									<td style="border-top: none;">
-										 <c:out value="${signPerson.grade_name}" />
+									${signPerson.grade_name}
 									</td>
 								</c:forEach>
-								<c:if test="${length eq 0}">
-									<c:forEach  begin="0" end="5" step="1">
-										<td style="border-top: none;">
-										</td>
-									</c:forEach>
-								</c:if>
+								<c:forEach  begin="0" end="${5-length}" step="1">
+									<td style="border-top: none;">
+									</td>
+								</c:forEach>
 								
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+								<c:forEach items="${document.sign_info}" var="signPerson">
 								<td>
 									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-											<span>지정</span>
+											<span>${signPerson.emp_name}</span>
 									</div>
 								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
+								</c:forEach>
+								<c:forEach  begin="0" end="${5-length}" step="1">
+									<td></td>
+								</c:forEach>
 							</tr>
 							<tr class="date" style="height:20px;">
 								<!-- 결재일시 표시 영역 -->
@@ -136,59 +111,31 @@
 									협<br><br>조
 								</th>
 								<!-- 결재자/협조자 직급 표시 영역 -->
-								<td>
-									<input type="text" name="OrderTitle11" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle12" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle13" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle14" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle15" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
+								<c:set var="lengthc" value="${fn:length(document.cooperation)}" />
+								<c:forEach items="${document.cooperation}" var="coopPerson">
+									<td style="border-top: none;">
+									${coopPerson.grade_name}
+									</td>
+								</c:forEach>
+								<c:forEach  begin="0" end="${5-lengthc}" step="1">
+									<td style="border-top: none;">
+									</td>
+								</c:forEach>
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+								<c:forEach items="${document.cooperation}" var="coopPerson">
 								<td>
 									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-											<span>지정</span>
+											<span>${coopPerson.emp_name}</span>
 									</div>
 								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
-								<td>
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-											<span>지정</span>
-									</div>
-								</td>
+								</c:forEach>
+								<c:forEach  begin="0" end="${5-lengthc}" step="1">
+									<td></td>
+								</c:forEach>
 							</tr>
 							<tr class="date" style="height:20px;">
 								<!-- 결재일시 표시 영역 -->
@@ -258,7 +205,9 @@
 					<th style="border-left: none;">수신부서</th>
 					<td class="pad15l" style="padding-right:7px;">
 						<span id="ReceiveTreeKeyButtonArea" style='width:100%;'>
-							
+						<c:forEach var="receive" items="${document.receiver}">
+							${receive.dep_name}						
+						</c:forEach>
 						</span>
 					</td>
 				</tr>
@@ -267,6 +216,9 @@
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">참조자</th>
 					<td class="pad15l" style="padding-right:7px;">
+					<c:forEach var="refer" items="${document.reference}">
+							${refer.emp_name}						
+						</c:forEach>
 					</td>
 				</tr>
 										
