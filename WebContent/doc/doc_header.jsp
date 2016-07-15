@@ -10,13 +10,9 @@
 <link rel="stylesheet" type="text/css"
 	href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_write.css?v=20150702" />
 <!-- datepicker -->
-<link
-	href="${root}/webjars/bootstrap-datepicker/1.6.1/dist/css/bootstrap-datepicker.min.css"
-	rel="stylesheet">
-<script
-	src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/js/bootstrap-datepicker.min.js"></script>
-<script
-	src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/locales/bootstrap-datepicker.ko.min.js"></script>
+<link href="${root}/webjars/bootstrap-datepicker/1.6.1/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<script src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/locales/bootstrap-datepicker.ko.min.js"></script>
 <!-- for time format -->
 <script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!-- css & script src end -->
