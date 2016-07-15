@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/common/common.jsp" %>
 
 <!-- 첨부파일 -->
 <table class="eword_maincolumn eword_meta mar10b">
@@ -8,7 +9,12 @@
 	<tr>
 		<th>첨부파일</th>
 		<td>
-			<textarea rows="10" cols="90" style="height: 100px; overflow: auto;"></textarea>
+			<textarea readonly="readonly" rows="10" cols="90" style="height: 100px; overflow: auto;">
+			<c:forEach var="file" items="${document.file}">
+				${file.origin_file_name}
+			</c:forEach>
+			
+			</textarea>
 		</td>
 	</tr>
 </table>
