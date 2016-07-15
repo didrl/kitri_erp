@@ -3,22 +3,20 @@
     
 <%@ include file="/common/user_sidebar.jsp" %>
 
-<!-- for fullcalendar -->
-<link href='${util}/fullcalendar/css/fullcalendar.css' rel='stylesheet'/>
-<link href="${util}/fullcalendar/css/fullcalendar.print.css" rel="stylesheet" media="print" />
-<script src="${util}/fullcalendar/js/moment.min.js"></script>
-<script src="${util}/fullcalendar/js/fullcalendar.min.js"></script>
-<script src='${util}/fullcalendar/js/jquery-ui.custom.min.js'></script>
-<script src='${util}/fullcalendar/js/lang-all.js'></script>
+<!-- css/script src start -->
+<!-- for time format -->
+<script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 
-<!------------------->
+<!-- for fullcalendar -->
+<link href='${root}/webjars/fullcalendar/2.9.0/dist/fullcalendar.css' rel='stylesheet'/>
+<link href="${root}/webjars/fullcalendar/2.9.0/dist/fullcalendar.print.css" rel="stylesheet" media="print" />
+<script src="${root}/webjars/fullcalendar/2.9.0/dist/fullcalendar.min.js"></script>
+<script src='${root}/webjars/fullcalendar/2.9.0/dist/lang-all.js'></script>
 
 <!-- for clock -->
 <link rel="stylesheet" type="text/css" href="${util}/clock/jquery.tzineClock/jquery.tzineClock.css" />
 <script type="text/javascript" src="${util}/clock/jquery.tzineClock/jquery.tzineClock.js"></script>
 <script type="text/javascript" src="${util}/clock/script.js"></script>
-<!------------------->
-
 
 <style type='text/css'>
 
@@ -34,9 +32,10 @@
 		margin: 0 auto;
 	}
 </style>
-
-<!----------------------------------------------------------->
-<!-- fullCalendar script start -->
+<!-- css/script src end -->
+<!-------------------------------------->
+<!--script start -->
+<!-- fullCalendar -->
 <script type='text/javascript'>
 
 	$(document).ready(function() {
@@ -112,7 +111,7 @@
 	});
 
 </script>
-<!-- fullCalendar script end -->
+<!--script end -->
 <!----------------------------------------------------------->
 <div id="wrapper"> 
    <!-- Page Content -->

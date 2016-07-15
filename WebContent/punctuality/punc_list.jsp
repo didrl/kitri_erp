@@ -2,15 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/common/user_sidebar.jsp" %>
 <!-- css & script src start -->
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
-
-<!-- datepicker css -->
-<link href="${root}/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-<!-- datepicker JavaScript -->
-<script src="${root}/datepicker/js/bootstrap-datepicker.min.js"></script>
-<script src="${root}/datepicker/locales/bootstrap-datepicker.kr.min.js"></script>
+<!-- DataTables -->
+	<link href="${root}/webjars/datatables/1.10.12/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
+	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
+<!-- for time format -->
+<script src='${root}/webjars/moment/2.14.1/moment.js'></script>
+<!-- datepicker-->
+<link href="${root}/webjars/bootstrap-datepicker/1.6.1/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<script src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/locales/bootstrap-datepicker.ko.min.js"></script>
 <!-- css & script src end -->
 
 <!--script start -->
