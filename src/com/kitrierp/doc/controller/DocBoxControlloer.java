@@ -100,7 +100,7 @@ public class DocBoxControlloer {
 		int emp_id = 40990130;		
 		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
 		mav.addObject("dep_docBoxList",dep_docBoxList);
-		mav.setViewName("/doc/docBox/dep_docBox");
+		mav.setViewName("/doc/docBox/dep_docBox2");
 		
 		return mav;
 	}
