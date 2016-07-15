@@ -5,4 +5,5 @@ import com.kitrierp.doc.model.DocumentDto;
 public interface ProposalDao {
 	int reportDoc(DocumentDto documentDto);
 	int tmpsaveDoc(DocumentDto documentDto);
+	DocumentDto viewDoc(String doc_id);
 }

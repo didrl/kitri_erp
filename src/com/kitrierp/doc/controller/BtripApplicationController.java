@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kitrierp.doc.model.BtripApplicationDto;
+import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.service.BtripApplicationService;
 
 @Controller
@@ -35,6 +36,16 @@ public class BtripApplicationController {
 	public ModelAndView tmpsaveDoc(@RequestParam BtripApplicationDto btripApplicationDto){
 		ModelAndView mav = new ModelAndView();
 		int write = btripApplicationService.tmpsaveDoc(btripApplicationDto);
+		return mav;
+	}
+	
+	@RequestMapping("/viewDoc.erp")
+	public ModelAndView viewDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		DocumentDto documentDto = btripApplicationService.viewDoc(doc_id);
+		mav.addObject("document", documentDto);
+		mav.addObject("doctype", "출장신청서");
+		mav.setViewName("/doc/document/btrip_application_view");
 		return mav;
 	}
 }

@@ -45,10 +45,10 @@
                             <a href="${root}/doc/mvDoc.erp?doc_type=3">지출결의서</a>
                             </li>
                             <li>
-                            <a href="${root}/doc/mvDoc.erp?doc_type=5">출장보고서</a>
+                            <a href="${root}/doc/mvDoc.erp?doc_type=4">출장보고서</a>
                             </li>
                             <li>
-                            <a href="${root}/doc/mvDoc.erp?doc_type=4">출장신청서</a>
+                            <a href="${root}/doc/mvDoc.erp?doc_type=5">출장신청서</a>
                             </li>
                             <li>
                             <a href="${root}/doc/mvDoc.erp?doc_type=6">휴가신청서</a>
