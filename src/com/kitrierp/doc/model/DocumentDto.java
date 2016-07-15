@@ -1,9 +1,11 @@
 package com.kitrierp.doc.model;
 
 import java.util.List;
-import com.kitrierp.common.model.FileDto;
 
-public class DocumentDto {
+import com.kitrierp.common.model.FileDto;
+import com.kitrierp.employee.model.EmployeeDto;
+
+public class DocumentDto extends EmployeeDto{
 	private int doc_id;
 	private String doc_subject;
 	private String doc_content;
