@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kitrierp.doc.model.BtripApplicationDto;
 import com.kitrierp.doc.model.PaymentDto;
 import com.kitrierp.doc.model.service.PaymentService;
 
@@ -26,6 +27,16 @@ public class PaymentController {
 	public ModelAndView tmpsaveDoc(@RequestParam PaymentDto paymentDto){
 		ModelAndView mav = new ModelAndView();
 		int write = paymentService.tmpsaveDoc(paymentDto); //임시저장으로
+		return mav;
+	}
+	
+	@RequestMapping("/viewDoc.erp")
+	public ModelAndView viewDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		PaymentDto paymentDto = paymentService.viewDoc(doc_id);
+		mav.addObject("document", paymentDto);
+		mav.addObject("doctype", "지출결의서");
+		mav.setViewName("/doc/document/payment_view");
 		return mav;
 	}
 }
