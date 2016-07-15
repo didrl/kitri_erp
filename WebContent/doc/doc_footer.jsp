@@ -56,7 +56,7 @@ if(doc_type=="기안서"){
 
 <script type="text/javascript" src="http://js.whoisdesk.net/Src/WebCommon/Script/preventDuplicateSubmit.js"></script>
 <script type="text/javascript" src="${root}/js/jquery.DOMWindow.js"></script>
-<script type="text/javascript" src="${root}/js/doc-js.js"></script>
+
 
 
 </body>

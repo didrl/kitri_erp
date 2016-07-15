@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/common/common.jsp" %>
 
-
-
 <!-- css & script src start -->
 <!-- whois css -->
 <link rel="stylesheet" type="text/css"
@@ -20,7 +18,7 @@
 <!-- for time format -->
 <script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!-- css & script src end -->
-
+<script type="text/javascript" src="${root}/js/doc-js.js"></script>
 <!--script start -->
 <script>
 	$(document).ready(
@@ -73,38 +71,15 @@
 	<div id="page-wrapper">
 		<div id="sub">
 
-
-
 			<!-- 전자결재 문서   
 	**** hidden 정리하기!!!! ****
 	-->
 
 
-			<form name="docform" id="docform" method="post" action=''
-				enctype='multipart/form-data' class="mar10b black">
-
-				<input type="hidden" name="doc_type_id" value=""> <input
-					type="hidden" name="doc_id" value=""> <input type="hidden"
-					name="doc_controller" value="">
-
-				<form name="approvalfirm" id="approvalfirm">
-
-					<input type="hidden" id="approval_1" name="approval_1" value=""> <input
-						type="hidden" id="approval_2" name="approval_2" value=""> <input
-						type="hidden" id="approval_3" name="approval_3" value=""> <input
-						type="hidden" id="approval_4" name="approval_4" value="">
-						<input type="hidden" id="approval_5" name="approval_5" value="">
-							<input type="hidden" id="approval_11" name="approval_11" value=""> <input
-						type="hidden" id="approval_12" name="approval_12" value=""> <input
-						type="hidden" id="approval_13" name="approval_13" value=""> <input
-						type="hidden" id="approval_14" name="approval_14" value="">
-						<input type="hidden" id="approval_15" name="approval_15" value="">
-				</form>
-
 
 	<form name="docform" id="docform" method="post" action='' enctype='multipart/form-data' class="mar10b black">
 		
-		<input type="hidden" name="doc_type_id" value="${doc_type}">
+		<input type="hidden" id="doc_type_id" name="doc_type_id" value="5">
 		<input type="hidden" name="doc_id" value="">
 		<input type="hidden" name="doc_controller" value="">
 

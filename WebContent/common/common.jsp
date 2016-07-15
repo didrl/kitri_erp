@@ -13,7 +13,8 @@ var root = "${root}";
 var util = "${util}";
 
 </script>
-
+<script type="text/javascript" src="${root}/js/doc-js.js">
+</script>
 
 <!-- 부트스트랩 기본설정 -->
 <html lang="en">
