@@ -1,18 +1,21 @@
 package com.kitrierp.doc.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
+import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.service.DocService;
 
-@SessionAttributes("memberInfo,docType")
+@SessionAttributes("memberInfo")
 @RequestMapping("/doc")
 @Controller 
 public class DocControlloer {
@@ -49,5 +52,14 @@ public class DocControlloer {
 		WebUtils.setSessionAttribute(request, "docType", 7);
 		return "redirect:/doc/document/jounal.jsp";
 	}
-	
+
+	@RequestMapping("/dep_docBox.erp")
+	public ModelAndView dep_docBoxList(){
+		ModelAndView mav = new ModelAndView();
+		List<DocumentDto> dep_docBoxList=docService.dep_docBoxList();
+		mav.addObject("dep_docBoxList",dep_docBoxList);
+		mav.setViewName("/doc/dep_docBoxList");
+		return mav;
+	}
+
 }

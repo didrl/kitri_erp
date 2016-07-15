@@ -6,7 +6,8 @@
     <select id="login" parameterType="java.util.Map" resultType="edto">
         select *
         from employee e, department d
-        where e.dep_id = d.dep_id 
-        and emp_id=#{id} and emp_pw=#{password} 
+        where e.dep_id = d.dep_id  
+        and emp_id=#{id} 
+        and emp_pw=#{password} 
     </select>    
 </mapper>

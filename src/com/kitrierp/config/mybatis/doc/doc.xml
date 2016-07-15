@@ -9,4 +9,16 @@
         where doc_type_id = #{doc_type_id})||to_char(seq_doc_id.nextval, 'FM0000'))
         from dual
     </select>
+    
+    <select id="dep_docBoxList" resultType="docdto">
+        select D.DOC_ID,D.DOC_DATE,D.DOC_CONTENT,e.dep_id,D.EMP_ID
+        from Document d,employee e,RECEIVE_LIST r
+        where e.DEP_ID = r.dep_id
+        and e.emp_id = d.emp_id
+        and r.doc_id = d.doc_id
+        order by d.DOC_DATE DESC;
+    </select>
+    
+    
+    
 </mapper>

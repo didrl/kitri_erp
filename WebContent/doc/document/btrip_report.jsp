@@ -2,11 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/common/user_sidebar.jsp" %>
 <%@ include file="/doc/doc_header.jsp" %>
-<%
-System.out.println(request.getAttribute("docType"));
-%>   
+
+   
+      <!-- 기본형 휴가계/출장계 -->
+
+
 
          <!-- 기본형 휴가계/출장계 -->
+
       <tr class="change_height_on_print">
          <td id="eword_content" class="eword_content_layout">
             <table id="eword_special" class="eword_meta">
@@ -17,16 +20,16 @@ System.out.println(request.getAttribute("docType"));
                   <tr class="eword_meta_height">
                      <th style="border-top: none; border-left: none;">기간</th>
                      <td class="pad15l" style="border-top: none;" >
-                           <div class="input-daterange input-group" id="datepicker">
-                              <input id="fromDate" class="datepicker" type="text">&nbsp;~&nbsp;
-                              <input id="toDate" class="datepicker" type="text">                    
+                     <div class="input-daterange input-group" id="datepicker">
+                         <input id="fromDate" class="datepicker" type="text">&nbsp;~&nbsp;
+                         <input id="toDate" class="datepicker" type="text">                    
                      </div>
                      </td>
                   </tr>
                   <tr class="eword_meta_height">
                      <th style="border-left: none;">출장지</th>
                      <td class="pad15l">
-                         <input name="OutDestination" type="text" value="" style="width:98%;" >
+                         <input name="OutDestination" type="text" value="" style="width:98%;">
                      </td>
                   </tr>
                   <tr>

@@ -23,6 +23,5 @@ public class OrganizationController {
 		mav.addObject("olist",olist);
 		mav.setViewName("/doc/m_organization");
 		return mav;
-		
 	}
 }
