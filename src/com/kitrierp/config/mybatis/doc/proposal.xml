@@ -15,13 +15,13 @@
         and d.doc_status_id = ds.doc_status_id
         and d.doc_id = #{doc_id}
     </select>
-    <select id="view_sign_info" parameterType="String" resultType="SignInfoDto">
+    <select id="view_sign_info" parameterType="String" resultType="sidto">
         select * from sign_info where doc_id = #{doc_id}
     </select>
-    <select id="view_reference" parameterType="String" resultType="ReferenceDto">
+    <select id="view_reference" parameterType="String" resultType="refdto">
         select * from reference where doc_id = #{doc_id}
     </select>
-    <select id="view_cooperation" parameterType="String" resultType="CooperationDto">
+    <select id="view_cooperation" parameterType="String" resultType="coopdto">
         select * from cooperation where doc_id = #{doc_id}
     </select>
 </mapper>
