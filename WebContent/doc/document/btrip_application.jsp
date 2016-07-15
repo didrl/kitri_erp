@@ -12,7 +12,8 @@
 											<!-- 출장계 > 출장 신청서 -->
 						<tr class="eword_meta_height">
 							<th style="border-top: none; border-left: none;" >기간</th>
-							<td class="pad15l" style="border-top: none;" >
+							<td class="
+							pad15l" style="border-top: none;" >
 																	<select name="OutStartYear"  onblur="AutoCalculation('OutTerm');" class="vm"><option label="2015" value="2015">2015</option>
 <option label="2016" value="2016" selected="selected">2016</option>
 <option label="2017" value="2017">2017</option>
