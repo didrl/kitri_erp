@@ -25,4 +25,9 @@ public class ProposalDaoImpl implements ProposalDao {
 	public int tmpsaveDoc(DocumentDto documentDto) {
 		return 0;
 	}
+
+	@Override
+	public DocumentDto viewDoc(String doc_id) {
+		return sqlSession.selectOne("com.kitrierp.doc.model.ProposalDaoImpl.view", doc_id);
+	}
 }
