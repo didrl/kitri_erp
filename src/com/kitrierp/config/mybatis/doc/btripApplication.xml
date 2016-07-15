@@ -8,12 +8,46 @@
     </insert>
     
     <select id="view" parameterType="String" resultType="badto">
-        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject, d.doc_content, 
-               d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id, d.doc_note, e.emp_name,
-               a.start_date, a.end_date, a.btrip_location, a.btrip_purpose
-        from document d, employee e, btrip_application a
+        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject,
+        d.doc_content, d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id,
+        d.doc_note, dt.doc_type_name, ds.doc_status_name,
+        e.emp_name, dp.dep_name, g.grade_name,
+        a.start_date, a.end_date, a.btrip_location, a.btrip_purpose
+        from document d, employee e, department dp, doc_type dt, doc_status ds, btrip_application a, grade g
         where d.emp_id = e.emp_id
+        and e.dep_id = dp.dep_id
+        and d.doc_type_id = dt.doc_type_id
+        and d.doc_status_id = ds.doc_status_id
+        and e.grade_id = g.grade_id
         and d.doc_id = a.doc_id
         and d.doc_id = #{doc_id}
+    </select>
+    <select id="view_sign_info" parameterType="String" resultType="sidto">
+        select *
+        from sign_info si, employee e,grade g
+        where si.doc_id = #{doc_id}
+        and si.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
+    </select>
+    <select id="view_reference" parameterType="String" resultType="refdto">
+        select * 
+        from reference ref, employee e,grade g
+        where doc_id = #{doc_id}
+        and ref.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
+    </select>
+    <select id="view_cooperation" parameterType="String" resultType="coopdto">
+        select * 
+        from cooperation c,employee e,grade g
+        where doc_id = #{doc_id}
+        and c.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
+    </select>
+    <select id="view_receive_list" parameterType="String" resultType="receidto">
+        select *
+        from receive_list rl, department dp, document d
+        where d.doc_id =  #{doc_id}
+        and rl.doc_id = d.doc_id
+        and rl.dep_id = dp.dep_id
     </select>
 </mapper>

@@ -21,7 +21,7 @@
 	
 <br>
 <!-- 결재양식 제목 -->
-<h1 class="eword_maincolumn">${doc_type_name}</h1>
+<h1 class="eword_maincolumn">${document.doc_type_name}</h1>
 
 <!-- 결재문서 본문 -->
 <table id="ewordWrapper" class="eword_maincolumn boldline mar10b">
@@ -57,75 +57,36 @@
 									결<br><br>재
 								</th>
 								<!-- 결재자/협조자 직급 표시 영역 -->
-								<c:set var="length" value="${fn:length(sign_info)}" />
-								<c:forEach items="${sign_info}" var="signPerson">
+								<c:set var="length" value="${fn:length(document.sign_info)}" />
+								<c:forEach items="${document.sign_info}" var="signPerson">
 									<td style="border-top: none;">
-										 <c:out value="${signPerson.grade_name}" />
+									${signPerson.grade_name}
 									</td>
 								</c:forEach>
-								<c:if test="${length eq 0}">
-									<c:forEach  begin="0" end="5" step="1">
-										<td style="border-top: none;">
-										</td>
-									</c:forEach>
-								</c:if>
+								<c:forEach  begin="0" end="${5-length}" step="1">
+									<td style="border-top: none;">
+									</td>
+								</c:forEach>
 								
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+								<c:forEach items="${document.sign_info}" var="signPerson">
 								<td>
 									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist('1');">
-											<span>지정</span>
-										</a>
+										<c:if test="${signPerson.appr_flag == 0}">
+											<c:if test="${signPerson.appr_flag == 0}">
+											<span>${signPerson.emp_name}</span>
+											</c:if>
+										</c:if>
 									</div>
 								</td>
-								<td>
-									<input type="text"   name="OrderName2" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId2" value="">
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell2"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-										<a onclick="javascript:golist('2');">
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
-								<td>
-									<input type="text"   name="OrderName3" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId3" value="">
-									<!-- 지정/취소 버튼 -->
-									<div id="MembersFindCell3"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-										<a onclick="javascript:golist('3');">
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
-								<td>
-									<input type="text"   name="OrderName4" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId4" value="">
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell4"  class="btn_page pad15l overf">
-									<!-- 지정 -->
-										<a onclick="javascript:golist('4');">
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
-								<td>
-									<input type="text"   name="OrderName5" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId5" value="">
-									<!-- 지정/취소 버튼 -->
-									<div id="MembersFindCell5"  class="btn_page pad15l overf">
-									<!-- 지정 -->
-										<a onclick="javascript:golist('5');">
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
+								</c:forEach>
+								<c:forEach  begin="0" end="${5-length}" step="1">
+									<td></td>
+								</c:forEach>
 							</tr>
 							<tr class="date" style="height:20px;">
 								<!-- 결재일시 표시 영역 -->
@@ -154,80 +115,31 @@
 									협<br><br>조
 								</th>
 								<!-- 결재자/협조자 직급 표시 영역 -->
-								<td>
-									<input type="text" name="OrderTitle11" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle12" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle13" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle14" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
-								<td>
-									<input type="text" name="OrderTitle15" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
-								</td>
+								<c:set var="lengthc" value="${fn:length(document.cooperation)}" />
+								<c:forEach items="${document.cooperation}" var="coopPerson">
+									<td style="border-top: none;">
+									${coopPerson.grade_name}
+									</td>
+								</c:forEach>
+								<c:forEach  begin="0" end="${5-lengthc}" step="1">
+									<td style="border-top: none;">
+									</td>
+								</c:forEach>
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+								<c:forEach items="${document.cooperation}" var="coopPerson">
 								<td>
-									<input type="text"   name="OrderName11" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId11" value="admin">
 									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell11"  class="btn_page pad15l overf">
-										<!-- 취소 -->
-										<a onclick="javascript:golist('11');">
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
-								<td>
-									<input type="text"   name="OrderName12" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId12" value="">
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell12"  class="btn_page pad15l overf">
+									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist('12');">
-											<span>지정</span>
-										</a>
+											<span>${coopPerson.emp_name}</span>
 									</div>
 								</td>
-								<td>
-									<input type="text"   name="OrderName13" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId13" value="">
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell13"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-										<a onclick="javascript:golist('13');">
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
-								<td>
-									<input type="text"   name="OrderName14" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId14" value="">
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell14"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-										<a onclick="javascript:golist('14');">
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
-								<td>
-									<input type="text"   name="OrderName15" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="OrderId15" value="">
-									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell15"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-										<a onclick="javascript:golist('15');">
-											<!--  <a class="openPopup"  href="myOrderUserAppointPopup.php?mode=order&number=15&total=5&WordUseHelper=Y">-->
-											<span>지정</span>
-										</a>
-									</div>
-								</td>
+								</c:forEach>
+								<c:forEach  begin="0" end="${5-lengthc}" step="1">
+									<td></td>
+								</c:forEach>
 							</tr>
 							<tr class="date" style="height:20px;">
 								<!-- 결재일시 표시 영역 -->
@@ -297,7 +209,9 @@
 					<th style="border-left: none;">수신부서</th>
 					<td class="pad15l" style="padding-right:7px;">
 						<span id="ReceiveTreeKeyButtonArea" style='width:100%;'>
-							
+						<c:forEach var="receive" items="${document.receiver}">
+							${receive.dep_name}						
+						</c:forEach>
 						</span>
 					</td>
 				</tr>
@@ -306,6 +220,9 @@
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">참조자</th>
 					<td class="pad15l" style="padding-right:7px;">
+					<c:forEach var="refer" items="${document.reference}">
+							${refer.emp_name}						
+						</c:forEach>
 					</td>
 				</tr>
 										

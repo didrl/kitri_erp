@@ -12,8 +12,10 @@
    <!-- Page Content -->
     <div id="page-wrapper">
        <div class="container">
+       
        <h3>부서 수신함</h3><br>
-       <table id="dep_docbox"  cellspacing="0" width="100%">
+       <div class="panel-body">	
+       <table id="dep_docbox_sample"  cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>문서번호</th>
@@ -50,6 +52,39 @@
             </tr>
          </tbody>
     </table>
+    
+ 
+		<c:if test="${dep_docBoxList.size()!=0}">
+			<table id="dep_docbox"  cellspacing="0" width="100%">
+			 	<thead>
+			    	<tr>
+			           <th>문서번호(depBox.doc_id)</th>
+			           <th>기안일자(doc_date)</th>
+			           <th>문서명(doc_subject)</th>
+			           <th>발신부서(doc_dep_id)</th>
+			           <th>기안자(emp_name)</th>
+			        </tr>
+			     </thead>
+			     <tfoot></tfoot>
+			     <tbody>
+			     <!-- get data start-->
+				<c:forEach varStatus="i" var="depBox" items="${dep_docBoxList}">
+				<script>console.log("${i.index}");
+				console.log("1231231");
+				</script>
+			         <tr>
+			             <td>${depBox.doc_id}</td>
+			             <td>${depBox.doc_date}</td>
+			             <td>${depBox.doc_subject}</td>
+			             <td>${depBox.doc_dep_id}</td>
+			             <td>${depBox.emp_name}</td>
+			          </tr>
+				</c:forEach>
+				<!-- get data end-->
+				</tbody>
+			</table>
+		</c:if>
+
        
        </div>
         <!-- /.container -->

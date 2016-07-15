@@ -1,11 +1,17 @@
 package com.kitrierp.doc.model.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kitrierp.doc.model.CooperationDto;
 import com.kitrierp.doc.model.DocumentDto;
+import com.kitrierp.doc.model.ReceiveListDto;
+import com.kitrierp.doc.model.ReferenceDto;
+import com.kitrierp.doc.model.SignInfoDto;
 
 @Repository
 public class ProposalDaoImpl implements ProposalDao {
@@ -28,6 +34,15 @@ public class ProposalDaoImpl implements ProposalDao {
 
 	@Override
 	public DocumentDto viewDoc(String doc_id) {
-		return sqlSession.selectOne("com.kitrierp.doc.model.ProposalDaoImpl.view", doc_id);
+		DocumentDto proposalDto = sqlSession.selectOne("com.kitrierp.doc.model.ProposalDaoImpl.view", doc_id);
+		List<SignInfoDto> sign_info = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_sign_info", doc_id);
+		List<ReferenceDto> reference = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_reference", doc_id);
+		List<CooperationDto> cooperation = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_cooperation", doc_id);
+		List<ReceiveListDto> receiver = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_receive_list", doc_id);
+		proposalDto.setSign_info(sign_info);
+		proposalDto.setReference(reference);
+		proposalDto.setCooperation(cooperation);
+		proposalDto.setReceiver(receiver);
+		return proposalDto;
 	}
 }

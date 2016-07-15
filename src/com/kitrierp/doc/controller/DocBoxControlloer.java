@@ -1,23 +1,27 @@
 package com.kitrierp.doc.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
 import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.service.DocBoxService;
+import com.kitrierp.employee.model.EmployeeDto;
 
 
 @SessionAttributes("memberInfo")
-@RequestMapping("/docBox")
+@RequestMapping("/doc/docBox")
 @Controller 
 public class DocBoxControlloer {
 	@Autowired
@@ -64,6 +68,7 @@ public class DocBoxControlloer {
 		return mav;
 	}
 	
+	/*
 	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET )
 	public ModelAndView dep_docBoxList(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
@@ -73,5 +78,34 @@ public class DocBoxControlloer {
 		mav.setViewName("/doc/dep_docBoxList");
 		return mav;
 	}
-
+	*/
+	
+	/*
+	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.POST)
+	public ModelAndView dep_docBoxList(@ModelAttribute("memberInfo") EmployeeDto edto){
+		ModelAndView mav = new ModelAndView();
+		int emp_id = edto.getEmp_id();		
+		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
+		mav.addObject("dep_docBoxList",dep_docBoxList);
+		mav.setViewName("/doc/docBox/dep_docbox");
+		
+		return mav;
+	}
+	*/
+	
+	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET)
+	public ModelAndView dep_docBoxList(){
+		
+		ModelAndView mav = new ModelAndView();
+		int emp_id = 40990130;		
+		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
+		mav.addObject("dep_docBoxList",dep_docBoxList);
+		mav.setViewName("/doc/docBox/dep_docBox2");
+		
+		return mav;
+	}
+	
+	
+	
+	
 }

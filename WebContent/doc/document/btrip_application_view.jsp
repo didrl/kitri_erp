@@ -14,9 +14,8 @@
 						 <tr class="eword_meta_height">
 		                     <th style="border-top: none; border-left: none;">기간</th>
 		                     <td class="pad15l" style="border-top: none;" >
-		                     <div class="input-daterange input-group" id="datepicker">
-		                         <input id="start_date" name="start_date" class="datepicker" type="text">&nbsp;~&nbsp;
-		                         <input id="end_date" name="end_date" class="datepicker" type="text">                    
+		                     <div class="input-daterange input-group" >
+								<c:out value="${document.start_date}"/>~<c:out value="${document.end_date}"/>
 		                     </div>
 		                     </td>
 	                  	</tr>
@@ -24,14 +23,14 @@
 						<tr class="eword_meta_height">
 							<th style="border-left: none;">출장지</th>
 							<td class="pad15l">
-																	<input name="OutDestination" type="text" value="" style="width:98%;" >
-															</td>
+							${document.btrip_location}
+							</td>
 						</tr>
 						<tr class="eword_meta_height">
 							<th style="border-left: none;">출장목적</th>
 							<td class="pad15l pad5tb">
-																	<textarea name="OutReason" style="width:98%;height:50px;"></textarea>
-															</td>
+								<textarea readonly="readonly" name="OutReason" style="width:98%;height:50px;">${document.btrip_purpose}</textarea>
+							</td>
 						</tr>
 						<tr class="eword_meta_height">
 							<th style="border-left: none;">연락처</th>

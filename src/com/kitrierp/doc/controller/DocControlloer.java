@@ -80,5 +80,12 @@ public class DocControlloer {
 		mav.setViewName("/doc/dep_docBoxList");
 		return mav;
 	}
+	
+	@RequestMapping("/approval")
+	public ModelAndView approval() {
+		ModelAndView mav = new ModelAndView();
+		
+		return mav;
+	}
 
 }
