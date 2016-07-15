@@ -26,7 +26,9 @@
     <select id="view_cooperation" parameterType="String" resultType="coopdto">
         select * from cooperation where doc_id = #{doc_id}
     </select>
-    
+    <select id="view_receive_list" parameterType="String" resultType="receidto">
+        select * from receive_list where doc_id = #{doc_id}
+    </select>
     <select id="view_list" parameterType="int" resultType="pidto">
         select * from payment_info where payment_id = #{payment_id}
     </select>
