@@ -29,4 +29,14 @@ public class ConsultationController {
 		int write = consultationService.tmpsaveDoc(documentDto); //임시저장으로
 		return mav;
 	}
+	
+	@RequestMapping("/viewDoc.erp")
+	public ModelAndView viewDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		DocumentDto documentDto = consultationService.viewDoc(doc_id);
+		mav.addObject("document", documentDto);
+		mav.addObject("doctype", "품의서");
+		mav.setViewName("/doc/document/consultation_view");
+		return mav;
+	}
 }
