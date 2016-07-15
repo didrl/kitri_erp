@@ -8,20 +8,20 @@
 			
 		<tr class="change_height_on_print">
 			<td id="eword_content" class="pad5">
-				<textarea name="Contents" class="ckeditor" id="Contents" style="width:100%;height:1500px;display:block;">
+				<textarea name="Contents" readonly="readonly" id="Contents" style="width:100%;height:1500px;display:block;">
 				<table border="0" cellspacing="1" cellpadding="0" width="620" bgcolor="#cccccc" align="center">
 						<tbody>
 							<tr>
 								<td class="f01" width="25%" height="30" align="center" bgcolor="#ffffff">청구금액</td>
-								<td colspan="3" bgcolor="#ffffff">&nbsp;</td>
+								<td colspan="3" bgcolor="#ffffff">${document.billing}</td>
 							</tr>
 							<tr>
 								<td class="f01" height="30" align="center" bgcolor="#ffffff">정산금액</td>
-								<td colspan="3" bgcolor="#ffffff">&nbsp;</td>
+								<td colspan="3" bgcolor="#ffffff">${document.settlement}</td>
 							</tr>
 							<tr>
 								<td class="f01" height="30" align="center" bgcolor="#ffffff">수 령 인 </td>
-								<td colspan="3" bgcolor="#ffffff">&nbsp;</td>
+								<td colspan="3" bgcolor="#ffffff">${document.recipient}</td>
 							</tr>
 							<tr align="center" bgcolor="#ffffff">
 								<td class="f01" colspan="4" height="50">지 출 내 역 </td>

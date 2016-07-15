@@ -6,7 +6,7 @@
 			
 		<tr class="change_height_on_print">
 			<td id="eword_content" class="pad5">
-				<textarea name="OutEtc3" class="ckeditor" style="width:100%;height:100px;"></textarea>
+				<textarea readonly="readonly" name="OutEtc3" class="ckeditor" style="width:100%;height:100px;">${document.doc_content}</textarea>
 			</td>
 		</tr>
 			

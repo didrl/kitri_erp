@@ -15,25 +15,19 @@
                   <tr class="eword_meta_height">
                      <th style="border-top: none; border-left: none;">기간</th>
                      <td class="pad15l" style="border-top: none;" >
-                     <div class="input-daterange input-group" id="datepicker">
-                         <input id="start_date" name="start_date" class="datepicker" type="text">&nbsp;~&nbsp;
-                         <input id="end_date" name="end_date" class="datepicker" type="text">                    
-                     </div>
+						 ${document.start_date} ~ ${document.end_date}
                      </td>
                   </tr>
                   <tr class="eword_meta_height">
                      <th style="border-left: none;">출장지</th>
                      <td class="pad15l">
-                         <input name="btrip_location" type="text" value="" style="width:98%;">
+						${document.btrip_location}
                      </td>
                   </tr>
                   <tr>
                      <th style="border-left: none;">출장보고</th>
                      <td class="pad15l pad5tb">
-                           <textarea name="doc_content" id="doc_content" style="width:98%;height:50px;">&nbsp;</textarea>
-                                 <script type="text/javascript">
-                                       CKEDITOR.replace('doc_content');
-                                 </script>
+                           <textarea readonly="readonly" name="doc_content" id="doc_content" style="width:98%;height:50px;">${document.doc_content }</textarea>
                      </td>
                   </tr>
                   <tr>
