@@ -3,6 +3,16 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.doc.model.PaymentDaoImpl">
+    <select id="view" parameterType="String" resultType="pdto">
+        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject, d.doc_content, 
+               d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id, d.doc_note, e.emp_name
+        from document d, employee e
+        where d.emp_id = e.emp_id
+        and d.doc_id = #{doc_id}
+    </select>
     
+    <select id="view_list" parameterType="int" resultType="pidto">
+        select * from payment_info where payment_id = #{payment_id}
+    </select>
     
 </mapper>

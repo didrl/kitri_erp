@@ -3,22 +3,41 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.doc.model.BtripReportDaoImpl">
+    <select id="report_seq" resultType="int">
+        select seq_doc_expense_info_id.nextval
+        from dual 
+    </select>
+    
     <insert id="reportWrite" parameterType="brdto">
-      
+        insert all
+        into document
+        values(#{doc_id},2,#{emp_id},#{doc_type_id},
+        #{doc_subject},#{doc_content},#{doc_date},sysdate+7,#{doc_open},
+        #{doc_dep_id},#{doc_note})
+        into btrip_report
+        values(#{exepense_info_id},#{doc_id},#{start_date},
+        #{end_date},#{btrip_location})
+        into btrip_payment
+        values(SEQ_DOC_EXP_SEQ.nextval,#{exepense_info_id},
+        #{exp_daily},#{exp_room},#{exp_food},#{exp_trans},
+        #{exp_etc},#{exp_total}
+        )
     </insert> 
     
     <select id="view" parameterType="String" resultType="brdto">
         select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject, d.doc_content, 
-               d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id, d.doc_note, e.emp_name,
-               r.expense_info_id, r.start_date, r.end_date, r.btrip_location
-        from document d, employee e, btrip_report r
+               d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id, d.doc_note, e.emp_name,dt.doc_type_name,
+               r.expense_info_id, r.start_date, r.end_date, r.btrip_location,dp.dep_name
+        from document d, employee e, btrip_report r,doc_type dt,department dp
         where d.emp_id = e.emp_id
-        and d.doc_id = a.doc_id
+        and dp.dep_id = e.dep_id
+        and d.doc_type_id = dt.doc_type_id
+        and d.doc_id = r.doc_id
         and d.doc_id = #{doc_id}
     </select>
     
-    <select id="view_list" parameterType="String" resultType="bpdto">
-        selct * from btrip_payment where doc_id = #{EXPENSE_INFO_ID}
+    <select id="view_list" parameterType="int" resultType="bpdto">
+        select * from btrip_payment where expense_info_id = #{EXPENSE_INFO_ID}
     </select>
    
     

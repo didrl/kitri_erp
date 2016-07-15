@@ -1,0 +1,282 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="/common/common.jsp" %>
+
+
+<!-- css & script src start -->
+<!-- whois css -->
+<link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_common.css?v=20150706"/>
+<link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_write.css?v=20150702"/>
+<!-- for time format -->
+<script src='${root}/webjars/moment/2.14.1/moment.js'></script>
+<!-- css & script src end -->
+
+</script>
+<!--script end -->
+
+<div id="wrapper"> 
+ <!-- Page Content -->
+<div id="page-wrapper">
+<div id="sub">
+	
+<br>
+<!-- 결재양식 제목 -->
+<h1 class="eword_maincolumn">${document.doc_type_name}</h1>
+
+<!-- 결재문서 본문 -->
+<table id="ewordWrapper" class="eword_maincolumn boldline mar10b">
+	<tr>
+		<td id="eword_header">
+						
+						<!-- ORDER 5 -->
+			<table id="eword_header_part" class="eword_meta">
+				<col class="eword_th_width">
+				<col class="eword_td_min_width">
+				<col class="eword_th_width">
+				<col class="eword_td_min_width">
+				<col style="width:50%;">
+				<!-- 문서번호, 결재선/협조선 -->
+				<tr class="eword_meta_height">
+					<th style="border-top: none; border-left: none;" >문서번호</th>
+
+					<td class="pad15l" colspan="3" style="border-top: none;" >
+						<span id ="sub_subject">
+							<input type="text" id="doc_id" name="doc_id" style="border:0pt;" value="${document.doc_id}" size='30' readonly />
+						</span>
+					</td>
+
+					<td rowspan="6" style="border-top: none; border-right: none;">
+						<table id="eword_orderline" class="eword_meta">
+							<col class="orderline_th_width">
+							<col class="orderline_width" span="5">
+							<!-- 결재선 -->
+							<tr class="txt_ce" style="height:20px;">
+								<th rowspan="3" style="border-left: none; border-top: none;">
+									<!-- 결재선/협조선 제목 -->
+									<!-- 결재 -->
+									결<br><br>재
+								</th>
+								<!-- 결재자/협조자 직급 표시 영역 -->
+								<c:set var="length" value="${fn:length(document.sign_info)}" />
+								<c:forEach items="${document.sign_info}" var="signPerson">
+									<td style="border-top: none;">
+										 <c:out value="${signPerson.grade_name}" />
+									</td>
+								</c:forEach>
+								<c:if test="${length eq 0}">
+									<c:forEach  begin="0" end="5" step="1">
+										<td style="border-top: none;">
+										</td>
+									</c:forEach>
+								</c:if>
+								
+							</tr>
+							<tr class="date" style="height:61px;">
+								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+							</tr>
+							<tr class="date" style="height:20px;">
+								<!-- 결재일시 표시 영역 -->
+								<td>
+									<span id="appDate1">&nbsp;</span>
+								</td>
+								<td>
+									<span id="appDate2">&nbsp;</span>
+								</td>
+								<td>
+									<span id="appDate3">&nbsp;</span>
+								</td>
+								<td>
+									<span id="appDate4">&nbsp;</span>
+								</td>
+								<td>
+									<span id="appDate5">&nbsp;</span>
+								</td>
+							</tr>							
+							<!-- 협조선 -->
+
+							<tr class="txt_ce" style="height:20px;">
+								<th rowspan="3" style="border-left: none; border-top: none; border-bottom: none;">
+									<!-- 결재선/협조선 제목 -->
+									<!-- 협조 -->
+									협<br><br>조
+								</th>
+								<!-- 결재자/협조자 직급 표시 영역 -->
+								<td>
+									<input type="text" name="OrderTitle11" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+								</td>
+								<td>
+									<input type="text" name="OrderTitle12" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+								</td>
+								<td>
+									<input type="text" name="OrderTitle13" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+								</td>
+								<td>
+									<input type="text" name="OrderTitle14" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+								</td>
+								<td>
+									<input type="text" name="OrderTitle15" value="" readonly class="form_transparent" style='width:100%;line-height:21px;'>
+								</td>
+							</tr>
+							<tr class="date" style="height:61px;">
+								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+								<td>
+									<!-- 지정/취소 버튼 -->					
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
+										<!-- 지정 -->
+											<span>지정</span>
+									</div>
+								</td>
+							</tr>
+							<tr class="date" style="height:20px;">
+								<!-- 결재일시 표시 영역 -->
+								<td style="border-bottom: none;">
+									<span id="appDate11">&nbsp;</span>
+								</td>
+								<td style="border-bottom: none;">
+									<span id="appDate12">&nbsp;</span>
+								</td>
+								<td style="border-bottom: none;">
+									<span id="appDate13">&nbsp;</span>
+								</td>
+								<td style="border-bottom: none;">
+									<span id="appDate14">&nbsp;</span>
+								</td>
+								<td style="border-bottom: none;">
+									<span id="appDate15">&nbsp;</span>
+								</td>
+							</tr>						
+						</table>
+					</td>
+				</tr>
+				
+				<!-- 문서종류 -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;" >문서종류</th>
+					<td class="pad15l"  colspan="3" >${document.doc_type_name}</td>
+				</tr>
+					<!-- 부서 -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;">부서</th>
+					<td class="pad15l" colspan="3">${document.dep_name}</td>
+				</tr>
+				<!-- 기안일 -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;">기안일</th>
+					<td class="pad15l" colspan="3" >
+						<c:out value="${document.doc_date}"></c:out>
+					</td>
+				</tr>
+				<!-- 기안자, (출장인원) -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;">기안자</th>
+					<td class="pad15l " colspan="3">${document.emp_name}</td>
+				</tr>
+				<!-- 공개여부, 보존기간 -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;">공개여부</th>
+					<td class="pad15l" colspan="3">
+						<!-- 작성 -->
+						<c:if test="${document.doc_open eq 1}">
+						공개
+						</c:if>
+						<c:if test="${document.doc_open eq 0}">
+						비공개
+						</c:if>
+					</td>
+				</tr>
+			</table>
+			<!-- /ORDER 5 -->
+						
+			<table id="eword_header_common" class="eword_meta">
+				<col class="eword_th_width">
+				<col>
+				<!-- 수신부서 -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;">수신부서</th>
+					<td class="pad15l" style="padding-right:7px;">
+						<span id="ReceiveTreeKeyButtonArea" style='width:100%;'>
+							
+						</span>
+					</td>
+				</tr>
+						
+				<!-- 참조자 -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;">참조자</th>
+					<td class="pad15l" style="padding-right:7px;">
+					</td>
+				</tr>
+										
+				<!-- 제목 -->
+				<tr class="eword_meta_height">
+					<th style="border-left: none;" >제목</th>
+					<td class="pad15l">
+					<c:out value="${document.doc_subject}"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>

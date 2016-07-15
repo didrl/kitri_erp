@@ -22,4 +22,9 @@ public class PaymentServiceImpl implements PaymentService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public PaymentDto viewDoc(String doc_id) {
+		return paymentDao.viewDoc(doc_id);
+	}
 }

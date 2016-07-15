@@ -6,5 +6,7 @@ import com.kitrierp.doc.model.DocumentDto;
 public interface BtripReportDao {
 	int reportDoc(BtripReportDto btripReportDto);
 	int tmpsaveDoc(BtripReportDto btripReportDto);
+	int expenseInfoSeq();
 	BtripReportDto viewDoc(String doc_id);
+
 }

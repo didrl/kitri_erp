@@ -7,12 +7,14 @@ import com.kitrierp.employee.model.EmployeeDto;
 
 public class DocumentDto extends EmployeeDto {
 	private String doc_id;
+	private int doc_status_id;
 	private String doc_subject;
 	private String doc_content;
 	private String doc_date;
 	private String doc_deadline;
 	private int doc_open; 
 	private int doc_dep_id;
+	private String doc_type_name;
 	private String doc_note;
 	
 	List<SignInfoDto> sign_info;
@@ -21,11 +23,23 @@ public class DocumentDto extends EmployeeDto {
 	List<ReceiveListDto> receiver;
 	List<FileDto> file;
 	
+	public String getDoc_type_name() {
+		return doc_type_name;
+	}
+	public void setDoc_type_name(String doc_type_name) {
+		this.doc_type_name = doc_type_name;
+	}
 	public String getDoc_id() {
 		return doc_id;
 	}
 	public void setDoc_id(String doc_id) {
 		this.doc_id = doc_id;
+	}
+	public int getDoc_status_id() {
+		return doc_status_id;
+	}
+	public void setDoc_status_id(int doc_status_id) {
+		this.doc_status_id = doc_status_id;
 	}
 	public String getDoc_subject() {
 		return doc_subject;
