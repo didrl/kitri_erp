@@ -5,7 +5,7 @@
 
 
 function select(emp_id, emp_name){
-	var num=${cellnum}
+	var num=${cellnum};
 
 	  opener.document.getElementById("approval_"+num).value =emp_id;
 	  opener.document.getElementById("emp_name"+num).value =emp_name;
