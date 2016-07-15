@@ -10,7 +10,7 @@
         from dual
     </select>
     
-    <select id="dep_docBoxList" resultType="DocumentDto">
+    <select id="dep_docBoxList" resultType="docdto">
         select D.DOC_ID,D.DOC_DATE,D.DOC_CONTENT,e.dep_id,D.EMP_ID
         from Document d,employee e,RECEIVE_LIST r
         where e.DEP_ID = r.dep_id
