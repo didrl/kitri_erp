@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="/common/common.jsp" %>
+<%@ include file="/common/common.jsp" %>
+
 
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_common.css?v=20150706"/>
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_write.css?v=20150702"/>
@@ -63,7 +64,7 @@ function golist() {
 
 	<form name="docform" id="docform" method="post" action='' enctype='multipart/form-data' class="mar10b black">
 		
-		<input type="hidden" name="doc_type_id" value="">
+		<input type="hidden" name="doc_type_id" value="${doc_type}">
 		<input type="hidden" name="doc_id" value="">
 		<input type="hidden" name="doc_controller" value="">
 		
