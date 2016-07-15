@@ -7,6 +7,7 @@ import com.kitrierp.employee.model.EmployeeDto;
 
 public class DocumentDto extends EmployeeDto {
 	private String doc_id;
+	private int doc_status_id;
 	private String doc_subject;
 	private String doc_content;
 	private String doc_date;
@@ -26,6 +27,12 @@ public class DocumentDto extends EmployeeDto {
 	}
 	public void setDoc_id(String doc_id) {
 		this.doc_id = doc_id;
+	}
+	public int getDoc_status_id() {
+		return doc_status_id;
+	}
+	public void setDoc_status_id(int doc_status_id) {
+		this.doc_status_id = doc_status_id;
 	}
 	public String getDoc_subject() {
 		return doc_subject;
