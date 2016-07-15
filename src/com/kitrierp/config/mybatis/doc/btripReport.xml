@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kitrierp.doc.model.BtripReportDaoImpl">
     <insert id="reportWrite" parameterType="brdto">
-    
+      
     </insert> 
    
     
