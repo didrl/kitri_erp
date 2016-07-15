@@ -14,11 +14,16 @@ public class BtripReportDaoImpl implements BtripReportDao {
 
 	@Override
 	public int reportDoc(BtripReportDto btripReportDto) {
-		return 0;
+		return sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.reportWrite", btripReportDto);
 	}
 
 	@Override
 	public int tmpsaveDoc(BtripReportDto btripReportDto) {
 		return 0;
+	}
+
+	@Override
+	public int expenseInfoSeq() {
+		return sqlSession.selectOne("com.kitrierp.doc.model.BtripReportDaoImpl.report_seq");
 	}
 }

@@ -5,4 +5,5 @@ import com.kitrierp.doc.model.BtripReportDto;
 public interface BtripReportDao {
 	int reportDoc(BtripReportDto btripReportDto);
 	int tmpsaveDoc(BtripReportDto btripReportDto);
+	int expenseInfoSeq();
 }
