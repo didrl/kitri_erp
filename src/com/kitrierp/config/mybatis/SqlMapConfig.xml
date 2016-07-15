@@ -8,7 +8,6 @@
         <typeAlias alias="edto" type="com.kitrierp.employee.model.EmployeeDto"/>
         <typeAlias alias="badto" type="com.kitrierp.doc.model.BtripApplicationDto"/>
         <typeAlias alias="brdto" type="com.kitrierp.doc.model.BtripReportDto"/>
-        <typeAlias alias="bpdto" type="com.kitrierp.doc.model.BtripPaymentDto"/>
         <typeAlias alias="docdto" type="com.kitrierp.doc.model.DocumentDto"/>
     </typeAliases>
     
