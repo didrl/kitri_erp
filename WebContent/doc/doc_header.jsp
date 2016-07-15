@@ -133,7 +133,7 @@ function golist() {
 									<input type="text"   name="appr_name" value="" readonly class="form_transparent" style='width:100%;'>
 									<input type="hidden" name="appr_name" value="">
 									<!-- 지정/취소 버튼 -->					
-									<div id="MembersFindCell2"  class="btn_page pad15l overf">
+									<div id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
 										<a onclick="javascript:golist();">
 											<span>지정</span>
