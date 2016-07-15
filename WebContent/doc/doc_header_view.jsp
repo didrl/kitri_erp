@@ -66,15 +66,17 @@
 								</th>
 								<!-- 결재자/협조자 직급 표시 영역 -->
 								<c:set var="length" value="${fn:length(sign_info)}" />
-								<c:forEach items="${sign_info}" var="signPerson"  begin="0" end="${5-length}" step="1">
+								<c:forEach items="${sign_info}" var="signPerson">
 									<td style="border-top: none;">
 										 <c:out value="${signPerson.grade_name}" />
 									</td>
 								</c:forEach>
-								<c:forEach  begin="0" end="${length}" step="1">
-									<td style="border-top: none;">
-									</td>
-								</c:forEach>
+								<c:if test="">
+									<c:forEach  begin="0" end="5" step="1">
+										<td style="border-top: none;">
+										</td>
+									</c:forEach>
+								</c:if>
 								
 							</tr>
 							<tr class="date" style="height:61px;">
