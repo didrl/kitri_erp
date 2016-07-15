@@ -19,14 +19,6 @@
 <div id="page-wrapper">
 <div id="sub">
 	
-	
-
-	<!-- 전자결재 문서   
-	**** hidden 정리하기!!!! ****
-	-->
-
-		
-
 <br>
 <!-- 결재양식 제목 -->
 <h1 class="eword_maincolumn">${doc_type_name}</h1>
@@ -71,7 +63,7 @@
 										 <c:out value="${signPerson.grade_name}" />
 									</td>
 								</c:forEach>
-								<c:if test="">
+								<c:if test="${length eq 0}">
 									<c:forEach  begin="0" end="5" step="1">
 										<td style="border-top: none;">
 										</td>
@@ -82,8 +74,6 @@
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
 								<td>
-									<input type="text"   name="appr_name" value="" readonly class="form_transparent" style='width:100%;'>
-									<input type="hidden" name="appr_name" value="">
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
@@ -264,53 +254,36 @@
 				<!-- 문서종류 -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;" >문서종류</th>
-					<td class="pad15l"  colspan="3" >${doc_type_name}</td>
+					<td class="pad15l"  colspan="3" >${document.doc_type_name}</td>
 				</tr>
 					<!-- 부서 -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">부서</th>
-					<td class="pad15l" colspan="3">${memberInfo.dep_name}</td>
+					<td class="pad15l" colspan="3">${document.dep_name}</td>
 				</tr>
 				<!-- 기안일 -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">기안일</th>
 					<td class="pad15l" colspan="3" >
-						<input name="doc_date" class="datepicker" id="datepicker" type="text">
+						<c:out value="${document.doc_date}"></c:out>
 					</td>
 				</tr>
 				<!-- 기안자, (출장인원) -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">기안자</th>
-					<td class="pad15l " colspan="3">${memberInfo.emp_name}</td>
+					<td class="pad15l " colspan="3">${document.emp_name}</td>
 				</tr>
 				<!-- 공개여부, 보존기간 -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">공개여부</th>
-					<td class="txt_ce"  >
+					<td class="pad15l" colspan="3">
 						<!-- 작성 -->
-						<select name="Opening" onchange="ReceiveTreeKeyButton();">
-							<option label="공개" value="Y" selected="selected">공개</option>
-							<option label="비공개" value="N">비공개</option>
-						</select>
-					</td>
-
-					<th>보존기간</th>
-					<td class="txt_ce">
-					<!-- 작성 -->
-						<select name='StoragePeriod'><option label="3 개월" value="3">3 개월</option>
-							<option label="6 개월" value="6">6 개월</option>
-							<option label="1 년" value="12">1 년</option>
-							<option label="2 년" value="24">2 년</option>
-							<option label="3 년" value="36">3 년</option>
-							<option label="4 년" value="48">4 년</option>
-							<option label="5 년" value="60">5 년</option>
-							<option label="6 년" value="72">6 년</option>
-							<option label="7 년" value="84">7 년</option>
-							<option label="8 년" value="96">8 년</option>
-							<option label="9 년" value="108">9 년</option>
-							<option label="10 년" value="120" selected="selected">10 년</option>
-							<option label="무기한" value="12000">무기한</option>
-						</select>
+						<c:if test="${document.doc_open eq 1}">
+						공개
+						</c:if>
+						<c:if test="${document.doc_open eq 0}">
+						비공개
+						</c:if>
 					</td>
 				</tr>
 			</table>
@@ -324,13 +297,7 @@
 					<th style="border-left: none;">수신부서</th>
 					<td class="pad15l" style="padding-right:7px;">
 						<span id="ReceiveTreeKeyButtonArea" style='width:100%;'>
-							<input type="text" name="ReceiveTreeKeyName" value="" readonly class="left" style="width:494px;"/>
-							<span class="btn_page right">
-								<!-- 수신부서 지정 -->
-								<a class="cursor openPopupTreeKeyFind">
-									<span class="txt_ce" style="width:80px;">수신부서 지정</span>
-								</a>
-							</span>
+							
 						</span>
 					</td>
 				</tr>
@@ -339,13 +306,6 @@
 				<tr class="eword_meta_height">
 					<th style="border-left: none;">참조자</th>
 					<td class="pad15l" style="padding-right:7px;">
-						<input type="text" name="referenceUserName" value="" readonly class="left" style="width:494px;"/>
-						<span class="btn_page right">
-							<!-- 참조자 지정 -->
-							<a class="openPopup">
-								<span class="txt_ce"style="width:80px;">참조자 지정</span>
-							</a>
-						</span>
 					</td>
 				</tr>
 										
@@ -353,7 +313,7 @@
 				<tr class="eword_meta_height">
 					<th style="border-left: none;" >제목</th>
 					<td class="pad15l">
-						<input name="Subject" type="text" value=""  style="width:98%;"/>
+					<c:out value="${document.doc_subject}"/>
 					</td>
 				</tr>
 			</table>
