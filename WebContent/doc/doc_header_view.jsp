@@ -76,7 +76,11 @@
 									<!-- 지정/취소 버튼 -->					
 									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
+										<c:if test="${signPerson.appr_flag == 0}">
+											<c:if test="${signPerson.appr_flag == 0}">
 											<span>${signPerson.emp_name}</span>
+											</c:if>
+										</c:if>
 									</div>
 								</td>
 								</c:forEach>
