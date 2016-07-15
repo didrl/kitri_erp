@@ -25,7 +25,7 @@ public class BtripApplicationDaoImpl implements BtripApplicationDao {
 	}
 
 	@Override
-	public DocumentDto viewDoc(String doc_id) {
+	public BtripApplicationDto viewDoc(String doc_id) {
 		return sqlSession.selectOne("com.kitrierp.doc.model.dao.BtripApplicationDaoImpl.view", doc_id);
 	}
 	
