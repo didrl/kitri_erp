@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kitrierp.doc.model.BtripReportDto;
 import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.service.BtripReportService;
+import com.kitrierp.doc.model.service.DocService;
 import com.kitrierp.employee.model.EmployeeDto;
 
 @Controller
@@ -19,14 +20,21 @@ import com.kitrierp.employee.model.EmployeeDto;
 public class BtripReportController {
 	@Autowired
 	private BtripReportService btripReportService;
+	@Autowired
+	private DocService docService;
 	
+	//상신하기
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
 	public ModelAndView reportDoc(@RequestParam BtripReportDto btripReportDto,
-			@RequestParam DocumentDto documentDto,HttpSession session){
+			@RequestParam int doc_type_id, HttpSession session){
 		ModelAndView mav = new ModelAndView();
+		int expense_info_id = btripReportService.expenseInfoSeq();
 		EmployeeDto employeeDto =(EmployeeDto)session.getAttribute("memberInfo");
 		int id = employeeDto.getEmp_id();
-		documentDto.setEmp_id(id);
+		String doc_id = docService.doc_id(doc_type_id);
+		btripReportDto.setEmp_id(id);
+		btripReportDto.setDoc_id(doc_id);
+		btripReportDto.setExpense_info_id(expense_info_id);
 		int write = btripReportService.reportDoc(btripReportDto);
 		return mav;
 	}
