@@ -17,7 +17,7 @@
         and d.doc_id = #{doc_id}
     </select>
     
-    <select id="view_list" parameterType="String" resultType="bpdto">
+    <select id="view_list" parameterType="int" resultType="bpdto">
         selct * from btrip_payment where doc_id = #{EXPENSE_INFO_ID}
     </select>
    

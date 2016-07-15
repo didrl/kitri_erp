@@ -10,6 +10,8 @@
         <typeAlias alias="brdto" type="com.kitrierp.doc.model.BtripReportDto"/>
         <typeAlias alias="bpdto" type="com.kitrierp.doc.model.BtripPaymentDto"/>
         <typeAlias alias="docdto" type="com.kitrierp.doc.model.DocumentDto"/>
+        <typeAlias alias="pdto" type="com.kitrierp.doc.model.PaymentDto"/>
+        <typeAlias alias="pidto" type="com.kitrierp.doc.model.PaymentInfoDto"/>
     </typeAliases>
     
     <mappers>
