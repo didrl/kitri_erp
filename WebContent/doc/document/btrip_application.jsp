@@ -1,10 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8" import="org.springframework.web.util.WebUtils"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8" %>
 <%@ include file="/common/user_sidebar.jsp" %>
 <%@ include file="/doc/doc_header.jsp" %>
-
-<%
-int doc_type = (Integer) WebUtils.getSessionAttribute(request, "docType");
-%>			
 <c:set var="doc_type" value="docType"></c:set>
 			<!-- 기본형 휴가계/출장계 -->
 		<tr class="change_height_on_print">
@@ -13,6 +9,7 @@ int doc_type = (Integer) WebUtils.getSessionAttribute(request, "docType");
 					<col class="eword_th_width">
 					<col style="width:87.5%;">
 								
+
 					<!-- 출장계 > 출장 신청서 -->
 						 <tr class="eword_meta_height">
 		                     <th style="border-top: none; border-left: none;">기간</th>
@@ -23,6 +20,7 @@ int doc_type = (Integer) WebUtils.getSessionAttribute(request, "docType");
 		                     </div>
 		                     </td>
 	                  	</tr>
+
 						<tr class="eword_meta_height">
 							<th style="border-left: none;">출장지</th>
 							<td class="pad15l">
