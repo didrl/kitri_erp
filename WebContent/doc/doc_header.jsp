@@ -75,7 +75,7 @@ function golist() {
 <button type="button" class="btn btn-primary" id="tmpsaveDoc">임시저장</button>
 
 <!-- 결재양식 제목 -->
-<h1 class="eword_maincolumn">문서타입이름부분(지출 결의서)</h1>
+<h1 class="eword_maincolumn">${doc_type_name}</h1>
 
 <!-- 결재문서 본문 -->
 <table id="ewordWrapper" class="eword_maincolumn boldline mar10b">
@@ -312,7 +312,7 @@ function golist() {
 				<!-- 문서종류 -->
 				<tr class="eword_meta_height">
 					<th style="border-left: none;" >문서종류</th>
-					<td class="pad15l"  colspan="3" >지출 결의서</td>
+					<td class="pad15l"  colspan="3" >${doc_type_name}</td>
 				</tr>
 					<!-- 부서 -->
 				<tr class="eword_meta_height">

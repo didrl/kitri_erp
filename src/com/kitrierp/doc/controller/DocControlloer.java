@@ -22,37 +22,47 @@ public class DocControlloer {
 	@Autowired
 	private DocService docService;
 	
-	@RequestMapping(value="/mvBtripApplication.erp", method=RequestMethod.GET)
-	public String mvBtripApplication(HttpServletRequest request){
-		WebUtils.setSessionAttribute(request, "docType", 4);
-		return "redirect:/doc/document/btrip_application.jsp";
+	@RequestMapping(value="/mvDoc.erp", method=RequestMethod.GET)
+	public ModelAndView mvBtripApplication(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		String doc_type = request.getParameter("doc_type");
+		String path="document/";
+		switch(Integer.parseInt(doc_type)){
+			case 1:
+				doc_type="기안서";
+				path += "proposal";
+				break;
+			case 2:
+				doc_type="품의서";
+				path += "consultation";
+				break; 
+			case 3:
+				doc_type="지출결의서";
+				path += "payment";
+				break;
+			case 4:
+				doc_type="출장보고서";
+				path += "btrip_report";
+				break;
+			case 5:
+				doc_type="출장신청서";
+				path += "btrip_application";
+				break;
+			case 6:
+				doc_type="휴가신청서";
+				path += "vacation";
+				break;
+			case 7:
+				doc_type="업무일지";
+				path += "journal";
+				break;
+			default:
+		}
+		mav.addObject("doc_type_name",doc_type);
+		mav.setViewName("/doc/"+ path);
+		return mav;
 	}
-	@RequestMapping(value="/mvBtripReport.erp", method=RequestMethod.GET)
-	public String mvBtripReport(HttpServletRequest request){
-		WebUtils.setSessionAttribute(request, "docType", 5);
-		return "redirect:/doc/document/btrip_report.jsp";
-	}
-	@RequestMapping(value="/mvConsultation.erp", method=RequestMethod.GET)
-	public String mvConsultation(HttpServletRequest request){
-		WebUtils.setSessionAttribute(request, "docType", 2);
-		return "redirect:/doc/document/consultation.jsp";
-	}
-	@RequestMapping(value="/mvPayment.erp", method=RequestMethod.GET)
-	public String mvPayment(HttpServletRequest request){
-		WebUtils.setSessionAttribute(request, "docType", 3);
-		return "redirect:/doc/document/payment.jsp";
-	}
-	@RequestMapping(value="/mvProposal.erp", method=RequestMethod.GET)
-	public String mvProposal(HttpServletRequest request){
-		WebUtils.setSessionAttribute(request, "docType", 1);
-		return "redirect:/doc/document/proposal.jsp";
-	}
-	@RequestMapping(value="/mvJounal.erp", method=RequestMethod.GET)
-	public String mvJounal(HttpServletRequest request){
-		WebUtils.setSessionAttribute(request, "docType", 7);
-		return "redirect:/doc/document/jounal.jsp";
-	}
-
+	
 	@RequestMapping("/dep_docBox.erp")
 	public ModelAndView dep_docBoxList(){
 		ModelAndView mav = new ModelAndView();
