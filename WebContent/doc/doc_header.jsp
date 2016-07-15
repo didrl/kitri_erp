@@ -2,18 +2,19 @@
     pageEncoding="UTF-8"%>
     <%@ include file="/common/common.jsp" %>
 
+<!-- css & script src start -->
+<!-- whois css -->
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_common.css?v=20150706"/>
 <link rel="stylesheet" type="text/css" href="http://css.whoisdesk.net/Src/Skin/Renewal/eword_write.css?v=20150702"/>
-
-<!-- datepicker css -->
-<link href="${root}/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-<!-- datepicker JavaScript -->
-<script src="${root}/datepicker/js/bootstrap-datepicker.min.js"></script>
-<script src="${root}/datepicker/locales/bootstrap-datepicker.kr.min.js"></script>
+<!-- datepicker -->
+<link href="${root}/webjars/bootstrap-datepicker/1.6.1/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<script src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="${root}/webjars/bootstrap-datepicker/1.6.1/dist/locales/bootstrap-datepicker.ko.min.js"></script>
+<!-- for time format -->
+<script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!-- css & script src end -->
 
 <!--script start -->
-<!-- for DataTable -->
 <script>
 $(document).ready(function() {
 	 $('#datepicker').datepicker();
@@ -48,7 +49,7 @@ function golist() {
 }
 
 </script>
-<!-- for Timepicker -->
+<!--script end -->
 
 <div id="wrapper"> 
  <!-- Page Content -->
