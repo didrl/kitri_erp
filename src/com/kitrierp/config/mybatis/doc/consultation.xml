@@ -16,16 +16,32 @@
         and d.doc_id = #{doc_id}
     </select>
     <select id="view_sign_info" parameterType="String" resultType="sidto">
-        select * from sign_info where doc_id = #{doc_id}
+        select *
+        from sign_info si, employee e,grade g
+        where si.doc_id = #{doc_id}
+        and si.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
     </select>
     <select id="view_reference" parameterType="String" resultType="refdto">
-        select * from reference where doc_id = #{doc_id}
+        select * 
+        from reference ref, employee e,grade g
+        where doc_id = #{doc_id}
+        and ref.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
     </select>
     <select id="view_cooperation" parameterType="String" resultType="coopdto">
-        select * from cooperation where doc_id = #{doc_id}
+        select * 
+        from cooperation c,employee e,grade g
+        where doc_id = #{doc_id}
+        and c.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
     </select>
     <select id="view_receive_list" parameterType="String" resultType="receidto">
-        select * from receive_list where doc_id = #{doc_id}
+        select *
+        from receive_list rl, department dp, document d
+        where d.doc_id =  #{doc_id}
+        and rl.doc_id = d.doc_id
+        and rl.dep_id = dp.dep_id
     </select>
     
 </mapper>
