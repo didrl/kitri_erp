@@ -2,6 +2,8 @@ package com.kitrierp.employee.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +19,12 @@ public class OrganizationController {
 	private OrganizationService organizationService;
 	
 	@RequestMapping("/list.erp")
-	public ModelAndView organizationList(){
+	public ModelAndView organizationList(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
+		String cellnum = request.getParameter("cellnum");
 		List<EmployeeDto> olist=organizationService.organizationList();
 		mav.addObject("olist",olist);
+		mav.addObject("cellnum",cellnum);
 		mav.setViewName("/doc/m_organization");
 		return mav;
 	}

@@ -2,42 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/common.jsp"%>
 <script type="text/javascript">
-var valueArr;
-var list;
-$(window).load(function(){
-    $("input[name='chk_all']").click(function () {
-        var chk_listArr = $("input[name='emp_id']");
-        for (var i=0; i < chk_listArr.length; i++) {
-            chk_listArr[i].checked = this.checked;
-        }
-    });
-    
-    $("input[name='chk_list']").click(function () { //리스트 항목이 모두 선택되면 전체 선택 체크
-        if ($("input[name='emp_id']:checked").length =="${olist.size()}") {
-            $("input[name='chk_all']")[0].checked = true;
-        }else  {                                                //리스트 항목 선택 시 전체 선택 체크를 해제함
-            $("input[name='chk_all']")[0].checked = false; 
-        }
-    });    
-    
-});
 
-/**
- * 선택된 체크박스의 값을 배열에 담는다
- */
-function checkSelectedValue(){
-    valueArr = new Array();
-    list = $("input[name='emp_id']");
-    for(var i = 0; i < list.length; i++){
-        if(list[i].checked){ //선택되어 있으면 배열에 값을 저장함
-            valueArr.push(list[i].value);
-        }
-  }
-}
 
-function select(emp_id){
-	alert("dd :" + emp_id);
-	window.opener.getElementById("");
+function select(emp_id, emp_name){
+	var num=${cellnum}
+
+	  opener.document.getElementById("approval_"+num).value =emp_id;
+	  opener.document.getElementById("emp_name"+num).value =emp_name;
+	  self.close();
 }
  </script>   
 
@@ -49,7 +21,7 @@ function select(emp_id){
 	    </div>
 	    <!-- .panel-heading -->
 	    <div class="panel-body">
-	     	<label>전체선택<input type="checkbox" id="chk_all" name="chk_all"></label>
+	  
 			<c:set var="dep_id" value=""/>
 			<c:set var="grade_id" value=""/>
 			<c:if test="${olist.size()!=0}">
@@ -74,7 +46,7 @@ function select(emp_id){
 					                    	<ul>
 				<c:set var="grade_id" value="${org.grade_id}"/>
 				</c:if>
-					    <a href="javascript:select(${org.emp_id});"><li>${org.grade_name} ${org.emp_name}</li></a>
+					    <a href="javascript:select('${org.emp_id}','${org.emp_name}');"><li>${org.grade_name} ${org.emp_name}</li></a>
 				<c:if test="${i.index < olist.size() - 1 }">
 					<c:if test="${grade_id != olist.get(i.index + 1).grade_id}">
 					                        </ul>
