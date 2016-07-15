@@ -21,7 +21,7 @@ import com.kitrierp.employee.model.EmployeeDto;
 
 
 @SessionAttributes("memberInfo")
-@RequestMapping("/docBox")
+@RequestMapping("/doc/docBox")
 @Controller 
 public class DocBoxControlloer {
 	@Autowired
@@ -80,14 +80,32 @@ public class DocBoxControlloer {
 	}
 	*/
 	
+	/*
 	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.POST)
 	public ModelAndView dep_docBoxList(@ModelAttribute("memberInfo") EmployeeDto edto){
 		ModelAndView mav = new ModelAndView();
 		int emp_id = edto.getEmp_id();		
 		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
 		mav.addObject("dep_docBoxList",dep_docBoxList);
-		mav.setViewName("/doc/dep_docBoxList");
+		mav.setViewName("/doc/docBox/dep_docbox");
 		
 		return mav;
 	}
+	*/
+	
+	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET)
+	public ModelAndView dep_docBoxList(){
+		
+		ModelAndView mav = new ModelAndView();
+		int emp_id = 40990130;		
+		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
+		mav.addObject("dep_docBoxList",dep_docBoxList);
+		mav.setViewName("/doc/docBox/dep_docBox");
+		
+		return mav;
+	}
+	
+	
+	
+	
 }

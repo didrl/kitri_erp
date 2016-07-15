@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kitrierp.doc.model.DocBoxDaoImpl">  
     <select id="dep_docBoxList" parameterType="int" resultType="docdto">
-     
-     
+        select DOC_ID
+        from Document
     </select>
 </mapper>

@@ -134,6 +134,9 @@ input {
 			<a href="${root}/proposal/viewDoc.erp?doc_id=1607-010034">기안서</a>
 			<a href="${root}/btripApplication/viewDoc.erp?doc_id=1607-040046">출장신청서</a>
 			<a href="${root}/btripReport/viewDoc.erp?doc_id=1607-050045">출장보고서</a>
+			<a href="${root}/doc/docBox/dep_docBox.erp">부서문서함</a>
+			
+			
        </div>
         <!-- /.container -->
      </div>
