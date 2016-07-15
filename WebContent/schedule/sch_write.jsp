@@ -15,9 +15,12 @@
 	</style>
 	
 <!-- datetimePicker -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
+<link href="${root}/webjars/eonasdan-bootstrap-datetimepicker/4.17.37/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="${root}/webjars/eonasdan-bootstrap-datetimepicker/4.17.37/build/js/bootstrap-datetimepicker.min.js"></script>
+<!-- for time format -->
+<script src='${root}/webjars/moment/2.14.1/moment.js'></script>
+<script src="${root}/webjars/moment-timezone/0.5.4/moment-timezone-utils.js"></script>
+<script src="${root}/webjars/moment-timezone/0.5.4/moment-timezone.js"></script>
 <!-- css & script src end -->
 
 <!--script start -->
