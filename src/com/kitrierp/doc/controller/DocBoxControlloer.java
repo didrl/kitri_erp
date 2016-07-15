@@ -64,9 +64,10 @@ public class DocBoxControlloer {
 		return mav;
 	}
 	
-	@RequestMapping("/dep_docBox.erp")
-	public ModelAndView dep_docBoxList(int emp_id){
+	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET )
+	public ModelAndView dep_docBoxList(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
+		int emp_id = Integer.parseInt(request.getParameter("emp_id"));
 		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
 		mav.addObject("dep_docBoxList",dep_docBoxList);
 		mav.setViewName("/doc/dep_docBoxList");
