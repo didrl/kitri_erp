@@ -53,13 +53,7 @@
 
 <script type="text/javascript">
 	function golist(cellnum) {
-
-		window
-				.open(
-						"${root}/organization/list.erp?cellnum=" + cellnum,
-						"select",
-						"top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
-
+		window.open("${root}/organization/emp_list.erp?cellnum=" + cellnum,"select","top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 	}
 </script>
 <!--script end -->
@@ -79,22 +73,22 @@
 			<form name="docform" id="docform" method="post" action=''
 				enctype='multipart/form-data' class="mar10b black">
 
-				<input type="hidden" name="doc_type_id" value=""> <input
-					type="hidden" name="doc_id" value=""> <input type="hidden"
-					name="doc_controller" value="">
+				<input type="hidden" name="doc_type_id" value=""> 
+				<input type="hidden" name="doc_id" value=""> 
+				<input type="hidden" name="doc_controller" value="">
 
 				<form name="approvalfirm" id="approvalfirm">
-
-					<input type="hidden" id="approval_1" name="approval_1" value=""> <input
-						type="hidden" id="approval_2" name="approval_2" value=""> <input
-						type="hidden" id="approval_3" name="approval_3" value=""> <input
-						type="hidden" id="approval_4" name="approval_4" value="">
-						<input type="hidden" id="approval_5" name="approval_5" value="">
-							<input type="hidden" id="approval_11" name="approval_11" value=""> <input
-						type="hidden" id="approval_12" name="approval_12" value=""> <input
-						type="hidden" id="approval_13" name="approval_13" value=""> <input
-						type="hidden" id="approval_14" name="approval_14" value="">
-						<input type="hidden" id="approval_15" name="approval_15" value="">
+					<input type="hidden" id="approval_1" name="approval_1" value=""> 
+					<input type="hidden" id="approval_2" name="approval_2" value=""> 
+					<input type="hidden" id="approval_3" name="approval_3" value=""> 
+					<input type="hidden" id="approval_4" name="approval_4" value="">
+					<input type="hidden" id="approval_5" name="approval_5" value="">
+					<input type="hidden" id="approval_11" name="approval_11" value=""> 
+					<input type="hidden" id="approval_12" name="approval_12" value=""> 
+					<input type="hidden" id="approval_13" name="approval_13" value=""> 
+					<input type="hidden" id="approval_14" name="approval_14" value="">
+					<input type="hidden" id="approval_15" name="approval_15" value="">
+					<input type="hidden" id="approval_ref" name="approval_ref" value="">
 				</form>
 
 
@@ -177,7 +171,7 @@
 													<div id="MembersFindCell1" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('1');"> <span>지정</span>
-														</a> <input type="text" id="emp_name1" value="" disabled="disabled">
+														</a> <input type="text" id="emp_name1" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName2" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -185,7 +179,7 @@
 													<div id="MembersFindCell2" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('2');"> <span>지정</span>
-														</a><input type="text" id="emp_name2" value="" disabled="disabled">
+														</a><input type="text" id="emp_name2" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName3" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -193,7 +187,7 @@
 													<div id="MembersFindCell3" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('3');"> <span>지정</span>
-														</a><input type="text" id="emp_name3" value="" disabled="disabled">
+														</a><input type="text" id="emp_name3" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName4" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -201,7 +195,7 @@
 													<div id="MembersFindCell4" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('4');"> <span>지정</span>
-														</a><input type="text" id="emp_name4" value="" disabled="disabled">
+														</a><input type="text" id="emp_name4" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName5" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -209,7 +203,7 @@
 													<div id="MembersFindCell5" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('5');"> <span>지정</span>
-														</a><input type="text" id="emp_name5" value="" disabled="disabled">
+														</a><input type="text" id="emp_name5" value="" readonly="readonly">
 													</div></td>
 											</tr>
 											<tr class="date" style="height: 20px;">
@@ -254,7 +248,7 @@
 													<div id="MembersFindCell11" class="btn_page pad15l overf">
 														<!-- 취소 -->
 														<a onclick="javascript:golist('11');"> <span>지정</span>
-														</a><input type="text" id="emp_name11" value="" disabled="disabled">
+														</a><input type="text" id="emp_name11" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName12" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -262,7 +256,7 @@
 													<div id="MembersFindCell12" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('12');"> <span>지정</span>
-														</a><input type="text" id="emp_name12" value="" disabled="disabled">
+														</a><input type="text" id="emp_name12" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName13" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -270,7 +264,7 @@
 													<div id="MembersFindCell13" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('13');"> <span>지정</span>
-														</a><input type="text" id="emp_name13" value="" disabled="disabled">
+														</a><input type="text" id="emp_name13" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName14" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -278,16 +272,16 @@
 													<div id="MembersFindCell14" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('14');"> <span>지정</span>
-														</a><input type="text" id="emp_name14" value="" disabled="disabled">
+														</a><input type="text" id="emp_name14" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName15" value=""
 													readonly class="form_transparent" style='width: 100%;'>
 													<input type="hidden" name="OrderId15" value=""> <!-- 지정/취소 버튼 -->
-													<div id="MembersFindCell15" class="btn_page pad15l overf">
+													<div align="center" id="MembersFindCell15" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('15');"> <!--  <a class="openPopup"  href="myOrderUserAppointPopup.php?mode=order&number=15&total=5&WordUseHelper=Y">-->
 															<span>지정</span>
-														</a><input type="text" id="emp_name15" value="" disabled="disabled">
+														</a><input type="text" id="emp_name15" value="" readonly="readonly">
 													</div></td>
 											</tr>
 											<tr class="date" style="height: 20px;">
@@ -353,8 +347,7 @@
 											<option label="7 년" value="84">7 년</option>
 											<option label="8 년" value="96">8 년</option>
 											<option label="9 년" value="108">9 년</option>
-											<option label="10 년" value="120" selected="selected">10
-												년</option>
+											<option label="10 년" value="120" selected="selected">10 년</option>
 											<option label="무기한" value="12000">무기한</option>
 									</select>
 									</td>
@@ -367,27 +360,27 @@
 								<!-- 수신부서 -->
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">수신부서</th>
-									<td class="pad15l" style="padding-right: 7px;"><span
-										id="ReceiveTreeKeyButtonArea" style='width: 100%;'> <input
-											type="text" name="ReceiveTreeKeyName" value="" readonly
-											class="left" style="width: 494px;" /> <span
-											class="btn_page right"> <!-- 수신부서 지정 --> <a
-												class="cursor openPopupTreeKeyFind"> <span
-													class="txt_ce" style="width: 80px;">수신부서 지정</span>
+									<td class="pad15l" style="padding-right: 7px;">
+										<span id="ReceiveTreeKeyButtonArea" style='width: 100%;'> 
+											<input type="text" name="ReceiveTreeKeyName" value="" readonly 	class="left" style="width: 494px;" /> 
+											<span class="btn_page right"> 
+											<!-- 수신부서 지정 --> 
+											<a	class="cursor openPopupTreeKeyFind"> 
+												<span class="txt_ce" style="width: 80px;">수신부서 지정</span>
 											</a>
+											</span>
 										</span>
-									</span></td>
+									</td>
 								</tr>
 
 								<!-- 참조자 -->
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">참조자</th>
-									<td class="pad15l" style="padding-right: 7px;"><input
-										type="text" name="referenceUserName" value="" readonly
-										class="left" style="width: 494px;" /> <span
-										class="btn_page right"> <!-- 참조자 지정 --> <a
-											class="openPopup"> <span class="txt_ce"
-												style="width: 80px;">참조자 지정</span>
+									<td class="pad15l" style="padding-right: 7px;">
+									<input type="text" name="emp_nameref" value="" readonly class="left" style="width: 494px;" /> 
+										<span class="btn_page right"> <!-- 참조자 지정 --> 
+										<a	onclick="javascript:golist('ref');"> 
+										<span class="txt_ce" style="width: 80px;">참조자 지정</span>
 										</a>
 									</span></td>
 								</tr>
