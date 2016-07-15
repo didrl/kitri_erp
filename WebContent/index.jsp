@@ -131,6 +131,7 @@ input {
 					placeholder="PASSWORD" required> <input type="submit"
 					value="Login" class="LoginButton">
 			</form>
+			<a href="${root}/proposal/viewDoc.erp?doc_id=1607-010034">!!</a>
        </div>
         <!-- /.container -->
      </div>
