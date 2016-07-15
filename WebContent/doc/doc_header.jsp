@@ -43,9 +43,9 @@ $(document).ready(function() {
 </script>
 
 <script type="text/javascript">
-function golist() {
+function golist(cellnum) {
 	
-	  window.open("${root}/organization/list.erp", "select", "top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+	  window.open("${root}/organization/list.erp?cellnum="+cellnum, "select", "top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 }
 
 </script>
@@ -136,7 +136,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('1');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -147,7 +147,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell2"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('2');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -158,7 +158,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->
 									<div id="MembersFindCell3"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('3');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -169,7 +169,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell4"  class="btn_page pad15l overf">
 									<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('4');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -180,7 +180,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->
 									<div id="MembersFindCell5"  class="btn_page pad15l overf">
 									<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('5');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -237,7 +237,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell11"  class="btn_page pad15l overf">
 										<!-- 취소 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('11');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -248,7 +248,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell12"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('12');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -259,7 +259,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell13"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('13');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -270,7 +270,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell14"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('14');">
 											<span>지정</span>
 										</a>
 									</div>
@@ -281,7 +281,7 @@ function golist() {
 									<!-- 지정/취소 버튼 -->					
 									<div id="MembersFindCell15"  class="btn_page pad15l overf">
 										<!-- 지정 -->
-										<a onclick="javascript:golist();">
+										<a onclick="javascript:golist('15');">
 											<!--  <a class="openPopup"  href="myOrderUserAppointPopup.php?mode=order&number=15&total=5&WordUseHelper=Y">-->
 											<span>지정</span>
 										</a>
