@@ -37,7 +37,7 @@ public class ProposalController {
 		DocumentDto documentDto = proposalService.viewDoc(doc_id);
 		mav.addObject("document", documentDto);
 		mav.addObject("doctype", "기안서");
-		mav.setViewName("/doc/document/proposal");
+		mav.setViewName("/doc/document/proposal_view");
 		return mav;
 	}
 }

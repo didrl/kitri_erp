@@ -9,6 +9,8 @@
         <typeAlias alias="badto" type="com.kitrierp.doc.model.BtripApplicationDto"/>
         <typeAlias alias="brdto" type="com.kitrierp.doc.model.BtripReportDto"/>
         <typeAlias alias="docdto" type="com.kitrierp.doc.model.DocumentDto"/>
+        <typeAlias alias="pdto" type="com.kitrierp.doc.model.PaymentDto"/>
+        <typeAlias alias="pidto" type="com.kitrierp.doc.model.PaymentInfoDto"/>
     </typeAliases>
     
     <mappers>
@@ -28,6 +30,7 @@
         <mapper resource="com/kitrierp/config/mybatis/doc/btripReport.xml"/>
         <mapper resource="com/kitrierp/config/mybatis/doc/consultation.xml"/>
         <mapper resource="com/kitrierp/config/mybatis/doc/doc.xml"/>
+        <mapper resource="com/kitrierp/config/mybatis/doc/docBox.xml"/>
         <mapper resource="com/kitrierp/config/mybatis/doc/journal.xml"/>
         <mapper resource="com/kitrierp/config/mybatis/doc/payment.xml"/>
         <mapper resource="com/kitrierp/config/mybatis/doc/proposal.xml"/>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kitrierp.doc.model.BtripApplicationDto;
+import com.kitrierp.doc.model.DocumentDto;
 
 @Repository
 public class BtripApplicationDaoImpl implements BtripApplicationDao {
@@ -21,6 +22,11 @@ public class BtripApplicationDaoImpl implements BtripApplicationDao {
 	@Override
 	public int tmpsaveDoc(BtripApplicationDto btripApplicationDto) {
 		return 0;
+	}
+
+	@Override
+	public BtripApplicationDto viewDoc(String doc_id) {
+		return sqlSession.selectOne("com.kitrierp.doc.model.dao.BtripApplicationDaoImpl.view", doc_id);
 	}
 	
 	

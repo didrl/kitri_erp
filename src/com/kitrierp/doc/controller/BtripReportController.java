@@ -44,4 +44,14 @@ public class BtripReportController {
 		int save = btripReportService.tmpsaveDoc(btripReportDto); //임시저장으로
 		return mav;
 	}
+	
+	@RequestMapping("/viewDoc.erp")
+	public ModelAndView viewDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		BtripReportDto btripReportDto = btripReportService.viewDoc(doc_id);
+		mav.addObject("document", btripReportDto);
+		mav.addObject("doctype", "출장신청서");
+		mav.setViewName("/doc/document/btrip_report_view");
+		return mav;
+	}
 }

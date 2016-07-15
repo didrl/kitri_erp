@@ -6,4 +6,14 @@
     <insert id="write" parameterType="badto">
         
     </insert>
+    
+    <select id="view" parameterType="String" resultType="badto">
+        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject, d.doc_content, 
+               d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id, d.doc_note, e.emp_name,
+               a.start_date, a.end_date, a.btrip_location, a.btrip_purpose
+        from document d, employee e, btrip_application a
+        where d.emp_id = e.emp_id
+        and d.doc_id = a.doc_id
+        and d.doc_id = #{doc_id}
+    </select>
 </mapper>

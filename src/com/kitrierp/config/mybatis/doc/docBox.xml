@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kitrierp.doc.model.DocBoxDaoImpl">  
+    <select id="dep_docBoxList" parameterType="int" resultType="docdto">
+        select D.DOC_ID,D.DOC_DATE,D.DOC_CONTENT,r.dep_id,D.EMP_ID
+        from Document d, RECEIVE_LIST r
+        where d.doc_id = r.doc_id
+        and r.dep_id = 
+            (select e.DEP_ID
+            from employee e
+            where e.emp_id = #{emp_id})
+        order by d.DOC_DATE DESC;
+    </select>
+</mapper>
