@@ -25,15 +25,27 @@
     </insert> 
     
     <select id="view" parameterType="String" resultType="brdto">
-        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject, d.doc_content, 
-               d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id, d.doc_note, e.emp_name,dt.doc_type_name,
-               r.expense_info_id, r.start_date, r.end_date, r.btrip_location,dp.dep_name
-        from document d, employee e, btrip_report r,doc_type dt,department dp
+        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject,
+        d.doc_content, d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id,
+        d.doc_note, dt.doc_type_name, ds.doc_status_name,
+        e.emp_name, dp.dep_name,
+        r.expense_info_id, r.start_date, r.end_date, r.btrip_location
+        from document d, employee e, department dp, doc_type dt, doc_status ds, btrip_report r
         where d.emp_id = e.emp_id
-        and dp.dep_id = e.dep_id
+        and e.dep_id = dp.dep_id
         and d.doc_type_id = dt.doc_type_id
+        and d.doc_status_id = ds.doc_status_id
         and d.doc_id = r.doc_id
         and d.doc_id = #{doc_id}
+    </select>
+    <select id="view_sign_info" parameterType="String" resultType="SignInfoDto">
+        select * from sign_info where doc_id = #{doc_id}
+    </select>
+    <select id="view_reference" parameterType="String" resultType="ReferenceDto">
+        select * from reference where doc_id = #{doc_id}
+    </select>
+    <select id="view_cooperation" parameterType="String" resultType="CooperationDto">
+        select * from cooperation where doc_id = #{doc_id}
     </select>
     
     <select id="view_list" parameterType="int" resultType="bpdto">
