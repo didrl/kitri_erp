@@ -1,5 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<script type="text/javascript">
+var root ="${root}";
+var doc_type = "${doc_type_name}";
+var controller="";
+if(doc_type=="기안서"){
+	controller="/proposal";
+}else if(doc_type=="품의서"){
+	controller="/consultation";
+}else if(doc_type=="지출결의서"){
+	controller="/payment";
+}else if(doc_type=="출장신청서"){
+	controller="/btripApplication";
+}else if(doc_type=="출장보고서"){
+	controller="/btripReport";
+}else if(doc_type=="휴가신청서"){
+	controller="/vacation";
+}else if(doc_type=="업무일지"){
+	controller="/journal";
+}
+</script>  
+
 <!-- 첨부파일 -->
 <table class="eword_maincolumn eword_meta mar10b">
 	<col class="eword_th_width">
@@ -30,6 +52,7 @@
 <!-- Page Content -->
 </div>
 <!-- wrapper -->
+
 
 <script type="text/javascript" src="http://js.whoisdesk.net/Src/WebCommon/Script/preventDuplicateSubmit.js"></script>
 <script type="text/javascript" src="${root}/js/jquery.DOMWindow.js"></script>
