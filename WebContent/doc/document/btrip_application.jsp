@@ -1,10 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8" import="org.springframework.web.util.WebUtils"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8" %>
 <%@ include file="/common/user_sidebar.jsp" %>
 <%@ include file="/doc/doc_header.jsp" %>
-
-<%
-int doc_type = (Integer) WebUtils.getSessionAttribute(request, "docType");
-%>			
 <c:set var="doc_type" value="docType"></c:set>
 			<!-- 기본형 휴가계/출장계 -->
 		<tr class="change_height_on_print">
