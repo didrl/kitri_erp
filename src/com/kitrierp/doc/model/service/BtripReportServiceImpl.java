@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kitrierp.doc.model.BtripReportDto;
+import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.dao.BtripReportDao;
 
 @Service
@@ -21,5 +22,10 @@ public class BtripReportServiceImpl implements BtripReportService {
 	public int tmpsaveDoc(BtripReportDto btripReportDto) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public BtripReportDto viewDoc(String doc_id) {
+		return btripReportDao.viewDoc(doc_id);
 	}
 }

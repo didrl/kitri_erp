@@ -23,7 +23,7 @@ public class BtripApplicationServiceImpl implements BtripApplicationService {
 	}
  
 	@Override
-	public DocumentDto viewDoc(String doc_id) {
+	public BtripApplicationDto viewDoc(String doc_id) {
 		return btripApplicationDao.viewDoc(doc_id);
 	}
 }

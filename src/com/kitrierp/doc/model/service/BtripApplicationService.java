@@ -6,5 +6,5 @@ import com.kitrierp.doc.model.DocumentDto;
 public interface BtripApplicationService {
 	int reportDoc(BtripApplicationDto btripApplicationDto);
 	int tmpsaveDoc(BtripApplicationDto btripApplicationDto);
-	DocumentDto viewDoc(String doc_id);
+	BtripApplicationDto viewDoc(String doc_id);
 }

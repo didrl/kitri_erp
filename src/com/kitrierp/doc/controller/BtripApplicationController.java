@@ -42,8 +42,8 @@ public class BtripApplicationController {
 	@RequestMapping("/viewDoc.erp")
 	public ModelAndView viewDoc(@RequestParam String doc_id) {
 		ModelAndView mav = new ModelAndView();
-		DocumentDto documentDto = btripApplicationService.viewDoc(doc_id);
-		mav.addObject("document", documentDto);
+		BtripApplicationDto btripApplicationDto = btripApplicationService.viewDoc(doc_id);
+		mav.addObject("document", btripApplicationDto);
 		mav.addObject("doctype", "출장신청서");
 		mav.setViewName("/doc/document/btrip_application_view");
 		return mav;
