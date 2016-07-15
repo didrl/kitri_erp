@@ -13,13 +13,16 @@ public class ProposalServiceImpl implements ProposalService {
 
 	@Override
 	public int reportDoc(DocumentDto documentDto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int tmpsaveDoc(DocumentDto documentDto) {
-		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public DocumentDto viewDoc(String doc_id) {
+		return proposalDao.viewDoc(doc_id);
 	}
 }

@@ -1,10 +1,12 @@
 package com.kitrierp.doc.model;
 
 import java.util.List;
-import com.kitrierp.common.model.FileDto;
 
-public class DocumentDto {
-	private int doc_id;
+import com.kitrierp.common.model.FileDto;
+import com.kitrierp.employee.model.EmployeeDto;
+
+public class DocumentDto extends EmployeeDto {
+	private String doc_id;
 	private String doc_subject;
 	private String doc_content;
 	private String doc_date;
@@ -19,10 +21,10 @@ public class DocumentDto {
 	List<ReceiveListDto> receiver;
 	List<FileDto> file;
 	
-	public int getDoc_id() {
+	public String getDoc_id() {
 		return doc_id;
 	}
-	public void setDoc_id(int doc_id) {
+	public void setDoc_id(String doc_id) {
 		this.doc_id = doc_id;
 	}
 	public String getDoc_subject() {

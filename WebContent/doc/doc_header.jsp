@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ include file="/common/common.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/common/common.jsp" %>
+
+
 
 <!-- css & script src start -->
 <!-- whois css -->
@@ -78,6 +79,7 @@
 	**** hidden 정리하기!!!! ****
 	-->
 
+
 			<form name="docform" id="docform" method="post" action=''
 				enctype='multipart/form-data' class="mar10b black">
 
@@ -98,6 +100,13 @@
 						type="hidden" id="approval_14" name="approval_14" value="">
 						<input type="hidden" id="approval_15" name="approval_15" value="">
 				</form>
+
+
+	<form name="docform" id="docform" method="post" action='' enctype='multipart/form-data' class="mar10b black">
+		
+		<input type="hidden" name="doc_type_id" value="${doc_type}">
+		<input type="hidden" name="doc_id" value="">
+		<input type="hidden" name="doc_controller" value="">
 
 		
 

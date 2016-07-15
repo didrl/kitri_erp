@@ -7,7 +7,14 @@ public class BtripReportDto extends DocumentDto {
 	private String end_date;
 	private String btrip_location;
 	private List<BtripPaymentDto> bpay;
+	private int expense_info_id;
 	
+	public int getExpense_info_id() {
+		return expense_info_id;
+	}
+	public void setExpense_info_id(int expense_info_id) {
+		this.expense_info_id = expense_info_id;
+	}
 	public String getStart_date() {
 		return start_date;
 	}

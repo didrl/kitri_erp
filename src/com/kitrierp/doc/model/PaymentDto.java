@@ -6,7 +6,7 @@ public class PaymentDto extends DocumentDto {
 	private int payment_id;
 	private int billing;
 	private int settlement;
-	private int doc_id;
+	private String doc_id;
 	private String recipient;
 
 	private List<PaymentInfoDto> pay_info;
@@ -35,11 +35,11 @@ public class PaymentDto extends DocumentDto {
 		this.settlement = settlement;
 	}
 
-	public int getDoc_id() {
+	public String getDoc_id() {
 		return doc_id;
 	}
 
-	public void setDoc_id(int doc_id) {
+	public void setDoc_id(String doc_id) {
 		this.doc_id = doc_id;
 	}
 

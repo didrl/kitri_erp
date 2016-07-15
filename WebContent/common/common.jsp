@@ -69,6 +69,7 @@ var util = "${util}";
 
     <!-- Custom Theme JavaScript -->
     <script src="${root}/dist/js/sb-admin-2.js"></script>
+	
 	<!-- ckeditor -->
 	<script type="text/javascript" src="${root}/ckeditor/ckeditor.js"></script>
 	
