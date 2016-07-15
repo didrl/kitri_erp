@@ -6,7 +6,9 @@ public class PaymentDto extends DocumentDto {
 	private int payment_id;
 	private int billing;
 	private int settlement;
+
 	private String doc_id;
+
 	private String recipient;
 
 	private List<PaymentInfoDto> pay_info;

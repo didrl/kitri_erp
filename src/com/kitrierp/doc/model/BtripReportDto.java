@@ -3,11 +3,11 @@ package com.kitrierp.doc.model;
 import java.util.List;
 
 public class BtripReportDto extends DocumentDto {
+	private int expense_info_id;
 	private String start_date;
 	private String end_date;
 	private String btrip_location;
 	private List<BtripPaymentDto> bpay;
-	private int expense_info_id;
 	
 	public int getExpense_info_id() {
 		return expense_info_id;

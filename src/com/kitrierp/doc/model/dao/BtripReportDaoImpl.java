@@ -18,7 +18,7 @@ public class BtripReportDaoImpl implements BtripReportDao {
 
 	@Override
 	public int reportDoc(BtripReportDto btripReportDto) {
-		return 0;
+		return sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.reportWrite", btripReportDto);
 	}
 
 	@Override
@@ -27,6 +27,10 @@ public class BtripReportDaoImpl implements BtripReportDao {
 	}
 
 	@Override
+	public int expenseInfoSeq() {
+		return sqlSession.selectOne("com.kitrierp.doc.model.BtripReportDaoImpl.report_seq");
+	}
+
 	public BtripReportDto viewDoc(String doc_id) {
 		BtripReportDto btripReportDto = sqlSession.selectOne("com.kitrierp.doc.model.BtripReportDaoImpl.view", doc_id);
 		int expense_info_id = btripReportDto.getExpense_info_id();

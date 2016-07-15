@@ -3,8 +3,25 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.doc.model.BtripReportDaoImpl">
+    <select id="report_seq" resultType="int">
+        select seq_doc_expense_info_id.nextval
+        from dual 
+    </select>
+    
     <insert id="reportWrite" parameterType="brdto">
-      
+        insert all
+        into document
+        values(#{doc_id},2,#{emp_id},#{doc_type_id},
+        #{doc_subject},#{doc_content},#{doc_date},sysdate+7,#{doc_open},
+        #{doc_dep_id},#{doc_note})
+        into btrip_report
+        values(#{exepense_info_id},#{doc_id},#{start_date},
+        #{end_date},#{btrip_location})
+        into btrip_payment
+        values(SEQ_DOC_EXP_SEQ.nextval,#{exepense_info_id},
+        #{exp_daily},#{exp_room},#{exp_food},#{exp_trans},
+        #{exp_etc},#{exp_total}
+        )
     </insert> 
     
     <select id="view" parameterType="String" resultType="brdto">
