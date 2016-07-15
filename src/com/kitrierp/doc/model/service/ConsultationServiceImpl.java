@@ -22,4 +22,9 @@ public class ConsultationServiceImpl implements ConsultationService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public DocumentDto viewDoc(String doc_id) {
+		return consultationDao.viewDoc(doc_id);
+	}
 }
