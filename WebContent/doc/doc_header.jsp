@@ -14,7 +14,7 @@
 <!-- for time format -->
 <script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!-- css & script src end -->
-<script type="text/javascript" src="${root}/js/doc-js.js"></script>
+
 <!--script start -->
 <script>
 	$(document).ready(
