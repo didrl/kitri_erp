@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kitrierp.doc.model.BtripReportDto;
 import com.kitrierp.doc.model.service.BtripReportService;
 import com.kitrierp.doc.model.service.DocService;
-import com.kitrierp.employee.model.EmployeeDto;
 
 @Controller
 @RequestMapping("/btripReport")
@@ -27,19 +26,20 @@ public class BtripReportController {
 	
 	//상신하기
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
-	public ModelAndView reportDoc(HttpServletRequest request,
-			BtripReportDto btripReportDto, HttpSession session){
+	public ModelAndView reportDoc(@RequestParam("btrip_location") String btriplocation,
+		BtripReportDto btripReportDto, HttpSession session){
 		ModelAndView mav = new ModelAndView();
-		int expense_info_id = btripReportService.expenseInfoSeq();
-		System.out.println(btripReportDto.getDep_name());
-		int doc_type_id= Integer.parseInt(request.getParameter("doc_type_id"));
-		EmployeeDto employeeDto =(EmployeeDto)session.getAttribute("memberInfo");
-		int id = employeeDto.getEmp_id();
-		String doc_id = docService.doc_id(doc_type_id);
-		btripReportDto.setEmp_id(id);
-		btripReportDto.setDoc_id(doc_id);
-		btripReportDto.setExpense_info_id(expense_info_id);
-		int write = btripReportService.reportDoc(btripReportDto);
+//		int expense_info_id = btripReportService.expenseInfoSeq();
+//		System.out.println(btripReportDto.getDep_name());
+		
+		System.out.println(btriplocation);
+//		EmployeeDto employeeDto =(EmployeeDto)session.getAttribute("memberInfo");
+//		int id = employeeDto.getEmp_id();
+//		String doc_id = docService.doc_id(doc_type_id);
+//		btripReportDto.setEmp_id(id);
+//		btripReportDto.setDoc_id(doc_id);
+//		btripReportDto.setExpense_info_id(expense_info_id);
+//		int write = btripReportService.reportDoc(btripReportDto);
 		return mav;
 	}
 	//임시저장
