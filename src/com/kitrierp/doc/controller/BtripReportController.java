@@ -1,6 +1,7 @@
 package com.kitrierp.doc.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kitrierp.doc.model.BtripReportDto;
 import com.kitrierp.doc.model.service.BtripReportService;
-import com.kitrierp.doc.model.service.DocService;
+import com.kitrierp.employee.model.EmployeeDto;
 
 @Controller
 @RequestMapping("/btripReport")
@@ -21,19 +22,16 @@ import com.kitrierp.doc.model.service.DocService;
 public class BtripReportController {
 	@Autowired
 	private BtripReportService btripReportService;
-	@Autowired
-	private DocService docService;
+//	@Autowired
+//	private DocService docService;
 	
 	//상신하기
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
-	public ModelAndView reportDoc(@RequestParam("btrip_location") String btriplocation,
-		BtripReportDto btripReportDto, HttpSession session){
+	public ModelAndView reportDoc(@RequestParam Map<String, String>map){
 		ModelAndView mav = new ModelAndView();
 //		int expense_info_id = btripReportService.expenseInfoSeq();
-//		System.out.println(btripReportDto.getDep_name());
-		
-		System.out.println(btriplocation);
 //		EmployeeDto employeeDto =(EmployeeDto)session.getAttribute("memberInfo");
+		System.out.println(map.get("btrip_location"));
 //		int id = employeeDto.getEmp_id();
 //		String doc_id = docService.doc_id(doc_type_id);
 //		btripReportDto.setEmp_id(id);
