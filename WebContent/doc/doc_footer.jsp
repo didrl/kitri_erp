@@ -46,8 +46,8 @@ if(doc_type=="기안서"){
 
 </div>
 
+</div>
 </form>
-
 </div>
 <!-- Page Content -->
 </div>

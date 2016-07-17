@@ -79,7 +79,7 @@
 					<input type="hidden" id="approval_ref" name="approval_ref" value="">
 				</form>
 
-	<form name="docform" id="docform" method="post" action='' enctype='multipart/form-data' class="mar10b black">
+	<form name="docform" id="docform" method="post" action='' enctype="application/x-www-form-urlencoded" class="mar10b black">
 		
 		<input type="hidden" id="doc_type_id" name="doc_type_id" value="5">
 		<input type="hidden" name="doc_id" value="">
