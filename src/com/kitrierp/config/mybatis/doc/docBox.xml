@@ -4,8 +4,19 @@
 
 <mapper namespace="com.kitrierp.doc.model.DocBoxDaoImpl">  
     <select id="dep_docBoxList" parameterType="int" resultType="docdto">
-        select DOC_ID
-        from Document d;
+        select d.DOC_ID,d.doc_date,d.doc_subject,dep.dep_name, dt.doc_type_name, ds.doc_status_name, de.emp_name
+        from Document d, receive_list r, department dep, doc_type dt, doc_status ds , employee de
+        where r.doc_id = d.doc_id
+        and r.dep_id = 
+                        (select e.dep_id
+                        from employee e
+                        where e.emp_id = #{emp_id,jdbcType=INTEGER}
+                        )
+        and d.doc_dep_id = dep.dep_id
+        and d.doc_status_id =  ds.doc_status_id
+        and d.doc_type_id = dt.doc_type_id
+        and d.emp_id = de.emp_id
+        order by d.doc_date
         
     </select>
 </mapper>

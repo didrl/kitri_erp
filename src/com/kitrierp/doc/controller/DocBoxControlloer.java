@@ -4,17 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.WebUtils;
-
 import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.service.DocBoxService;
 import com.kitrierp.employee.model.EmployeeDto;
@@ -67,46 +65,17 @@ public class DocBoxControlloer {
 		mav.setViewName("/doc/"+ path);
 		return mav;
 	}
+
 	
-	/*
 	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET )
-	public ModelAndView dep_docBoxList(HttpServletRequest request){
+	public ModelAndView dep_docBoxList(HttpSession session){
 		ModelAndView mav = new ModelAndView();
-		int emp_id = Integer.parseInt(request.getParameter("emp_id"));
+		EmployeeDto eDto =(EmployeeDto)session.getAttribute("memberInfo");
+		int emp_id = eDto.getEmp_id();
+		//System.out.println(emp_id);
 		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
 		mav.addObject("dep_docBoxList",dep_docBoxList);
-		mav.setViewName("/doc/dep_docBoxList");
+		mav.setViewName("/doc/docBox/dep_docBox");
 		return mav;
 	}
-	*/
-	
-
-	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET)
-	public ModelAndView dep_docBoxList(@ModelAttribute("memberInfo") EmployeeDto edto){
-		ModelAndView mav = new ModelAndView();
-		int emp_id = edto.getEmp_id();		
-		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
-		mav.addObject("dep_docBoxList",dep_docBoxList);
-		mav.setViewName("/doc/docBox/dep_docbox");
-		
-		return mav;
-	}
-
-	
-	/*
-	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET)
-	public ModelAndView dep_docBoxList(){
-		
-		ModelAndView mav = new ModelAndView();
-		int emp_id = 40990130;		
-		List<DocumentDto> dep_docBoxList=docBoxService.dep_docBoxList(emp_id);
-		mav.addObject("dep_docBoxList",dep_docBoxList);
-		mav.setViewName("/doc/docBox/dep_docBox2");
-		
-		return mav;
-	}
-	*/
-	
-	
-	
 }

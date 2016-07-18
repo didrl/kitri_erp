@@ -17,7 +17,8 @@ public class DocBoxDaoImpl implements DocBoxDao {
 	@Override
 	public List<DocumentDto> dep_docBoxList(int emp_id) {
 		List<DocumentDto> dlist=null;
-		dlist=sqlSession.selectList("com.kitrierp.doc.model.DocBoxDaoImpl.dep_docBoxList");
+		dlist=sqlSession.selectList("com.kitrierp.doc.model.DocBoxDaoImpl.dep_docBoxList",emp_id);
+		
 		return dlist;
 	}
 }
