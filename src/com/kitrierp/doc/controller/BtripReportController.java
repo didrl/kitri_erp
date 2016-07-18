@@ -92,4 +92,13 @@ public class BtripReportController {
 		mav.setViewName("/doc/document/btrip_report_view");
 		return mav;
 	}
+	@RequestMapping("/modifyDoc.erp")
+	public ModelAndView modifyDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		BtripReportDto btripReportDto = btripReportService.viewDoc(doc_id);
+		mav.addObject("document", btripReportDto);
+		mav.addObject("doctype", "출장신청서");
+		mav.setViewName("/doc/document/btrip_report");
+		return mav;
+	}
 }

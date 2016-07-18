@@ -11,7 +11,32 @@
 <script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!-- css & script src end -->
 <script type="text/javascript">
-var doc_id = ${document.doc_id};
+var root ="${root}";
+var doc_type = "${document.doc_type_name}";
+var doc_id = "${document.doc_id}";
+var controller="";
+if(doc_type=="기안서"){
+	controller="/proposal";
+}else if(doc_type=="품의서"){
+	controller="/consultation";
+}else if(doc_type=="지출결의서"){
+	controller="/payment";
+}else if(doc_type=="출장신청서"){
+	controller="/btripApplication";
+}else if(doc_type=="출장보고서"){
+	controller="/btripReport";
+}else if(doc_type=="휴가신청서"){
+	controller="/vacation";
+}else if(doc_type=="업무일지"){
+	controller="/journal";
+}
+</script>
+<<script type="text/javascript">
+$(function(){
+	$('#appr').click(function(){
+		document.location.href = root + "/doc/approval.erp?doc_type_id=${document.doc_type_id}&doc_id=${document.doc_id}";
+	});
+});
 </script>
 <!--script end -->
 
@@ -22,7 +47,9 @@ var doc_id = ${document.doc_id};
 	
 <br>
 <c:if test="${document.emp_id eq memberInfo.emp_id}">
-	<button type="button" class="btn btn-primary" id="modifyDoc">수정하기</button>
+	<c:if test="${document.doc_status_id eq 0}">
+		<button type="button" class="btn btn-primary" id="modifyDoc">수정하기</button>
+	</c:if>
 </c:if>
 <!-- 결재양식 제목 -->
 <h1 class="eword_maincolumn">${document.doc_type_name}</h1>
@@ -75,13 +102,24 @@ var doc_id = ${document.doc_id};
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
-								<c:forEach items="${document.sign_info}" var="signPerson">
+								<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status">
 								<td>
 									<!-- 지정/취소 버튼 -->					
 									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
 										<c:if test="${signPerson.appr_flag == 0}">
 											<span>${signPerson.emp_name}</span>
+											<c:if test="${signPerson.emp_id eq memberInfo.emp_id}">
+												<c:if test="${document.sign_info[0].appr_flag == 0}">
+												<button id="appr" name="appr"> 결재 </button>
+												</c:if>
+												<c:if test="${document.sign_info[0].appr_flag == 1 && document.sign_info[status.index -1].appr_flag == 1}">
+												<button id="appr" name="appr"> 결재 </button>
+												</c:if>
+											</c:if>
+										</c:if>
+										<c:if test="${signPerson.appr_flag == 1}">
+											결재완료
 										</c:if>
 									</div>
 								</td>

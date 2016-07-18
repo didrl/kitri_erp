@@ -4,10 +4,11 @@
 <script type="text/javascript">
 
 
-function select(emp_id, emp_name){
+function select(emp_id, emp_name, grade_name){
 	var num=${cellnum};
 
 	  opener.document.getElementById("approval_"+num).value =emp_id;
+	  opener.document.getElementById("grade"+num).innerText = grade_name;
 	  opener.document.getElementById("emp_name"+num).value =emp_name;
 	  self.close();
 }
@@ -46,7 +47,7 @@ function select(emp_id, emp_name){
 					                    	<ul>
 				<c:set var="grade_id" value="${org.grade_id}"/>
 				</c:if>
-					    <a href="javascript:select('${org.emp_id}','${org.emp_name}');"><li>${org.grade_name} ${org.emp_name}</li></a>
+					    <a href="javascript:select('${org.emp_id}','${org.emp_name}','${org.grade_name}');"><li>${org.grade_name} ${org.emp_name}</li></a>
 				<c:if test="${i.index < olist.size() - 1 }">
 					<c:if test="${grade_id != olist.get(i.index + 1).grade_id}">
 					                        </ul>

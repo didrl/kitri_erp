@@ -39,4 +39,13 @@ public class ConsultationController {
 		mav.setViewName("/doc/document/consultation_view");
 		return mav;
 	}
+	@RequestMapping("/modifyDoc.erp")
+	public ModelAndView modifyDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		DocumentDto documentDto = consultationService.viewDoc(doc_id);
+		mav.addObject("document", documentDto);
+		mav.addObject("doctype", "품의서");
+		mav.setViewName("/doc/document/consultation");
+		return mav;
+	}
 }
