@@ -31,6 +31,13 @@ if(doc_type=="기안서"){
 	controller="/journal";
 }
 </script>
+<<script type="text/javascript">
+$(function(){
+	$('#appr').click(function(){
+		alert("결재버튼 test");
+	});
+});
+</script>
 <!--script end -->
 
 <div id="wrapper"> 
@@ -93,13 +100,24 @@ if(doc_type=="기안서"){
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
-								<c:forEach items="${document.sign_info}" var="signPerson">
+								<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status">
 								<td>
 									<!-- 지정/취소 버튼 -->					
 									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
 										<c:if test="${signPerson.appr_flag == 0}">
 											<span>${signPerson.emp_name}</span>
+											<c:if test="${signPerson.emp_id eq memberInfo.emp_id}">
+												<c:if test="${document.sign_info[0].appr_flag == 0}">
+												<button id="appr" name="appr"> 결재 </button>
+												</c:if>
+												<c:if test="${document.sign_info[0].appr_flag == 1 && document.sign_info[status.index -1].appr_flag == 1}">
+												<button id="appr" name="appr"> 결재 </button>
+												</c:if>
+											</c:if>
+										</c:if>
+										<c:if test="${signPerson.appr_flag == 1}">
+											결재완료
 										</c:if>
 									</div>
 								</td>
