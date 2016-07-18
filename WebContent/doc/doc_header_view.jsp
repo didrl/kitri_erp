@@ -20,6 +20,9 @@
 <div id="sub">
 	
 <br>
+<c:if test="${document.emp_id eq memberInfo.emp_id}">
+	<button type="button" class="btn btn-primary" id="modifyDoc">수정하기</button>
+</c:if>
 <!-- 결재양식 제목 -->
 <h1 class="eword_maincolumn">${document.doc_type_name}</h1>
 
@@ -77,9 +80,7 @@
 									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
 										<!-- 지정 -->
 										<c:if test="${signPerson.appr_flag == 0}">
-											<c:if test="${signPerson.appr_flag == 0}">
 											<span>${signPerson.emp_name}</span>
-											</c:if>
 										</c:if>
 									</div>
 								</td>
