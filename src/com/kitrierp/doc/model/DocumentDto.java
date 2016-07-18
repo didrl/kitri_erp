@@ -14,6 +14,13 @@ public class DocumentDto extends EmployeeDto {
 	private String doc_deadline;
 	private int doc_open; 
 	private int doc_dep_id;
+	private int doc_type_id;
+	public int getDoc_type_id() {
+		return doc_type_id;
+	}
+	public void setDoc_type_id(int doc_type_id) {
+		this.doc_type_id = doc_type_id;
+	}
 	private String doc_type_name;
 	private String doc_note;
 	
