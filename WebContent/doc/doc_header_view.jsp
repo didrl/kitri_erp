@@ -13,6 +13,11 @@
 <script type="text/javascript">
 var doc_id = ${document.doc_id};
 </script>
+<<script type="text/javascript">
+$("#appr").click(function(){
+	alert("결재버튼 test");
+});
+</script>
 <!--script end -->
 
 <div id="wrapper"> 
@@ -82,6 +87,10 @@ var doc_id = ${document.doc_id};
 										<!-- 지정 -->
 										<c:if test="${signPerson.appr_flag == 0}">
 											<span>${signPerson.emp_name}</span>
+											<button id="appr"> 결재 </button>
+										</c:if>
+										<c:if test="${signPerson.appr_flag == 1}">
+											결재완료
 										</c:if>
 									</div>
 								</td>
