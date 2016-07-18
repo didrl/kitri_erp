@@ -97,8 +97,12 @@
 				<button type="button" class="btn btn-primary" id="tmpsaveDoc">임시저장</button>
 
 				<!-- 결재양식 제목 -->
-				<h1 class="eword_maincolumn">${doc_type_name}</h1>
-
+				<c:if test="${document eq null}">
+					<h1 class="eword_maincolumn">${doc_type_name}</h1>
+				</c:if>
+				<c:if test="${document ne null}">
+					<h1 class="eword_maincolumn">${document.doc_type_name}</h1>
+				</c:if>
 				<!-- 결재문서 본문 -->
 				<table id="ewordWrapper" class="eword_maincolumn boldline mar10b">
 					<tr>
@@ -116,8 +120,12 @@
 
 									<td class="pad15l" colspan="3" style="border-top: none;">
 										<span id="sub_subject"> 
-										<input type="text" id="doc_id"	name="doc_id" style="border: 0pt;" value="상신 시 자동으로 등록됩니다."
-											size='30' readonly />
+										<c:if test="${document eq null}">
+											<input type="text" id="doc_id"	name="doc_id" style="border: 0pt;" value="상신 시 자동으로 등록됩니다." size='30' readonly />
+										</c:if>
+										<c:if test="${document ne null}">
+											<input type="text" id="doc_id" name="doc_id" style="border:0pt;" value="${document.doc_id}" size='30' readonly />
+										</c:if>
 									</span>
 									</td>
 
@@ -132,29 +140,42 @@
 												<br>재
 												</th>
 												<!-- 결재자/협조자 직급 표시 영역 -->
-												<td style="border-top: none;"><input type="text"
-													name="grade_name1" value="" readonly
-													class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td style="border-top: none;"><input type="text"
-													name="grade_name2" value="" readonly
-													class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td style="border-top: none;"><input type="text"
-													name="grade_name3" value="" readonly
-													class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td style="border-top: none;"><input type="text"
-													name="grade_name4" value="" readonly
-													class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td style="border-top: none;"><input type="text"
-													name="grade_name5" value="" readonly
-													class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
+												<c:set var="length" value="${fn:length(document.sign_info)}" />
+												<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status">
+													<td style="border-top: none;" id="grade${status.index+1}">
+													${signPerson.grade_name}
+													</td>
+												</c:forEach>
+												<c:forEach  begin="0" end="${5-length-1}" step="1">
+													<td style="border-top: none;" id="grade${status.index+length+1}">&nbsp;</td>
+												</c:forEach>
 											</tr>
 											<tr class="date" style="height: 61px;">
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+												<c:if test="${document != null}">
+													<c:forEach var="signPerson" items="${document.sign_info}" varStatus="status" >
+														<td>
+															<input type="text" name="appr_name" value="" readonly class="form_transparent" style='width: 100%;'>
+															<!-- 지정/취소 버튼 -->
+															<div id="MembersFindCell${status.index+1}" class="btn_page pad15l overf">
+																<!-- 지정 -->
+																<a onclick="javascript:golist('${status.index+1}');"> <span>지정</span></a> 
+																<input type="text" id="emp_name${status.index+1}" value="${signPerson.emp_name}" readonly="readonly">
+															</div>
+														</td>
+													</c:forEach>
+													<c:forEach begin="0" end="${5-length-1}" varStatus="status">
+														<td><input type="text" name="appr_name" value=""
+														readonly class="form_transparent" style='width: 100%;'>
+														<input type="hidden" name="appr_name" value=""> <!-- 지정/취소 버튼 -->
+														<div id="MembersFindCell${status.index+length+1}" class="btn_page pad15l overf">
+															<!-- 지정 -->
+															<a onclick="javascript:golist('${status.index+length+1}');"> <span>지정</span>
+															</a> <input type="text" id="emp_name${status.index+length+1}" value="" readonly="readonly">
+														</div></td>
+													</c:forEach>
+												</c:if>
+												<c:if test="${document == null}">
 												<td><input type="text" name="appr_name" value=""
 													readonly class="form_transparent" style='width: 100%;'>
 													<input type="hidden" name="appr_name" value=""> <!-- 지정/취소 버튼 -->
@@ -195,6 +216,7 @@
 														<a onclick="javascript:golist('5');"> <span>지정</span>
 														</a><input type="text" id="emp_name5" value="" readonly="readonly">
 													</div></td>
+													</c:if>
 											</tr>
 											<tr class="date" style="height: 20px;">
 												<!-- 결재일시 표시 영역 -->
@@ -207,30 +229,48 @@
 											<!-- 협조선 -->
 
 											<tr class="txt_ce" style="height: 20px;">
-												<th rowspan="3"
-													style="border-left: none; border-top: none; border-bottom: none;">
+												<th rowspan="3" style="border-left: none; border-top: none; border-bottom: none;">
 													<!-- 결재선/협조선 제목 --> <!-- 협조 --> 협<br>
 												<br>조
 												</th>
 												<!-- 결재자/협조자 직급 표시 영역 -->
-												<td><input type="text" name="OrderTitle11" value=""
-													readonly class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td><input type="text" name="OrderTitle12" value=""
-													readonly class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td><input type="text" name="OrderTitle13" value=""
-													readonly class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td><input type="text" name="OrderTitle14" value=""
-													readonly class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
-												<td><input type="text" name="OrderTitle15" value=""
-													readonly class="form_transparent"
-													style='width: 100%; line-height: 21px;'></td>
+												<c:set var="lengthc" value="${fn:length(document.cooperation)}" />
+													<c:forEach items="${document.cooperation}" var="coopPerson" varStatus="status">
+														<td style="border-top: none;" id="grade1${status.index+1}">
+														${coopPerson.grade_name}
+														</td>
+													</c:forEach>
+													<c:forEach  begin="0" end="${5-lengthc-1}" step="1" varStatus="status">
+														<td style="border-top: none;" id="grade1${status.index+lengthc+1}">&nbsp;</td>
+													</c:forEach>
 											</tr>
 											<tr class="date" style="height: 61px;">
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
+												<c:if test="${document != null}">
+													<c:forEach  var="coopPerson" items="${document.cooperation}" varStatus="status">
+													<td><input type="text" name="OrderName1${status.index+1}" value=""
+														readonly class="form_transparent" style='width: 100%;'>
+														
+														<!-- 지정/취소 버튼 -->
+														<div id="MembersFindCell1${status.index+1}" class="btn_page pad15l overf">
+															<!-- 취소 -->
+															<a onclick="javascript:golist('1${status.index+1}');"> <span>지정</span>
+															</a><input type="text" id="emp_name1${status.index+1}" value="${coopPerson.emp_name}" readonly="readonly">
+														</div></td>
+													</c:forEach>
+													<c:forEach begin="0" end="${5-lengthc-1}" varStatus="status">
+														<td><input type="text" name="appr_name" value=""
+														readonly class="form_transparent" style='width: 100%;'>
+														<input type="hidden" name="appr_name" value=""> <!-- 지정/취소 버튼 -->
+														<div id="MembersFindCell1${status.index+lengthc+1}" class="btn_page pad15l overf">
+															<!-- 지정 -->
+															<a onclick="javascript:golist('1${status.index+lengthc+1}');"> <span>지정</span>
+															</a> <input type="text" id="emp_name1${status.index+lengthc+1}" value="" readonly="readonly">
+														</div></td>
+													</c:forEach>
+												</c:if>
+												
+												<c:if test="${document == null}">
 												<td><input type="text" name="OrderName11" value=""
 													readonly class="form_transparent" style='width: 100%;'>
 													
@@ -240,6 +280,7 @@
 														<a onclick="javascript:golist('11');"> <span>지정</span>
 														</a><input type="text" id="emp_name11" value="" readonly="readonly">
 													</div></td>
+													
 												<td><input type="text" name="OrderName12" value=""
 													readonly class="form_transparent" style='width: 100%;'>
 													 <!-- 지정/취소 버튼 -->
@@ -273,6 +314,8 @@
 															<span>지정</span>
 														</a><input type="text" id="emp_name15" value="" readonly="readonly">
 													</div></td>
+													</c:if>
+													
 											</tr>
 											<tr class="date" style="height: 20px;">
 												<!-- 결재일시 표시 영역 -->
@@ -294,7 +337,12 @@
 								<!-- 문서종류 -->
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">문서종류</th>
-									<td class="pad15l" colspan="3">${doc_type_name}</td>
+									<c:if test="${document eq null}">
+										<td class="pad15l" colspan="3">${doc_type_name}</td>
+									</c:if>
+									<c:if test="${document ne null}">
+										<td class="pad15l" colspan="3">${document.doc_type_name}</td>
+									</c:if>
 								</tr>
 								<!-- 부서 -->
 								<tr class="eword_meta_height">
@@ -304,8 +352,7 @@
 								<!-- 기안일 -->
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">기안일</th>
-									<td class="pad15l" colspan="3"><input name="doc_date"
-										class="datepicker" id="datepicker" type="text"></td>
+									<td class="pad15l" colspan="3"><input name="doc_date"	value="${document.doc_date}" class="datepicker" id="datepicker" type="text"></td>
 								</tr>
 								<!-- 기안자, (출장인원) -->
 								<tr class="eword_meta_height">
@@ -316,17 +363,17 @@
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">공개여부</th>
 									<td class="txt_ce">
-										<!-- 작성 --> <select name="doc_open"
-										onchange="ReceiveTreeKeyButton();">
+										<!-- 작성 --> 
+										<select name="doc_open" onchange="ReceiveTreeKeyButton();">
 											<option label="공개" value="1" selected="selected">공개</option>
 											<option label="비공개" value="0">비공개</option>
-									</select>
+										</select>
 									</td>
 
 									<th>보존기간</th>
 									<td class="txt_ce">
-										<!-- 작성 --> <select name='StoragePeriod'><option
-												label="3 개월" value="3">3 개월</option>
+										<!-- 작성 --> <select name='StoragePeriod'>
+											<option label="3 개월" value="3">3 개월</option>
 											<option label="6 개월" value="6">6 개월</option>
 											<option label="1 년" value="12">1 년</option>
 											<option label="2 년" value="24">2 년</option>
@@ -378,8 +425,8 @@
 								<!-- 제목 -->
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">제목</th>
-									<td class="pad15l"><input name="Subject" type="text"
-										value="" style="width: 98%;" /></td>
+									<td class="pad15l">
+										<input name="Subject" type="text"	 value="${document.doc_subject}" style="width: 98%;" /></td>
 								</tr>
 							</table>
 						</td>
