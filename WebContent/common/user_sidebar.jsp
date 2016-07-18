@@ -59,54 +59,54 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">결재할 문서함<span class="fa arrow"></span></a>
+                            <a href="${root}/doc/docBox/approval_undone.erp">결재할 문서함<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                             <li>
-                            <a href="#">미결재 문서</a>
+                            <a href="${root}/doc/docBox/approval_undone.erp">미결재 문서</a>
                             </li>
                              <li>
-                            <a href="#">결재완료 문서</a>
+                            <a href="${root}/doc/docBox/approval_done.erp">결재완료 문서</a>
                             </li>
                             </ul>
                         </li>
                        
                            <li>
-                            <a href="#">개인 문서함<span class="fa arrow"></span></a>
+                            <a href="${root}/doc/docBox/per_report.erp">개인 문서함<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                             <li>
-                            <a href="#">상신 문서</a>
+                            <a href="${root}/doc/docBox/per_report.erp">상신 문서</a>
                             </li>
                             <li>
-                            <a href="#">임시저장</a>
+                            <a href="${root}/doc/docBox/per_temp.erp">임시저장</a>
                             </li>
                             <li>
-                            <a href="#">반려 문서</a>
+                            <a href="${root}/doc/docBox/per_return.erp">반려 문서</a>
                             </li>
                             <li>
-                            <a href="#">결재 완료</a>
+                            <a href="${root}/doc/docBox/per_done.erp">결재 완료</a>
                             </li>
                             <li>
-                            <a href="#">상신 취소</a>
+                            <a href="${root}/doc/docBox/per_cancel.erp">상신 취소</a>
                             </li>
                             </ul>
                         </li>
                            <li>
-                            <a href="#">협조 문서함<span class="fa arrow"></span></a>
+                            <a href="${root}/doc/docBox/coop_undone.erp">협조 문서함<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                             <li>
-                            <a href="#">미결재 문서</a>
+                            <a href="${root}/doc/docBox/coop_undone.erp">미결재 문서</a>
                             </li>
                             <li>
-                            <a href="#">결재완료 문서</a>
+                            <a href="${root}/doc/docBox/coop_done.erp">결재완료 문서</a>
                             </li>
                             </ul>
                         </li>
                            <li>
-                            <a href="${root}/doc/docBox/dep_docBox.erp">부서 수신함</a>
+                            <a href="${root}/doc/docBox/dep_docBox.erp">부서 문서함</a>
                           
                         </li>
                            <li>
-                            <a href="#">참조 문서함</a>
+                            <a href="${root}/doc/docBox/ref_docBox.erp">참조 문서함</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
