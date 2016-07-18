@@ -39,6 +39,22 @@ public class BtripReportController {
 		List <BtripPaymentDto> bpay = new ArrayList<BtripPaymentDto>();
 		List <CooperationDto> cooperation = new ArrayList<CooperationDto>();
 		BtripReportDto btripReportDto = new BtripReportDto();
+		CooperationDto cooperationDto = new CooperationDto();
+		BtripPaymentDto btripPaymentDto = new BtripPaymentDto();
+		
+		btripPaymentDto.setEmp_id(employeeDto.getEmp_id());
+		btripPaymentDto.setExp_daily(Integer.parseInt(map.get("exp_daily")));
+		btripPaymentDto.setExp_etc(Integer.parseInt(map.get("exp_etc")));
+		btripPaymentDto.setExp_food(Integer.parseInt(map.get("exp_food")));
+		btripPaymentDto.setExp_room(Integer.parseInt(map.get("exp_room")));
+		btripPaymentDto.setExp_transe(Integer.parseInt(map.get("exp_transe")));
+		btripPaymentDto.setExp_total(Integer.parseInt(map.get("exp_total")));
+		bpay.add(btripPaymentDto);
+		
+		cooperationDto.setEmp_id(employeeDto.getEmp_id());
+		cooperationDto.setDoc_id(doc_id);
+//		cooperationDto.setCoop_seq(coop_seq);
+		
 		btripReportDto.setBpay(bpay);
 		btripReportDto.setBtrip_location(map.get("btrip_location"));
 		btripReportDto.setCooperation(cooperation);
