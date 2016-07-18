@@ -59,7 +59,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="${root}/doc/docBox/approval_undone.erp">결재할 문서함<span class="fa arrow"></span></a>
+                            <a href="${root}/doc/docBox/approval_undone.erp">결재 문서함<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                             <li>
                             <a href="${root}/doc/docBox/approval_undone.erp">미결재 문서</a>
