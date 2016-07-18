@@ -47,7 +47,9 @@ $(function(){
 	
 <br>
 <c:if test="${document.emp_id eq memberInfo.emp_id}">
-	<button type="button" class="btn btn-primary" id="modifyDoc">수정하기</button>
+	<c:if test="${document.doc_status_id eq 0}">
+		<button type="button" class="btn btn-primary" id="modifyDoc">수정하기</button>
+	</c:if>
 </c:if>
 <!-- 결재양식 제목 -->
 <h1 class="eword_maincolumn">${document.doc_type_name}</h1>
