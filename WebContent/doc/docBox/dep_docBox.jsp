@@ -19,13 +19,13 @@
 			<table id="dep_docbox"  cellspacing="0" width="100%">
 			 	<thead>
 			    	<tr>
-			    		<th>문서종류(doc_type_name)</th>
-			           <th>문서번호(depBox.doc_id)</th>
-			           <th>기안일자(doc_date)</th>
-			           <th>문서명(doc_subject)</th>
-			           <th>발신부서(doc_dep_id)</th>
-			           <th>기안자(emp_name)</th>
-			           <th>진행상태(doc_status_name)</th>
+			    		<th>문서종류</th>
+			           <th>문서번호</th>
+			           <th>기안일자</th>
+			           <th>문서명</th>
+			           <th>발신부서</th>
+			           <th>기안자</th>
+			           <th>진행상태</th>
 			        </tr>
 			     </thead>
 			     <tfoot></tfoot>
@@ -33,8 +33,8 @@
 			     <!-- get data start-->
 				<c:forEach varStatus="i" var="depBox" items="${dep_docBoxList}">
 			         <tr>
-			             <td>${depBox.doc_id}</td>
 			             <td>${depBox.doc_type_name}</td>
+						<td>${depBox.doc_id}</td>
 			             <td>${depBox.doc_date}</td>
 			             <td>${depBox.doc_subject}</td>
 			             <td>${depBox.dep_name}</td>

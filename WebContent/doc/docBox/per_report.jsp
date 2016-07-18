@@ -1,64 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
-<%@ include file="/common/side.jsp" %>
+<%@ include file="/common/user_sidebar.jsp" %>
+<!--css/script start-->
+<!-- DataTables -->
+	<link href="${root}/webjars/datatables/1.10.12/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
+	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
+<!--css/script end-->	
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
-	
-<div id="wrapper">   
+				
+<div id="wrapper"> 
    <!-- Page Content -->
     <div id="page-wrapper">
        <div class="container">
+       
        <h3>상신문서</h3><br>
-       <table id="example"  cellspacing="0" width="100%">
-       <thead>
-            <tr>
-                <th>문서번호</th>
+       <div class="panel-body">	
+		
+			<table id="per_report_t"  cellspacing="0" width="100%">
+			 	<thead>
+			    	<tr>
+			    	<th>문서종류</th>
+			    	<th>문서번호</th>
                 <th>기안일자</th>
-                <th>문서종류</th>
                 <th>문서명</th>
-                <th>상태</th>
-                <th>의견</th>
-                <th>재상신/상신취소</th>
-            </tr>
-        </thead>
-        <tfoot>
-        </tfoot>
-        <tbody>
-        <label>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-                <td>61</td>
-             
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-                <td>63</td>
-            
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-                <td>66</td>
-                
-            </tr>
-         </tbody>
-    </table>
+                <th>기안자</th>
+                <th>진행상태</th>
+			        </tr>
+			     </thead>
+			     <tfoot></tfoot>
+			     <tbody>
+			     <!-- get data start-->
+			     <c:if test="${per_report_docBoxList.size()!=0}">
+				<c:forEach varStatus="i" var="per_report" items="${per_report_docBoxList}">
+					
+			         <tr>
+			             <td>${per_report.doc_type_name}</td>
+			             <td>${per_report.doc_id}</td>
+			             <td>${per_report.doc_date}</td>
+			             
+			             <td>${per_report.doc_subject}</td>
+			             <td>${per_report.emp_name}</td>
+			             <td>${per_report.doc_status_name}</td>
+			             
+			          </tr>
+					
+				</c:forEach>
+			</c:if>
+				<!-- get data end-->
+				</tbody>
+			</table>
+	
+
        
        </div>
         <!-- /.container -->
@@ -66,15 +59,15 @@
      <!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->     
-     
      <script>
-   	 	$('#example')
+   	 	$('#per_report_t')
 		.removeClass( 'display' )
 		.addClass('table table-striped table-bordered');
-  	  $('#example').DataTable();
+  	  $('#per_report_t').DataTable();
 //   	 $("#example").DataTable().columnFilter();
   	 
      </script>
 
+
 </body>
-</html> 
+</html>
