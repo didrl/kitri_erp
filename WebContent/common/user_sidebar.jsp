@@ -102,7 +102,7 @@
                             </ul>
                         </li>
                            <li>
-                            <a href="#">부서 수신함</a>
+                            <a href="${root}/doc/docBox/dep_docBox.erp">부서 수신함</a>
                           
                         </li>
                            <li>

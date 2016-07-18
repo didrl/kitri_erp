@@ -80,8 +80,8 @@ public class DocBoxControlloer {
 	}
 	*/
 	
-	/*
-	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.POST)
+
+	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET)
 	public ModelAndView dep_docBoxList(@ModelAttribute("memberInfo") EmployeeDto edto){
 		ModelAndView mav = new ModelAndView();
 		int emp_id = edto.getEmp_id();		
@@ -91,8 +91,9 @@ public class DocBoxControlloer {
 		
 		return mav;
 	}
-	*/
+
 	
+	/*
 	@RequestMapping(value="/dep_docBox.erp", method=RequestMethod.GET)
 	public ModelAndView dep_docBoxList(){
 		
@@ -104,7 +105,7 @@ public class DocBoxControlloer {
 		
 		return mav;
 	}
-	
+	*/
 	
 	
 	
