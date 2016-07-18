@@ -11,7 +11,25 @@
 <script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!-- css & script src end -->
 <script type="text/javascript">
-var doc_id = ${document.doc_id};
+var root ="${root}";
+var doc_type = "${document.doc_type_name}";
+var doc_id = "${document.doc_id}";
+var controller="";
+if(doc_type=="기안서"){
+	controller="/proposal";
+}else if(doc_type=="품의서"){
+	controller="/consultation";
+}else if(doc_type=="지출결의서"){
+	controller="/payment";
+}else if(doc_type=="출장신청서"){
+	controller="/btripApplication";
+}else if(doc_type=="출장보고서"){
+	controller="/btripReport";
+}else if(doc_type=="휴가신청서"){
+	controller="/vacation";
+}else if(doc_type=="업무일지"){
+	controller="/journal";
+}
 </script>
 <<script type="text/javascript">
 $("#appr").click(function(){

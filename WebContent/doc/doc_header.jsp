@@ -115,8 +115,8 @@
 									<th style="border-top: none; border-left: none;">문서번호</th>
 
 									<td class="pad15l" colspan="3" style="border-top: none;">
-										<span id="sub_subject"> <input type="text" id="doc_id"
-											name="doc_id" style="border: 0pt;" value="상신 시 자동으로 등록됩니다."
+										<span id="sub_subject"> 
+										<input type="text" id="doc_id"	name="doc_id" style="border: 0pt;" value="상신 시 자동으로 등록됩니다."
 											size='30' readonly />
 									</span>
 									</td>
@@ -165,7 +165,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName2" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId2" value=""> <!-- 지정/취소 버튼 -->
+													 <!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell2" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('2');"> <span>지정</span>
@@ -173,7 +173,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName3" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId3" value=""> <!-- 지정/취소 버튼 -->
+													<!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell3" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('3');"> <span>지정</span>
@@ -181,7 +181,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName4" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId4" value=""> <!-- 지정/취소 버튼 -->
+													<!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell4" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('4');"> <span>지정</span>
@@ -189,7 +189,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName5" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId5" value=""> <!-- 지정/취소 버튼 -->
+													<!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell5" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('5');"> <span>지정</span>
@@ -233,7 +233,7 @@
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
 												<td><input type="text" name="OrderName11" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId11" value="admin">
+													
 													<!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell11" class="btn_page pad15l overf">
 														<!-- 취소 -->
@@ -242,7 +242,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName12" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId12" value=""> <!-- 지정/취소 버튼 -->
+													 <!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell12" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('12');"> <span>지정</span>
@@ -250,7 +250,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName13" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId13" value=""> <!-- 지정/취소 버튼 -->
+													<!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell13" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('13');"> <span>지정</span>
@@ -258,7 +258,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName14" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId14" value=""> <!-- 지정/취소 버튼 -->
+													 <!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell14" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('14');"> <span>지정</span>
@@ -266,7 +266,7 @@
 													</div></td>
 												<td><input type="text" name="OrderName15" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="OrderId15" value=""> <!-- 지정/취소 버튼 -->
+													<!-- 지정/취소 버튼 -->
 													<div align="center" id="MembersFindCell15" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('15');"> <!--  <a class="openPopup"  href="myOrderUserAppointPopup.php?mode=order&number=15&total=5&WordUseHelper=Y">-->
@@ -316,10 +316,10 @@
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">공개여부</th>
 									<td class="txt_ce">
-										<!-- 작성 --> <select name="Opening"
+										<!-- 작성 --> <select name="doc_open"
 										onchange="ReceiveTreeKeyButton();">
-											<option label="공개" value="Y" selected="selected">공개</option>
-											<option label="비공개" value="N">비공개</option>
+											<option label="공개" value="1" selected="selected">공개</option>
+											<option label="비공개" value="0">비공개</option>
 									</select>
 									</td>
 

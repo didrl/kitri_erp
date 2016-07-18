@@ -41,6 +41,10 @@
     <servlet-name>kitrierp</servlet-name>
     <url-pattern>*.erp</url-pattern>
   </servlet-mapping>
+ 
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
   
   
   <welcome-file-list>

@@ -17,6 +17,7 @@ public class DocumentDto extends EmployeeDto {
 	private int doc_dep_id;
 	private String doc_dep_name;
 	private int doc_type_id;
+
 	private String doc_type_name;
 	private String doc_note;
 	
