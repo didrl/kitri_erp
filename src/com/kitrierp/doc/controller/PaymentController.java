@@ -39,4 +39,13 @@ public class PaymentController {
 		mav.setViewName("/doc/document/payment_view");
 		return mav;
 	}
+	@RequestMapping("/modifyDoc.erp")
+	public ModelAndView modifyDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		PaymentDto paymentDto = paymentService.viewDoc(doc_id);
+		mav.addObject("document", paymentDto);
+		mav.addObject("doctype", "지출결의서");
+		mav.setViewName("/doc/document/payment");
+		return mav;
+	}
 }

@@ -11,8 +11,8 @@
     <insert id="reportWrite" parameterType="brdto">
         insert all
         into document
-        values(#{doc_id},2,#{emp_id},#{doc_type_id},
-        #{doc_subject},#{doc_content},#{doc_date},sysdate+7,#{doc_open},
+        values(#{doc_id},2,#{emp_id},5,#{doc_subject},
+        #{doc_content},#{doc_date},sysdate+7,#{doc_open},
         #{doc_dep_id},#{doc_note})
         into sign_info
         values(SEQ_DOC_APPR_SEQ.nextval,#{doc_id},#{emp_id})
