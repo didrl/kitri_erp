@@ -34,7 +34,7 @@ if(doc_type=="기안서"){
 <<script type="text/javascript">
 $(function(){
 	$('#appr').click(function(){
-		alert("결재버튼 test");
+		document.location.href = root + "/doc/approval.erp?doc_type_id=${document.doc_type_id}&doc_id=${document.doc_id}";
 	});
 });
 </script>

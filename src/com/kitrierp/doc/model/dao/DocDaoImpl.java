@@ -1,6 +1,7 @@
 package com.kitrierp.doc.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -25,5 +26,10 @@ public class DocDaoImpl implements DocDao {
 		List<DocumentDto> dlist=null;
 		dlist=sqlSession.selectList("com.kitrierp.doc.model.DocDaoImpl.dep_docBoxList");
 		return dlist;
+	}
+
+	@Override
+	public int approval(Map map) {
+		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.approval", map);
 	}
 }
