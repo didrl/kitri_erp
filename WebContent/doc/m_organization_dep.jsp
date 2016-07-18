@@ -4,11 +4,9 @@
 <script type="text/javascript">
 
 
-function select(emp_id, emp_name){
-	var num=${cellnum};
-
-	  opener.document.getElementById("approval_"+num).value =emp_id;
-	  opener.document.getElementById("emp_name"+num).value =emp_name;
+function select(dep_id, dep_name){
+	  opener.document.getElementById("approval_dep").value =dep_id;
+	  opener.document.getElementById("ReceiveDepName").value =dep_name;
 	  self.close();
 }
  </script>   
@@ -30,7 +28,7 @@ function select(emp_id, emp_name){
 					   	<div class="panel panel-default">
 					       	<div class="panel-heading">
 					           	<h4 class="panel-title">
-					               	<a data-toggle="collapse" data-parent="#accordion" href="#collapse${org.dep_id}">${org.dep_name} </a>
+					               	<a href="javascript:select('${org.dep_id}','${org.dep_name}');">${org.dep_name} </a>
 					               </h4>
 					           </div>
 					   	</div>

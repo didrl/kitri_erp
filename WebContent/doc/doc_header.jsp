@@ -79,7 +79,9 @@
 					<input type="hidden" id="approval_13" name="approval_13" value=""> 
 					<input type="hidden" id="approval_14" name="approval_14" value="">
 					<input type="hidden" id="approval_15" name="approval_15" value="">
-					<input type="hidden" id="approval_ref" name="approval_ref" value="">
+					<input type="hidden" id="approval_20" name="approval_20" value="">
+					
+					<input type="hidden" id="approval_dep" name="approval_dep" value="">
 				</form>
 
 	<form name="docform" id="docform" method="post" action='' enctype="application/x-www-form-urlencoded" class="mar10b black">
@@ -350,7 +352,7 @@
 									<th style="border-left: none;">수신부서</th>
 									<td class="pad15l" style="padding-right: 7px;">
 										<span id="ReceiveTreeKeyButtonArea" style='width: 100%;'> 
-											<input type="text" name="ReceiveTreeKeyName" value="" readonly 	class="left" style="width: 494px;" /> 
+											<input type="text" name="ReceiveDepName" id="ReceiveDepName" value="" readonly 	class="left" style="width: 494px;" /> 
 											<span class="btn_page right"> 
 											<!-- 수신부서 지정 --> 
 											<a	class="cursor openPopupTreeKeyFind" href="javascript:goDepList();"> 
@@ -365,9 +367,9 @@
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">참조자</th>
 									<td class="pad15l" style="padding-right: 7px;">
-									<input type="text" name="emp_nameref" value="" readonly class="left" style="width: 494px;" /> 
+									<input type="text" name="emp_name20" id="emp_name20"value="" readonly class="left" style="width: 494px;" /> 
 										<span class="btn_page right"> <!-- 참조자 지정 --> 
-										<a	onclick="javascript:golist('ref');"> 
+										<a	onclick="javascript:golist('20');"> 
 										<span class="txt_ce" style="width: 80px;">참조자 지정</span>
 										</a>
 									</span></td>
