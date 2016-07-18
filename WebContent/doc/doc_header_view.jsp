@@ -10,7 +10,8 @@
 <!-- for time format -->
 <script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!-- css & script src end -->
-
+<script type="text/javascript">
+var doc_id = ${document.doc_id};
 </script>
 <!--script end -->
 
