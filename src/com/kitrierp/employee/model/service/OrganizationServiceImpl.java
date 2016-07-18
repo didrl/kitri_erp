@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kitrierp.employee.model.DepartmentDto;
 import com.kitrierp.employee.model.EmployeeDto;
 import com.kitrierp.employee.model.dao.OrganizationDao;
 
@@ -16,8 +17,12 @@ public class OrganizationServiceImpl implements OrganizationService {
 
 	@Override
 	public List<EmployeeDto> organizationList() {
-		// TODO Auto-generated method stub
 		return organizationDao.organizationList();
+	}
+
+	@Override
+	public List<DepartmentDto> organizationDepList() {
+		return organizationDao.organizationDepList();
 	}
 
 	

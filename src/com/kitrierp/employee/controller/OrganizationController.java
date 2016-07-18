@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kitrierp.employee.model.DepartmentDto;
 import com.kitrierp.employee.model.EmployeeDto;
 import com.kitrierp.employee.model.service.OrganizationService;
 
@@ -26,6 +27,14 @@ public class OrganizationController {
 		mav.addObject("olist",olist);
 		mav.addObject("cellnum",cellnum);
 		mav.setViewName("/doc/m_organization");
+		return mav;
+	}
+	@RequestMapping("/dep_list.erp")
+	public ModelAndView organizationDepList(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		List<DepartmentDto> oDepList=organizationService.organizationDepList();
+		mav.addObject("oDeplist",oDepList);
+		mav.setViewName("/doc/m_organization_dep");
 		return mav;
 	}
 }

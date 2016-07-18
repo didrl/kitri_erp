@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kitrierp.employee.model.DepartmentDto;
 import com.kitrierp.employee.model.EmployeeDto;
 
 
@@ -19,6 +20,13 @@ public class OrganizationDaoImpl implements OrganizationDao {
 	public List<EmployeeDto> organizationList() {
 		List<EmployeeDto> list=null;
 		list=sqlSession.selectList("com.kitrierp.employee.model.OrganizationDaoImpl.olist");
+		return list;
+	}
+
+	@Override
+	public List<DepartmentDto> organizationDepList() {
+		List<DepartmentDto> list=null;
+		list=sqlSession.selectList("com.kitrierp.employee.model.OrganizationDaoImpl.oDepList");
 		return list;
 	}
 }
