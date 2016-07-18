@@ -97,8 +97,12 @@
 				<button type="button" class="btn btn-primary" id="tmpsaveDoc">임시저장</button>
 
 				<!-- 결재양식 제목 -->
-				<h1 class="eword_maincolumn">${doc_type_name}</h1>
-
+				<c:if test="${document eq null}">
+					<h1 class="eword_maincolumn">${doc_type_name}</h1>
+				</c:if>
+				<c:if test="${document ne null}">
+					<h1 class="eword_maincolumn">${document.doc_type_name}</h1>
+				</c:if>
 				<!-- 결재문서 본문 -->
 				<table id="ewordWrapper" class="eword_maincolumn boldline mar10b">
 					<tr>
