@@ -53,6 +53,9 @@
 	function golist(cellnum) {
 		window.open("${root}/organization/emp_list.erp?cellnum=" + cellnum,"select","top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 	}
+	function goDepList() {
+		window.open("${root}/organization/dep_list.erp","select","top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+	}
 </script>
 <!--script end -->
 
@@ -350,7 +353,7 @@
 											<input type="text" name="ReceiveTreeKeyName" value="" readonly 	class="left" style="width: 494px;" /> 
 											<span class="btn_page right"> 
 											<!-- 수신부서 지정 --> 
-											<a	class="cursor openPopupTreeKeyFind"> 
+											<a	class="cursor openPopupTreeKeyFind" href="javascript:goDepList();"> 
 												<span class="txt_ce" style="width: 80px;">수신부서 지정</span>
 											</a>
 											</span>
