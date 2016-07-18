@@ -18,7 +18,7 @@ public class OrganizationController {
 	@Autowired
 	private OrganizationService organizationService;
 	
-	@RequestMapping("/list.erp")
+	@RequestMapping("/emp_list.erp")
 	public ModelAndView organizationList(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
 		String cellnum = request.getParameter("cellnum");

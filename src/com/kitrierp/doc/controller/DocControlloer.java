@@ -15,9 +15,9 @@ import org.springframework.web.util.WebUtils;
 import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.service.DocService;
 
-@SessionAttributes("memberInfo")
-@RequestMapping("/doc")
 @Controller 
+@RequestMapping("/doc")
+@SessionAttributes("memberInfo")
 public class DocControlloer {
 	@Autowired
 	private DocService docService;
@@ -78,6 +78,13 @@ public class DocControlloer {
 		List<DocumentDto> dep_docBoxList=docService.dep_docBoxList();
 		mav.addObject("dep_docBoxList",dep_docBoxList);
 		mav.setViewName("/doc/dep_docBoxList");
+		return mav;
+	}
+	
+	@RequestMapping("/approval")
+	public ModelAndView approval() {
+		ModelAndView mav = new ModelAndView();
+		
 		return mav;
 	}
 

@@ -31,6 +31,7 @@ public class EmployeeController {
 		if(id == employeeDto.getEmp_id()) {
 			mav.addObject("memberInfo", employeeDto);
 			mav.setViewName("/doc/document/btrip_report");
+			
 		} else {
 			mav.setViewName("/employee/loginok");
 		}
