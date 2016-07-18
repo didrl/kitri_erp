@@ -2,7 +2,6 @@ $().ready(function() {
 	
 	$('#reportDoc').click(function(){
 		alert("상신 되었습니다.");
-		alert(controller);
 		$('#docform').attr({action: root+controller+"/reportDoc.erp", method:'post'}).submit();
 	});
 	
