@@ -48,4 +48,13 @@ public class BtripApplicationController {
 		mav.setViewName("/doc/document/btrip_application_view");
 		return mav;
 	}
+	@RequestMapping("/modifyDoc.erp")
+	public ModelAndView modifyDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		BtripApplicationDto btripApplicationDto = btripApplicationService.viewDoc(doc_id);
+		mav.addObject("document", btripApplicationDto);
+		mav.addObject("doctype", "출장신청서");
+		mav.setViewName("/doc/document/btrip_application");
+		return mav;
+	}
 }
