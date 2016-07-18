@@ -115,8 +115,8 @@
 									<th style="border-top: none; border-left: none;">문서번호</th>
 
 									<td class="pad15l" colspan="3" style="border-top: none;">
-										<span id="sub_subject"> <input type="text" id="doc_id"
-											name="doc_id" style="border: 0pt;" value="상신 시 자동으로 등록됩니다."
+										<span id="sub_subject"> 
+										<input type="text" id="doc_id"	name="doc_id" style="border: 0pt;" value="상신 시 자동으로 등록됩니다."
 											size='30' readonly />
 									</span>
 									</td>

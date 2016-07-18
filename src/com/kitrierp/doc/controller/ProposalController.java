@@ -40,4 +40,13 @@ public class ProposalController {
 		mav.setViewName("/doc/document/proposal_view");
 		return mav;
 	}
+	@RequestMapping("/modifyDoc.erp")
+	public ModelAndView modifyDoc(@RequestParam String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		DocumentDto documentDto = proposalService.viewDoc(doc_id);
+		mav.addObject("document", documentDto);
+		mav.addObject("doctype", "기안서");
+		mav.setViewName("/doc/document/proposal");
+		return mav;
+	}
 }

@@ -11,5 +11,10 @@ $().ready(function() {
 		document.docform.action = root+controller+"/tmpsaveDoc.erp";
 		document.docform.submit();
 	});
+	$('#modifyDoc').click(function(){
+		alert("수정 :    "+root+controller+"/modifyDoc.erp?doc_id="+doc_id);
+		document.location.href = root+controller+"/modifyDoc.erp?doc_id="+doc_id;
+	});
+	
 	
 });
