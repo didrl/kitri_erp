@@ -137,15 +137,24 @@
 												<br>재
 												</th>
 												<!-- 결재자/협조자 직급 표시 영역 -->
-												<c:set var="length" value="${fn:length(document.sign_info)}" />
-												<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status">
-													<td style="border-top: none;" id="grade${status.index+1}">
-													${signPerson.grade_name}
-													</td>
-												</c:forEach>
-												<c:forEach  begin="0" end="${5-length-1}" step="1">
-													<td style="border-top: none;" id="grade${status.index+length+1}">&nbsp;</td>
-												</c:forEach>
+												<c:if test="${document ne null}">
+													<c:set var="length" value="${fn:length(document.sign_info)}" />
+													<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status">
+														<td style="border-top: none;" id="grade${status.index+1}">
+														${signPerson.grade_name}
+														</td>
+													</c:forEach>
+													<c:forEach  begin="0" end="${5-length-1}" step="1">
+														<td style="border-top: none;" id="grade${status.index+length+1}">&nbsp;</td>
+													</c:forEach>
+												</c:if>
+												<c:if test="${document eq null}">
+													<td style="border-top: none;" id="grade1"></td>
+													<td style="border-top: none;" id="grade2"></td>
+													<td style="border-top: none;" id="grade3"></td>
+													<td style="border-top: none;" id="grade4"></td>
+													<td style="border-top: none;" id="grade5"></td>
+												</c:if>
 											</tr>
 											<tr class="date" style="height: 61px;">
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
