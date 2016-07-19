@@ -27,11 +27,23 @@ public class DocServiceImpl implements DocService {
 	}
 
 	@Override
-	public int approval(int emp_id, String doc_id) {
+	public int signAppr(int emp_id, String doc_id) {
 		Map map = new HashMap();
 		map.put("emp_id", emp_id);
 		map.put("doc_id", doc_id);
-		return docDao.approval(map);
+		return docDao.signAppr(map);
+	}
+
+	@Override
+	public int signRe(int emp_id, String doc_id) {
+		Map map = new HashMap();
+		map.put("emp_id", emp_id);
+		map.put("doc_id", doc_id);
+		int cnt = 0;
+		cnt = docDao.signRe(map);
+		if(cnt != 0)
+			docDao.signReStatus(map);
+		return cnt; 
 	}
 	
 }

@@ -25,6 +25,12 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public PaymentDto viewDoc(String doc_id) {
-		return paymentDao.viewDoc(doc_id);
+		PaymentDto paymentDto = new PaymentDto();
+		paymentDto = paymentDao.viewDoc(doc_id);
+		paymentDto.setSign_info(paymentDao.viewDocSignInfo(doc_id));
+		paymentDto.setReference(paymentDao.viewDocReference(doc_id));
+		paymentDto.setCooperation(paymentDao.viewDocCooperation(doc_id));
+		paymentDto.setReceiver(paymentDao.viewDocReceiver(doc_id));
+		return paymentDto;
 	}
 }

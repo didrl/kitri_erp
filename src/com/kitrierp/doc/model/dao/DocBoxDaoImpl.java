@@ -3,7 +3,6 @@ package com.kitrierp.doc.model.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -111,6 +110,7 @@ public class DocBoxDaoImpl implements DocBoxDao {
 	public List<DocumentDto> coop_done_docBoxList(int emp_id) {
 		List<DocumentDto> dlist=null;
 		dlist=sqlSession.selectList("com.kitrierp.doc.model.DocBoxDaoImpl.coop_done_docBoxList",emp_id);
+		
 		
 		return dlist;
 	}

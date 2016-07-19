@@ -11,6 +11,10 @@ public interface DocDao {
 
 	List<DocumentDto> dep_docBoxList();
 
-	int approval(Map map);
+	int signAppr(Map map);
+	
+	int signRe(Map map);
+
+	int signReStatus(Map map);
 	
 }

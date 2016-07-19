@@ -23,6 +23,12 @@ public class ProposalServiceImpl implements ProposalService {
 
 	@Override
 	public DocumentDto viewDoc(String doc_id) {
-		return proposalDao.viewDoc(doc_id);
+		DocumentDto documentDto = new DocumentDto();
+		documentDto = proposalDao.viewDoc(doc_id);
+		documentDto.setSign_info(proposalDao.viewDocSignInfo(doc_id));
+		documentDto.setReference(proposalDao.viewDocReference(doc_id));
+		documentDto.setCooperation(proposalDao.viewDocCooperation(doc_id));
+		documentDto.setReceiver(proposalDao.viewDocReceiver(doc_id));
+		return documentDto;
 	}
 }
