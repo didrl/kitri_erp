@@ -68,28 +68,25 @@
 	**** hidden 정리하기!!!! ****
 	-->
 
-				<form name="approvalfirm" id="approvalfirm">
-					<input type="hidden" id="approval_1" name="approval_1" value=""> 
-					<input type="hidden" id="approval_2" name="approval_2" value=""> 
-					<input type="hidden" id="approval_3" name="approval_3" value=""> 
-					<input type="hidden" id="approval_4" name="approval_4" value="">
-					<input type="hidden" id="approval_5" name="approval_5" value="">
-					<input type="hidden" id="approval_11" name="approval_11" value=""> 
-					<input type="hidden" id="approval_12" name="approval_12" value=""> 
-					<input type="hidden" id="approval_13" name="approval_13" value=""> 
-					<input type="hidden" id="approval_14" name="approval_14" value="">
-					<input type="hidden" id="approval_15" name="approval_15" value="">
-					<input type="hidden" id="approval_20" name="approval_20" value="">
-					
-					<input type="hidden" id="approval_dep" name="approval_dep" value="">
-				</form>
+	<form name="approvalfirm" id="approvalfirm">
+		<input type="hidden" id="approval_1" name="approval_1" value=""> 
+		<input type="hidden" id="approval_2" name="approval_2" value=""> 
+		<input type="hidden" id="approval_3" name="approval_3" value=""> 
+		<input type="hidden" id="approval_4" name="approval_4" value="">
+		<input type="hidden" id="approval_5" name="approval_5" value="">
+		<input type="hidden" id="approval_11" name="approval_11" value=""> 
+		<input type="hidden" id="approval_12" name="approval_12" value=""> 
+		<input type="hidden" id="approval_13" name="approval_13" value=""> 
+		<input type="hidden" id="approval_14" name="approval_14" value="">
+		<input type="hidden" id="approval_15" name="approval_15" value="">
+		<input type="hidden" id="approval_20" name="approval_20" value="">			
+		<input type="hidden" id="approval_dep" name="approval_dep" value="">
+	</form>
 
 	<form name="docform" id="docform" method="post" action='' enctype="application/x-www-form-urlencoded" class="mar10b black">
-		
-		<input type="hidden" id="doc_type_id" name="doc_type_id" value="5">
-		<input type="hidden" name="doc_id" value="1">
-		<input type="hidden" name="doc_controller" value="">
-
+				<input type="hidden" id="doc_type_id" name="doc_type_id" value="5">
+				<input type="hidden" name="doc_id" value="1">
+			<!--<input type="hidden" name="doc_controller" value="">-->	
 
 				<!-- 버튼 -->
 				<br>
