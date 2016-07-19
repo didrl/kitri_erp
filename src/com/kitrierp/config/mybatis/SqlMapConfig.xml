@@ -16,6 +16,7 @@
         <typeAlias alias="refdto" type="com.kitrierp.doc.model.ReferenceDto"/>
         <typeAlias alias="coopdto" type="com.kitrierp.doc.model.CooperationDto"/>
         <typeAlias alias="receidto" type="com.kitrierp.doc.model.ReceiveListDto"/>
+        
     </typeAliases>
     
     <mappers>
