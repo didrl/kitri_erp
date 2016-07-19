@@ -23,13 +23,11 @@ public class ConsultationDaoImpl implements ConsultationDao {
 
 	@Override
 	public int reportDoc(DocumentDto documentDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("com.kitrierp.doc.model.ConsultationDaoImpl.reportWrite",documentDto);
 	}
 
 	@Override
 	public int tmpsaveDoc(DocumentDto documentDto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	

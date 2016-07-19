@@ -68,28 +68,25 @@
 	**** hidden 정리하기!!!! ****
 	-->
 
-				<form name="approvalfirm" id="approvalfirm">
-					<input type="hidden" id="approval_1" name="approval_1" value=""> 
-					<input type="hidden" id="approval_2" name="approval_2" value=""> 
-					<input type="hidden" id="approval_3" name="approval_3" value=""> 
-					<input type="hidden" id="approval_4" name="approval_4" value="">
-					<input type="hidden" id="approval_5" name="approval_5" value="">
-					<input type="hidden" id="approval_11" name="approval_11" value=""> 
-					<input type="hidden" id="approval_12" name="approval_12" value=""> 
-					<input type="hidden" id="approval_13" name="approval_13" value=""> 
-					<input type="hidden" id="approval_14" name="approval_14" value="">
-					<input type="hidden" id="approval_15" name="approval_15" value="">
-					<input type="hidden" id="approval_20" name="approval_20" value="">
-					
-					<input type="hidden" id="approval_dep" name="approval_dep" value="">
-				</form>
+	<form name="approvalfirm" id="approvalfirm">
+		<input type="hidden" id="approval_1" name="approval_1" value=""> 
+		<input type="hidden" id="approval_2" name="approval_2" value=""> 
+		<input type="hidden" id="approval_3" name="approval_3" value=""> 
+		<input type="hidden" id="approval_4" name="approval_4" value="">
+		<input type="hidden" id="approval_5" name="approval_5" value="">
+		<input type="hidden" id="approval_11" name="approval_11" value=""> 
+		<input type="hidden" id="approval_12" name="approval_12" value=""> 
+		<input type="hidden" id="approval_13" name="approval_13" value=""> 
+		<input type="hidden" id="approval_14" name="approval_14" value="">
+		<input type="hidden" id="approval_15" name="approval_15" value="">
+		<input type="hidden" id="approval_20" name="approval_20" value="">			
+		<input type="hidden" id="approval_dep" name="approval_dep" value="">
+	</form>
 
 	<form name="docform" id="docform" method="post" action='' enctype="application/x-www-form-urlencoded" class="mar10b black">
-		
-		<input type="hidden" id="doc_type_id" name="doc_type_id" value="5">
-		<input type="hidden" name="doc_id" value="1">
-		<input type="hidden" name="doc_controller" value="">
-
+				<input type="hidden" id="doc_type_id" name="doc_type_id" value="5">
+				<input type="hidden" name="doc_id" value="1">
+			<!--<input type="hidden" name="doc_controller" value="">-->	
 
 				<!-- 버튼 -->
 				<br>
@@ -140,15 +137,24 @@
 												<br>재
 												</th>
 												<!-- 결재자/협조자 직급 표시 영역 -->
-												<c:set var="length" value="${fn:length(document.sign_info)}" />
-												<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status">
-													<td style="border-top: none;" id="grade${status.index+1}">
-													${signPerson.grade_name}
-													</td>
-												</c:forEach>
-												<c:forEach  begin="0" end="${5-length-1}" step="1">
-													<td style="border-top: none;" id="grade${status.index+length+1}">&nbsp;</td>
-												</c:forEach>
+												<c:if test="${document ne null}">
+													<c:set var="length" value="${fn:length(document.sign_info)}" />
+													<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status">
+														<td style="border-top: none;" id="grade${status.index+1}">
+														${signPerson.grade_name}
+														</td>
+													</c:forEach>
+													<c:forEach  begin="0" end="${5-length-1}" step="1">
+														<td style="border-top: none;" id="grade${status.index+length+1}">&nbsp;</td>
+													</c:forEach>
+												</c:if>
+												<c:if test="${document eq null}">
+													<td style="border-top: none;" id="grade1"></td>
+													<td style="border-top: none;" id="grade2"></td>
+													<td style="border-top: none;" id="grade3"></td>
+													<td style="border-top: none;" id="grade4"></td>
+													<td style="border-top: none;" id="grade5"></td>
+												</c:if>
 											</tr>
 											<tr class="date" style="height: 61px;">
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
