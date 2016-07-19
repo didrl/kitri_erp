@@ -18,13 +18,14 @@ public class ConsultationController {
 	private ConsultationService consultationService;
 	
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
-	public ModelAndView reportDoc(@RequestParam DocumentDto documentDto){
+	public ModelAndView reportDoc(DocumentDto documentDto){
 		ModelAndView mav = new ModelAndView();
+		
 		int write = consultationService.reportDoc(documentDto);
 		return mav;
 	}
 	@RequestMapping(value="/tmpsaveDoc.erp", method=RequestMethod.POST)
-	public ModelAndView tmpsaveDoc(@RequestParam DocumentDto documentDto){
+	public ModelAndView tmpsaveDoc(DocumentDto documentDto){
 		ModelAndView mav = new ModelAndView();
 		int write = consultationService.tmpsaveDoc(documentDto); //임시저장으로
 		return mav;
