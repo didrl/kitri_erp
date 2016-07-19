@@ -23,6 +23,12 @@ public class ConsultationServiceImpl implements ConsultationService {
 
 	@Override
 	public DocumentDto viewDoc(String doc_id) {
-		return consultationDao.viewDoc(doc_id);
+		DocumentDto documentDto = new DocumentDto();
+		documentDto = consultationDao.viewDoc(doc_id);
+		documentDto.setSign_info(consultationDao.viewDocSignInfo(doc_id));
+		documentDto.setReference(consultationDao.viewDocReference(doc_id));
+		documentDto.setCooperation(consultationDao.viewDocCooperation(doc_id));
+		documentDto.setReceiver(consultationDao.viewDocReceiver(doc_id));
+		return documentDto;
 	}
 }

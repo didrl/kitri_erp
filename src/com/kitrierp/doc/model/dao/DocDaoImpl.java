@@ -4,12 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kitrierp.doc.model.DocumentDto;
-import com.kitrierp.employee.model.EmployeeDto;
 
 @Repository
 public class DocDaoImpl implements DocDao {
@@ -29,7 +27,16 @@ public class DocDaoImpl implements DocDao {
 	}
 
 	@Override
-	public int approval(Map map) {
-		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.approval", map);
+	public int signAppr(Map map) {
+		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.sign_appr", map);
+	}
+
+	@Override
+	public int signRe(Map map) {
+		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.sign_re", map);
+	}
+	@Override
+	public int signReStatus(Map map) {
+		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.sign_re_status", map);
 	}
 }

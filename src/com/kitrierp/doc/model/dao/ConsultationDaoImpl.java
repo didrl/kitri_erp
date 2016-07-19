@@ -34,14 +34,30 @@ public class ConsultationDaoImpl implements ConsultationDao {
 	@Override
 	public DocumentDto viewDoc(String doc_id) {
 		DocumentDto consultationDto = sqlSession.selectOne("com.kitrierp.doc.model.ProposalDaoImpl.view", doc_id);
-		List<SignInfoDto> sign_info = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_sign_info", doc_id);
-		List<ReferenceDto> reference = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_reference", doc_id);
-		List<CooperationDto> cooperation = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_cooperation", doc_id);
-		List<ReceiveListDto> receiver = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_receive_list", doc_id);
-		consultationDto.setSign_info(sign_info);
-		consultationDto.setReference(reference);
-		consultationDto.setCooperation(cooperation);
-		consultationDto.setReceiver(receiver);
 		return consultationDto;
+	}
+	
+	@Override
+	public List<SignInfoDto> viewDocSignInfo(String doc_id) {
+		List<SignInfoDto> sign_info = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_sign_info", doc_id);
+		return sign_info;
+	}
+	
+	@Override
+	public List<ReferenceDto> viewDocReference(String doc_id) {
+		List<ReferenceDto> reference = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_reference", doc_id);
+		return reference;
+	}
+	
+	@Override
+	public List<CooperationDto> viewDocCooperation(String doc_id) {
+		List<CooperationDto> cooperation = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_cooperation", doc_id);
+		return cooperation;
+	}
+	
+	@Override
+	public List<ReceiveListDto> viewDocReceiver(String doc_id) {
+		List<ReceiveListDto> receiver = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_receive_list", doc_id);
+		return receiver;
 	}
 }

@@ -1,7 +1,6 @@
 package com.kitrierp.doc.model.service;
 
 import com.kitrierp.doc.model.BtripReportDto;
-import com.kitrierp.doc.model.DocumentDto;
 
 public interface BtripReportService {
 	int reportDoc(BtripReportDto btripReportDto);
