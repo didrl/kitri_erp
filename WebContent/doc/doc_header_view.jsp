@@ -95,15 +95,14 @@ $(function(){
 								<!-- 결재자/협조자 직급 표시 영역 -->
 								<c:set var="length" value="${fn:length(document.sign_info)}" />
 								<c:forEach items="${document.sign_info}" var="signPerson">
-									<td style="border-top: none;">
+								<td style="border-top: none;">
 									${signPerson.grade_name}
-									</td>
+								</td>
 								</c:forEach>
-								<c:forEach  begin="0" end="${5-length}" step="1">
-									<td style="border-top: none;">
-									</td>
+								<c:forEach begin="0" end="${4-length}">
+								<td style="border-top: none;">
+								</td>
 								</c:forEach>
-								
 							</tr>
 							<tr class="date" style="height:61px;">
 								<!-- 결재 버튼/결재완료 서명 표시 영역 -->
@@ -111,52 +110,45 @@ $(function(){
 								<td>
 									<!-- 지정/취소 버튼 -->					
 									<div align="center" id="MembersFindCell1"  class="btn_page pad15l overf">
-										<!-- 지정 -->
-										<c:if test="${signPerson.appr_flag == 0}">
-											<span>${signPerson.emp_name}</span>
-											<c:if test="${document.doc_status_id == 2}">
-												<c:if test="${signPerson.emp_id eq memberInfo.emp_id}">
-													<c:if test="${document.sign_info[0].appr_flag == 0}">
-													<button type="button" id="sign_appr" name="sign_appr">결재</button>
-													<button type="button" id="sign_re" name="sign_re">반려</button>
-													</c:if>
-													<c:if test="${document.sign_info[0].appr_flag == 1 && document.sign_info[status.index -1].appr_flag == 1}">
-													<button type="button" id="sign_appr" name="sign_appr">결재</button>
-													<button type="button" id="sign_re" name="sign_re">반려</button>
-													</c:if>
+									<!-- 지정 -->
+									<c:if test="${signPerson.appr_flag == 0}">
+										<span>${signPerson.emp_name}</span>
+										<c:if test="${document.doc_status_id == 2}">
+											<c:if test="${signPerson.emp_id eq memberInfo.emp_id}">
+												<c:if test="${status.first}">
+												<button type="button" id="sign_appr" name="sign_appr">결재</button>
+												<button type="button" id="sign_re" name="sign_re">반려</button>
+												</c:if>
+												<c:if test="${document.sign_info[0].appr_flag == 1 && document.sign_info[status.index -1].appr_flag == 1}">
+												<button type="button" id="sign_appr" name="sign_appr">결재</button>
+												<button type="button" id="sign_re" name="sign_re">반려</button>
 												</c:if>
 											</c:if>
 										</c:if>
-										<c:if test="${signPerson.appr_flag == 1}">
-											<span>${signPerson.emp_name}</span><br>
-											<b>결재완료</b>
-										</c:if>
+									</c:if>
+									<c:if test="${signPerson.appr_flag == 1}">
+										<span>${signPerson.emp_name}</span><br>
+										<b>결재<br>완료</b>
+									</c:if>
 									</div>
 								</td>
 								</c:forEach>
-								
-								<c:forEach  begin="0" end="${5-length}" step="1">
-									<td></td>
+								<c:forEach  begin="0" end="${4-length}" step="1">
+								<td></td>
 								</c:forEach>
 							</tr>
 							<tr class="date" style="height:20px;">
-								
 								<!-- 결재일시 표시 영역 -->
+								<c:forEach items="${document.sign_info}" var="signPerson" varStatus="status" begin="0" end="5">
 								<td>
-									<span id="appDate1">s</span>
+									<span>${signPerson.appr_date}</span>
 								</td>
+								</c:forEach>
+								<c:forEach  begin="0" end="${4-length}">
 								<td>
-									<span id="appDate2">s</span>
+									<span>&nbsp;</span>
 								</td>
-								<td>
-									<span id="appDate3">s</span>
-								</td>
-								<td>
-									<span id="appDate4">s</span>
-								</td>
-								<td>
-									<span id="appDate5">s</span>
-								</td>
+								</c:forEach>
 							</tr>							
 							<!-- 협조선 -->
 
@@ -173,7 +165,7 @@ $(function(){
 									${coopPerson.grade_name}
 									</td>
 								</c:forEach>
-								<c:forEach  begin="0" end="${5-lengthc}" step="1">
+								<c:forEach  begin="0" end="${4-lengthc}" step="1">
 									<td style="border-top: none;">
 									</td>
 								</c:forEach>
@@ -189,7 +181,7 @@ $(function(){
 									</div>
 								</td>
 								</c:forEach>
-								<c:forEach  begin="0" end="${5-lengthc}" step="1">
+								<c:forEach  begin="0" end="${4-lengthc}" step="1">
 									<td></td>
 								</c:forEach>
 							</tr>
