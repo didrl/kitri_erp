@@ -13,13 +13,11 @@ public class ConsultationServiceImpl implements ConsultationService {
 
 	@Override
 	public int reportDoc(DocumentDto documentDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return consultationDao.reportDoc(documentDto);
 	}
 
 	@Override
 	public int tmpsaveDoc(DocumentDto documentDto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
