@@ -17,7 +17,7 @@
         and d.doc_id = #{doc_id}
     </select>
     <select id="view_sign_info" parameterType="String" resultType="sidto">
-        select *
+        select appr_seq, si.doc_id, si.emp_id, appr_flag, to_char(appr_date, 'yymmdd') appr_date
         from sign_info si, employee e,grade g
         where si.doc_id = #{doc_id}
         and si.emp_id = e.emp_id

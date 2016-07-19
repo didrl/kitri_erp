@@ -109,11 +109,55 @@ public class DocControlloer {
 		return mav;
 	}
 	
-	@RequestMapping("/approval.erp")
-	public ModelAndView approval(@ModelAttribute("memberInfo") EmployeeDto employeeDto, int doc_type_id, String doc_id) {
+	@RequestMapping("/signAppr.erp")
+	public ModelAndView signAppr(@ModelAttribute("memberInfo") EmployeeDto employeeDto, int doc_type_id, String doc_id) {
 		ModelAndView mav = new ModelAndView();
 		int cnt = 0;
-		cnt = docService.approval(employeeDto.getEmp_id(), doc_id);
+		cnt = docService.signAppr(employeeDto.getEmp_id(), doc_id);
+		if(cnt != 0) {
+			DocumentDto documentDto = null; 
+			switch (doc_type_id) {
+			case 1 : 
+				documentDto = proposalService.viewDoc(doc_id);
+				mav.addObject("document", documentDto);
+				mav.addObject("doctype", "기안서");
+				mav.setViewName("/doc/document/proposal_view");
+				break;//기안서
+			case 2 : 
+				documentDto = consultationService.viewDoc(doc_id);
+				mav.addObject("document", documentDto);
+				mav.addObject("doctype", "품의서");
+				mav.setViewName("/doc/document/consultation_view");
+				break;//품의서
+			case 3 : 
+				PaymentDto paymentDto = paymentService.viewDoc(doc_id);
+				mav.addObject("document", paymentDto);
+				mav.addObject("doctype", "지출결의서");
+				mav.setViewName("/doc/document/payment_view");
+				break;//지출결의서
+			case 4 : 
+				BtripApplicationDto btripApplicationDto = btripApplicationService.viewDoc(doc_id);
+				mav.addObject("document", btripApplicationDto);
+				mav.addObject("doctype", "출장신청서");
+				mav.setViewName("/doc/document/btrip_application_view");
+				break;//출장신청서
+			case 5 : 
+				BtripReportDto btripReportDto = btripReportService.viewDoc(doc_id);
+				mav.addObject("document", btripReportDto);
+				mav.addObject("doctype", "출장신청서");
+				mav.setViewName("/doc/document/btrip_report_view");
+				break;//출장보고서
+			//case 6 : break;//휴가신청서
+			}
+		}
+		return mav;
+	}
+	
+	@RequestMapping("/signRe.erp")
+	public ModelAndView signRe(@ModelAttribute("memberInfo") EmployeeDto employeeDto, int doc_type_id, String doc_id) {
+		ModelAndView mav = new ModelAndView();
+		int cnt = 0;
+		cnt = docService.signRe(employeeDto.getEmp_id(), doc_id);
 		if(cnt != 0) {
 			DocumentDto documentDto = null;
 			switch (doc_type_id) {

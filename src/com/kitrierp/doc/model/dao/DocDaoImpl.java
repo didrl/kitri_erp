@@ -29,7 +29,12 @@ public class DocDaoImpl implements DocDao {
 	}
 
 	@Override
-	public int approval(Map map) {
-		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.approval", map);
+	public int signAppr(Map map) {
+		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.signAppr", map);
+	}
+
+	@Override
+	public int signRe(Map map) {
+		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.signRe", map);
 	}
 }

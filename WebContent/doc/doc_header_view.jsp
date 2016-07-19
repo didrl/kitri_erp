@@ -33,8 +33,13 @@ if(doc_type=="기안서"){
 </script>
 <<script type="text/javascript">
 $(function(){
-	$('#appr').click(function(){
-		document.location.href = root + "/doc/approval.erp?doc_type_id=${document.doc_type_id}&doc_id=${document.doc_id}";
+	$('#sign_appr').click(function(){
+		document.location.href = root + "/doc/signAppr.erp?doc_type_id=${document.doc_type_id}&doc_id=${document.doc_id}";
+	});
+});
+$(function(){
+	$('#sign_re').click(function(){
+		document.location.href = root + "/doc/signRe.erp?doc_type_id=${document.doc_type_id}&doc_id=${document.doc_id}";
 	});
 });
 </script>
@@ -109,41 +114,48 @@ $(function(){
 										<!-- 지정 -->
 										<c:if test="${signPerson.appr_flag == 0}">
 											<span>${signPerson.emp_name}</span>
-											<c:if test="${signPerson.emp_id eq memberInfo.emp_id}">
-												<c:if test="${document.sign_info[0].appr_flag == 0}">
-												<button id="appr" name="appr"> 결재 </button>
-												</c:if>
-												<c:if test="${document.sign_info[0].appr_flag == 1 && document.sign_info[status.index -1].appr_flag == 1}">
-												<button id="appr" name="appr"> 결재 </button>
+											<c:if test="${document.doc_status_id == 2}">
+												<c:if test="${signPerson.emp_id eq memberInfo.emp_id}">
+													<c:if test="${document.sign_info[0].appr_flag == 0}">
+													<button type="button" id="sign_appr" name="sign_appr">결재</button>
+													<button type="button" id="sign_re" name="sign_re">반려</button>
+													</c:if>
+													<c:if test="${document.sign_info[0].appr_flag == 1 && document.sign_info[status.index -1].appr_flag == 1}">
+													<button type="button" id="sign_appr" name="sign_appr">결재</button>
+													<button type="button" id="sign_re" name="sign_re">반려</button>
+													</c:if>
 												</c:if>
 											</c:if>
 										</c:if>
 										<c:if test="${signPerson.appr_flag == 1}">
-											결재완료
+											<span>${signPerson.emp_name}</span><br>
+											<b>결재완료</b>
 										</c:if>
 									</div>
 								</td>
 								</c:forEach>
+								
 								<c:forEach  begin="0" end="${5-length}" step="1">
 									<td></td>
 								</c:forEach>
 							</tr>
 							<tr class="date" style="height:20px;">
+								
 								<!-- 결재일시 표시 영역 -->
 								<td>
-									<span id="appDate1">&nbsp;</span>
+									<span id="appDate1">s</span>
 								</td>
 								<td>
-									<span id="appDate2">&nbsp;</span>
+									<span id="appDate2">s</span>
 								</td>
 								<td>
-									<span id="appDate3">&nbsp;</span>
+									<span id="appDate3">s</span>
 								</td>
 								<td>
-									<span id="appDate4">&nbsp;</span>
+									<span id="appDate4">s</span>
 								</td>
 								<td>
-									<span id="appDate5">&nbsp;</span>
+									<span id="appDate5">s</span>
 								</td>
 							</tr>							
 							<!-- 협조선 -->

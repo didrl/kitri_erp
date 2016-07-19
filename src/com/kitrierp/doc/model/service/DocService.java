@@ -11,6 +11,8 @@ public interface DocService {
 	
 	List<DocumentDto> dep_docBoxList();
 
-	int approval(int emp_id, String doc_id);
+	int signAppr(int emp_id, String doc_id);
+	
+	int signRe(int emp_id, String doc_id);
 	
 }

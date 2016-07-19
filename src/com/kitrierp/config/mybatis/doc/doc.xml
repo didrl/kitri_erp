@@ -19,11 +19,15 @@
         order by d.DOC_DATE DESC;
     </select>
     
-    <insert id="approval" parameterType="Map">
+    <insert id="signAppr" parameterType="Map">
         update sign_info
-        set appr_flag = 1
+        set appr_flag = 1, appr_date = sysdate
         where doc_id = #{doc_id}
         and emp_id = #{emp_id}
     </insert>
+    
+    <update id="signRe">
+        
+    </update>
     
 </mapper>
