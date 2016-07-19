@@ -161,19 +161,20 @@
 												<c:if test="${document != null}">
 													<c:forEach var="signPerson" items="${document.sign_info}" varStatus="status" >
 														<td>
-															<input type="text" name="appr_name" value="" readonly class="form_transparent" style='width: 100%;'>
+															<input type="hidden" name="grade_id[${status.index}]">
+															<input type="text" name="grade_name" value="" readonly class="form_transparent" style='width: 100%;'>
 															<!-- 지정/취소 버튼 -->
 															<div id="MembersFindCell${status.index+1}" class="btn_page pad15l overf">
 																<!-- 지정 -->
-																<a onclick="javascript:golist('${status.index+1}');"> <span>지정</span></a> 
-																<input type="text" id="emp_name${status.index+1}" value="${signPerson.emp_name}" readonly="readonly">
+																<a onclick="javascript:golist('${status.index}');"> <span>지정</span></a> 
+																<input type="text" id="emp_name[${status.index}]" value="${signPerson.emp_name}" readonly="readonly">
 															</div>
 														</td>
 													</c:forEach>
 													<c:forEach begin="0" end="${5-length-1}" varStatus="status">
-														<td><input type="text" name="appr_name" value=""
+														<td><input type="text" name="grade_name" value=""
 														readonly class="form_transparent" style='width: 100%;'>
-														<input type="hidden" name="appr_name" value=""> <!-- 지정/취소 버튼 -->
+														<input type="hidden" name="grade_name" value=""> <!-- 지정/취소 버튼 -->
 														<div id="MembersFindCell${status.index+length+1}" class="btn_page pad15l overf">
 															<!-- 지정 -->
 															<a onclick="javascript:golist('${status.index+length+1}');"> <span>지정</span>
@@ -182,9 +183,9 @@
 													</c:forEach>
 												</c:if>
 												<c:if test="${document == null}">
-												<td><input type="text" name="appr_name" value=""
+												<td><input type="text" name="grade_name" value=""
 													readonly class="form_transparent" style='width: 100%;'>
-													<input type="hidden" name="appr_name" value=""> <!-- 지정/취소 버튼 -->
+													<input type="hidden" name="grade_name" value=""> <!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell1" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('1');"> <span>지정</span>
@@ -254,24 +255,24 @@
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
 												<c:if test="${document != null}">
 													<c:forEach  var="coopPerson" items="${document.cooperation}" varStatus="status">
-													<td><input type="text" name="OrderName1${status.index+1}" value=""
+													<td><input type="text" name="OrderName1[${status.index+1}]" value=""
 														readonly class="form_transparent" style='width: 100%;'>
 														
 														<!-- 지정/취소 버튼 -->
 														<div id="MembersFindCell1${status.index+1}" class="btn_page pad15l overf">
 															<!-- 취소 -->
 															<a onclick="javascript:golist('1${status.index+1}');"> <span>지정</span>
-															</a><input type="text" id="emp_name1${status.index+1}" value="${coopPerson.emp_name}" readonly="readonly">
+															</a><input type="text" id="emp_name1[${status.index+1}]" value="${coopPerson.emp_name}" readonly="readonly">
 														</div></td>
 													</c:forEach>
 													<c:forEach begin="0" end="${5-lengthc-1}" varStatus="status">
-														<td><input type="text" name="appr_name" value=""
+														<td><input type="text" name="grade_name" value=""
 														readonly class="form_transparent" style='width: 100%;'>
-														<input type="hidden" name="appr_name" value=""> <!-- 지정/취소 버튼 -->
+														<input type="hidden" name="grade_name" value=""> <!-- 지정/취소 버튼 -->
 														<div id="MembersFindCell1${status.index+lengthc+1}" class="btn_page pad15l overf">
 															<!-- 지정 -->
 															<a onclick="javascript:golist('1${status.index+lengthc+1}');"> <span>지정</span>
-															</a> <input type="text" id="emp_name1${status.index+lengthc+1}" value="" readonly="readonly">
+															</a> <input type="text" id="emp_name1[${status.index+lengthc+1}]" value="" readonly="readonly">
 														</div></td>
 													</c:forEach>
 												</c:if>
@@ -432,7 +433,7 @@
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">제목</th>
 									<td class="pad15l">
-										<input name="Subject" type="text"	 value="${document.doc_subject}" style="width: 98%;" /></td>
+										<input name="doc_subject" type="text" value="${document.doc_subject}" style="width: 98%;" /></td>
 								</tr>
 							</table>
 						</td>
