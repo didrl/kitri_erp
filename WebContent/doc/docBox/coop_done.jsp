@@ -15,9 +15,7 @@
        <div class="container">
        
        <h3>협조문서 결재완료 </h3><br>
-       <c:if test="${coop_signInfo.doc_id eq coop_done.doc_id}">
-			             <td>${coop_signInfo.coop_date}</td>
-			         </c:if>
+       ${coop_done_docBoxList2.size()}
        <div class="panel-body">	
 		<c:if test="${coop_done_docBoxList.size()!=0}">
 			<table id="coop_done_t"  cellspacing="0" width="100%">
@@ -26,7 +24,6 @@
 			    	<th>문서종류</th>
 			    	<th>문서번호</th>
                 <th>기안일자</th>
-                <th>나의 결재일자</th>
                 <th>문서명</th>
                 <th>기안자</th>
                 <th>진행상태</th>
@@ -36,16 +33,10 @@
 			     <tbody>
 			     <!-- get data start-->
 				<c:forEach varStatus="i" var="coop_done" items="${coop_done_docBoxList}">
-			        
 			         <tr>
 			             <td>${coop_done.doc_type_name}</td>
 			             <td>${coop_done.doc_id}</td>
 			             <td>${coop_done.doc_date}</td>
-			      <c:forEach var="coop_signInfo" items="${coop_done_docBoxList2}">
-			        <c:if test="${coop_signInfo.doc_id eq coop_done.doc_id}">
-			             <td>${coop_signInfo.coop_date}</td>
-			         </c:if>
-			        </c:forEach>
 			             <td>${coop_done.doc_subject}</td>
 			             <td>${coop_done.emp_name}</td>
 			             <td>${coop_done.doc_status_name}</td>

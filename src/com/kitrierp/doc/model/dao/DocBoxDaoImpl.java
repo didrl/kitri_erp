@@ -112,6 +112,7 @@ public class DocBoxDaoImpl implements DocBoxDao {
 		List<DocumentDto> dlist=null;
 		dlist=sqlSession.selectList("com.kitrierp.doc.model.DocBoxDaoImpl.coop_done_docBoxList",emp_id);
 		
+		
 		return dlist;
 	}
 	
