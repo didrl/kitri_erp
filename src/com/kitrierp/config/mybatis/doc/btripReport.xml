@@ -51,6 +51,7 @@
         where si.doc_id = #{doc_id}
         and si.emp_id = e.emp_id
         and e.grade_id = g.grade_id
+        order by appr_seq
     </select>
     <select id="view_reference" parameterType="String" resultType="refdto">
         select * 

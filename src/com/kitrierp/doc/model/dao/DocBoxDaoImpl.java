@@ -3,7 +3,6 @@ package com.kitrierp.doc.model.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

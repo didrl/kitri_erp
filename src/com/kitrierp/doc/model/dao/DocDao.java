@@ -14,5 +14,7 @@ public interface DocDao {
 	int signAppr(Map map);
 	
 	int signRe(Map map);
+
+	int signReStatus(Map map);
 	
 }

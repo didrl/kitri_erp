@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kitrierp.doc.model.BtripReportDto;
-import com.kitrierp.doc.model.DocumentDto;
 import com.kitrierp.doc.model.dao.BtripReportDao;
 
 @Service
@@ -29,6 +28,12 @@ public class BtripReportServiceImpl implements BtripReportService {
 
 	@Override
 	public BtripReportDto viewDoc(String doc_id) {
-		return btripReportDao.viewDoc(doc_id);
+		BtripReportDto btripReportDto = new BtripReportDto();
+		btripReportDto = btripReportDao.viewDoc(doc_id);
+		btripReportDto.setSign_info(btripReportDao.viewDocSignInfo(doc_id));
+		btripReportDto.setReference(btripReportDao.viewDocReference(doc_id));
+		btripReportDto.setCooperation(btripReportDao.viewDocCooperation(doc_id));
+		btripReportDto.setReceiver(btripReportDao.viewDocReceiver(doc_id));
+		return btripReportDto;
 	}
 }

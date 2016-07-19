@@ -31,7 +31,7 @@ if(doc_type=="기안서"){
 	controller="/journal";
 }
 </script>
-<<script type="text/javascript">
+<script type="text/javascript">
 $(function(){
 	$('#sign_appr').click(function(){
 		document.location.href = root + "/doc/signAppr.erp?doc_type_id=${document.doc_type_id}&doc_id=${document.doc_id}";
@@ -119,7 +119,7 @@ $(function(){
 												<button type="button" id="sign_appr" name="sign_appr">결재</button>
 												<button type="button" id="sign_re" name="sign_re">반려</button>
 												</c:if>
-												<c:if test="${document.sign_info[0].appr_flag == 1 && document.sign_info[status.index -1].appr_flag == 1}">
+												<c:if test="${document.sign_info[0].appr_flag != 0 && document.sign_info[status.index -1].appr_flag != 0}">
 												<button type="button" id="sign_appr" name="sign_appr">결재</button>
 												<button type="button" id="sign_re" name="sign_re">반려</button>
 												</c:if>
@@ -129,6 +129,10 @@ $(function(){
 									<c:if test="${signPerson.appr_flag == 1}">
 										<span>${signPerson.emp_name}</span><br>
 										<b>결재<br>완료</b>
+									</c:if>
+									<c:if test="${signPerson.appr_flag == 2}">
+										<span>${signPerson.emp_name}</span><br>
+										<b>기각</b>
 									</c:if>
 									</div>
 								</td>

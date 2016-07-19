@@ -39,7 +39,11 @@ public class DocServiceImpl implements DocService {
 		Map map = new HashMap();
 		map.put("emp_id", emp_id);
 		map.put("doc_id", doc_id);
-		return docDao.signRe(map);
+		int cnt = 0;
+		cnt = docDao.signRe(map);
+		if(cnt != 0)
+			docDao.signReStatus(map);
+		return cnt; 
 	}
 	
 }

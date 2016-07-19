@@ -3,7 +3,6 @@ package com.kitrierp.doc.model.service;
 import java.util.List;
 
 import com.kitrierp.doc.model.DocumentDto;
-import com.kitrierp.employee.model.EmployeeDto;
 
 public interface DocService {
 
