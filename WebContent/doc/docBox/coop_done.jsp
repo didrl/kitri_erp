@@ -6,6 +6,7 @@
 	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
 	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
+<script src="${root}/js/doc-js.js"></script>
 <!--css/script end-->	
 
 				
@@ -37,7 +38,9 @@
 			             <td>${coop_done.doc_type_name}</td>
 			             <td>${coop_done.doc_id}</td>
 			             <td>${coop_done.doc_date}</td>
-			             <td>${coop_done.doc_subject}</td>
+			             <td>
+			             <a onclick='$.mvDocBoxtoviewDoc(${coop_done.doc_type_id},"${coop_done.doc_id}");'>${coop_done.doc_subject}</a>
+			             </td>
 			             <td>${coop_done.emp_name}</td>
 			             <td>${coop_done.doc_status_name}</td>
 			          </tr>
