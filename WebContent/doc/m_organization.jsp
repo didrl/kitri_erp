@@ -7,7 +7,7 @@
 function select(emp_id, emp_name, grade_name){
 	var num=${cellnum};
 
-	  opener.document.getElementById("approval_"+num).value =emp_id;
+	  opener.document.getElementById("emp_id"+num).value =emp_id;
 	  if(num<20)
 	  	opener.document.getElementById("grade"+num).innerText = grade_name;
 	  opener.document.getElementById("emp_name"+num).value =emp_name;

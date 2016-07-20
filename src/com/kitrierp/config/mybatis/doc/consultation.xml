@@ -9,16 +9,13 @@
         values(#{doc_id},2,#{emp_id},2,#{doc_subject},
         #{doc_content},#{doc_date},sysdate+7,#{doc_open},
         #{doc_dep_id},#{doc_note})
-        into sign_info
-        <foreach collection="sign_info" item="item" index="index" open="values(" close=")" separator=",">
+        <foreach collection="sign_info" item="item" index="index" open="into sign_info values(" close=")" separator=",">
             #{item}
         </foreach>
-        into reference
-        <foreach collection="reference" item="item" index="index" open="values(" close=")" separator=",">
+        <foreach collection="reference" item="item" index="index" open="into reference values(" close=")" separator=",">
             #{item}
         </foreach>
-        into cooperation
-        <foreach collection="cooperation" item="item" index="index" open="values(" close=")" separator=",">
+        <foreach collection="cooperation" item="item" index="index" open="into cooperation values(" close=")" separator=",">
             #{item}
         </foreach>
         select * from dual
