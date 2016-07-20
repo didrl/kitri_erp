@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/common/common.jsp" %>
-<%
 
-%>
 <!-- css & script src start -->
 <!-- whois css -->
 <link rel="stylesheet" type="text/css"
