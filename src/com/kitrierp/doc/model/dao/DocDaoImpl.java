@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kitrierp.doc.model.DocumentDto;
+import com.kitrierp.doc.model.SignInfoDto;
 
 @Repository
 public class DocDaoImpl implements DocDao {
@@ -32,11 +33,20 @@ public class DocDaoImpl implements DocDao {
 	}
 
 	@Override
+	public int signApprStatus(Map map) {
+		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.sign_appr_status", map);
+	}
+	@Override
 	public int signRe(Map map) {
 		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.sign_re", map);
 	}
 	@Override
 	public int signReStatus(Map map) {
 		return sqlSession.update("com.kitrierp.doc.model.DocDaoImpl.sign_re_status", map);
+	}
+
+	@Override
+	public int chkAppr(Map map) {
+		return sqlSession.selectOne("com.kitrierp.doc.model.DocDaoImpl.sign_chk_appr", map);
 	}
 }
