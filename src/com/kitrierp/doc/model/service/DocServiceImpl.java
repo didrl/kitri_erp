@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kitrierp.doc.model.DocumentDto;
+import com.kitrierp.doc.model.SignInfoDto;
 import com.kitrierp.doc.model.dao.DocDao;
 
 @Service
@@ -31,6 +32,9 @@ public class DocServiceImpl implements DocService {
 		Map map = new HashMap();
 		map.put("emp_id", emp_id);
 		map.put("doc_id", doc_id);
+		if(emp_id == docDao.chkAppr(map)){
+			docDao.signApprStatus(map);
+		}
 		return docDao.signAppr(map);
 	}
 
@@ -45,5 +49,5 @@ public class DocServiceImpl implements DocService {
 			docDao.signReStatus(map);
 		return cnt; 
 	}
-	
+
 }

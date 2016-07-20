@@ -57,6 +57,21 @@
 		window.open("${root}/organization/dep_list.erp","select","top=200, left=300, width=400, height=280, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 	}
 </script>
+
+<script type="text/javascript">
+var sign_emp_name_arr= [];
+var sign_grade_name_arr= [];
+var coop_emp_name_arr= [];
+var coop_grade_name_arr= [];
+
+
+	$(".find").click(function(){
+		sign_emp_name_arr[0] = $(".sign_emp_name").val();
+		sign_grade_name_arr[0] = $(".sign_grade_name").val();
+		$(".coop_emp_name").val();
+		$(".coop_grade_name").val();
+	});
+</script>
 <!--script end -->
 
 <div id="wrapper">
@@ -64,27 +79,26 @@
 	<div id="page-wrapper">
 		<div id="sub">
 
-			<!-- 전자결재 문서   
-	**** hidden 정리하기!!!! ****
-	-->
+	<!-- 전자결재 문서   
+		**** hidden 정리하기!!!! ****-->
 
-	<form name="approvalfirm" id="approvalfirm">
-		<input type="hidden" id="approval_1" name="approval_1" value=""> 
-		<input type="hidden" id="approval_2" name="approval_2" value=""> 
-		<input type="hidden" id="approval_3" name="approval_3" value=""> 
-		<input type="hidden" id="approval_4" name="approval_4" value="">
-		<input type="hidden" id="approval_5" name="approval_5" value="">
-		<input type="hidden" id="approval_11" name="approval_11" value=""> 
-		<input type="hidden" id="approval_12" name="approval_12" value=""> 
-		<input type="hidden" id="approval_13" name="approval_13" value=""> 
-		<input type="hidden" id="approval_14" name="approval_14" value="">
-		<input type="hidden" id="approval_15" name="approval_15" value="">
-		<input type="hidden" id="approval_20" name="approval_20" value="">			
-		<input type="hidden" id="approval_dep" name="approval_dep" value="">
+	<form name="gradeovalfirm" id="gradeovalfirm">
+		<input type="hidden" id="gradeoval_1" name="gradeoval_1" value=""> 
+		<input type="hidden" id="gradeoval_2" name="gradeoval_2" value=""> 
+		<input type="hidden" id="gradeoval_3" name="gradeoval_3" value=""> 
+		<input type="hidden" id="gradeoval_4" name="gradeoval_4" value="">
+		<input type="hidden" id="gradeoval_5" name="gradeoval_5" value="">
+		<input type="hidden" id="gradeoval_11" name="gradeoval_11" value=""> 
+		<input type="hidden" id="gradeoval_12" name="gradeoval_12" value=""> 
+		<input type="hidden" id="gradeoval_13" name="gradeoval_13" value=""> 
+		<input type="hidden" id="gradeoval_14" name="gradeoval_14" value="">
+		<input type="hidden" id="gradeoval_15" name="gradeoval_15" value="">
+		<input type="hidden" id="gradeoval_20" name="gradeoval_20" value="">			
+		<input type="hidden" id="gradeoval_dep" name="gradeoval_dep" value="">
 	</form>
 
 	<form name="docform" id="docform" method="post" action='' enctype="application/x-www-form-urlencoded" class="mar10b black">
-				<input type="hidden" id="doc_type_id" name="doc_type_id" value="5">
+				<input type="hidden" id="doc_type_id" name="doc_type_id" value="">
 				<input type="hidden" name="doc_id" value="1">
 			<!--<input type="hidden" name="doc_controller" value="">-->	
 
@@ -159,18 +173,19 @@
 											<tr class="date" style="height: 61px;">
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
 												<c:if test="${document != null}">
-													<c:forEach var="signPerson" items="${document.sign_info}" varStatus="status" >
-														<td>
-															<input type="hidden" name="grade_id[${status.index}]">
-															<input type="text" name="grade_name" value="" readonly class="form_transparent" style='width: 100%;'>
-															<!-- 지정/취소 버튼 -->
-															<div id="MembersFindCell${status.index+1}" class="btn_page pad15l overf">
-																<!-- 지정 -->
-																<a onclick="javascript:golist('${status.index}');"> <span>지정</span></a> 
-																<input type="text" id="emp_name[${status.index}]" value="${signPerson.emp_name}" readonly="readonly">
-															</div>
-														</td>
-													</c:forEach>
+													<form name="sign_grade" method="get" action="">
+														<c:forEach var="signPerson" items="${document.sign_info}" varStatus="status" >
+															<td>
+																<input type="text" name="grade_name" value="" readonly class="form_transparent" style='width: 100%;'>
+																<!-- 지정/취소 버튼 -->
+																<div id="MembersFindCell${status.index+1}" class="btn_page pad15l overf">
+																	<!-- 지정 -->
+																	<a onclick="javascript:golist('${status.index+1}');"> <span>지정</span></a> 
+																	<input type="text" id="emp_name${status.index+1}" value="${signPerson.emp_name}" readonly="readonly">
+																</div>
+															</td>
+														</c:forEach>
+													</form>
 													<c:forEach begin="0" end="${5-length-1}" varStatus="status">
 														<td><input type="text" name="grade_name" value=""
 														readonly class="form_transparent" style='width: 100%;'>
@@ -272,7 +287,7 @@
 														<div id="MembersFindCell1${status.index+lengthc+1}" class="btn_page pad15l overf">
 															<!-- 지정 -->
 															<a onclick="javascript:golist('1${status.index+lengthc+1}');"> <span>지정</span>
-															</a> <input type="text" id="emp_name1[${status.index+lengthc+1}]" value="" readonly="readonly">
+															</a> <input type="text" id="emp_name1${status.index+lengthc+1}" value="" readonly="readonly">
 														</div></td>
 													</c:forEach>
 												</c:if>
@@ -377,24 +392,7 @@
 										</select>
 									</td>
 
-									<th>보존기간</th>
-									<td class="txt_ce">
-										<!-- 작성 --> <select name='StoragePeriod'>
-											<option label="3 개월" value="3">3 개월</option>
-											<option label="6 개월" value="6">6 개월</option>
-											<option label="1 년" value="12">1 년</option>
-											<option label="2 년" value="24">2 년</option>
-											<option label="3 년" value="36">3 년</option>
-											<option label="4 년" value="48">4 년</option>
-											<option label="5 년" value="60">5 년</option>
-											<option label="6 년" value="72">6 년</option>
-											<option label="7 년" value="84">7 년</option>
-											<option label="8 년" value="96">8 년</option>
-											<option label="9 년" value="108">9 년</option>
-											<option label="10 년" value="120" selected="selected">10 년</option>
-											<option label="무기한" value="12000">무기한</option>
-									</select>
-									</td>
+									
 								</tr>
 							</table> <!-- /ORDER 5 -->
 
@@ -433,7 +431,7 @@
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">제목</th>
 									<td class="pad15l">
-										<input name="doc_subject" type="text" value="${document.doc_subject}" style="width: 98%;" /></td>
+										<input name="Subject" type="text"	 value="${document.doc_subject}" style="width: 98%;" /></td>
 								</tr>
 							</table>
 						</td>

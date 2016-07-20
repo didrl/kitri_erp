@@ -6,6 +6,7 @@
 	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
 	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
+<script src="${root}/js/doc-js.js"></script>
 <!--css/script end-->	
 	
 <div id="wrapper"> 
@@ -36,7 +37,9 @@
 			             <td>${depBox.doc_type_name}</td>
 						<td>${depBox.doc_id}</td>
 			             <td>${depBox.doc_date}</td>
-			             <td>${depBox.doc_subject}</td>
+			             <td>
+			             <a onclick='$.mvDocBoxtoviewDoc(${depBox.doc_type_id},"${depBox.doc_id}");'>${depBox.doc_subject}</a>
+			             </td>
 			             <td>${depBox.dep_name}</td>
 			             <td>${depBox.emp_name}</td>
 			             <td>${depBox.doc_status_name}</td>

@@ -6,6 +6,7 @@
 	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
 	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
+<script src="${root}/js/doc-js.js"></script>
 <!--css/script end-->	
 
 				
@@ -15,9 +16,8 @@
        <div class="container">
        
        <h3>협조문서 결재완료 </h3><br>
-       ${coop_done_docBoxList2.size()}
        <div class="panel-body">	
-		<c:if test="${coop_done_docBoxList.size()!=0}">
+		
 			<table id="coop_done_t"  cellspacing="0" width="100%">
 			 	<thead>
 			    	<tr>
@@ -32,21 +32,24 @@
 			     <tfoot></tfoot>
 			     <tbody>
 			     <!-- get data start-->
+			   <c:if test="${coop_done_docBoxList.size()!=0}">
 				<c:forEach varStatus="i" var="coop_done" items="${coop_done_docBoxList}">
 			         <tr>
 			             <td>${coop_done.doc_type_name}</td>
 			             <td>${coop_done.doc_id}</td>
 			             <td>${coop_done.doc_date}</td>
-			             <td>${coop_done.doc_subject}</td>
+			             <td>
+			             <a onclick='$.mvDocBoxtoviewDoc(${coop_done.doc_type_id},"${coop_done.doc_id}");'>${coop_done.doc_subject}</a>
+			             </td>
 			             <td>${coop_done.emp_name}</td>
 			             <td>${coop_done.doc_status_name}</td>
 			          </tr>
-			          
 				</c:forEach>
+			</c:if>
 				<!-- get data end-->
 				</tbody>
 				</table>
-			</c:if>
+			
 		</div>
        </div>
         <!-- /.container -->
