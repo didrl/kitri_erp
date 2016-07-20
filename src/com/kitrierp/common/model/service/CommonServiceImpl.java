@@ -9,4 +9,5 @@ import com.kitrierp.common.model.dao.CommonDao;
 public class CommonServiceImpl implements CommonService {
 	@Autowired
 	private CommonDao commonDao;
+
 }

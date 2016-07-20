@@ -2,15 +2,19 @@
     pageEncoding="UTF-8"%>
      
 <!-- jstl 1.2 version -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <c:set var="util" value="${pageContext.request.contextPath}"/>
 
 <script type = "text/javascript">
 var root = "${root}";
 var util = "${util}";
-</script>
 
+</script>
+<script type="text/javascript" src="${root}/js/doc-js.js">
+</script>
 
 <!-- 부트스트랩 기본설정 -->
 <html lang="en">
@@ -68,6 +72,7 @@ var util = "${util}";
 
     <!-- Custom Theme JavaScript -->
     <script src="${root}/dist/js/sb-admin-2.js"></script>
+	
 	<!-- ckeditor -->
 	<script type="text/javascript" src="${root}/ckeditor/ckeditor.js"></script>
 	
@@ -77,6 +82,6 @@ var util = "${util}";
 	<link href="http://css.whoisdesk.net/Src/Skin/Renewal/subpage.css?dummy=20120223" rel="stylesheet" type="text/css" />
 	<link href="http://css.whoisdesk.net/Src/Skin/Renewal/popup.css?dummy=20160525" rel="stylesheet" type="text/css" />
 	<link type="text/css" href="http://css.whoisdesk.net/Src/WebCommon/Jquery/Jquery_ui_1_7_2/blitzer/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
-
+	
 </head>
 <body>

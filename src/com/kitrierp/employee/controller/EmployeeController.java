@@ -1,7 +1,6 @@
 package com.kitrierp.employee.controller;
 
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,14 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kitrierp.employee.model.EmployeeDto;
 import com.kitrierp.employee.model.service.EmployeeService;
-import com.kitrierp.employee.model.service.EmployeeServiceImpl;
 
 @Controller
 @RequestMapping("/employee")
+@SessionAttributes("memberInfo")
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
-	
+
 	@RequestMapping(value="/login.erp", method=RequestMethod.POST)
 	public ModelAndView login(@RequestParam Map<String, String> map){
 		
@@ -27,16 +26,16 @@ public class EmployeeController {
 		EmployeeDto employeeDto = new EmployeeDto();
 		employeeDto = employeeService.login(map);
 		int id = Integer.parseInt(map.get("id"));
-		mav.addObject("memberInfo",map);
-		System.out.println("id" +map.get("id"));
+		
 		if(id == employeeDto.getEmp_id()) {
-			mav.addObject("chk", 0);
-			mav.setViewName("/employee/doc_main");
-
+			mav.addObject("memberInfo", employeeDto);
+			mav.setViewName("/doc/document/btrip_report");
+			
 		} else {
-			mav.addObject("chk", 1);
 			mav.setViewName("/employee/loginok");
 		}
 		return mav;
 	}
+	
+	
 }

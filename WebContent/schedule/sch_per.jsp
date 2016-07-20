@@ -4,13 +4,11 @@
 <%@ include file="/common/user_sidebar.jsp" %>
 
 <!-- for fullcalendar -->
-<link href='${util}/fullcalendar/css/fullcalendar.css' rel='stylesheet'/>
-<link href="${util}/fullcalendar/css/fullcalendar.print.css" rel="stylesheet" media="print" />
-<script src="${util}/fullcalendar/js/moment.min.js"></script>
-<script src="${util}/fullcalendar/js/fullcalendar.min.js"></script>
-<script src='${util}/fullcalendar/js/jquery-ui.custom.min.js'></script>
-<script src='${util}/fullcalendar/js/lang-all.js'></script>
-
+<link href='${root}/webjars/fullcalendar/2.9.0/dist/fullcalendar.css' rel='stylesheet'/>
+<link href="${root}/webjars/fullcalendar/2.9.0/dist/fullcalendar.print.css" rel="stylesheet" media="print" />
+<script src="${root}/webjars/fullcalendar/2.9.0/dist/fullcalendar.min.js"></script>
+<script src='${root}/webjars/fullcalendar/2.9.0/dist/lang-all.js'></script>
+<script src='${root}/webjars/moment/2.14.1/moment.js'></script>
 <!------------------->
 
 <!-- for clock -->

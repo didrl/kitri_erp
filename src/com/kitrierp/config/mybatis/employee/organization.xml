@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- Schedule  관련  Dao가 여러개인데 어찌할지 생각해야할듯-->
 <mapper namespace="com.kitrierp.employee.model.OrganizationDaoImpl">
     
-    
+    <select id="olist" resultType="com.kitrierp.employee.model.EmployeeDto">
+        select e.emp_id, e.emp_name ,d.dep_name, g.grade_name, d.dep_id, e.grade_id
+        from employee e, department d, grade g
+        where d.dep_id=e.dep_id
+        and e.grade_id=g.grade_id
+        order by d.dep_id desc
+    </select>
+    <select id="oDepList" resultType="com.kitrierp.employee.model.DepartmentDto">
+        select dep_id, dep_name, manager_id
+        from department
+        order by dep_id desc
+    </select>
 </mapper>
 
 

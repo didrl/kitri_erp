@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.kitrierp.admin.model.dao.AdminEmployeeDao;
 
-
 @Service
 public class AdminEmployeeServiceImpl implements AdminEmployeeService {
 	@Autowired

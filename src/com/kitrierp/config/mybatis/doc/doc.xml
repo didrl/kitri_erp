@@ -3,5 +3,59 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.doc.model.DocDaoImpl">
+    <select id="doc_id" parameterType="int" resultType="String">
+        select (to_char(sysdate, 'YYMM')||'-'||(select to_char(doc_type_id, 'FM00') 
+        from doc_type
+        where doc_type_id = #{doc_type_id})||to_char(seq_doc_id.nextval, 'FM0000'))
+        from dual
+    </select>
+    
+    <select id="dep_docBoxList" resultType="docdto">
+        select D.DOC_ID,D.DOC_DATE,D.DOC_CONTENT,e.dep_id,D.EMP_ID
+        from Document d,employee e,RECEIVE_LIST r
+        where e.DEP_ID = r.dep_id
+        and e.emp_id = d.emp_id
+        and r.doc_id = d.doc_id
+        order by d.DOC_DATE DESC;
+    </select>
+    
+    <select id="sign_chk_appr" parameterType="Map" resultType="int"> 
+        select b.emp_id
+        from ( 
+               select rownum rn, a.*
+               from (
+                      select * 
+                      from sign_info 
+                      where doc_id = #{doc_id}
+                      order by appr_seq desc) a
+              ) b
+        where rn = 1 
+    </select>
+    
+    <update id="sign_appr" parameterType="Map">
+        update sign_info
+        set appr_flag = 1, appr_date = sysdate
+        where doc_id = #{doc_id}
+        and emp_id = #{emp_id}
+    </update>
+    
+    <update id="sign_appr_status" parameterType="Map">
+        update document
+        set doc_status_id = 5
+        where doc_id = #{doc_id}
+    </update>
+    
+    <update id="sign_re" parameterType="Map">
+        update sign_info
+        set appr_flag = 2, appr_date = sysdate
+        where doc_id = #{doc_id}
+        and emp_id = #{emp_id}
+    </update>
+    
+    <update id="sign_re_status" parameterType="Map">
+        update document
+        set doc_status_id = 4
+        where doc_id = #{doc_id}
+    </update>
     
 </mapper>

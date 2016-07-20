@@ -1,16 +1,24 @@
 package com.kitrierp.doc.model;
 
 import java.util.List;
-import com.kitrierp.common.model.FileDto;
 
-public class DocumentDto {
-	private int doc_id;
+import com.kitrierp.common.model.FileDto;
+import com.kitrierp.employee.model.EmployeeDto;
+
+public class DocumentDto extends EmployeeDto {
+	private String doc_id;
+	private int doc_status_id;
+	private String doc_status_name;
 	private String doc_subject;
 	private String doc_content;
 	private String doc_date;
 	private String doc_deadline;
 	private int doc_open; 
 	private int doc_dep_id;
+	private String doc_dep_name;
+	private int doc_type_id;
+
+	private String doc_type_name;
 	private String doc_note;
 	
 	List<SignInfoDto> sign_info;
@@ -19,11 +27,41 @@ public class DocumentDto {
 	List<ReceiveListDto> receiver;
 	List<FileDto> file;
 	
-	public int getDoc_id() {
+	public String getDoc_status_name() {
+		return doc_status_name;
+	}
+	public void setDoc_status_name(String doc_status_name) {
+		this.doc_status_name = doc_status_name;
+	}
+	public String getDoc_dep_name() {
+		return doc_dep_name;
+	}
+	public void setDoc_dep_name(String doc_dep_name) {
+		this.doc_dep_name = doc_dep_name;
+	}
+	public int getDoc_type_id() {
+		return doc_type_id;
+	}
+	public void setDoc_type_id(int doc_type_id) {
+		this.doc_type_id = doc_type_id;
+	}
+	public String getDoc_type_name() {
+		return doc_type_name;
+	}
+	public void setDoc_type_name(String doc_type_name) {
+		this.doc_type_name = doc_type_name;
+	}
+	public String getDoc_id() {
 		return doc_id;
 	}
-	public void setDoc_id(int doc_id) {
+	public void setDoc_id(String doc_id) {
 		this.doc_id = doc_id;
+	}
+	public int getDoc_status_id() {
+		return doc_status_id;
+	}
+	public void setDoc_status_id(int doc_status_id) {
+		this.doc_status_id = doc_status_id;
 	}
 	public String getDoc_subject() {
 		return doc_subject;
@@ -99,3 +137,4 @@ public class DocumentDto {
 	}
 	
 }
+

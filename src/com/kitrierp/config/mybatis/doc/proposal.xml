@@ -3,6 +3,46 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kitrierp.doc.model.ProposalDaoImpl">
-    
-    
+    <select id="view" parameterType="String" resultType="docdto">
+        select d.doc_id, d.doc_status_id, d.emp_id, d.doc_type_id, d.doc_subject,
+                d.doc_content, d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id,
+                d.doc_note, dt.doc_type_name, ds.doc_status_name,
+                e.emp_name, dp.dep_name, g.grade_name 
+        from document d, employee e, department dp, doc_type dt, doc_status ds, grade g
+        where d.emp_id = e.emp_id
+        and e.dep_id = dp.dep_id
+        and d.doc_type_id = dt.doc_type_id
+        and d.doc_status_id = ds.doc_status_id
+        and e.grade_id = g.grade_id
+        and d.doc_id = #{doc_id}
+    </select>
+    <select id="view_sign_info" parameterType="String" resultType="sidto">
+        select *
+        from (select appr_seq, doc_id, emp_id, appr_flag, to_char(appr_date, 'yymmdd') appr_date from sign_info) si, employee e,grade g
+        where si.doc_id = #{doc_id}
+        and si.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
+        order by appr_seq
+    </select>
+    <select id="view_reference" parameterType="String" resultType="refdto">
+        select * 
+        from reference ref, employee e,grade g
+        where doc_id = #{doc_id}
+        and ref.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
+    </select>
+    <select id="view_cooperation" parameterType="String" resultType="coopdto">
+        select * 
+        from cooperation c,employee e,grade g
+        where doc_id = #{doc_id}
+        and c.emp_id = e.emp_id
+        and e.grade_id = g.grade_id
+    </select>
+    <select id="view_receive_list" parameterType="String" resultType="receidto">
+        select *
+        from receive_list rl, department dp, document d
+        where d.doc_id =  #{doc_id}
+        and rl.doc_id = d.doc_id
+        and rl.dep_id = dp.dep_id
+    </select>
 </mapper>
