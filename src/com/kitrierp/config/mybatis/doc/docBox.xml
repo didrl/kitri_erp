@@ -172,10 +172,15 @@
         order by d.doc_date
     </select>
 
-
-
     <select id="ref_docBoxList" parameterType="int" resultType="docdto">
-        
+        select c.coop_date,c.doc_id
+        from Document d,reference r, doc_type dt, doc_status ds , employee de
+        where r.doc_id = d.doc_id
+        and r.emp_id = #{emp_id}
+        and d.doc_status_id =  ds.doc_status_id
+        and d.doc_type_id = dt.doc_type_id
+        and d.emp_id = de.emp_id
+        order by d.doc_date        
         
     </select>
 

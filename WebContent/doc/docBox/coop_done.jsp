@@ -15,9 +15,8 @@
        <div class="container">
        
        <h3>협조문서 결재완료 </h3><br>
-       ${coop_done_docBoxList2.size()}
        <div class="panel-body">	
-		<c:if test="${coop_done_docBoxList.size()!=0}">
+		
 			<table id="coop_done_t"  cellspacing="0" width="100%">
 			 	<thead>
 			    	<tr>
@@ -32,6 +31,7 @@
 			     <tfoot></tfoot>
 			     <tbody>
 			     <!-- get data start-->
+			   <c:if test="${coop_done_docBoxList.size()!=0}">
 				<c:forEach varStatus="i" var="coop_done" items="${coop_done_docBoxList}">
 			         <tr>
 			             <td>${coop_done.doc_type_name}</td>
@@ -41,12 +41,12 @@
 			             <td>${coop_done.emp_name}</td>
 			             <td>${coop_done.doc_status_name}</td>
 			          </tr>
-			          
 				</c:forEach>
+			</c:if>
 				<!-- get data end-->
 				</tbody>
 				</table>
-			</c:if>
+			
 		</div>
        </div>
         <!-- /.container -->

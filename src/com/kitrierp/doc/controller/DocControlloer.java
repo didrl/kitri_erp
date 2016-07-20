@@ -112,8 +112,9 @@ public class DocControlloer {
 	@RequestMapping("/signAppr.erp")
 	public ModelAndView signAppr(@ModelAttribute("memberInfo") EmployeeDto employeeDto, int doc_type_id, String doc_id) {
 		ModelAndView mav = new ModelAndView();
+		int emp_id = employeeDto.getEmp_id();
 		int cnt = 0;
-		cnt = docService.signAppr(employeeDto.getEmp_id(), doc_id);
+		cnt = docService.signAppr(emp_id, doc_id);
 		if(cnt != 0) {
 			DocumentDto documentDto = null; 
 			switch (doc_type_id) {
