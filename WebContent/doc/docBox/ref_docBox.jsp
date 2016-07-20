@@ -2,22 +2,24 @@
 <%@ include file="/common/user_sidebar.jsp" %>
 <!--css/script start-->
 <!-- DataTables -->
-	<link href="${root}/webjars/datatables/1.10.12/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
-	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
-	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
-<!--css/script end-->	
+<link href="${root}/webjars/datatables/1.10.12/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
+<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
 
+<script src="${root}/webjars/moment/2.14.1/moment.js"></script>
+<script src="${root}/js/doc-js.js"></script>
+<!--css/script end-->	
 				
 <div id="wrapper"> 
    <!-- Page Content -->
     <div id="page-wrapper">
        <div class="container">
        
-       <h3>협조문서 미결재</h3><br>
+       <h3>참조문서함</h3><br>
        <div class="panel-body">	
     
-			<table id="ref_docBox_t"  cellspacing="0" width="100%">
+			<table id="ref_docBox_t">
 			 	<thead>
 			    	<tr>
 			    	<th>문서종류</th>
@@ -37,7 +39,9 @@
 			             <td>${ref_docBox.doc_type_name}</td>
 			             <td>${ref_docBox.doc_id}</td>
 			             <td>${ref_docBox.doc_date}</td>
-			             <td>${ref_docBox.doc_subject}</td>
+			             <td>
+			             <a onclick='$.mvDocBoxtoviewDoc(${ref_docBox.doc_type_id},"${ref_docBox.doc_id}");'>${ref_docBox.doc_subject}</a>
+			             </td>
 			             <td>${ref_docBox.emp_name}</td>
 			             <td>${ref_docBox.doc_status_name}</td>
 			          </tr>

@@ -6,6 +6,7 @@
 	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
 	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
+<script src="${root}/js/doc-js.js"></script>
 <!--css/script end-->	
 
 				
@@ -14,7 +15,7 @@
     <div id="page-wrapper">
        <div class="container">
        
-       <h3>반려문서</h3><br>
+       <h3>임시저장 문서</h3><br>
        <div class="panel-body">	
 		
 			<table id="per_temp_t"  cellspacing="0" width="100%">
@@ -39,7 +40,9 @@
 			             <td>${per_temp.doc_id}</td>
 			             <td>${per_temp.doc_date}</td>
 			             
-			             <td>${per_temp.doc_subject}</td>
+			             <td>
+			             <a onclick='$.mvDocBoxtoviewDoc(${per_temp.doc_type_id},"${per_temp.doc_id}");'>${per_temp.doc_subject}</a>
+			             </td>
 			             <td>${per_temp.emp_name}</td>
 			             <td>${per_temp.doc_status_name}</td>
 			             
