@@ -1065,8 +1065,3 @@ INSERT INTO doc_status (doc_status_id, doc_status_name)
      VALUES (5, '결제완료');
 
 COMMIT;
-
-insert into document(doc_id,doc_status_id,emp_id,doc_type_id,doc_subject,doc_content
-,doc_date,doc_deadline,doc_open,doc_dep_id,doc_note) 
-VALUES(to_char(sysdate,'YYMM')||'-'||'01'||to_char(seq_test.nextval,'FM0000'),2,40990217,06,'사내 여름휴가 프로모션 기획','사내 여름휴가 프로모션 기획안입니다.',
-sysdate,sysdate+1,0,40,'사원대상입니다.');
