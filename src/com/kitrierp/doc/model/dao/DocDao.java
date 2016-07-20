@@ -11,10 +11,14 @@ public interface DocDao {
 
 	List<DocumentDto> dep_docBoxList();
 
+	int chkAppr(Map map); 
+
 	int signAppr(Map map);
+
+	int signApprStatus(Map map);
 	
 	int signRe(Map map);
 
 	int signReStatus(Map map);
-	
+
 }
