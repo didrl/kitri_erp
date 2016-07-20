@@ -3,6 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- Schedule  관련  Dao가 여러개인데 어찌할지 생각해야할듯-->
 <mapper namespace="com.kitrierp.employee.model.AddressDaoImpl">
+    <select id ="dep_addrbookList" parameterType="int" resultType="addrdto">
+        
+        
+    </select>
+    
+    <select id ="per_addrbookList" parameterType="int" resultType="addrdto">
+        
+        
+    </select>
+    
+    <select id ="view_addrbookList" parameterType="int" resultType="addrdto">
+        
+        
+    </select>
     
     
 </mapper>

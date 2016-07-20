@@ -6,6 +6,7 @@
     
     <typeAliases>
         <typeAlias alias="edto" type="com.kitrierp.employee.model.EmployeeDto"/>
+        <typeAlias alias="addrdto" type="com.kitrierp.employee.model.AddressbookDto"/>
         <typeAlias alias="badto" type="com.kitrierp.doc.model.BtripApplicationDto"/>
         <typeAlias alias="brdto" type="com.kitrierp.doc.model.BtripReportDto"/>
         <typeAlias alias="docdto" type="com.kitrierp.doc.model.DocumentDto"/>
