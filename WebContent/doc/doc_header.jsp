@@ -82,6 +82,7 @@ var coop_grade_name_arr= [];
 	<!-- 전자결재 문서   
 		**** hidden 정리하기!!!! ****-->
 
+<!--  
 	<form name="gradeovalfirm" id="gradeovalfirm">
 		<input type="hidden" id="gradeoval_1" name="gradeoval_1" value=""> 
 		<input type="hidden" id="gradeoval_2" name="gradeoval_2" value=""> 
@@ -96,10 +97,11 @@ var coop_grade_name_arr= [];
 		<input type="hidden" id="gradeoval_20" name="gradeoval_20" value="">			
 		<input type="hidden" id="gradeoval_dep" name="gradeoval_dep" value="">
 	</form>
-
+-->
 	<form name="docform" id="docform" method="post" action='' enctype="application/x-www-form-urlencoded" class="mar10b black">
-				<input type="hidden" id="doc_type_id" name="doc_type_id" value="">
-				<input type="hidden" name="doc_id" value="1">
+				<input type="hidden" id="doc_type_id" name="doc_type_id" value="${doc_type_id}">
+				<input type="hidden" name="doc_id" value="">
+				<input type="hidden" name="doc_status_id" id="doc_status_id" value="">
 			<!--<input type="hidden" name="doc_controller" value="">-->	
 
 				<!-- 버튼 -->
@@ -157,7 +159,7 @@ var coop_grade_name_arr= [];
 														<td style="border-top: none;" id="grade${status.index}">
 														${signPerson.grade_name}
 														</td>
-														<input type="hidden" id="grade_id[${status.index}]" name="grade_id" value ="">
+														<input type="hidden" id="grade_id${status.index}" name="grade_id${status.index}" value ="">
 													</c:forEach>
 													<c:forEach  begin="0" end="${5-length-1}" step="1">
 														<td style="border-top: none;" id="grade${status.index+length}">&nbsp;</td>
@@ -169,11 +171,11 @@ var coop_grade_name_arr= [];
 													<td style="border-top: none;" id="grade2"></td>
 													<td style="border-top: none;" id="grade3"></td>
 													<td style="border-top: none;" id="grade4"></td>
-													<input type="hidden" id="grade_id[0]" name="grade_id" value ="">
-													<input type="hidden" id="grade_id[1]" name="grade_id" value ="">
-													<input type="hidden" id="grade_id[2]" name="grade_id" value ="">
-													<input type="hidden" id="grade_id[3]" name="grade_id" value ="">
-													<input type="hidden" id="grade_id[4]" name="grade_id" value ="">
+													<input type="hidden" id="grade_id0" name="grade_id0" value ="">
+													<input type="hidden" id="grade_id1" name="grade_id1" value ="">
+													<input type="hidden" id="grade_id2" name="grade_id2" value ="">
+													<input type="hidden" id="grade_id3" name="grade_id3" value ="">
+													<input type="hidden" id="grade_id4" name="grade_id4" value ="">
 												</c:if>
 											</tr>
 											<tr class="date" style="height: 61px;">
@@ -187,8 +189,8 @@ var coop_grade_name_arr= [];
 																<div id="MembersFindCell${status.index}" class="btn_page pad15l overf">
 																	<!-- 지정 -->
 																	<a onclick="javascript:golist('${status.index}');"> <span>지정</span></a> 
-																	<input type="text" id="emp_name[${status.index}]" value="${signPerson.emp_name}" readonly="readonly">
-																	<input type="hidden" id="emp_id[${status.index}]" name="emp_id" value="" readonly="readonly">
+																	<input type="text" id="emp_name${status.index}" value="${signPerson.emp_name}" readonly="readonly">
+																	<input type="hidden" id="emp_id${status.index}" name="emp_id${status.index}" value="" readonly="readonly">
 																</div>
 															</td>
 														</c:forEach>
@@ -201,8 +203,8 @@ var coop_grade_name_arr= [];
 															<div id="MembersFindCell${status.index+length}" class="btn_page pad15l overf">
 																<!-- 지정 -->
 																<a onclick="javascript:golist('${status.index+length}');"> <span>지정</span></a>
-																<input type="text" id="emp_name[${status.index+length}]" value="" readonly="readonly">
-																<input type="hidden" id="emp_id[${status.index+length}]" name="emp_id" value="" readonly="readonly">
+																<input type="text" id="emp_name${status.index+length}" value="" readonly="readonly">
+																<input type="hidden" id="emp_id${status.index+length}" name="emp_id${status.index+length}" value="" readonly="readonly">
 															</div></td>
 													</c:forEach>
 												</c:if>
@@ -214,8 +216,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell0" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('0');"> <span>지정</span></a>
-														<input type="text" id="emp_name[0]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id[0]" name="emp_id" value="" readonly="readonly">
+														<input type="text" id="emp_name0" value="" readonly="readonly">
+														<input type="hidden" id="emp_id0" name="emp_id0" value="" readonly="readonly">
 													</div>
 												</td>
 												<td>
@@ -225,8 +227,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell1" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('1');"> <span>지정</span></a>
-														<input type="text" id="emp_name[1]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id[1]" name="emp_id" value="" readonly="readonly">
+														<input type="text" id="emp_name1" value="" readonly="readonly">
+														<input type="hidden" id="emp_id1" name="emp_id1" value="" readonly="readonly">
 													</div>
 												</td>
 												<td>
@@ -235,8 +237,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell2" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('2');"> <span>지정</span>
-														</a><input type="text" id="emp_name[2]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id[2]" name="emp_id" value="" readonly="readonly">
+														</a><input type="text" id="emp_name2" value="" readonly="readonly">
+														<input type="hidden" id="emp_id2" name="emp_id2" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName3" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -244,16 +246,16 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell3" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('3');"> <span>지정</span>
-														</a><input type="text" id="emp_name[3]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id[3]" name="emp_id" value="" readonly="readonly">
+														</a><input type="text" id="emp_name3" value="" readonly="readonly">
+														<input type="hidden" id="emp_id3" name="emp_id3" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName4" value=""	readonly class="form_transparent" style='width: 100%;'>
 													<!-- 지정/취소 버튼 -->
 													<div id="MembersFindCell4" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('4');"> <span>지정</span>
-														</a><input type="text" id="emp_name[4]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id[4]" name="emp_id" value="" readonly="readonly">
+														</a><input type="text" id="emp_name4" value="" readonly="readonly">
+														<input type="hidden" id="emp_id4" name="emp_id4" value="" readonly="readonly">
 													</div></td>
 												</c:if>
 											</tr>
@@ -278,26 +280,26 @@ var coop_grade_name_arr= [];
 														<td style="border-top: none;" id="grade1${status.index}">
 														${coopPerson.grade_name}
 														</td>
-														<input type="hidden" id="grade_id1[${status.index}]" name="grade_id" value="" readonly="readonly">
+														<input type="hidden" id="grade_id1${status.index}" name="grade_id1${status.index}" value="" readonly="readonly">
 													</c:forEach>
 													<c:forEach  begin="0" end="${5-lengthc-1}" step="1" varStatus="status">
 														<td style="border-top: none;" id="grade1${status.index+lengthc}">&nbsp;</td>
-														<input type="hidden" id="grade_id1[${status.index+lengthc}]" name="grade_id" value="" readonly="readonly">
+														<input type="hidden" id="grade_id1${status.index+lengthc}" name="grade_id1${status.index+lengthc}" value="" readonly="readonly">
 													</c:forEach>
 											</tr>
 											<tr class="date" style="height: 61px;">
 												<!-- 결재 버튼/결재완료 서명 표시 영역 -->
 												<c:if test="${document != null}">
 													<c:forEach  var="coopPerson" items="${document.cooperation}" varStatus="status">
-													<td><input type="text" name="OrderName1[${status.index}]" value=""
+													<td><input type="text" name="OrderName1${status.index}" value=""
 														readonly class="form_transparent" style='width: 100%;'>
 														
 														<!-- 지정/취소 버튼 -->
 														<div id="MembersFindCell1${status.index}" class="btn_page pad15l overf">
 															<!-- 취소 -->
 															<a onclick="javascript:golist('1${status.index}');"> <span>지정</span></a>
-															<input type="text" id="emp_name1[${status.index}]" value="${coopPerson.emp_name}" readonly="readonly">
-															<input type="hidden" id="emp_id1[${status.index}]" name="emp_id" value="" readonly="readonly">
+															<input type="text" id="emp_name1${status.index}" value="${coopPerson.emp_name}" readonly="readonly">
+															<input type="hidden" id="emp_id1${status.index}" name="emp_id1${status.index}" value="" readonly="readonly">
 														</div></td>
 													</c:forEach>
 													<c:forEach begin="0" end="${5-lengthc-1}" varStatus="status">
@@ -307,8 +309,8 @@ var coop_grade_name_arr= [];
 														<div id="MembersFindCell1${status.index+lengthc}" class="btn_page pad15l overf">
 															<!-- 지정 -->
 															<a onclick="javascript:golist('1${status.index+lengthc}');"> <span>지정</span>
-															</a> <input type="text" id="emp_name1[${status.index+lengthc}]" value="" readonly="readonly">
-															<input type="hidden" id="emp_id1[${status.index+lengthc}]" name="emp_id" value="" readonly="readonly">
+															</a> <input type="text" id="emp_name1${status.index+lengthc}" value="" readonly="readonly">
+															<input type="hidden" id="emp_id1${status.index+lengthc}" name="emp_id1${status.index+lengthc}" value="" readonly="readonly">
 														</div></td>
 													</c:forEach>
 												</c:if>
@@ -320,8 +322,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell10" class="btn_page pad15l overf">
 														<!-- 취소 -->
 														<a onclick="javascript:golist('10');"> <span>지정</span></a>
-														<input type="text" id="emp_name1[0]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id1[0]"  name="emp_id1" value="" readonly="readonly">
+														<input type="text" id="emp_name10" value="" readonly="readonly">
+														<input type="hidden" id="emp_id10"  name="emp_id10" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName11" value=""	readonly class="form_transparent" style='width: 100%;'>
 													
@@ -329,8 +331,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell11" class="btn_page pad15l overf">
 														<!-- 취소 -->
 														<a onclick="javascript:golist('11');"> <span>지정</span>
-														</a><input type="text" id="emp_name1[1]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id1[1]"  name="emp_id1" value="" readonly="readonly">
+														</a><input type="text" id="emp_name11" value="" readonly="readonly">
+														<input type="hidden" id="emp_id11"  name="emp_id11" value="" readonly="readonly">
 													</div></td>
 													
 												<td><input type="text" name="OrderName12" value=""
@@ -339,8 +341,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell12" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('12');"> <span>지정</span>
-														</a><input type="text" id="emp_name1[2]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id1[2]"  name="emp_id1" value="" readonly="readonly">
+														</a><input type="text" id="emp_name12" value="" readonly="readonly">
+														<input type="hidden" id="emp_id12"  name="emp_id12" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName13" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -348,8 +350,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell13" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('13');"> <span>지정</span>
-														</a><input type="text" id="emp_name1[3]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id1[3]"  name="emp_id1" value="" readonly="readonly">
+														</a><input type="text" id="emp_name13" value="" readonly="readonly">
+														<input type="hidden" id="emp_id13"  name="emp_id13" value="" readonly="readonly">
 													</div></td>
 												<td><input type="text" name="OrderName14" value=""
 													readonly class="form_transparent" style='width: 100%;'>
@@ -357,8 +359,8 @@ var coop_grade_name_arr= [];
 													<div id="MembersFindCell14" class="btn_page pad15l overf">
 														<!-- 지정 -->
 														<a onclick="javascript:golist('14');"> <span>지정</span>
-														</a><input type="text" id="emp_name1[4]" value="" readonly="readonly">
-														<input type="hidden" id="emp_id1[4]"  name="emp_id1" value="" readonly="readonly">
+														</a><input type="text" id="emp_name14" value="" readonly="readonly">
+														<input type="hidden" id="emp_id14"  name="emp_id14" value="" readonly="readonly">
 													</div></td>
 												</c:if>
 													
