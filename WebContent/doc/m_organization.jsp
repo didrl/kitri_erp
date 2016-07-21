@@ -4,13 +4,25 @@
 <script type="text/javascript">
 
 
-function select(emp_id, emp_name, grade_name){
+function select(emp_id, emp_name, grade_name, grade_id){
 	var num=${cellnum};
-
-	  opener.document.getElementById("emp_id"+num).value =emp_id;
-	  if(num<20)
+	  if(num<20){
 	  	opener.document.getElementById("grade"+num).innerText = grade_name;
-	  opener.document.getElementById("emp_name"+num).value =emp_name;
+	  	if(num<10){
+			opener.document.getElementById("grade_id["+num+"]").value = grade_id;
+			opener.document.getElementById("emp_name["+num+"]").value =emp_name;
+			opener.document.getElementById("emp_id["+num+"]").value =emp_id;
+	  	}else{
+	  		opener.document.getElementById("grade_id1["+(num-10)+"]").value = grade_id;
+			opener.document.getElementById("emp_name1["+(num-10)+"]").value =emp_name;
+			opener.document.getElementById("emp_id1["+(num-10)+"]").value =emp_id;
+	  	}
+	  }else{
+	  		opener.document.getElementById("grade_id"+num).value = grade_id;
+			opener.document.getElementById("emp_id"+num).value =emp_id;
+			opener.document.getElementById("emp_name"+num).value =emp_name;
+	  }
+		  
 	  self.close();
 }
  </script>   
@@ -48,7 +60,7 @@ function select(emp_id, emp_name, grade_name){
 					                    	<ul>
 				<c:set var="grade_id" value="${org.grade_id}"/>
 				</c:if>
-				<a href="javascript:select('${org.emp_id}','${org.emp_name}','${org.grade_name}');"><li>${org.grade_name} ${org.emp_name}</li></a>
+				<a href="javascript:select('${org.emp_id}','${org.emp_name}','${org.grade_name}','${org.grade_id}');"><li>${org.grade_name} ${org.emp_name}</li></a>
 				<c:if test="${i.index < olist.size() - 1 }">
 					<c:if test="${grade_id != olist.get(i.index + 1).grade_id}">
 					                        </ul>
