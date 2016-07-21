@@ -8,8 +8,7 @@
 			
 		<tr class="change_height_on_print">
 			<td id="eword_content" class="pad5">
-				<textarea name="Contents" readonly="readonly" id="Contents" style="width:100%;height:1500px;display:block;">
-				<table border="0" cellspacing="1" cellpadding="0" width="620" bgcolor="#cccccc" align="center">
+				<table border="1" cellspacing="1" cellpadding="0" width="620" bgcolor="#cccccc" align="center">
 						<tbody>
 							<tr>
 								<td class="f01" width="25%" height="30" align="center" bgcolor="#ffffff">청구금액</td>
@@ -70,7 +69,6 @@
 							</tr>
 						</tbody>
 					</table>
-				</textarea>
 			</td>
 		</tr>
 	</table>
