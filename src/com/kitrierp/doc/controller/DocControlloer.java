@@ -3,18 +3,16 @@ package com.kitrierp.doc.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.WebUtils;
 
 import com.kitrierp.doc.model.BtripApplicationDto;
 import com.kitrierp.doc.model.BtripReportDto;
@@ -32,6 +30,8 @@ import com.kitrierp.employee.model.EmployeeDto;
 @RequestMapping("/doc")
 @SessionAttributes("memberInfo")
 public class DocControlloer {
+	private static final Logger logger = LoggerFactory.getLogger(DocControlloer.class);
+	
 	@Autowired
 	private DocService docService;
 	
@@ -56,6 +56,9 @@ public class DocControlloer {
 		String doc_type_name = request.getParameter("doc_type");
 		int doc_type_id=0;
 		String path="document/";
+		
+		logger.info("doc_type_name : "+doc_type_name);
+		
 		switch(Integer.parseInt(doc_type_name)){
 			case 1:
 				doc_type_name="기안서";
@@ -97,6 +100,7 @@ public class DocControlloer {
 		mav.addObject("doc_type_name",doc_type_name);
 		mav.addObject("doc_type_id",doc_type_id);
 		mav.setViewName("/doc/"+ path);
+		logger.info("viewName : "+mav.getViewName());
 		return mav;
 	}
 	

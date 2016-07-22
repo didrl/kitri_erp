@@ -32,13 +32,18 @@
   	<jstl.version>1.2</jstl.version>
   	<mybatis.version>3.2.8</mybatis.version>
   	<json.version>1.1.1</json.version>
-  	
   </properties>
 <dependencies>
   <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-webmvc</artifactId>
     <version>${spring-framework.version}</version>
+    <exclusions>
+        <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </exclusion>
+    </exclusions>
 </dependency>
  <dependency>
     <groupId>jstl</groupId>
@@ -101,5 +106,21 @@
     <artifactId>datatables</artifactId>
     <version>1.10.12</version>
 </dependency>
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jcl-over-slf4j</artifactId>
+    <version>1.7.7</version>
+</dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.1.2</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
  </dependencies>
 </project>
