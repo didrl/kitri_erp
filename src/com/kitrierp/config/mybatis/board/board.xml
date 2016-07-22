@@ -4,6 +4,10 @@
 <!-- Schedule  관련  Dao가 여러개인데 어찌할지 생각해야할듯-->
 <mapper namespace="com.kitrierp.board.model.BoardDaoImpl">
   
+    <insert id="write" parameterType="Map">
+        insert into board (seq, bcode, subject, contents, logtime, emp_id)
+        values (seq_board_seq.nextval, 0, #{subject}, #{contents}, sysdate, #{emp_id})
+    </insert>
     
 </mapper>
 

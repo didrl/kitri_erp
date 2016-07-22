@@ -117,7 +117,7 @@
                     <a href="#">커뮤니티<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="${root }/board/list.jsp">게시판</a>
+                            <a href="${root}/board/list.jsp">게시판</a>
                         </li>
                         <li>
                             <a href="#">자료실</a>
