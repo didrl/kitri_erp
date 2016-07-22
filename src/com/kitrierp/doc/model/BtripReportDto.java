@@ -1,14 +1,54 @@
 package com.kitrierp.doc.model;
 
-import java.util.List;
-
 public class BtripReportDto extends DocumentDto {
 	private int expense_info_id;
 	private String start_date;
 	private String end_date;
 	private String btrip_location;
-	private List<BtripPaymentDto> bpay;
+	private int exp_daily;
+	private int exp_room;
+	private int exp_food;
+	private int EXP_TRANS;
+	private int exp_etc;
+	private int exp_total;
 	
+	
+	public int getExp_daily() {
+		return exp_daily;
+	}
+	public void setExp_daily(int exp_daily) {
+		this.exp_daily = exp_daily;
+	}
+	public int getExp_room() {
+		return exp_room;
+	}
+	public void setExp_room(int exp_room) {
+		this.exp_room = exp_room;
+	}
+	public int getExp_food() {
+		return exp_food;
+	}
+	public void setExp_food(int exp_food) {
+		this.exp_food = exp_food;
+	}
+	public int getEXP_TRANS() {
+		return EXP_TRANS;
+	}
+	public void setEXP_TRANS(int EXP_TRANS) {
+		this.EXP_TRANS = EXP_TRANS;
+	}
+	public int getExp_etc() {
+		return exp_etc;
+	}
+	public void setExp_etc(int exp_etc) {
+		this.exp_etc = exp_etc;
+	}
+	public int getExp_total() {
+		return exp_total;
+	}
+	public void setExp_total(int exp_total) {
+		this.exp_total = exp_total;
+	}
 	public int getExpense_info_id() {
 		return expense_info_id;
 	}
@@ -33,11 +73,4 @@ public class BtripReportDto extends DocumentDto {
 	public void setBtrip_location(String btrip_location) {
 		this.btrip_location = btrip_location;
 	}
-	public List<BtripPaymentDto> getBpay() {
-		return bpay;
-	}
-	public void setBpay(List<BtripPaymentDto> bpay) {
-		this.bpay = bpay;
-	}
-	
 }

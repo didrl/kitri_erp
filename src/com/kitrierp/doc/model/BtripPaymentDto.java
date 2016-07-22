@@ -1,13 +1,27 @@
 package com.kitrierp.doc.model;
 
 public class BtripPaymentDto extends DocumentDto {
+	private int expense_info_id;
+	private int exp_seq;
 	private int exp_daily;
 	private int exp_room;
 	private int exp_food;
-	private int exp_transe;
+	private int EXP_TRANS;
 	private int exp_etc;
 	private int exp_total;
 	
+	public int getExpense_info_id() {
+		return expense_info_id;
+	}
+	public void setExpense_info_id(int expense_info_id) {
+		this.expense_info_id = expense_info_id;
+	}
+	public int getExp_seq() {
+		return exp_seq;
+	}
+	public void setExp_seq(int exp_seq) {
+		this.exp_seq = exp_seq;
+	}
 	public int getExp_daily() {
 		return exp_daily;
 	}
@@ -26,11 +40,11 @@ public class BtripPaymentDto extends DocumentDto {
 	public void setExp_food(int exp_food) {
 		this.exp_food = exp_food;
 	}
-	public int getExp_transe() {
-		return exp_transe;
+	public int getEXP_TRANS() {
+		return EXP_TRANS;
 	}
-	public void setExp_transe(int exp_transe) {
-		this.exp_transe = exp_transe;
+	public void setEXP_TRANS(int EXP_TRANS) {
+		this.EXP_TRANS = EXP_TRANS;
 	}
 	public int getExp_etc() {
 		return exp_etc;
