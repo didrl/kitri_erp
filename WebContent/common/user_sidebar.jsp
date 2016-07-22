@@ -138,7 +138,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                <li>
-                 <a href="#">조직도<span class="fa arrow"></span></a>
+                 <a href="${root}/organization/view_list.erp">조직도<span class="fa arrow"></span></a>
                </li>
                
             </ul>

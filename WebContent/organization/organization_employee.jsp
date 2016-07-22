@@ -6,7 +6,7 @@
 <div id="page-wrapper">
 
 	<div class="row">
-		<%@ include file="/oragnization/oragnization_sidebar.jsp"%>
+		<%@ include file="/organization/organization_sidebar.jsp"%>
 
 		<div class="col-lg-7">
 			<table class="table">
