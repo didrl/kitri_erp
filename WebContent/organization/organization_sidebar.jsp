@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/common.jsp"%>
+<%@ include file="/common/user_sidebar.jsp"%>
+<%
+String root = request.getContextPath();
+%>
+<script type="text/javascript">
+	function sel_emp(emp_name,grade_name,emp_id,email1,email2,tel,depname,image) {
+		location.href  = "<%=root%>/organization/organization_employee.jsp?empname="+emp_name+"&gradename="+grade_name+"&empid="+emp_id+"&email1="+email1+"&email2="+email2+"&tel="+tel+"&depname="+depname+"&image="+image;
+	}
+
+</script>
+<div id="page-wrapper">
+
+	<div class="row">
 <div class="col-lg-5">
 	<table class="table">
 		<tbody>
@@ -39,8 +52,7 @@
 											<ul>
 												<c:set var="grade_id" value="${org.grade_id}" />
 									</c:if>
-									<a
-										href="javascript:select('${org.emp_id}','${org.emp_name}','${org.grade_name}','${org.grade_id}');"><li>${org.grade_name}
+									<a href="javascript:sel_emp('${org.emp_name}','${org.grade_name}','${org.emp_id}','${org.emp_email1}','${org.emp_email2}','${org.emp_tel}','${org.dep_name}','${org.profile_image}');"><li>${org.grade_name}
 											${org.emp_name}</li></a>
 									<c:if test="${i.index < olist.size() - 1 }">
 										<c:if test="${grade_id != olist.get(i.index + 1).grade_id}">

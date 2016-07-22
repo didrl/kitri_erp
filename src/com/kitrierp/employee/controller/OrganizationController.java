@@ -34,7 +34,7 @@ public class OrganizationController {
 		ModelAndView mav = new ModelAndView();
 		List<EmployeeDto> olist=organizationService.organizationList();
 		mav.addObject("olist",olist);
-		mav.setViewName("/organization/organization_employee");
+		mav.setViewName("/organization/organization_sidebar");
 		return mav;
 	}
 	@RequestMapping("/dep_list.erp")
