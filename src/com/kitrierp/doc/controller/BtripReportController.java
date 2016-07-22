@@ -31,11 +31,11 @@ public class BtripReportController {
 	
 	//상신하기
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
-	public ModelAndView reportDoc(@RequestParam Map<String, String>map, HttpSession session){
-		ModelAndView mav = new ModelAndView();
+//	public ModelAndView reportDoc(@RequestParam Map<String, String>map, HttpSession session){
+	public String reportDoc(@RequestParam Map<String, String>map, HttpSession session){
+//		ModelAndView mav = new ModelAndView();
 		EmployeeDto employeeDto =(EmployeeDto)session.getAttribute("memberInfo");
 		String doc_id = docService.doc_id(Integer.parseInt(map.get("doc_type_id")));
-		List <BtripPaymentDto> bpay = new ArrayList<BtripPaymentDto>();
 		List <SignInfoDto> signInfo = new ArrayList<SignInfoDto>();
 		List <CooperationDto> cooperation = new ArrayList<CooperationDto>();
 		
@@ -44,14 +44,7 @@ public class BtripReportController {
 		BtripPaymentDto btripPaymentDto = new BtripPaymentDto();
 		SignInfoDto signInfoDto = null;
 		
-		btripPaymentDto.setEmp_id(employeeDto.getEmp_id());
-		btripPaymentDto.setExp_daily(Integer.parseInt(map.get("exp_daily")));
-		btripPaymentDto.setExp_etc(Integer.parseInt(map.get("exp_etc")));
-		btripPaymentDto.setExp_food(Integer.parseInt(map.get("exp_food")));
-		btripPaymentDto.setExp_room(Integer.parseInt(map.get("exp_room")));
-		btripPaymentDto.setExp_transe(Integer.parseInt(map.get("exp_transe")));
-		btripPaymentDto.setExp_total(Integer.parseInt(map.get("exp_total")));
-		bpay.add(btripPaymentDto);
+		
 
 		for(int i=0;i<5;++i){
 			if(!"".equals(map.get("emp_id"+i))){
@@ -72,13 +65,22 @@ public class BtripReportController {
 				cooperation.add(cooperationDto);
 			}
 		}
-		
+		System.out.println("doc_date :  "+map.get("doc_date"));
+		System.out.println("cooperation Size :  "+cooperation.size());
+		System.out.println("signInfo Size :  "+signInfo.size());
 		
 //		cooperationDto.setCoop_seq(coop_seq);
 		
+		btripReportDto.setEmp_id(employeeDto.getEmp_id());
+		btripReportDto.setExp_daily(Integer.parseInt(map.get("exp_daily")));
+		btripReportDto.setExp_etc(Integer.parseInt(map.get("exp_etc")));
+		btripReportDto.setExp_food(Integer.parseInt(map.get("exp_food")));
+		btripReportDto.setExp_room(Integer.parseInt(map.get("exp_room")));
+		btripReportDto.setEXP_TRANS(Integer.parseInt(map.get("EXP_TRANS")));
+		btripReportDto.setExp_total(Integer.parseInt(map.get("exp_total")));
+		btripReportDto.setStart_date(map.get("start_date"));
+		btripReportDto.setEnd_date(map.get("end_date"));
 		
-		
-		btripReportDto.setBpay(bpay);
 		btripReportDto.setSign_info(signInfo);
 		btripReportDto.setCooperation(cooperation);
 		
@@ -87,7 +89,6 @@ public class BtripReportController {
 		btripReportDto.setDoc_content(map.get("doc_content"));
 		btripReportDto.setDep_name(employeeDto.getDep_name());
 		btripReportDto.setDoc_date(map.get("doc_date"));
-//		btripReportDto.setDoc_deadline(map.get("doc_deadline"));
 		btripReportDto.setDoc_dep_id(employeeDto.getDep_id());
 		btripReportDto.setDoc_id(doc_id);
 		btripReportDto.setDoc_note(map.get("doc_note"));
@@ -99,7 +100,7 @@ public class BtripReportController {
 		btripReportDto.setExpense_info_id(btripReportService.expenseInfoSeq());
 		
 		int write = btripReportService.reportDoc(btripReportDto);
-		return mav;
+		return "redirect:/doc/docBox/per_report.erp";
 	}
 	//임시저장
 	@RequestMapping(value="/tmpsaveDoc.erp", method=RequestMethod.POST)
