@@ -26,20 +26,20 @@ public class AddressbookServiceImpl implements AddressbookService {
 	}
 
 	@Override
-	public List<AddressbookDto> write_addrbook(int emp_id) {
+	public AddressbookDto view_addrbook(int emp_id) {
 
-		return addressbookDao.write_addrbook(emp_id);
+		return addressbookDao.view_addrbook(emp_id);
 	}
 
 	@Override
-	public List<AddressbookDto> modify_addrbook(int emp_id) {
-
+	public AddressbookDto modify_addrbook(int emp_id) {
+		
 		return addressbookDao.modify_addrbook(emp_id);
 	}
 
 	@Override
-	public AddressbookDto view_addrbook(int emp_id) {
-
-		return addressbookDao.view_addrbook(emp_id);
+	public void write_addrbook(AddressbookDto adto) {
+		// TODO Auto-generated method stub
+		
 	}
 }

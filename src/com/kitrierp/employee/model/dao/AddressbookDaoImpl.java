@@ -35,21 +35,24 @@ public class AddressbookDaoImpl implements AddressbookDao {
 	}
 
 	@Override
-	public List<AddressbookDto> write_addrbook(int emp_id) {
-		
-		return null;
-	}
-
-	@Override
-	public List<AddressbookDto> modify_addrbook(int emp_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public AddressbookDto view_addrbook(int emp_id) {
 		AddressbookDto adto=null;
 		adto=sqlSession.selectOne("com.kitrierp.doc.model.AddressbookDaoImpl.view_addrbook",emp_id);
+		
+		return adto;
+	}
+
+	@Override
+	public void write_addrbook(AddressbookDto adto) {
+		
+		sqlSession.update("com.kitrierp.doc.model.AddressbookDaoImpl.write_addrbook",);
+		
+	}
+
+	@Override
+	public AddressbookDto modify_addrbook(int emp_id) {
+		AddressbookDto adto=null;
+		adto=sqlSession.selectOne("com.kitrierp.doc.model.AddressbookDaoImpl.modify_addrbook",emp_id,dep_id);
 		
 		return adto;
 	}

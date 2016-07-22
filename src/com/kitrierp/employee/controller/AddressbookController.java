@@ -51,14 +51,16 @@ public class AddressbookController {
 	}
 	
 	@RequestMapping(value="/write_addrbook.erp", method=RequestMethod.GET )
-	public ModelAndView write_addrbook(HttpSession session){
+	public ModelAndView write_addrbook(HttpSession session, AddressbookDto adto){
 		ModelAndView mav = new ModelAndView();
+		
 		EmployeeDto eDto =(EmployeeDto)session.getAttribute("memberInfo");
 		int emp_id = eDto.getEmp_id();
 		
-		List<AddressbookDto> write_addrbook=addressbookService.write_addrbook(emp_id);
+		adto.setEmp_id(emp_id);
 		
-		mav.addObject("write_addrbook",write_addrbook);
+		addressbookService.write_addrbook(adto);
+		
 		mav.setViewName("/addressbook/write");
 		return mav;
 	}
@@ -69,7 +71,7 @@ public class AddressbookController {
 		EmployeeDto eDto =(EmployeeDto)session.getAttribute("memberInfo");
 		int emp_id = eDto.getEmp_id();
 		
-		List<AddressbookDto> modify_addrbook=addressbookService.modify_addrbook(emp_id);
+		AddressbookDto modify_addrbook=addressbookService.modify_addrbook(emp_id);
 		
 		mav.addObject("modify_addrbook",modify_addrbook);
 		mav.setViewName("/addressbook/modify");

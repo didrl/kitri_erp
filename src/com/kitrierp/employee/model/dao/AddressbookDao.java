@@ -10,10 +10,10 @@ public interface AddressbookDao {
 
 	List<AddressbookDto> per_addrbookList(int emp_id);
 
-	List<AddressbookDto> write_addrbook(int emp_id);
-
-	List<AddressbookDto> modify_addrbook(int emp_id);
-
 	AddressbookDto view_addrbook(int emp_id);
+
+	AddressbookDto modify_addrbook(int emp_id);
+
+	AddressbookDto write_addrbook(int emp_id);
 
 }
