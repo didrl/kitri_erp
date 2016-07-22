@@ -14,6 +14,6 @@ public interface AddressbookDao {
 
 	AddressbookDto modify_addrbook(int emp_id);
 
-	AddressbookDto write_addrbook(int emp_id);
+	void write_addrbook(AddressbookDto adto);
 
 }

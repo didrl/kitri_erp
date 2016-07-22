@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- Schedule  관련  Dao가 여러개인데 어찌할지 생각해야할듯-->
-<mapper namespace="com.kitrierp.employee.model.AddressDaoImpl">
+
+<mapper namespace="com.kitrierp.employee.model.AddressbookDaoImpl">
     <select id ="dep_addrbookList" parameterType="int" resultType="addrdto">
-        
-        
+        select  
+        ADDR_NAME,ADDR_EMAIL,ADDR_TEL,ADDR_ETEL,ADDR_FAX,ADDR_ADDR,
+        ADDR_CPNAME,ADDR_CPDEP,ADDR_CPGRADE,ADDR_CPTEL,ADDR_CPADDR
+        from addressbook
+        where dep_id = 
+                    (select dep_id  
+                    from employee
+                    where emp_id = #{emp_id})
+        and ADDR_FLAG = 1
     </select>
     
     <select id ="per_addrbookList" parameterType="int" resultType="addrdto">
-        
-        
+        select  
+        ADDR_NAME,ADDR_EMAIL,ADDR_TEL,ADDR_ETEL,ADDR_FAX,ADDR_ADDR,
+        ADDR_CPNAME,ADDR_CPDEP,ADDR_CPGRADE,ADDR_CPTEL,ADDR_CPADDR
+        from addressbook
+        where emp_id = #{emp_id}
+        and ADDR_FLAG = 0
     </select>
-    
-    <select id ="view_addrbookList" parameterType="int" resultType="addrdto">
-        
-        
-    </select>
-    
     
 </mapper>
 

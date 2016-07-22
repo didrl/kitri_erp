@@ -2,10 +2,24 @@
 <%@ include file="/common/user_sidebar.jsp" %>
 <!--css/script start-->
 <!-- DataTables -->
-	<link href="${root}/webjars/datatables/1.10.12/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-	<link href="${root}/webjars/datatables/1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
-	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
-	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+	<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+	<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
+	
+	<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.colVis.min.js"></script>
+	
+	
+	<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+	
 <!--css/script end-->	
 <script src="${root}/js/doc-js.js"></script>
 				
@@ -41,23 +55,27 @@
 						<table id="per_addrbook_t">
 						 	<thead>
 						    	<tr>
-							    	<th>이름</th>
-									<th>이메일</th>
-									<th>휴대폰</th>
-									<th>전화</th>
-									<th>팩스</th>
+							    	<th class="select-filter">이름</th>
+									<th class="select-filter">이메일</th>
+									<th class="select-filter">휴대폰</th>
+									<th class="select-filter">전화</th>
+									<th class="select-filter">팩스</th>
 						        </tr>
 						     </thead>
 						     <tfoot></tfoot>
 						     <tbody>
 						     <!-- get data start-->
+						   <c:if test="${per_addrbookList.size()!=0}">
+							<c:forEach var= "per_adb" items="${per_addrbookList}">
 						         <tr>
-						             <td>이름1</td>
-						             <td>이메일1</td>
-						             <td>휴대폰1</td>
-						             <td>전화1</td>
-						             <td>팩스1</td>
+						             <td>${per_adb.addr_name}</td>
+						             <td>${per_adb.addr_email}</td>
+						             <td>${per_adb.addr_tel}</td>
+						             <td>${per_adb.addr_etel}</td>
+						             <td>${per_adb.addr_fax}</td>
 						          </tr>
+						    </c:forEach>
+						   </c:if>
 							<!-- get data end-->
 							</tbody>
 						</table>
@@ -72,12 +90,17 @@
 <!-- /#page-wrapper -->
 
      <script>
+     $(document).ready(function() {
    	 	$('#per_addrbook_t')
 		.removeClass( 'display' )
 		.addClass('table table-striped table-bordered');
-  	  $('#per_addrbook_t').DataTable();
-//   	 $("#example").DataTable().columnFilter();
-  	 
+  	  	
+   	 var tables = $('#per_addrbook_t').DataTable({
+		  	dom: 'Bfrtip',
+		    buttons: [ 'copy','csv', 'excel', 'pdf']
+			} 
+	  	);
+	} );	
      </script>
 </div>
 <!-- /#wrapper -->     

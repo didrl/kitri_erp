@@ -7,8 +7,7 @@
 	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
 <!--css/script end-->	
-<script src="${root}/js/doc-js.js"></script>
-				
+
 <div id="wrapper"> 
    <!-- Page Content -->
     <div id="page-wrapper">
@@ -51,13 +50,17 @@
 						     <tfoot></tfoot>
 						     <tbody>
 						     <!-- get data start-->
+						   <c:if test="${dep_addrbookList.size()!=0}">
+							<c:forEach var= "dep_adb" items="${dep_addrbookList}">
 						         <tr>
-						             <td>이름1</td>
-						             <td>이메일1</td>
-						             <td>휴대폰1</td>
-						             <td>전화1</td>
-						             <td>팩스1</td>
+						             <td>${dep_adb.addr_name}</td>
+						             <td>${dep_adb.addr_email}</td>
+						             <td>${dep_adb.addr_tel}</td>
+						             <td>${dep_adb.addr_etel}</td>
+						             <td>${dep_adb.addr_fax}</td>
 						          </tr>
+						    </c:forEach>
+						   </c:if>
 							<!-- get data end-->
 							</tbody>
 						</table>
@@ -75,9 +78,12 @@
    	 	$('#dep_addrbook_t')
 		.removeClass( 'display' )
 		.addClass('table table-striped table-bordered');
-  	  $('#dep_addrbook_t').DataTable();
-//   	 $("#example").DataTable().columnFilter();
-  	 
+  	  
+   	 var tables = $('#dep_addrbook_t').DataTable({
+		  	dom: 'Bfrtip',
+		    buttons: [ 'copy','csv', 'excel', 'pdf']
+			} 
+	  	);
      </script>
 </div>
 <!-- /#wrapper -->     

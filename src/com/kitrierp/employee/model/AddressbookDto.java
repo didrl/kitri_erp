@@ -2,9 +2,9 @@ package com.kitrierp.employee.model;
 
 public class AddressbookDto extends EmployeeDto {
 
+	private int addr_seq; 
 	private String addr_name;
-	private String addr_email1;
-	private String addr_email2;
+	private String addr_email;
 	private String addr_tel;
 	private String addr_etel;
 	private String addr_fax;
@@ -60,18 +60,6 @@ public class AddressbookDto extends EmployeeDto {
 	public void setAddr_name(String addr_name) {
 		this.addr_name = addr_name;
 	}
-	public String getAddr_email1() {
-		return addr_email1;
-	}
-	public void setAddr_email1(String addr_email1) {
-		this.addr_email1 = addr_email1;
-	}
-	public String getAddr_email2() {
-		return addr_email2;
-	}
-	public void setAddr_email2(String addr_email2) {
-		this.addr_email2 = addr_email2;
-	}
 	public String getAddr_tel() {
 		return addr_tel;
 	}
@@ -95,6 +83,18 @@ public class AddressbookDto extends EmployeeDto {
 	}
 	public void setAddr_flag(String addr_flag) {
 		this.addr_flag = addr_flag;
+	}
+	public int getAddr_seq() {
+		return addr_seq;
+	}
+	public void setAddr_seq(int addr_seq) {
+		this.addr_seq = addr_seq;
+	}
+	public String getAddr_email() {
+		return addr_email;
+	}
+	public void setAddr_email(String addr_email) {
+		this.addr_email = addr_email;
 	}
 	
 }

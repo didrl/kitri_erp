@@ -7,45 +7,6 @@
 	<script src="${root}/webjars/datatables/1.10.12/media/js/dataTables.bootstrap.min.js"></script>
 	<script src="${root}/webjars/datatables/1.10.12/media/js/jquery.dataTables.min.js"></script>
 <!--css/script end-->	
-<!-- script start -->
-<script type="text/javascript">
-String.prototype.trim=function(){
-	var TRIM_PATTERN=/(^\s*)|(\s*$)/g; //  \s => 요게 공백. /(^\s*)|(\s*$)/g : 앞의 공백과 뒤의 공백을 제거하라
-	return this.replace(TRIM_PATTERN,"");
-}
-
-function send(){
-	var f=document.forms[0];
-	f=f.trim();
-		
-	if(! /^[0-9]*$/.test(f.addr_tel.value)){ 
-		alert("숫자만 입력해주세요");
-		f.addr_tel.focus();
-		return;
-	}
-	
-	if(! /^[0-9]*$/.test(f.addr_etel.value)){ 
-		alert("숫자만 입력해주세요");
-		f.addr_tel.focus();
-		return;
-	}
-	
-	if(! /^[0-9]*$/.test(f.addr_fax.value)){ 
-		alert("숫자만 입력해주세요");
-		f.addr_tel.focus();
-		return;
-	}
-	
-	if(! /^[0-9]*$/.test(f.addr_cptel.value)){ 
-		alert("숫자만 입력해주세요");
-		f.addr_tel.focus();
-		return;
-	}
-}
-
-</script>
-<!-- script end -->
-
 
 <div id="wrapper"> 
    <!-- Page Content -->
@@ -55,7 +16,7 @@ function send(){
        <!--page subject start-->
        <div class="row">
        		<div class="col-lg-12">
-       			<h1 class="page-header" align="left">주소 추가</h1>
+       			<h1 class="page-header" align="left">주소 수정</h1>
      		</div>
        	</div>
        	<!--page subject end-->
@@ -64,9 +25,8 @@ function send(){
 			<div class="col-xs-12">
 				<div class="panel panel-default">
 				       <div class="panel-body">	
-				       	<a href="" class="btn btn-primary"> 주소 목록 </a> 
-						<a href="" class="btn btn-primary"> 주소 추가 </a> 
-						<a href="" class="btn btn-primary"> 계속 추가 </a>
+				       	<a href="" class="btn btn-primary"> 목록으로 돌아가기 </a> 
+						<a href="" class="btn btn-primary"> 정보 수정 </a> 
 						</div>
 				</div>
 <!-- write addressbook start  -->
@@ -77,23 +37,7 @@ function send(){
 			<div class="form-group">
 			  <div class="col-md-8">
 			    <button id="addrb_list" name="addrb_list" class="btn btn-primary">목록으로 돌아가기</button>
-			    <button id="write_addrb" name="write_addrb" class="btn btn-primary">주소 추가</button>
-			    <button id="keep_write_addrb" name="keep_write_addrb" class="btn btn-primary">계속 추가</button>
-			  </div>
-			</div>
-			
-			<!-- Multiple Radios (inline) -->
-			<div class="form-group">
-			  <label class="col-md-4 control-label" for="select_addrb">추가할 주소록 선택</label>
-			  <div class="col-md-4"> 
-			    <label class="radio-inline" for="select_addrb-0">
-			      <input type="radio" name="select_addrb" id="select_addrb-0" value="1" checked="checked">
-			      개인 주소록
-			    </label> 
-			    <label class="radio-inline" for="select_addrb-1">
-			      <input type="radio" name="select_addrb" id="select_addrb-1" value="2">
-			      부서 주소록
-			    </label>
+			    <button id="write_addrb" name="modify_addrb" class="btn btn-primary">정보 수정</button>
 			  </div>
 			</div>
 			

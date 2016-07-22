@@ -129,10 +129,10 @@
                     <a href="#">주소록<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="${root }/addressbook/retire_list.jsp">개인주소록</a>
+                            <a href="${root}/addressbook/per_addrbookList.erp">개인주소록</a>
                         </li>
                         <li>
-                            <a href="#">부서주소록</a>
+                            <a href="${root}/addressbook/dep_addrbookList.erp">부서주소록</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
