@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kitrierp.doc.model.BtripPaymentDto;
 import com.kitrierp.doc.model.BtripReportDto;
 import com.kitrierp.doc.model.CooperationDto;
+import com.kitrierp.doc.model.SignInfoDto;
 import com.kitrierp.doc.model.service.BtripReportService;
 import com.kitrierp.doc.model.service.DocService;
 import com.kitrierp.employee.model.EmployeeDto;
@@ -32,15 +33,16 @@ public class BtripReportController {
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
 	public ModelAndView reportDoc(@RequestParam Map<String, String>map, HttpSession session){
 		ModelAndView mav = new ModelAndView();
-		System.out.println(map.get("btrip_location"));
-		System.out.println(session.getAttribute("memberInfo"));
 		EmployeeDto employeeDto =(EmployeeDto)session.getAttribute("memberInfo");
 		String doc_id = docService.doc_id(Integer.parseInt(map.get("doc_type_id")));
 		List <BtripPaymentDto> bpay = new ArrayList<BtripPaymentDto>();
+		List <SignInfoDto> signInfo = new ArrayList<SignInfoDto>();
 		List <CooperationDto> cooperation = new ArrayList<CooperationDto>();
+		
 		BtripReportDto btripReportDto = new BtripReportDto();
-		CooperationDto cooperationDto = new CooperationDto();
+		CooperationDto cooperationDto= null; 
 		BtripPaymentDto btripPaymentDto = new BtripPaymentDto();
+		SignInfoDto signInfoDto = null;
 		
 		btripPaymentDto.setEmp_id(employeeDto.getEmp_id());
 		btripPaymentDto.setExp_daily(Integer.parseInt(map.get("exp_daily")));
@@ -50,23 +52,47 @@ public class BtripReportController {
 		btripPaymentDto.setExp_transe(Integer.parseInt(map.get("exp_transe")));
 		btripPaymentDto.setExp_total(Integer.parseInt(map.get("exp_total")));
 		bpay.add(btripPaymentDto);
+
+		for(int i=0;i<5;++i){
+			if(!"".equals(map.get("emp_id"+i))){
+				System.out.println(map.get("emp_id"+i));
+				signInfoDto = new SignInfoDto();
+				signInfoDto.setDoc_id(doc_id);
+				signInfoDto.setEmp_id(Integer.parseInt(map.get("emp_id"+i)));
+				signInfoDto.setGrade_id(Integer.parseInt(map.get("grade_id"+i)));
+				signInfo.add(signInfoDto);
+			}
+			
+			if(!"".equals(map.get("emp_id"+(i+10)))){
+				System.out.println(map.get("emp_id"+(i+10)));
+				cooperationDto = new CooperationDto();
+				cooperationDto.setDoc_id(doc_id);
+				cooperationDto.setEmp_id(Integer.parseInt(map.get("emp_id"+(i+10))));
+				cooperationDto.setGrade_id(Integer.parseInt(map.get("grade_id"+(i+10))));
+				cooperation.add(cooperationDto);
+			}
+		}
 		
-		cooperationDto.setEmp_id(employeeDto.getEmp_id());
-		cooperationDto.setDoc_id(doc_id);
+		
 //		cooperationDto.setCoop_seq(coop_seq);
 		
+		
+		
 		btripReportDto.setBpay(bpay);
+		btripReportDto.setSign_info(signInfo);
+		btripReportDto.setCooperation(cooperation);
+		
 		btripReportDto.setBtrip_location(map.get("btrip_location"));
 		btripReportDto.setCooperation(cooperation);
 		btripReportDto.setDoc_content(map.get("doc_content"));
 		btripReportDto.setDep_name(employeeDto.getDep_name());
 		btripReportDto.setDoc_date(map.get("doc_date"));
-		btripReportDto.setDoc_deadline(map.get("doc_deadline"));
+//		btripReportDto.setDoc_deadline(map.get("doc_deadline"));
 		btripReportDto.setDoc_dep_id(employeeDto.getDep_id());
 		btripReportDto.setDoc_id(doc_id);
 		btripReportDto.setDoc_note(map.get("doc_note"));
 		btripReportDto.setDoc_open(Integer.parseInt(map.get("doc_open")));
-//		btripReportDto.setDoc_status_id(Integer.parseInt(map.get("doc_status_id")));
+		btripReportDto.setDoc_status_id(Integer.parseInt(map.get("doc_status_id")));
 		btripReportDto.setDoc_subject(map.get("doc_subject"));
 		btripReportDto.setDoc_type_name(map.get("doc_type_name"));
 		btripReportDto.setEmp_id(employeeDto.getEmp_id());

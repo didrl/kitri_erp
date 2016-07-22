@@ -7,16 +7,10 @@
 function select(emp_id, emp_name, grade_name, grade_id){
 	var num=${cellnum};
 	  if(num<20){
-	  	opener.document.getElementById("grade"+num).innerText = grade_name;
-	  	if(num<10){
-			opener.document.getElementById("grade_id["+num+"]").value = grade_id;
-			opener.document.getElementById("emp_name["+num+"]").value =emp_name;
-			opener.document.getElementById("emp_id["+num+"]").value =emp_id;
-	  	}else{
-	  		opener.document.getElementById("grade_id1["+(num-10)+"]").value = grade_id;
-			opener.document.getElementById("emp_name1["+(num-10)+"]").value =emp_name;
-			opener.document.getElementById("emp_id1["+(num-10)+"]").value =emp_id;
-	  	}
+		opener.document.getElementById("grade"+num).innerText = grade_name;
+		opener.document.getElementById("grade_id"+num).value = grade_id;
+		opener.document.getElementById("emp_name"+num).value =emp_name;
+		opener.document.getElementById("emp_id"+num).value =emp_id;
 	  }else{
 	  		opener.document.getElementById("grade_id"+num).value = grade_id;
 			opener.document.getElementById("emp_id"+num).value =emp_id;
