@@ -67,7 +67,7 @@
                               </td>
                               <th>교통비</th>
                               <td class="pad15l">
-                                     <input name="exp_transe" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
+                                     <input name="EXP_TRANS" type="text" value="" style="width:87%;" onkeypress="num_only3(event, 'int');" onkeyup='auto_comma2(event, this.form, this);' onblur='AutoExpenseCalculation();' >
                                                                   원
                               </td>
                            </tr>

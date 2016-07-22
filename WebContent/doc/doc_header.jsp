@@ -460,7 +460,7 @@ var coop_grade_name_arr= [];
 								<tr class="eword_meta_height">
 									<th style="border-left: none;">제목</th>
 									<td class="pad15l">
-										<input name="Subject" type="text"	 value="${document.doc_subject}" style="width: 98%;" /></td>
+										<input name="doc_subject" type="text"	 value="${document.doc_subject}" style="width: 98%;" /></td>
 								</tr>
 							</table>
 						</td>

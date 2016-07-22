@@ -10,23 +10,24 @@
     
     <insert id="reportWrite" parameterType="brdto">
         insert all
-        into document
-        values(#{doc_id},2,#{emp_id},5,#{doc_subject},
-        #{doc_content},#{doc_date},sysdate+7,#{doc_open},
-        #{doc_dep_id},#{doc_note})
-        into sign_info
-        values(SEQ_DOC_APPR_SEQ.nextval,#{doc_id},#{emp_id})
-        into reference
-        values(SEQ_DOC_REF_SEQ.nextval,#{doc_id},#{emp_id})
-        into cooperation
-        values(SEQ_DOC_COOP_SEQ.nextval,#{doc_id},#{emp_id})
-        into btrip_report
-        values(#{exepense_info_id},#{doc_id},#{start_date},
-        #{end_date},#{btrip_location})
-        into btrip_payment
-        values(SEQ_DOC_EXP_SEQ.nextval,#{exepense_info_id},
-        #{exp_daily},#{exp_room},#{exp_food},#{exp_trans},
-        #{exp_etc},#{exp_total})
+        into document(doc_id, doc_status_id, emp_id, doc_type_id, doc_subject, doc_content, doc_date, doc_open,
+        doc_dep_id, doc_note)
+        values(#{doc_id,jdbcType=INTEGER},2,#{emp_id,jdbcType=INTEGER},5,#{doc_subject,jdbcType=VARCHAR},
+        #{doc_content,jdbcType=VARCHAR},to_date(#{doc_date,jdbcType=VARCHAR},'mm/dd/yyyy'),#{doc_open,jdbcType=INTEGER},
+        #{doc_dep_id,jdbcType=INTEGER},#{doc_note,jdbcType=VARCHAR})
+        into sign_info(appr_seq, doc_id, emp_id)
+        values(SEQ_DOC_APPR_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
+        into reference(ref_seq, doc_id, emp_id)
+        values(SEQ_DOC_REF_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
+        into cooperation(coop_seq, doc_id, emp_id)
+        values(SEQ_DOC_COOP_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
+        into btrip_report(expense_info_id, doc_id, start_date, end_date, btrip_location)
+        values(#{expense_info_id,jdbcType=INTEGER},#{doc_id,jdbcType=INTEGER},to_date(#{start_date,jdbcType=VARCHAR},'mm/dd/yyyy'),
+        to_date(#{end_date,jdbcType=VARCHAR},'mm/dd/yyyy'),#{btrip_location,jdbcType=VARCHAR})
+        into btrip_payment(exp_seq, expense_info_id, exp_daily, exp_room, exp_food, EXP_TRANS, exp_etc, exp_total)
+        values(SEQ_DOC_EXP_SEQ.nextval,#{expense_info_id,jdbcType=INTEGER},
+        #{exp_daily,jdbcType=INTEGER},#{exp_room,jdbcType=INTEGER},#{exp_food,jdbcType=INTEGER},#{EXP_TRANS,jdbcType=INTEGER},
+        #{exp_etc,jdbcType=INTEGER},#{exp_total,jdbcType=INTEGER})
         select * from dual 
     </insert> 
     
