@@ -12,20 +12,30 @@
 <div id="wrapper"> 
    <!-- Page Content -->
     <div id="page-wrapper">
-       <div class="container">
+       <div class="container-fluid">
        
-       <h3>결재완료 </h3><br>
+       <!--page subject start-->
+       <div class="row">
+       		<div class="col-lg-12">
+       			<h1 class="page-header" align="left">결재완료</h1>
+     		</div>
+       	</div>
+       	<!--page subject end-->
+       	<!--page content start-->
+       	<div class="row">
+	     	<div class="col-xs-12">
+       <div class="panel panel-default">
        <div class="panel-body">	
 		<c:if test="${app_done_docBoxList.size()!=0}">
-			<table id="approval_done"  cellspacing="0" width="100%">
+			<table id="approval_done">
 			 	<thead>
 			    	<tr>
-			    	<th>문서종류</th>
-			    	<th>문서번호</th>
-                <th>기안일자</th>
-                <th>문서명</th>
-                <th>기안자</th>
-                <th>진행상태</th>
+				    	<th>문서종류</th>
+				    	<th>문서번호</th>
+		                <th>기안일자</th>
+		                <th>문서명</th>
+		                <th>기안자</th>
+		                <th>진행상태</th>
 			        </tr>
 			     </thead>
 			     <tfoot></tfoot>
@@ -47,8 +57,10 @@
 				</tbody>
 			</table>
 		</c:if>
-
-       
+		</div>
+	</div>
+</div>
+  <!--page content END-->     
        </div>
         <!-- /.container -->
      </div>
@@ -64,6 +76,6 @@
   	 
      </script>
 
-
+</div>
 </body>
 </html>

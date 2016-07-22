@@ -24,7 +24,7 @@ public class ConsultationController {
 	private ConsultationService consultationService;
 	
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
-	public ModelAndView reportDoc(List<SignInfoDto> sign_info
+	public ModelAndView reportDoc(@RequestParam(value="grade")List sign_info 
 		, List<CooperationDto> cooperation, Map map){
 		ModelAndView mav = new ModelAndView();
 		DocumentDto documentDto = new DocumentDto();

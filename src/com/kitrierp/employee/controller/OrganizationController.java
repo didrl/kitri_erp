@@ -29,6 +29,14 @@ public class OrganizationController {
 		mav.setViewName("/doc/m_organization");
 		return mav;
 	}
+	@RequestMapping("/view_list.erp")
+	public ModelAndView view_list(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		List<EmployeeDto> olist=organizationService.organizationList();
+		mav.addObject("olist",olist);
+		mav.setViewName("/organization/organization_sidebar");
+		return mav;
+	}
 	@RequestMapping("/dep_list.erp")
 	public ModelAndView organizationDepList(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
