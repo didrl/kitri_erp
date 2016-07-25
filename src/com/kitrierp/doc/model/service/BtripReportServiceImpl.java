@@ -36,4 +36,37 @@ public class BtripReportServiceImpl implements BtripReportService {
 		btripReportDto.setReceiver(btripReportDao.viewDocReceiver(doc_id));
 		return btripReportDto;
 	}
+
+	@Override
+	public void writeDoc(BtripReportDto btripReportDto) {
+		
+		btripReportDao.writeDoc(btripReportDto);
+		
+	}
+
+	@Override
+	public void writeSignInfo(BtripReportDto btripReportDto) {
+		btripReportDao.writeSignInfo(btripReportDto);
+		
+	}
+
+	@Override
+	public void writeCooperation(BtripReportDto btripReportDto) {
+		btripReportDao.writeCooperation(btripReportDto);
+		
+	}
+
+	@Override
+	public void writeReceiveList(BtripReportDto btripReportDto) {
+		btripReportDao.writeReceiveList(btripReportDto);
+		
+	}
+
+	@Override
+	public void writeReference(BtripReportDto btripReportDto) {
+		btripReportDao.writeReference(btripReportDto);
+		
+	}
+
+	
 }

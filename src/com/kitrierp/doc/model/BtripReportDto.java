@@ -8,7 +8,7 @@ public class BtripReportDto extends DocumentDto {
 	private int exp_daily;
 	private int exp_room;
 	private int exp_food;
-	private int EXP_TRANS;
+	private int exp_trans;
 	private int exp_etc;
 	private int exp_total;
 	
@@ -31,11 +31,11 @@ public class BtripReportDto extends DocumentDto {
 	public void setExp_food(int exp_food) {
 		this.exp_food = exp_food;
 	}
-	public int getEXP_TRANS() {
-		return EXP_TRANS;
+	public int getExp_trans() {
+		return exp_trans;
 	}
-	public void setEXP_TRANS(int EXP_TRANS) {
-		this.EXP_TRANS = EXP_TRANS;
+	public void setExp_trans(int exp_trans) {
+		this.exp_trans = exp_trans;
 	}
 	public int getExp_etc() {
 		return exp_etc;

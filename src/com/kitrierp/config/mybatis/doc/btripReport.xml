@@ -15,8 +15,10 @@
         values(#{doc_id,jdbcType=INTEGER},2,#{emp_id,jdbcType=INTEGER},5,#{doc_subject,jdbcType=VARCHAR},
         #{doc_content,jdbcType=VARCHAR},to_date(#{doc_date,jdbcType=VARCHAR},'mm/dd/yyyy'),#{doc_open,jdbcType=INTEGER},
         #{doc_dep_id,jdbcType=INTEGER},#{doc_note,jdbcType=VARCHAR})
+        <foreach collection="sign_info" item="item">
         into sign_info(appr_seq, doc_id, emp_id)
-        values(SEQ_DOC_APPR_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
+        values(SEQ_DOC_APPR_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{item.emp_id,jdbcType=INTEGER})
+        </foreach>
         into reference(ref_seq, doc_id, emp_id)
         values(SEQ_DOC_REF_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
         into cooperation(coop_seq, doc_id, emp_id)
@@ -36,14 +38,15 @@
         d.doc_content, d.doc_date, d.doc_deadline, d.doc_open, d.doc_dep_id,
         d.doc_note, dt.doc_type_name, ds.doc_status_name,
         e.emp_name, dp.dep_name, g.grade_name,
-        r.expense_info_id, r.start_date, r.end_date, r.btrip_location
-        from document d, employee e, department dp, doc_type dt, doc_status ds, btrip_report r, grade g
+        r.expense_info_id, r.start_date, r.end_date, r.btrip_location, bp.exp_daily, bp.exp_room, bp.exp_food, bp.exp_trans, bp.exp_etc, bp.exp_total
+        from document d, employee e, department dp, doc_type dt, doc_status ds, btrip_report r, grade g, btrip_payment bp 
         where d.emp_id = e.emp_id
         and e.dep_id = dp.dep_id
         and d.doc_type_id = dt.doc_type_id
         and d.doc_status_id = ds.doc_status_id
         and e.grade_id = g.grade_id
         and d.doc_id = r.doc_id
+        and r.expense_info_id = bp.expense_info_id
         and d.doc_id = #{doc_id}
     </select>
     <select id="view_sign_info" parameterType="String" resultType="sidto">
@@ -79,4 +82,49 @@
     <select id="view_list" parameterType="int" resultType="bpdto">
         select * from btrip_payment where expense_info_id = #{EXPENSE_INFO_ID}
     </select>
+    
+    
+    <insert id="writeDoc" parameterType="brdto">
+        insert into document(doc_id, doc_status_id, emp_id, doc_type_id, doc_subject, doc_content, doc_date, doc_open,
+        doc_dep_id, doc_note)
+        values(#{doc_id,jdbcType=INTEGER},2,#{emp_id,jdbcType=INTEGER},5,#{doc_subject,jdbcType=VARCHAR},
+        #{doc_content,jdbcType=VARCHAR},to_date(#{doc_date,jdbcType=VARCHAR},'mm/dd/yyyy'),#{doc_open,jdbcType=INTEGER},
+        #{doc_dep_id,jdbcType=INTEGER},#{doc_note,jdbcType=VARCHAR})
+        
+    </insert>
+    
+    <insert id="writeBtripReport" parameterType="brdto">
+        insert into btrip_report(expense_info_id, doc_id, start_date, end_date, btrip_location)
+        values(#{expense_info_id,jdbcType=INTEGER},#{doc_id,jdbcType=INTEGER},to_date(#{start_date,jdbcType=VARCHAR},'mm/dd/yyyy'),
+        to_date(#{end_date,jdbcType=VARCHAR},'mm/dd/yyyy'),#{btrip_location,jdbcType=VARCHAR})
+    </insert>
+    
+    <insert id="writeBtripPayment" parameterType="brdto">
+        insert into btrip_payment(exp_seq, expense_info_id, exp_daily, exp_room, exp_food, EXP_TRANS, exp_etc, exp_total)
+        values(SEQ_DOC_EXP_SEQ.nextval,#{expense_info_id,jdbcType=INTEGER},
+        #{exp_daily,jdbcType=INTEGER},#{exp_room,jdbcType=INTEGER},#{exp_food,jdbcType=INTEGER},#{EXP_TRANS,jdbcType=INTEGER},
+        #{exp_etc,jdbcType=INTEGER},#{exp_total,jdbcType=INTEGER})
+    </insert>
+    
+    
+    <insert id="writeSignInfo" parameterType="sidto">
+        insert into sign_info(appr_seq, doc_id, emp_id)
+        values(SEQ_DOC_APPR_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
+    </insert>
+    
+    <insert id="writeCooperation" parameterType="coopdto">
+        insert into cooperation(coop_seq, doc_id, emp_id)
+        values(SEQ_DOC_COOP_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
+    </insert>
+    
+    <insert id="writeReference" parameterType="refdto">
+        insert into reference(ref_seq, doc_id, emp_id)
+        values(SEQ_DOC_REF_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{emp_id,jdbcType=INTEGER})
+    </insert>
+    
+    <insert id="writeReceiveList" parameterType="receidto">
+        insert into receive_list (recei_seq,doc_id,dep_id)
+        values(SEQ_DOC_recei_SEQ.nextval,#{doc_id,jdbcType=INTEGER},#{dep_id,jdbcType=INTEGER})
+    </insert>
+    
 </mapper>

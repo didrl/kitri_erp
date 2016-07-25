@@ -5,6 +5,7 @@
 
 
 function select(dep_id, dep_name){
+	alert(dep_id);
 	  opener.document.getElementById("approval_dep").value =dep_id;
 	  opener.document.getElementById("ReceiveDepName").value =dep_name;
 	  self.close();

@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kitrierp.doc.model.BtripPaymentDto;
 import com.kitrierp.doc.model.BtripReportDto;
 import com.kitrierp.doc.model.CooperationDto;
+import com.kitrierp.doc.model.ReceiveListDto;
+import com.kitrierp.doc.model.ReferenceDto;
 import com.kitrierp.doc.model.SignInfoDto;
 import com.kitrierp.doc.model.service.BtripReportService;
 import com.kitrierp.doc.model.service.DocService;
@@ -36,16 +38,29 @@ public class BtripReportController {
 //		ModelAndView mav = new ModelAndView();
 		EmployeeDto employeeDto =(EmployeeDto)session.getAttribute("memberInfo");
 		String doc_id = docService.doc_id(Integer.parseInt(map.get("doc_type_id")));
+		int receiver = Integer.parseInt(map.get("approval_dep"));
+		int reference = Integer.parseInt(map.get("emp_id20"));
+		
 		List <SignInfoDto> signInfo = new ArrayList<SignInfoDto>();
 		List <CooperationDto> cooperation = new ArrayList<CooperationDto>();
+		List <ReceiveListDto> receiveList = new ArrayList<ReceiveListDto>();
+		List <ReferenceDto> referenceList = new ArrayList<ReferenceDto>();
 		
 		BtripReportDto btripReportDto = new BtripReportDto();
 		CooperationDto cooperationDto= null; 
 		BtripPaymentDto btripPaymentDto = new BtripPaymentDto();
 		SignInfoDto signInfoDto = null;
+		ReceiveListDto receiveListDto = new ReceiveListDto();
+		ReferenceDto referenceDto = new ReferenceDto();
 		
-		
+		referenceDto.setDoc_id(doc_id);
+		referenceDto.setEmp_id(reference);
+		referenceList.add(referenceDto);
 
+		receiveListDto.setDoc_id(doc_id);
+		receiveListDto.setDep_id(receiver);
+		receiveList.add(receiveListDto);
+		
 		for(int i=0;i<5;++i){
 			if(!"".equals(map.get("emp_id"+i))){
 				System.out.println(map.get("emp_id"+i));
@@ -76,13 +91,15 @@ public class BtripReportController {
 		btripReportDto.setExp_etc(Integer.parseInt(map.get("exp_etc")));
 		btripReportDto.setExp_food(Integer.parseInt(map.get("exp_food")));
 		btripReportDto.setExp_room(Integer.parseInt(map.get("exp_room")));
-		btripReportDto.setEXP_TRANS(Integer.parseInt(map.get("EXP_TRANS")));
+		btripReportDto.setExp_trans(Integer.parseInt(map.get("exp_trans")));
 		btripReportDto.setExp_total(Integer.parseInt(map.get("exp_total")));
 		btripReportDto.setStart_date(map.get("start_date"));
 		btripReportDto.setEnd_date(map.get("end_date"));
 		
 		btripReportDto.setSign_info(signInfo);
 		btripReportDto.setCooperation(cooperation);
+		btripReportDto.setReceiver(receiveList);
+		btripReportDto.setReference(referenceList);
 		
 		btripReportDto.setBtrip_location(map.get("btrip_location"));
 		btripReportDto.setCooperation(cooperation);
@@ -99,7 +116,16 @@ public class BtripReportController {
 		btripReportDto.setEmp_id(employeeDto.getEmp_id());
 		btripReportDto.setExpense_info_id(btripReportService.expenseInfoSeq());
 		
-		int write = btripReportService.reportDoc(btripReportDto);
+//		int write = btripReportService.reportDoc(btripReportDto);
+		
+		//query 나누기
+		btripReportService.writeDoc(btripReportDto);
+//		btripReportService.writeSignInfo(btripReportDto);
+//		btripReportService.writeCooperation(btripReportDto);
+//		btripReportService.writeReceiveList(btripReportDto);
+//		btripReportService.writeReference(btripReportDto);
+		
+		
 		return "redirect:/doc/docBox/per_report.erp";
 	}
 	//임시저장

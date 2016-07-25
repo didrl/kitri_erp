@@ -17,5 +17,11 @@ public interface BtripReportDao {
 	List<ReferenceDto> viewDocReference(String doc_id);
 	List<CooperationDto> viewDocCooperation(String doc_id);
 	List<ReceiveListDto> viewDocReceiver(String doc_id);
+	void writeDoc(BtripReportDto btripReportDto);
+	void writeSignInfo(BtripReportDto btripReportDto);
+	void writeCooperation(BtripReportDto btripReportDto);
+	void writeReceiveList(BtripReportDto btripReportDto);
+	void writeReference(BtripReportDto btripReportDto);
+	
 
 }
