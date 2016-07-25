@@ -20,7 +20,10 @@ public class BtripReportDaoImpl implements BtripReportDao {
 
 	@Override
 	public int reportDoc(BtripReportDto btripReportDto) {
+		
 		return sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.reportWrite", btripReportDto);
+		
+		
 	}
 
 	@Override
@@ -60,5 +63,61 @@ public class BtripReportDaoImpl implements BtripReportDao {
 	public List<ReceiveListDto> viewDocReceiver(String doc_id) {
 		List<ReceiveListDto> receiver = sqlSession.selectList("com.kitrierp.doc.model.ProposalDaoImpl.view_receive_list", doc_id);
 		return receiver;
+	}
+
+	//query 나누기
+	@Override
+	public void writeDoc(BtripReportDto btripReportDto) {
+		sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.writeDoc", btripReportDto);
+		sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.writeBtripReport", btripReportDto);
+		sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.writeBtripPayment", btripReportDto);
+		
+		List<SignInfoDto> slist = btripReportDto.getSign_info();
+		
+		for(SignInfoDto sdto: slist){
+			sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.writeSignInfo", sdto);
+		}
+		
+		List<CooperationDto> clist = btripReportDto.getCooperation();
+		
+		for(CooperationDto cdto: clist){
+			sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.writeCooperation", cdto);
+		}
+		
+		List<ReferenceDto> rflist = btripReportDto.getReference();
+				
+		for(ReferenceDto rfdto: rflist){
+			sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.writeReference", rfdto);
+		}
+		
+		List<ReceiveListDto> relist = btripReportDto.getReceiver();
+		
+		for(ReceiveListDto redto: relist){
+			sqlSession.insert("com.kitrierp.doc.model.BtripReportDaoImpl.writeReceiveList", redto);
+		}
+	}
+
+	@Override
+	public void writeSignInfo(BtripReportDto btripReportDto) {
+		sqlSession.update("com.kitrierp.doc.model.BtripReportDaoImpl.writeSignInfo", btripReportDto);
+		
+	}
+
+	@Override
+	public void writeCooperation(BtripReportDto btripReportDto) {
+		sqlSession.update("com.kitrierp.doc.model.BtripReportDaoImpl.writeCooperation", btripReportDto);
+		
+	}
+
+	@Override
+	public void writeReceiveList(BtripReportDto btripReportDto) {
+		sqlSession.update("com.kitrierp.doc.model.BtripReportDaoImpl.writeReceiveList", btripReportDto);
+		
+	}
+
+	@Override
+	public void writeReference(BtripReportDto btripReportDto) {
+		sqlSession.update("com.kitrierp.doc.model.BtripReportDaoImpl.writeReference", btripReportDto);
+		
 	}
 }

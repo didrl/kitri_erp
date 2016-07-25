@@ -8,4 +8,10 @@ public interface BtripReportService {
 	int expenseInfoSeq();
 	BtripReportDto viewDoc(String doc_id);
 
+	void writeDoc(BtripReportDto btripReportDto);
+	void writeSignInfo(BtripReportDto btripReportDto);
+	void writeCooperation(BtripReportDto btripReportDto);
+	void writeReceiveList(BtripReportDto btripReportDto);
+	void writeReference(BtripReportDto btripReportDto);
+	
 }
