@@ -25,7 +25,7 @@ public class BtripApplicationController {
 		return mav;
 	}
 	*/
-	
+
 	@RequestMapping(value="/reportDoc.erp", method=RequestMethod.POST)
 	public ModelAndView reportDoc(@RequestParam BtripApplicationDto btripApplicationDto){
 		ModelAndView mav = new ModelAndView();
@@ -48,6 +48,7 @@ public class BtripApplicationController {
 		mav.setViewName("/doc/document/btrip_application_view");
 		return mav;
 	}
+	
 	@RequestMapping("/modifyDoc.erp")
 	public ModelAndView modifyDoc(@RequestParam String doc_id) {
 		ModelAndView mav = new ModelAndView();

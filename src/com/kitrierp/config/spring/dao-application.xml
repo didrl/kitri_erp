@@ -26,7 +26,6 @@
 	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"/>
 		<property name="configLocation" value="classpath:com/kitrierp/config/mybatis/SqlMapConfig.xml"/>
-		
 	</bean>
 	
 	<bean id="sst" class="org.mybatis.spring.SqlSessionTemplate">
